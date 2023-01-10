@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+tools:showIn="navigation_view">
+
+    <item android:title="HOSTELS">
+<menu>
+    <item
+        android:id="@+id/nitj_hostels"
+        android:icon="@drawable/hostel_bed"
+        android:title="NITJ Hostels"
+        />
+    <item
+        android:id="@+id/hostel_policy"
+        android:icon="@drawable/hostel_policy"
+        android:title="Hostel Policy" />
+    <item
+        android:id="@+id/complaint_section"
+        android:icon="@drawable/hostel_complaint"
+        android:title="Complaint Section" />
+    <item
+        android:id="@+id/notifications"
+        android:icon="@drawable/notification"
+        android:title="Notifications" />
+
+</menu>
+</item>
+
+    <item android:title="ACCOUNT">
+        <menu>
+            <item
+                android:id="@+id/account_settings"
+                android:icon="@drawable/settings"
+                android:title="Account Settings" />
+            <item
+                android:id="@+id/about"
+                android:icon="@drawable/about_hostel"
+                android:title="About" />
+            <item
+                android:id="@+id/help"
+                android:icon="@drawable/help"
+                android:title="Help" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/logout"
+                android:title="Logout" />
+        </menu>
+    </item>
+</menu>

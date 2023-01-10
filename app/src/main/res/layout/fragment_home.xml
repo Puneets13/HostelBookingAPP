@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.homeFragment"
+    android:background="#CCCCCC">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:id="@+id/imageView_hostels"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_5"
+        android:maxHeight="@dimen/_200sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ScrollView>
+</FrameLayout>
