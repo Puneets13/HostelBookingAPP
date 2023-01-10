@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Acitvity.SignInActivity">
+
+    <ImageView
+        android:id="@+id/nitjLogo"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:src="@drawable/nitjlogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_40sdp"/>
+
+    <TextView
+        android:id="@+id/nitjText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nitjLogo"
+        android:layout_marginBottom="@dimen/_9sdp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="National Institute of Technology"
+        android:textColor="#000000"
+        android:textSize="@dimen/_30sdp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nitjText"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        app:cardBackgroundColor="#DFE3E3"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="@dimen/_20sdp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="STUDENT LOGIN"
+            android:padding="@dimen/_8sdp"
+            android:textSize="@dimen/_19sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emaillayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_below="@+id/cardview">
+
+        <EditText
+            android:id="@+id/etemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_below="@+id/emaillayout"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/passwordlayout"
+        app:passwordToggleTint="#595656"
+        app:endIconDrawable="@drawable/custom_password_eye"
+        app:passwordToggleEnabled="true"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:id="@+id/etpassword"
+            android:ems="15"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <android.widget.Button
+        android:id="@+id/btnlogin"
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordlayout"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@color/black"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/registerlink"
+        android:textSize="@dimen/_12sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnlogin"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:text=" Not register ? Create Account" />
+
+
+    <!--    <TextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:id="@+id/display"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginBottom="10dp"-->
+    <!--        android:textSize="14dp"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:gravity="center_horizontal"-->
+    <!--        />-->
+
+</RelativeLayout>

@@ -1,21 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.homeFragment"
-    android:background="#CCCCCC">
-    <ImageView
+    android:background="#CCCCCC"
+    android:orientation="vertical"
+    >
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp"
-        android:id="@+id/imageView_hostels"
-        android:scaleType="fitCenter"
-        android:src="@drawable/img_5"
-        android:maxHeight="@dimen/_200sdp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </ScrollView>
-</FrameLayout>
+        app:cardMaxElevation="@dimen/_20sdp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="#DFE3E3"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:id="@+id/imageView_hostels"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_5"
+            android:maxHeight="@dimen/_200sdp"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/purple_500"
+
+            app:fabAlignmentMode="end"
+            app:fabAnimationMode="slide"
+            app:fabCradleMargin="@dimen/_5sdp"
+            app:fabCradleRoundedCornerRadius="@dimen/_42sdp"
+            app:fabCradleVerticalOffset="@dimen/_2sdp"
+            app:navigationIconTint="@color/white">
+
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/registerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_322sdp"
+            android:backgroundTint="@color/purple_200"
+            android:clickable="true"
+            app:layout_anchor="@id/bottom_app_bar"
+            android:src="@drawable/ic_registration"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
