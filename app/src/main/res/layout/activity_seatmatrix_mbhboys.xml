@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Acitvity.SeatmatrixMBHBoys">
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:alignmentMode="alignMargins"
+        android:columnCount="7"
+        android:columnOrderPreserved="false"
+        android:padding="10dp"
+        android:rowCount="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="7"
+            android:layout_gravity="center_horizontal"
+            android:text="Balcony"
+            android:textSize="@dimen/_15sdp" />
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/washroom"
+            android:src="@drawable/ic_toilet" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/watercooler" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle"
+
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle"
+
+            />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/ic_toilet"
+            android:background="@drawable/washroom"
+            />
+
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:alignmentMode="alignMargins"
+        android:columnCount="7"
+        android:columnOrderPreserved="false"
+        android:padding="10dp"
+        android:rowCount="1">
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/_5sdp"
+        android:src="@drawable/blank_room" />
+        <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/_5sdp"
+        android:src="@drawable/blank_room" />
+        <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/_5sdp"
+        android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+
+    </GridLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:alignmentMode="alignMargins"
+        android:columnCount="7"
+        android:columnOrderPreserved="false"
+        android:padding="10dp"
+        android:rowCount="1">
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+
+    </GridLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:alignmentMode="alignMargins"
+        android:columnCount="7"
+        android:columnOrderPreserved="false"
+        android:padding="10dp"
+        android:rowCount="1">
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/blank_room" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+
+    </GridLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:alignmentMode="alignMargins"
+        android:columnCount="7"
+        android:columnOrderPreserved="false"
+        android:padding="10dp"
+        android:rowCount="1">
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/rectangle" />
+        <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/_5sdp"
+        android:src="@drawable/rectangle" />
+        <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/_5sdp"
+        android:src="@drawable/rectangle" />
+        <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/_5sdp"
+        android:src="@drawable/rectangle" />
+        <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/_5sdp"
+        android:src="@drawable/rectangle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="7"
+            android:layout_gravity="center_horizontal"
+            android:text="Balcony"
+            android:textSize="@dimen/_15sdp" />
+    </GridLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:alignmentMode="alignMargins"
+        android:columnCount="1"
+        android:columnOrderPreserved="false"
+        android:padding="10dp"
+        android:rowCount="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/centerlawn"
+            android:layout_gravity="center_horizontal"
+            />
+    </GridLayout>
+
+</LinearLayout>
+
+
+        </HorizontalScrollView>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp"
+            android:layout_height="@dimen/_180sdp"
             android:id="@+id/imageView_hostels"
             android:scaleType="fitCenter"
             android:src="@drawable/img_5"
@@ -34,33 +34,283 @@
             android:layout_marginBottom="@dimen/_8sdp"
             />
     </androidx.cardview.widget.CardView>
+<!--for adding hostels-->
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_220sdp">
+        <GridLayout
+            android:columnCount="2"
+            android:rowCount="4"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            >
+            <!-- 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="10dp"
+                app:cardCornerRadius="@dimen/_13sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#DFE3E3"
+                >
+
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:text="MEGA BOYS \nHOSTEL A"
+                    android:drawableLeft="@drawable/hostel2"
+                    android:id="@+id/btnMghA"
+
+                    />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="@dimen/_13sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#DFE3E3"
+                >
+
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:text="MEGA BOYS \nHOSTEL B"
+                    android:drawableLeft="@drawable/hostel2"
+                    android:id="@+id/btnMghB"
+
+                    />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="@dimen/_13sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#DFE3E3"
+                >
+
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:text="MEGA BOYS \nHOSTEL F"
+                    android:drawableLeft="@drawable/hostel2"
+                    android:id="@+id/btnMghF"
+                    />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="@dimen/_13sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#DFE3E3"
+                >
+
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:text="BOYS HOSTEL 6"
+                    android:drawableLeft="@drawable/hostel2"
+                    android:id="@+id/btnHostel6"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="@dimen/_13sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#DFE3E3"
+                >
+
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:text="BOYS HOSTEL 7"
+                    android:drawableLeft="@drawable/hostel2"
+                    android:id="@+id/btnHostel7"
+
+                    />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="@dimen/_13sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#DFE3E3"
+                >
+
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:text="BOYS HOSTEL 4"
+                    android:drawableLeft="@drawable/hostel2"
+                    android:id="@+id/btnHostel4"
+
+                    />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="@dimen/_13sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#DFE3E3"
+                >
+
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:text="BOYS HOSTEL 5"
+                    android:drawableLeft="@drawable/hostel2"
+                    android:id="@+id/btnHostel5"
+
+                    />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="@dimen/_13sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#DFE3E3"
+                >
+
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:text="MEGA GIRLS \nHOSTEL "
+                    android:drawableLeft="@drawable/hostel2"
+                    android:id="@+id/btnMegaGirls"
+
+                    />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="@dimen/_13sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#DFE3E3"
+                >
+
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:text="GIRLS \nHOSTEL 1"
+                    android:drawableLeft="@drawable/hostel2"
+                    android:id="@+id/btnGrlHostel1"
+
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="@dimen/_13sdp"
+                app:cardMaxElevation="@dimen/_20sdp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#DFE3E3">
+
+                <Button
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/white"
+                    android:text="GIRLS HOSTEL 2"
+                    android:drawableLeft="@drawable/hostel2"
+                    android:id="@+id/btnGrlHostel2"
+
+                    />
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+
+    </HorizontalScrollView>
 
 
-        <com.google.android.material.bottomappbar.BottomAppBar
+    <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:backgroundTint="@color/purple_500"
 
-            app:fabAlignmentMode="end"
+            app:fabAlignmentMode="center"
             app:fabAnimationMode="slide"
-            app:fabCradleMargin="@dimen/_5sdp"
-            app:fabCradleRoundedCornerRadius="@dimen/_42sdp"
             app:fabCradleVerticalOffset="@dimen/_2sdp"
-            app:navigationIconTint="@color/white">
-
+            >
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/registerBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_322sdp"
-            android:backgroundTint="@color/purple_200"
-            android:clickable="true"
-            app:layout_anchor="@id/bottom_app_bar"
-            android:src="@drawable/ic_registration"
-            />
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        android:id="@+id/registerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:text="Book Hostel"
+        app:layout_anchor="@id/bottom_app_bar"
+        app:icon="@drawable/ic_registration"
+        />
+
+ </androidx.coordinatorlayout.widget.CoordinatorLayout>

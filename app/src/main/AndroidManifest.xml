@@ -14,10 +14,43 @@
         android:theme="@style/Theme.HostelAPPNITJ"
         tools:targetApi="31">
         <activity
-            android:name=".SignInActivity"
+            android:name=".Acitvity.SeatmatrixMBHBoys"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Hostels.GirlsH2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Hostels.GirlsH1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Hostels.MegaGirlsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Hostels.BoysH7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Hostels.BoysH6Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Hostels.BoysH5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Hostels.BoysH4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Hostels.MegaBoysF_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Hostels.MegaBoysB_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Hostels.MegaBoysA_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Acitvity.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Acitvity.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".Acitvity.RegisterationActivity"
