@@ -1,8 +1,10 @@
 package com.example.hostelappnitj.Hostels;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,19 +12,66 @@ import android.widget.Button;
 
 import com.example.hostelappnitj.Acitvity.SeatmatrixMBHBoys;
 import com.example.hostelappnitj.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MegaBoysB_Activity extends AppCompatActivity {
-    Button roomsMatrix ;
+    CardView hostelRegisteration;
+
+     private CharSequence[] hostelFloors ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mbhb_activity);
-        roomsMatrix=findViewById(R.id.roomsMBGBoys);
-        roomsMatrix.setOnClickListener(new View.OnClickListener() {
+        hostelRegisteration=findViewById(R.id.hostelRegisteration);
+
+
+        hostelFloors = new CharSequence[]{
+                "FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
+        };
+
+        hostelRegisteration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
-                startActivity(intent);
+
+//                dialog box to select floors
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MegaBoysB_Activity.this);
+                builder.setTitle("Select Floor");
+                builder.setIcon(R.drawable.ic_registration);
+                builder.setSingleChoiceItems(hostelFloors, 0, new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case 0 : //floor 1
+                                Intent intent = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                startActivity(intent);
+                                break;
+                            case 1 : //floor 2
+                                Intent intent2 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                startActivity(intent2);
+                                break;
+                            case 2 : //floor 3
+                                Intent intent3 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                startActivity(intent3);
+                                break;
+                            case 3 : //floor 1
+                                Intent intent4 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                startActivity(intent4);
+                                break;
+                            case 4 : //floor 2
+                                Intent intent5 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                startActivity(intent5);
+                                break;
+                            case 5 : //floor 3
+                                Intent intent6 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                startActivity(intent6);
+                                break;
+                        }
+                    }
+                });
+                builder.setBackground(getResources().getDrawable(R.drawable.alert_dialog,null));
+            builder.show();
+
             }
         });
     }
