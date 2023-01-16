@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
+import com.example.hostelappnitj.Acitvity.SignUpActivity;
 import com.example.hostelappnitj.Hostels.BoysH4Activity;
 import com.example.hostelappnitj.Hostels.BoysH5Activity;
 import com.example.hostelappnitj.Hostels.BoysH6Activity;
@@ -79,7 +80,7 @@ ExtendedFloatingActionButton registerBtn;
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Register here", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), RegisterationActivity.class);
+                Intent intent = new Intent(getActivity(), SignUpActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
