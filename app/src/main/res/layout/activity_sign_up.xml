@@ -8,24 +8,50 @@
     >
 
     <ImageView
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_above="@+id/text1"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="@dimen/_15sdp"
-        android:src="@drawable/nitjlogo" />
+        android:id="@+id/bg_img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_250sdp"
+        android:src="@drawable/signin_bg1" />
 
     <TextView
         android:id="@+id/text1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/cardview"
-        android:layout_marginBottom="@dimen/_15sdp"
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:text="National Institute of Technology"
-        android:textColor="#000000"
-        android:textSize="@dimen/_30sdp" />
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:fontFamily="@font/kavivanar"
+        android:text="National Institute of\n Technology , \n Jalandhar"
+        android:textColor="#fff"
+        android:textSize="@dimen/_25sdp"
+        android:textStyle="bold" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/logo"
+        android:layout_width="147dp"
+        android:layout_height="164dp"
+        android:layout_below="@id/text1"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="-64dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:elevation="@dimen/_550sdp"
+        android:src="@drawable/nitjlogo"
+        app:civ_circle_background_color="@color/white" />
+
+    <TextView
+        android:id="@+id/txtsignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bg_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/audiowide"
+        android:padding="@dimen/_8sdp"
+        android:text="Sign Up"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_25sdp"
+        android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
@@ -41,14 +67,7 @@
         app:cardElevation="10dp"
         app:cardMaxElevation="@dimen/_20sdp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="STUDENT REGISTERATION"
-            android:padding="@dimen/_8sdp"
-            android:textSize="@dimen/_19sdp"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+
     </androidx.cardview.widget.CardView>
 
 
@@ -59,17 +78,19 @@
         android:layout_height="wrap_content"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_centerInParent="true"
-        android:layout_below="@+id/cardview"
+        android:layout_below="@+id/txtsignup"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="@dimen/_9sdp"
+        android:layout_marginTop="-25dp"
         android:id="@+id/rollNolayout"
         >
+
         <EditText
+            android:id="@+id/etRollno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Roll Number"
-            android:id="@+id/etRollno" />
+            android:hint="Roll Number" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="@dimen/_230sdp"

@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.homeFragment"
-    android:background="#CCCCCC"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     >
-
+<!--    #CCCCCC-->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         android:layout_marginTop="@dimen/_10sdp"
         app:cardMaxElevation="@dimen/_20sdp"
         app:cardElevation="10dp"
-        app:cardBackgroundColor="#DFE3E3"
+        app:cardBackgroundColor="#E9EDED"
         >
 
         <ImageView
@@ -60,14 +60,16 @@
                 app:cardCornerRadius="@dimen/_13sdp"
                 app:cardMaxElevation="@dimen/_20sdp"
                 app:cardElevation="10dp"
-                app:cardBackgroundColor="#DFE3E3"
+                android:background="@drawable/button_bg"
                 >
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/white"
+                    android:padding="@dimen/_6sdp"
+                    android:background="@color/button"
+                    android:textColor="@color/white"
                     android:text="MEGA BOYS \nHOSTEL A"
                     android:drawableLeft="@drawable/hostel2"
                     android:id="@+id/btnMghA"
@@ -87,11 +89,13 @@
                 app:cardBackgroundColor="#DFE3E3"
                 >
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/white"
+                    android:padding="@dimen/_6sdp"
+                    android:background="@color/button"
+                    android:textColor="@color/white"
                     android:text="MEGA BOYS \nHOSTEL B"
                     android:drawableLeft="@drawable/hostel2"
                     android:id="@+id/btnMghB"
@@ -107,14 +111,16 @@
                 app:cardCornerRadius="@dimen/_13sdp"
                 app:cardMaxElevation="@dimen/_20sdp"
                 app:cardElevation="10dp"
-                app:cardBackgroundColor="#DFE3E3"
+                android:backgroundTint="@color/button"
                 >
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="170dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:background="@color/white"
+                    android:padding="@dimen/_6sdp"
+                    android:background="@color/button"
+                    android:textColor="@color/white"
                     android:text="MEGA BOYS \nHOSTEL F"
                     android:drawableLeft="@drawable/hostel2"
                     android:id="@+id/btnMghF"
@@ -132,12 +138,14 @@
                 app:cardBackgroundColor="#DFE3E3"
                 >
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/white"
-                    android:text="BOYS HOSTEL 6"
+                    android:padding="@dimen/_6sdp"
+                    android:background="@color/button"
+                    android:textColor="@color/white"
+                    android:text="BOYS\nHOSTEL 6"
                     android:drawableLeft="@drawable/hostel2"
                     android:id="@+id/btnHostel6"
                     />
@@ -155,12 +163,14 @@
                 app:cardBackgroundColor="#DFE3E3"
                 >
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/white"
-                    android:text="BOYS HOSTEL 7"
+                    android:padding="@dimen/_6sdp"
+                    android:background="@color/button"
+android:textColor="@color/white"
+                    android:text="BOYS\nHOSTEL 7"
                     android:drawableLeft="@drawable/hostel2"
                     android:id="@+id/btnHostel7"
 
@@ -178,12 +188,14 @@
                 app:cardBackgroundColor="#DFE3E3"
                 >
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/white"
-                    android:text="BOYS HOSTEL 4"
+                    android:padding="@dimen/_6sdp"
+                    android:background="@color/button"
+                    android:textColor="@color/white"
+                    android:text="BOYS \nHOSTEL 4"
                     android:drawableLeft="@drawable/hostel2"
                     android:id="@+id/btnHostel4"
 
@@ -201,12 +213,14 @@
                 app:cardBackgroundColor="#DFE3E3"
                 >
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/white"
-                    android:text="BOYS HOSTEL 5"
+                    android:padding="@dimen/_6sdp"
+                    android:background="@color/button"
+                    android:textColor="@color/white"
+                    android:text="BOYS \nHOSTEL 5"
                     android:drawableLeft="@drawable/hostel2"
                     android:id="@+id/btnHostel5"
 
@@ -224,11 +238,13 @@
                 app:cardBackgroundColor="#DFE3E3"
                 >
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/white"
+                    android:padding="@dimen/_6sdp"
+                    android:background="@color/button"
+                    android:textColor="@color/white"
                     android:text="MEGA GIRLS \nHOSTEL "
                     android:drawableLeft="@drawable/hostel2"
                     android:id="@+id/btnMegaGirls"
@@ -247,11 +263,13 @@
                 app:cardBackgroundColor="#DFE3E3"
                 >
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/white"
+                    android:padding="@dimen/_6sdp"
+                    android:background="@color/button"
+                    android:textColor="@color/white"
                     android:text="GIRLS \nHOSTEL 1"
                     android:drawableLeft="@drawable/hostel2"
                     android:id="@+id/btnGrlHostel1"
@@ -270,12 +288,14 @@
                 app:cardElevation="10dp"
                 app:cardBackgroundColor="#DFE3E3">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@color/white"
-                    android:text="GIRLS HOSTEL 2"
+                    android:padding="@dimen/_6sdp"
+                    android:background="@color/button"
+                    android:textColor="@color/white"
+                    android:text="GIRLS \nHOSTEL 2"
                     android:drawableLeft="@drawable/hostel2"
                     android:id="@+id/btnGrlHostel2"
 
@@ -291,8 +311,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:backgroundTint="@color/purple_500"
-
+            android:backgroundTint="@color/button"
             app:fabAlignmentMode="center"
             app:fabAnimationMode="slide"
             app:fabCradleVerticalOffset="@dimen/_2sdp"

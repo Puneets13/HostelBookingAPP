@@ -55,7 +55,9 @@
             android:exported="false" />
         <activity
             android:name=".Acitvity.SignUpActivity"
-            android:exported="false" />
+            android:exported="false" >
+
+        </activity>
         <activity
             android:name=".Acitvity.RegisterationActivity"
             android:exported="false" />
@@ -68,6 +70,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

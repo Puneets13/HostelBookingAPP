@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -33,7 +34,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 public class homeFragment extends Fragment {
 ImageView imageViewHostels ;
 ExtendedFloatingActionButton registerBtn;
-    Button btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH5,btnBoysH6,btnBoysH7,btnGirlsMega , btnGirlsH1,btnGirlsH2 ;
+    AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH5,btnBoysH6,btnBoysH7,btnGirlsMega , btnGirlsH1,btnGirlsH2 ;
 
 
     public homeFragment() {

@@ -5,19 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/header_layout"
-    android:background="@color/purple_200"
-    >
+android:background="@color/button"    >
 
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/_150sdp"
         android:layout_height="@dimen/_117sdp"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        app:civ_circle_background_color="@color/white"
+        app:civ_border_width="@dimen/_2sdp"
+        app:civ_border_color="@color/purple_200"
+        android:src="@drawable/nitjlogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/nitjlogo" />
+        />
 
     <TextView
         android:id="@+id/txt_username"
@@ -25,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:text="National Institute of \nTechnology"
+        android:text="National Institute of \nTechnology\nJalandhar"
         android:textSize="@dimen/_20sdp"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
