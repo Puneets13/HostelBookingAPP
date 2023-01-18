@@ -13,5 +13,5 @@
         android:top="0dp" />
 
 <!--    <solid android:color="@color/mainColor"/>-->
-    <solid android:color="#989090"/>
+    <solid android:color="#818080"/>
 </shape>
