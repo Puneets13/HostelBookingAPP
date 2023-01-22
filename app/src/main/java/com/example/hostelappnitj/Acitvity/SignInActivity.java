@@ -97,11 +97,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             public void onResponse(Call<DataModel> call, Response<DataModel> response) {
                 DataModel responseFromAPi = response.body();
                 progressDialog.dismiss();
-                //now the User is received from the response and we can use that user to get all other properties
                 User user = responseFromAPi.getUser(); //we have assigned the user here
                 if(response.isSuccessful()){
-//                    if response status is 200 then it will work ..DO NOT SET status(500).json() in API then we cannot access the properties
-//                   sincde we are not mentioning the error using 500 status code so we use string to compare the message and work accordingly
                     if(responseFromAPi.getMessage().equals("false") && responseFromAPi.getError().equals("Incorrect Password")){
                         password.setText("");
                         Toast.makeText(SignInActivity.this, "Incorrect Password\nPlease try again", Toast.LENGTH_SHORT).show();
@@ -115,7 +112,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                     }
                     else{
 //                      when it is successfull then
-                        String responseString =  "\nUsername : " + user.getUsername()+ "\nToken : " + responseFromAPi.getToken()+"\n"+user.getEmail();
+                        String responseString =  "\nUsername : " + user.getUsername()+"\n"+user.getEmail();
 
                         sharedPrefManager.SaveUser(responseFromAPi.getUser());  //this is used to save the user properties in the sharePrefManager
 
@@ -142,6 +139,17 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
+    }
+
+
+    protected void onStart(){    //when  the application will start it will check if the user is logged in then it will automatically changes to HomeActivity
+        super.onStart();
+        if(sharedPrefManager.isloggedIn()){
+            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+//this is used to clear the previous stack of activities so when back button pressed then previous activites
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
     }
 
 

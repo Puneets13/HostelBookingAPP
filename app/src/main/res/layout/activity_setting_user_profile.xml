@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Acitvity.settingUserProfile"
+    android:layout_gravity="center"
+    android:gravity="center"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+android:orientation="vertical"
+    android:background="@color/white"
+    >
+    <TextView
+        android:id="@+id/txtedit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/audiowide"
+        android:padding="@dimen/_8sdp"
+        android:text="Edit Profile"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_25sdp"
+        android:textStyle="bold" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_below="@+id/txtedit"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:id="@+id/emaillayout">
+
+        <EditText
+            android:id="@+id/etusername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="@dimen/_230sdp"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_below="@+id/passwordlayout"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/branch"
+        android:layout_gravity="center"
+
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Branch"
+            android:singleLine="true"
+            android:inputType="text"
+            android:id="@+id/etBranch" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="@dimen/_230sdp"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_below="@+id/emaillayout"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/passwordlayout"
+        android:layout_gravity="center"
+
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"
+            android:maxLength="10"
+            android:singleLine="true"
+            android:inputType="phone"
+            android:id="@+id/etPhone" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="@dimen/_230sdp"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_below="@+id/passwordlayout"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/addresslayout"
+        android:layout_gravity="center"
+
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:singleLine="true"
+            android:inputType="text"
+            android:id="@+id/etAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <android.widget.Button
+        android:id="@+id/btnCreateProfile"
+        android:layout_width="@dimen/_230sdp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addresslayout"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/black"
+        android:text="Edit Profile"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+</LinearLayout>
+
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/profileImage"-->
+<!--        android:layout_width="@dimen/_150sdp"-->
+<!--        android:layout_height="@dimen/_150sdp"-->
+<!--        android:layout_below="@+id/txtedit"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:src="@drawable/ic_user"-->
+<!--        app:civ_border_color="@color/black"-->
+<!--        app:civ_border_width="@dimen/_2sdp"-->
+<!--        app:civ_circle_background_color="@color/white"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.221" />-->
+
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/changeProfile"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignEnd="@+id/profileImage"-->
+<!--        android:layout_alignBottom="@+id/profileImage"-->
+<!--        android:layout_marginRight="@dimen/_5sdp"-->
+<!--        android:layout_marginBottom="@dimen/_10sdp"-->
+<!--        android:clickable="true"-->
+<!--        android:src="@drawable/camera" />-->
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:layout_width="@dimen/_230sdp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--        android:layout_below="@+id/txtedit"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginRight="30dp"-->
+<!--        android:layout_marginTop="25dp"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:id="@+id/emaillayout">-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etusername"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Username" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:layout_width="@dimen/_230sdp"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--        android:layout_below="@+id/emaillayout"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginRight="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:id="@+id/passwordlayout"-->
+<!--        >-->
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Phone"-->
+<!--            android:maxLength="10"-->
+<!--            android:singleLine="true"-->
+<!--            android:inputType="phone"-->
+<!--            android:id="@+id/etPhone" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:layout_width="@dimen/_230sdp"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--        android:layout_below="@+id/passwordlayout"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginRight="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:id="@+id/addresslayout"-->
+<!--        >-->
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Address"-->
+<!--            android:singleLine="true"-->
+<!--            android:inputType="text"-->
+<!--            android:id="@+id/etAddress" />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--    <android.widget.Button-->
+<!--        android:id="@+id/btnCreateProfile"-->
+<!--        android:layout_width="@dimen/_230sdp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/addresslayout"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginLeft="30dp"-->
+<!--        android:layout_marginBottom="@dimen/_20sdp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginRight="30dp"-->
+<!--        android:background="@color/black"-->
+<!--        android:text="Create Profile"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="18dp" />-->
+
+
+
+<!--    &lt;!&ndash;progress bar for loading &ndash;&gt;-->
+<!--    <ProgressBar-->
+<!--        android:id="@+id/idLoadingPB"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:visibility="gone"-->
+<!--        />-->
+</RelativeLayout>

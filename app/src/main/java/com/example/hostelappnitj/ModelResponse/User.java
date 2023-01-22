@@ -5,7 +5,7 @@ public class User {
     private String email;
     private String _id;
     private String avatar;
-    private String rollNumber , phone , roomNumber , branch ,hostelName;
+    private String rollNumber , phone , roomNumber , branch ,hostelName,address;
 
 //    NOTE NOTE NOTE
     //make sure make the constrcutor according to the fields in the RESPONE User...otherwise they will be assigned in wrong manner in user properties
@@ -17,13 +17,32 @@ public class User {
         this.avatar = avatar;
     }
 
-    public User(String username, String email, String _id, String avatar, String rollNumber, String branch) {
+    public User(String _id,String username,String avatar, String email ,  String rollNumber, String branch) {
         this.username = username;
         this.email = email;
         this._id = _id;
         this.avatar = avatar;
         this.rollNumber = rollNumber;
         this.branch = branch;
+    }
+
+    public User(String id, String username, String avatar, String email, String rollNumber, String branch, String address, String phone) {
+        this.username = username;
+        this.email = email;
+        this._id = id;
+        this.avatar = avatar;
+        this.rollNumber = rollNumber;
+        this.branch = branch;
+        this.address = address;
+        this.phone=phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getRollNumber() {

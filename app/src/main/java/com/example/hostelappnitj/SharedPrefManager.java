@@ -21,10 +21,12 @@ public class SharedPrefManager {
         editor=sharedPreferences.edit();
         editor.putString("_id", user.get_id());
         editor.putString("username", user.getUsername());
-        editor.putString("rollNumber",user.getRollNumber());
         editor.putString("avatar", user.getAvatar());
         editor.putString("email", user.getEmail());
+        editor.putString("rollNumber",user.getRollNumber());
         editor.putString("branch", user.getBranch());
+        editor.putString("address", user.getAddress());
+        editor.putString("phone", user.getPhone());
         editor.putBoolean("logged",true);   //to check wheater the user is logged in or not
         editor.apply();
     }
@@ -43,8 +45,10 @@ public class SharedPrefManager {
                 sharedPreferences.getString("avatar",null),
                 sharedPreferences.getString("email",null),
                 sharedPreferences.getString("rollNumber",null),
-                sharedPreferences.getString("branch",null)
-        );
+                sharedPreferences.getString("branch",null),
+                sharedPreferences.getString("address",null),
+                sharedPreferences.getString("phone",null)
+                );
 
     }
 

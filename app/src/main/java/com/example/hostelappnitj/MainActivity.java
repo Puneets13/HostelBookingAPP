@@ -10,12 +10,17 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.hostelappnitj.Acitvity.SignInActivity;
 import com.example.hostelappnitj.Fragments.AboutFragment;
 import com.example.hostelappnitj.Fragments.AccountSettings_Fragment;
-import com.example.hostelappnitj.Fragments.ComplaintFragment;
+import com.example.hostelappnitj.Fragments.ProfileFragment;
 import com.example.hostelappnitj.Fragments.HelpFragment;
 import com.example.hostelappnitj.Fragments.HostelPolicy_Fragment;
 import com.example.hostelappnitj.Fragments.homeFragment;
@@ -25,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 DrawerLayout drawerLayout;
 NavigationView navigationView;
 Toolbar toolbar;
+SharedPrefManager sharedPrefManager;
+    private DialogInterface.OnClickListener dialogClickListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +40,7 @@ Toolbar toolbar;
         drawerLayout=findViewById(R.id.drawerLayout);
         navigationView=findViewById(R.id.navigation_view);
         toolbar=findViewById(R.id.toolBar);
-
+sharedPrefManager=new SharedPrefManager(MainActivity.this);
         setSupportActionBar(toolbar );
 
         ActionBarDrawerToggle actionBarDrawerToggle=new ActionBarDrawerToggle(
@@ -60,9 +68,9 @@ Toolbar toolbar;
                         toolbar.setTitle("HOSTEL POLICY");
                         fragment = new HostelPolicy_Fragment();
                         break;
-                    case R.id.complaint_section:
-                        toolbar.setTitle("COMPLAINTS SECTIONS");
-                        fragment = new ComplaintFragment();
+                    case R.id.profile:
+                        toolbar.setTitle("UPDATE PROFILE");
+                        fragment = new ProfileFragment();
                         break;
                     case R.id.notifications:
 
@@ -81,6 +89,7 @@ Toolbar toolbar;
                         break;
                     case R.id.logout:
 //                        on click listener for logging out
+                        logoutUser();
                         break;
                 }
                  if(fragment!=null){
@@ -110,4 +119,39 @@ Toolbar toolbar;
         fragmentTransaction.replace(R.id.home_container,fragment);
         fragmentTransaction.commit();
     }
+    private void logoutUser() {
+//        Creating Dialog Box
+        dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    // on below line we are setting a click listener
+                    // for our positive button
+                    case DialogInterface.BUTTON_POSITIVE:
+                        // on below line we are displaying a toast message.
+//                        Make the Logout Action
+                        sharedPrefManager.logout();  //calling the logoutmethod described in shared preference
+                        Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        Toast.makeText(MainActivity.this, "You Have been LoggedOut", Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+
+                        break;
+                    // on below line we are setting click listener
+                    // for our negative button.
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        // on below line we are dismissing our dialog box.
+                        dialog.dismiss();
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        // on below line we are setting message for our dialog box.
+        builder.setMessage("Are you sure you want to Logout ?")
+                .setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener)
+                .show();
+    }
+
 }

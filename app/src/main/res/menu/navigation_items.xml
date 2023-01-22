@@ -15,9 +15,9 @@ tools:showIn="navigation_view">
         android:icon="@drawable/hostel_policy"
         android:title="Hostel Policy" />
     <item
-        android:id="@+id/complaint_section"
+        android:id="@+id/profile"
         android:icon="@drawable/hostel_complaint"
-        android:title="Complaint Section" />
+        android:title="Profile" />
     <item
         android:id="@+id/notifications"
         android:icon="@drawable/notification"
