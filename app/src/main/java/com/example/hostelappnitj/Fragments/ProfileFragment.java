@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.Acitvity.RegisterationActivity;
 import com.example.hostelappnitj.Acitvity.settingUserProfile;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.R;
@@ -73,9 +74,6 @@ SharedPrefManager sharedPrefManager;
         imgProfile=view.findViewById(R.id.profileImage);
         btnChangeProfileImg=view.findViewById(R.id.changeProfile);
         btnChangeProfile=view.findViewById(R.id.editProfile);
-
-
-
         sharedPrefManager= new SharedPrefManager(getActivity());
         email.setText(sharedPrefManager.getUser().getEmail());
         username.setText(sharedPrefManager.getUser().getUsername());
@@ -124,6 +122,15 @@ SharedPrefManager sharedPrefManager;
         branch.setText(sharedPrefManager.getUser().getBranch());
     }
 
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        progressDialog = new ProgressDialog(getActivity());
+//        progressDialog.setTitle("Profile");
+//        progressDialog.setMessage("Loading..");
+//        progressDialog.show();
+//        progressDialog.setCancelable(false);
+//    }
 
     //on activity result when browse file button is clicked then the activity will start from here
     @Override
@@ -198,7 +205,6 @@ SharedPrefManager sharedPrefManager;
         });
 
     }
-
 
 
 }

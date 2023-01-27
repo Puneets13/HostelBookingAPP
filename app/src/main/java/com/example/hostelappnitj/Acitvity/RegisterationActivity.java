@@ -57,17 +57,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterationActivity extends AppCompatActivity {
-    String hostelName , username , rollNumber,email,branch , hostel_id,year;
+    String hostelName , username , rollNumber,email,branch , hostel_id,year,gender;
     TextView txtUsername , txtRollNumber , txtEmail , txtHostelname,txtBranch;
     EditText etRoomNumber , etFatherName , etFatherPhone , etStdPhone , etAddress;
-    AppCompatButton btnBook_room,btnuploadPaymentSlip,btnPayment;
+    AppCompatButton btnBook_room,btnPayment;
     ProgressDialog progressDialog ;
     RadioButton btn1,btn2,btn3,btn4;
-    RadioGroup radioGroup;
+    RadioGroup radioGroup,radioGroupGender;
     Spinner spinnerBranch ;
-    String sPath ;
-    String picturePath;
-    Uri selectedImage ;
     private static int SELECT_PDF = 1;
     ActivityResultLauncher<Intent> resultLauncher;
     private String SelectedPDF;
@@ -89,12 +86,13 @@ public class RegisterationActivity extends AppCompatActivity {
         etAddress=findViewById(R.id.etAddress);
         btnBook_room=findViewById(R.id.btnBookRoom);
         btnPayment=findViewById(R.id.btnPayment);
+
 //        btn1=findViewById(R.id.btnYear1);
 //        btn2=findViewById(R.id.btnYear2);
 //        btn3=findViewById(R.id.btnYear3);
 //        btn4=findViewById(R.id.btnYear4);
         radioGroup=findViewById(R.id.radioGroup);
-
+        radioGroupGender=findViewById(R.id.radioGroupGender);
         //        intent from SeatMatrixMBH B activity
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
@@ -113,7 +111,23 @@ public class RegisterationActivity extends AppCompatActivity {
         //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.spinnerBranch);
         dropdown.setPrompt("Branches");
-        String[] items = new String[]{"Select..","Computer Science ", "Information Technology", "Civil"};
+        String[] items = new String[]{"Select.."
+                , "Mechanical Engineering"
+                ,"Chemical Engineering",
+                "Chemistry",
+                "Civil Engineering",
+                "Computer Science & Engg.",
+                "Electrical Engineering",
+                "Electronics & Comm. Engg.",
+                "Humanities & Management",
+                "Industrial & Production Engg.",
+                "Information Technology",
+                "Instrumentation & Control Engg.",
+                "Mathematics",
+                "Mechanical Engineering",
+                "Physics",
+                "Textile Technology"
+        };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
 //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
@@ -146,9 +160,23 @@ public class RegisterationActivity extends AppCompatActivity {
 
                 // on below line we are displaying a toast message.
                 Toast.makeText(RegisterationActivity.this, radioButton.getText()+" year", Toast.LENGTH_SHORT).show();
+                year=radioButton.getText().toString();
             }
         });
 
+        radioGroupGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                // on below line we are getting radio button from our group.
+                RadioButton radioButton = findViewById(checkedId);
+
+                // on below line we are displaying a toast message.
+                Toast.makeText(RegisterationActivity.this, radioButton.getText()+" Gender", Toast.LENGTH_SHORT).show();
+                gender=radioButton.getText().toString();
+
+            }
+        });
 //        click listener on button
         btnBook_room.setOnClickListener(new View.OnClickListener() {
                                             @Override
@@ -201,7 +229,7 @@ public class RegisterationActivity extends AppCompatActivity {
 //                                                RequestBody requestFile = RequestBody.create(MediaType.parse("*/*"),file);
 //                                                MultipartBody.Part body = MultipartBody.Part.createFormData("pdf", file.getName(),requestFile);
 
-                                                HostelRegisterationResponse model = new HostelRegisterationResponse(username,email,rollNumber,roomNo,hostelName,phone,address,branch,fatherPhone,fatherName,"3");
+                                                HostelRegisterationResponse model = new HostelRegisterationResponse(username,email,rollNumber,roomNo,hostelName,phone,address,branch,fatherPhone,fatherName,year);
                                                 Call<HostelRegisterationResponse>call= RetrofitClient.getInstance().getApi()
                                                         .updateHostelRecord(model);
                                                 call.enqueue(new Callback<HostelRegisterationResponse>() {
