@@ -8,8 +8,8 @@ public class RetrofitClient {
     //    connect laptop wwith the Hostpot of the phone  and on wifi clicking change it to provate discoverable mode
 //    use the current ip address and start the server before and the set the ip address in the mongodb and
 //    use CMD ipconfig to get the ip address and then set the WIFI LAN ADAPTER Wifi IPV$ address
-//    use "http://IP_ADDRESS:PORT_NUMBER/"    192.168.47.243  192.168.29.242
-    private static String BASE_URL = "http://192.168.29.242:1313/nitj_hostels/";
+//    use "http://IP_ADDRESS:PORT_NUMBER/"    192.168.47.243  192.168.29.242 192.168.47.243  192.168.47.243  192.168.47.243
+    private static String BASE_URL = "http://192.168.47.243:1313/nitj_hostels/";
     private static Retrofit retrofit;
     private static RetrofitClient retrofitClient;
 

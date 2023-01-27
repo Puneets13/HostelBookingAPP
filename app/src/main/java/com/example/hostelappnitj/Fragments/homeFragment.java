@@ -81,7 +81,7 @@ ExtendedFloatingActionButton registerBtn;
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Register here", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), SignUpActivity.class);
+                Intent intent = new Intent(getActivity(), RegisterationActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

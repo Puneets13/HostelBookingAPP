@@ -44,6 +44,7 @@ public class MegaBoysB_Activity extends AppCompatActivity {
                         switch (which){
                             case 0 : //floor 1
                                 Intent intent = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                intent.putExtra("hostelName","Mega Boys Hostel B");
                                 startActivity(intent);
                                 break;
                             case 1 : //floor 2

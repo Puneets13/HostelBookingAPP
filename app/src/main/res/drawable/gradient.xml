@@ -9,10 +9,10 @@
 <!--       android:endColor="#3C3D3E"-->
 <!--       android:angle="270"-->
 <!--       />-->
-    <corners
-        android:topLeftRadius="@dimen/_10sdp"
-        android:topRightRadius="@dimen/_10sdp"
-        android:bottomLeftRadius="@dimen/_10sdp"
-        android:bottomRightRadius="@dimen/_10sdp"/>
+<!--    <corners-->
+<!--        android:topLeftRadius="@dimen/_10sdp"-->
+<!--        android:topRightRadius="@dimen/_10sdp"-->
+<!--        android:bottomLeftRadius="@dimen/_10sdp"-->
+<!--        android:bottomRightRadius="@dimen/_10sdp"/>-->
 
 </shape>

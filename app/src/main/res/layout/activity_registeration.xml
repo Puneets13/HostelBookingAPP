@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,140 +8,398 @@
     >
 
     <ImageView
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_above="@+id/text1"
-        android:layout_centerInParent="true"
-        android:src="@drawable/nitjlogo" />
-
-    <TextView
-        android:id="@+id/text1"
+        android:id="@+id/bg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/cardview"
-        android:layout_marginBottom="@dimen/_9sdp"
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:text="National Institute of Technology"
-        android:textColor="#000000"
-        android:textSize="@dimen/_30sdp" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_centerInParent="true"
-        app:cardBackgroundColor="#DFE3E3"
-        app:cardCornerRadius="@dimen/_10sdp"
-        android:layout_centerHorizontal="true"
-        app:cardElevation="10dp"
-        app:cardMaxElevation="@dimen/_20sdp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="STUDENT REGISTERATION"
-            android:padding="@dimen/_8sdp"
-            android:textSize="@dimen/_19sdp"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
-    </androidx.cardview.widget.CardView>
-
-
+        android:layout_height="@dimen/_100sdp"
+        android:src="@drawable/signin_bg1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--    this edit text is used imported from material desgin so used in this manner-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/_230sdp"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_centerInParent="true"
-        android:layout_below="@+id/cardview"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="@dimen/_9sdp"
-        android:id="@+id/rollNolayout"
-        >
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Roll Number"
-            android:id="@+id/etRollno" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/_230sdp"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_below="@+id/rollNolayout"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/emaillayout">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:id="@+id/etemail" />
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/_230sdp"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_below="@+id/emaillayout"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/passwordlayout"
-        app:passwordToggleTint="#595656"
-        app:endIconDrawable="@drawable/custom_password_eye"
-        app:passwordToggleEnabled="true"
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:id="@+id/etpassword" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <android.widget.Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="@dimen/_230sdp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordlayout"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:background="@color/black"
-        android:text="Register"
-        android:textColor="@color/white"
-        android:textSize="18dp" />
-
-    <TextView
-        android:id="@+id/loginlink"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSignUp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/_15sdp"
-        android:gravity="center_horizontal"
-        android:text="Already have Account? LogIn"
-        android:textSize="@dimen/_12sdp" />
 
 
     <!--progress bar for loading -->
-    <ProgressBar
-        android:id="@+id/idLoadingPB"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_alignLeft="@+id/logo"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/nitjlogo"
+        app:civ_circle_background_color="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/bg"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="NotSibling" />
+
+    <TextView
+        android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/bg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Hostel Registeration"
+        android:textColor="#000000"
+        android:textSize="@dimen/_25sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/bg"
+        android:layout_marginTop="156dp"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bg"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bg"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/rollNolayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bg"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:id="@+id/txtRollno"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/id_roll"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:hint="20102059"
+                    android:textSize="@dimen/_20sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emaillayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rollNolayout"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:hint="puneets.ce.20@nitj.ac.in"
+                    android:textSize="@dimen/_20sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/branchlayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:id="@+id/txtBranch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/department"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:hint="Information Technology"
+                    android:textSize="@dimen/_20sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/namelayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/emaillayout"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:id="@+id/txtUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_user"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:hint="Name"
+                    android:textSize="@dimen/_20sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/HostelNamelayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="@dimen/_270sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <TextView
+                    android:id="@+id/txtHostelname"
+                    android:layout_width="@dimen/_270sdp"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/hostel_bed"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:hint="Mega Boys Hostel"
+                    android:textSize="@dimen/_20sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/RoomNolayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp">
+
+                <EditText
+                    android:id="@+id/etRoomNumber"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/hostel_bed"
+                    android:hint="Room Number"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/FatherNamelayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <EditText
+                    android:id="@+id/etFathername"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:hint="Father Name"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/FatherPhonelayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <EditText
+                    android:id="@+id/etFatherPhone"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:hint="Father Phone"
+                    android:maxLength="10"
+                    android:inputType="phone"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phonelayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/phone"
+                    android:hint="Phone"
+                    android:inputType="phone"
+                    android:maxLength="10" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/addresslayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="@dimen/_250sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+
+                <EditText
+                    android:id="@+id/etAddress"
+                    android:layout_width="@dimen/_250sdp"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/location"
+                    android:hint="Address" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:id="@+id/btnUploadSlip"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_22sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:text="Upload payment slip" />-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_14sdp"
+                    android:text="Year"
+                    android:padding="@dimen/_10sdp"
+                    android:textAlignment="center"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    />
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <RadioButton
+                    android:id="@+id/btnYear2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                    android:text="2"
+                    />
+                <RadioButton
+                    android:id="@+id/btnYear3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    />
+                <RadioButton
+                    android:id="@+id/btnYear4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp">
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_14sdp"
+                    android:text="Branch"
+                    android:padding="@dimen/_10sdp"
+                    android:textAlignment="center"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    />
+                <Spinner
+                    android:id="@+id/spinnerBranch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown"/>
+
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnPayment"
+                android:text="Payment"
+                android:layout_width="@dimen/_230sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="@dimen/_50sdp"
+                android:background="@color/black"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBookRoom"
+                android:layout_width="@dimen/_230sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="@dimen/_50sdp"
+                android:background="@color/black"
+                android:text="Book Room"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+        <ProgressBar
+        android:id="@+id/LoadingPB"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
         android:layout_gravity="center"
         android:layout_centerInParent="true"
         android:visibility="gone"
         />
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

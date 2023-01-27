@@ -3,6 +3,7 @@ package com.example.hostelappnitj.Acitvity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaRouter2;
 import android.os.Bundle;
@@ -20,20 +21,31 @@ import android.widget.Toast;
 import com.alexvasilkov.gestures.Settings;
 import com.alexvasilkov.gestures.views.interfaces.GestureView;
 import com.example.hostelappnitj.R;
+import com.example.hostelappnitj.SharedPrefManager;
 
 public class SeatmatrixMBHBoys extends AppCompatActivity {
 AppCompatButton room301;
-//ScrollView scrollView ;
-//    private float mScale = 1f;
-//    private ScaleGestureDetector mScaleGestureDetector;
-//    GestureDetector gestureDetector;
+AppCompatButton btnBook3;
     GestureView gestureView;
+    SharedPrefManager sharedPrefManager ;
+    String hostelName , username , rollNumber,email, branch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seatmatrix_mbhboys);
         room301=findViewById(R.id.room301);
-//        scrollView=findViewById(R.id.scrollView);
+        btnBook3=findViewById(R.id.btnRoomBook3);
+
+
+        sharedPrefManager=new SharedPrefManager(SeatmatrixMBHBoys.this);
+        username=sharedPrefManager.getUser().getUsername();
+        email=sharedPrefManager.getUser().getEmail();
+        rollNumber=sharedPrefManager.getUser().getRollNumber();
+        branch=sharedPrefManager.getUser().getBranch();
+
+//        intent from MegaBoysB_activity
+        Intent intent = getIntent();
+        hostelName = intent.getStringExtra("hostelName");
         room301.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,28 +53,6 @@ AppCompatButton room301;
             }
         });
 
-//    zoom in the ScrollView
-//        gestureDetector = new GestureDetector(this, new GestureListener());
-//
-//        mScaleGestureDetector = new ScaleGestureDetector(this, new ScaleGestureDetector.SimpleOnScaleGestureListener(){
-//            @Override
-//            public boolean onScale(ScaleGestureDetector detector) {
-//                float scale = 1 - detector.getScaleFactor();
-//                float prevScale = mScale;
-//                mScale += scale;
-//
-//                if (mScale > 10f)
-//                    mScale = 10f;
-//
-//                ScaleAnimation scaleAnimation = new ScaleAnimation(1f / prevScale, 1f / mScale, 1f / prevScale, 1f / mScale, detector.getFocusX(), detector.getFocusY());
-//                scaleAnimation.setDuration(0);
-//                scaleAnimation.setFillAfter(true);
-////                ScrollView layout = (ScrollView) findViewById(R.id.scrollView);
-//                LinearLayout layout1=(LinearLayout)findViewById(R.id.linearMatrix);
-//                layout1.startAnimation(scaleAnimation);
-//                return true;
-//            }
-//        });
         gestureView=findViewById(R.id.gestureview);
         gestureView.getController().getSettings()
                 .setMaxZoom(2f)
@@ -79,26 +69,23 @@ AppCompatButton room301;
                 .setGravity(Gravity.CENTER);
 
 
+        btnBook3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SeatmatrixMBHBoys.this, "Register here", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SeatmatrixMBHBoys.this, RegisterationActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("hostelName",hostelName);
+                intent.putExtra("username",username);
+                intent.putExtra("rollNumber",rollNumber);
+                intent.putExtra("email",email);
+                intent.putExtra("branch",branch);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
-//to zoom the scrollView when touched
-//    @Override
-//    public boolean dispatchTouchEvent(MotionEvent event) {
-//        super.dispatchTouchEvent(event);
-//        mScaleGestureDetector.onTouchEvent(event);
-//        gestureDetector.onTouchEvent(event);
-//        return gestureDetector.onTouchEvent(event);
-//    }
-//
-//    private class GestureListener extends GestureDetector.SimpleOnGestureListener{
-//        @Override
-//        public boolean onDown(MotionEvent e) {
-//            return true;
-//        }
-//
-//        @Override
-//        public boolean onDoubleTap(MotionEvent e) {
-//            return true;
-//        }
-//    }
 
 }
