@@ -1,5 +1,10 @@
 package com.example.hostelappnitj.ModelResponse;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class HostelRegisterationResponse {
   private   String message , status ;
   private   hostel hostel;
@@ -9,7 +14,9 @@ public class HostelRegisterationResponse {
     private String rollNumber,roomNumber,hostelName;
     private String  phone , address,branch,fatherPhone , fatherName;
 
-
+    @SerializedName("hostels")    //means the actuall name in the response is users but we are using userList so we serialized annotations
+    List<hostel> hostelList;
+    String error;
     public HostelRegisterationResponse(String userName, String email, String rollNumber, String roomNumber, String hostelName, String phone, String address, String branch, String fatherPhone, String fatherName,String year) {
         this.userName = userName;
         this.email = email;
@@ -23,6 +30,21 @@ public class HostelRegisterationResponse {
         this.fatherName = fatherName;
         this.year=year;
     }
+
+    public List<hostel> getHostelList() {
+        return hostelList;
+    }
+
+    public void setHostelList(List<hostel> hostelList) {
+        this.hostelList = hostelList;
+    }
+//    public List<com.example.hostelappnitj.ModelResponse.hostel> getHostelList() {
+//        return hostelList;
+//    }
+//
+//    public void setHostelList(List<com.example.hostelappnitj.ModelResponse.hostel> hostelList) {
+//        this.hostelList = hostelList;
+//    }
 
     public String getUserName() {
         return userName;

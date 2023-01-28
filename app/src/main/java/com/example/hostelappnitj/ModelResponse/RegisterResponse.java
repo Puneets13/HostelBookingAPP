@@ -5,9 +5,18 @@ public class RegisterResponse {
     String error;
     String avatar ;
     User user ;
+    hostel hostel;
     public RegisterResponse(String message, String error) {
         this.message = message;
         this.error = error;
+    }
+
+    public com.example.hostelappnitj.ModelResponse.hostel getHostel() {
+        return hostel;
+    }
+
+    public void setHostel(com.example.hostelappnitj.ModelResponse.hostel hostel) {
+        this.hostel = hostel;
     }
 
     public User getUser() {

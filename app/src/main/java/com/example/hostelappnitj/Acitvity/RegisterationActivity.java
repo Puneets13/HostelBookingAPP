@@ -57,49 +57,42 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterationActivity extends AppCompatActivity {
-    String hostelName , username , rollNumber,email,branch , hostel_id,year,gender;
-    TextView txtUsername , txtRollNumber , txtEmail , txtHostelname,txtBranch;
-    EditText etRoomNumber , etFatherName , etFatherPhone , etStdPhone , etAddress;
-    AppCompatButton btnBook_room,btnPayment;
-    ProgressDialog progressDialog ;
-    RadioButton btn1,btn2,btn3,btn4;
-    RadioGroup radioGroup,radioGroupGender;
-    Spinner spinnerBranch ;
-    private static int SELECT_PDF = 1;
-    ActivityResultLauncher<Intent> resultLauncher;
-    private String SelectedPDF;
+    String hostelName, username, rollNumber, email, branch, hostel_id, year, gender;
+    TextView txtUsername, txtRollNumber, txtEmail, txtHostelname, txtBranch;
+    EditText etRoomNumber, etFatherName, etFatherPhone, etStdPhone, etAddress;
+    AppCompatButton btnBook_room, btnPayment;
+    ProgressDialog progressDialog;
+    RadioButton btn1, btn2, btn3, btn4;
+    RadioGroup radioGroup, radioGroupGender;
+    Spinner spinnerBranch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registeration);
 
-        txtHostelname=findViewById(R.id.txtHostelname);
-        txtEmail=findViewById(R.id.txtEmail);
-        txtUsername=findViewById(R.id.txtUsername);
-        txtRollNumber=findViewById(R.id.txtRollno);
-        txtBranch=findViewById(R.id.txtBranch);
-        etRoomNumber=findViewById(R.id.etRoomNumber);
-        etFatherName=findViewById(R.id.etFathername);
-        etFatherPhone=findViewById(R.id.etFatherPhone);
-        etStdPhone=findViewById(R.id.etPhone);
-        etAddress=findViewById(R.id.etAddress);
-        btnBook_room=findViewById(R.id.btnBookRoom);
-        btnPayment=findViewById(R.id.btnPayment);
+        txtHostelname = findViewById(R.id.txtHostelname);
+        txtEmail = findViewById(R.id.txtEmail);
+        txtUsername = findViewById(R.id.txtUsername);
+        txtRollNumber = findViewById(R.id.txtRollno);
+        txtBranch = findViewById(R.id.txtBranch);
+        etRoomNumber = findViewById(R.id.etRoomNumber);
+        etFatherName = findViewById(R.id.etFathername);
+        etFatherPhone = findViewById(R.id.etFatherPhone);
+        etStdPhone = findViewById(R.id.etPhone);
+        etAddress = findViewById(R.id.etAddress);
+        btnBook_room = findViewById(R.id.btnBookRoom);
+        btnPayment = findViewById(R.id.btnPayment);
 
-//        btn1=findViewById(R.id.btnYear1);
-//        btn2=findViewById(R.id.btnYear2);
-//        btn3=findViewById(R.id.btnYear3);
-//        btn4=findViewById(R.id.btnYear4);
-        radioGroup=findViewById(R.id.radioGroup);
-        radioGroupGender=findViewById(R.id.radioGroupGender);
+        radioGroup = findViewById(R.id.radioGroup);
+        radioGroupGender = findViewById(R.id.radioGroupGender);
         //        intent from SeatMatrixMBH B activity
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
-        username=intent.getStringExtra("username");
-        rollNumber=intent.getStringExtra("rollNumber");
-        email=intent.getStringExtra("email");
-        branch=intent.getStringExtra("branch");
+        username = intent.getStringExtra("username");
+        rollNumber = intent.getStringExtra("rollNumber");
+        email = intent.getStringExtra("email");
+        branch = intent.getStringExtra("branch");
 
         txtRollNumber.setText(rollNumber);
         txtEmail.setText(email);
@@ -113,7 +106,7 @@ public class RegisterationActivity extends AppCompatActivity {
         dropdown.setPrompt("Branches");
         String[] items = new String[]{"Select.."
                 , "Mechanical Engineering"
-                ,"Chemical Engineering",
+                , "Chemical Engineering",
                 "Chemistry",
                 "Civil Engineering",
                 "Computer Science & Engg.",
@@ -135,11 +128,11 @@ public class RegisterationActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 //                Log.v("item", (String) parent.getItemAtPosition(position));
-                if(position==0){
-                    branch=null;
-                }else{
-                branch=(String) parent.getItemAtPosition(position);
-                Toast.makeText(RegisterationActivity.this, branch, Toast.LENGTH_SHORT).show();
+                if (position == 0) {
+                    branch = null;
+                } else {
+                    branch = (String) parent.getItemAtPosition(position);
+//                Toast.makeText(RegisterationActivity.this, branch, Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -159,8 +152,7 @@ public class RegisterationActivity extends AppCompatActivity {
                 RadioButton radioButton = findViewById(checkedId);
 
                 // on below line we are displaying a toast message.
-                Toast.makeText(RegisterationActivity.this, radioButton.getText()+" year", Toast.LENGTH_SHORT).show();
-                year=radioButton.getText().toString();
+                year = radioButton.getText().toString();
             }
         });
 
@@ -172,93 +164,95 @@ public class RegisterationActivity extends AppCompatActivity {
                 RadioButton radioButton = findViewById(checkedId);
 
                 // on below line we are displaying a toast message.
-                Toast.makeText(RegisterationActivity.this, radioButton.getText()+" Gender", Toast.LENGTH_SHORT).show();
-                gender=radioButton.getText().toString();
+//                Toast.makeText(RegisterationActivity.this, radioButton.getText()+" Gender", Toast.LENGTH_SHORT).show();
+                gender = radioButton.getText().toString();
 
             }
         });
 //        click listener on button
         btnBook_room.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                progressDialog = new ProgressDialog(RegisterationActivity.this);
-                                                progressDialog.setTitle("Hostel Booking");
-                                                progressDialog.setMessage("Registering Room..");
-                                                progressDialog.show();
-                                                progressDialog.setCancelable(false);
-                                                String roomNo, fatherName, fatherPhone, address, phone;
-                                                roomNo = etRoomNumber.getText().toString();
-                                                fatherName = etFatherName.getText().toString();
-                                                fatherPhone = etFatherPhone.getText().toString();
-                                                phone = etStdPhone.getText().toString();
-                                                address = etAddress.getText().toString();
+            @Override
+            public void onClick(View v) {
+                progressDialog = new ProgressDialog(RegisterationActivity.this);
+                progressDialog.setTitle("Hostel Booking");
+                progressDialog.setMessage("Registering Room..");
+                progressDialog.show();
+                progressDialog.setCancelable(false);
+                String roomNo, fatherName, fatherPhone, address, phone;
+                roomNo = etRoomNumber.getText().toString();
+                fatherName = etFatherName.getText().toString();
+                fatherPhone = etFatherPhone.getText().toString();
+                phone = etStdPhone.getText().toString();
+                address = etAddress.getText().toString();
 //
-                                                if (roomNo.isEmpty()) {
-                                                    etRoomNumber.requestFocus();
-                                                    etRoomNumber.setError("Please enter required Room Number");
-                                                    progressDialog.dismiss();
-                                                    return;
-                                                }
-                                                if (fatherName.isEmpty()) {
-                                                    etFatherName.requestFocus();
-                                                    etFatherName.setError("Please enter your Father's Name");
-                                                    progressDialog.dismiss();
-                                                    return;
-                                                }
-                                                if (fatherPhone.isEmpty()) {
-                                                    etFatherPhone.requestFocus();
-                                                    etFatherPhone.setError("Please enter your Father's Phone");
-                                                    progressDialog.dismiss();
-                                                    return;
-                                                }
-                                                if (phone.isEmpty()) {
-                                                    etStdPhone.requestFocus();
-                                                    etStdPhone.setError("Please enter Student's Phone");
-                                                    progressDialog.dismiss();
-                                                    return;
-                                                }
-                                                if (address.isEmpty()) {
-                                                    etAddress.requestFocus();
-                                                    etAddress.setError("Please enter Address");
-                                               progressDialog.dismiss();
-                                                    return;
-                                                }
+                if (roomNo.isEmpty()) {
+                    etRoomNumber.requestFocus();
+                    etRoomNumber.setError("Please enter required Room Number");
+                    progressDialog.dismiss();
+                    return;
+                }
+                if (fatherName.isEmpty()) {
+                    etFatherName.requestFocus();
+                    etFatherName.setError("Please enter your Father's Name");
+                    progressDialog.dismiss();
+                    return;
+                }
+                if (fatherPhone.isEmpty()) {
+                    etFatherPhone.requestFocus();
+                    etFatherPhone.setError("Please enter your Father's Phone");
+                    progressDialog.dismiss();
+                    return;
+                }
+                if (phone.isEmpty()) {
+                    etStdPhone.requestFocus();
+                    etStdPhone.setError("Please enter Student's Phone");
+                    progressDialog.dismiss();
+                    return;
+                }
+                if (address.isEmpty()) {
+                    etAddress.requestFocus();
+                    etAddress.setError("Please enter Address");
+                    progressDialog.dismiss();
+                    return;
+                }
 //
-                                                //        uploading the data using Multipart-Form
+                //        uploading the data using Multipart-Form
 //                                                File file = new File(picturePath);
 //                                                RequestBody requestFile = RequestBody.create(MediaType.parse("*/*"),file);
 //                                                MultipartBody.Part body = MultipartBody.Part.createFormData("pdf", file.getName(),requestFile);
 
-                                                HostelRegisterationResponse model = new HostelRegisterationResponse(username,email,rollNumber,roomNo,hostelName,phone,address,branch,fatherPhone,fatherName,year);
-                                                Call<HostelRegisterationResponse>call= RetrofitClient.getInstance().getApi()
-                                                        .updateHostelRecord(model);
-                                                call.enqueue(new Callback<HostelRegisterationResponse>() {
-                                                    @Override
-                                                    public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
-                                                    progressDialog.dismiss();
-                                                      HostelRegisterationResponse responseFromApi = response.body();
-                                                        if(response.isSuccessful()){
-                                                            if(responseFromApi.getMessage().equals("success")){
-                                                                progressDialog.dismiss();
-                                                                Toast.makeText(RegisterationActivity.this, responseFromApi.getHostel().getUsername1()+" Registered", Toast.LENGTH_SHORT).show();
-                                                            }else{
-                                                                progressDialog.dismiss();
-                                                                Toast.makeText(RegisterationActivity.this, responseFromApi.getMessage(), Toast.LENGTH_SHORT).show();
-                                                            }
-                                                        }
-                                                    }
+                HostelRegisterationResponse model = new HostelRegisterationResponse(username, email, rollNumber, roomNo, hostelName, phone, address, branch, fatherPhone, fatherName, year);
+                Call<HostelRegisterationResponse> call = RetrofitClient.getInstance().getApi()
+                        .updateHostelRecord(model);
+                call.enqueue(new Callback<HostelRegisterationResponse>() {
+                    @Override
+                    public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
+                        progressDialog.dismiss();
+                        HostelRegisterationResponse responseFromApi = response.body();
+                        if (response.isSuccessful()) {
+                            if (responseFromApi.getMessage().equals("success")) {
+                                progressDialog.dismiss();
+                                Toast.makeText(RegisterationActivity.this, responseFromApi.getHostel().getUsername1() + " Registered", Toast.LENGTH_SHORT).show();
+                                finish(); //to remove the current activity
+                            } else {
+                                progressDialog.dismiss();
+                                Toast.makeText(RegisterationActivity.this, responseFromApi.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
 
-                                                    @Override
-                                                    public void onFailure(Call<HostelRegisterationResponse> call, Throwable t) {
-                         progressDialog.dismiss();
-                                                        Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                                                    }
-                                                });
-                                            }
-                                        });
+                    @Override
+                    public void onFailure(Call<HostelRegisterationResponse> call, Throwable t) {
+                        progressDialog.dismiss();
+                        Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
 
 
     }
+}
 //
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        // In fragment class callback
@@ -361,7 +355,6 @@ public class RegisterationActivity extends AppCompatActivity {
 //    }
 
 
-}
 ////getting the id of the room from the ROOM NUMBER using the api
 //                Call<hostel_ID_Response> call = RetrofitClient
 //                        .getInstance().getApi().getHostelId(roomNo);

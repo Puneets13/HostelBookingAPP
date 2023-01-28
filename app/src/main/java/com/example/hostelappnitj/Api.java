@@ -41,6 +41,11 @@ public interface Api {
             @Part MultipartBody.Part photo
     );
 
+    //    //      FOR FETCHING ALL THE HOSTELS
+    @GET("hostelbook/getHostels")
+    Call<HostelRegisterationResponse>fetchAllHostels();
+
+
 //    @Multipart
     @POST("hostelbook/registerRoom")   //since we are sending the paramter in the path with id (so we use @PATH)
     Call<HostelRegisterationResponse>updateHostelRecord(
@@ -74,9 +79,6 @@ public interface Api {
 
 //
 //
-//    //      FOR FETCHING ALL THE USERS
-//    @GET("fetchUsers")
-//    Call<FetchUserResponse>fetchAllUsers();
 //
 //        MAKE SURE THE PARAMTER IN { } MUST MATCHES WITH THAT PASSED IN API   /:id
     @PUT("{id}")   //since we are sending the paramter in the path with id (so we use @PATH)
