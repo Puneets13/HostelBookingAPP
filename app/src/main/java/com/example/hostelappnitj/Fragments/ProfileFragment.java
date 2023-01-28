@@ -6,13 +6,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,6 +54,7 @@ SharedPrefManager sharedPrefManager;
     RegisterResponse responseFromApi;
     ProgressDialog progressDialog;
     Uri selectedImage ;
+    private ProgressDialog pd = null;
 
     private static int RESULT_LOAD_IMAGE = 1;
     public static final String TAG = "Test";
@@ -80,6 +84,11 @@ SharedPrefManager sharedPrefManager;
         rollNumber.setText(sharedPrefManager.getUser().getRollNumber());
         phone.setText(sharedPrefManager.getUser().getPhone());
         branch.setText(sharedPrefManager.getUser().getAddress());
+
+        this.pd = ProgressDialog.show(getActivity(), "Downloading", "Loading...\nPlease wait...", true, false);
+        // Start a new thread that will download all the data
+        new IAmABackgroundTask().execute(); //to show the dialog box before creating the activtiy
+
         String imageFromDatabase= sharedPrefManager.getUser().getAvatar();
 ////center crop is use to not the image to be streched when resized
         Picasso.get().load(imageFromDatabase).resize(550,550).centerCrop().into(imgProfile);
@@ -109,6 +118,38 @@ SharedPrefManager sharedPrefManager;
         return view ;
     }
 
+//    TO show the dialog box before creating the activity
+    class IAmABackgroundTask extends AsyncTask<String, Integer, Boolean> {
+        @Override
+        protected void onPreExecute() {
+            // showDialog(AUTHORIZING_DIALOG);
+        }
+
+        @Override
+        protected void onPostExecute(Boolean result) {
+
+            // Pass the result data back to the main activity
+            Handler handler = new Handler();
+            Runnable runnable = new Runnable() {
+                public void run() {
+                    if (ProfileFragment.this.pd != null) {
+                        ProfileFragment.this.pd.dismiss();
+                    }
+                    handler.postDelayed(this, 5000);
+                }
+            };
+            handler.postDelayed(runnable, 5000);
+
+        }
+
+        @Override
+        protected Boolean doInBackground(String... params) {
+            //Do all your slow tasks here but dont set anything on UI
+            //ALL ui activities on the main thread
+            return true;
+        }
+
+    }
     //    The onResume() get called always before the fragment is displayed. Even when the fragment is created for the first time .
     @Override
     public void onResume() {
@@ -122,15 +163,6 @@ SharedPrefManager sharedPrefManager;
         branch.setText(sharedPrefManager.getUser().getBranch());
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        progressDialog = new ProgressDialog(getActivity());
-//        progressDialog.setTitle("Profile");
-//        progressDialog.setMessage("Loading..");
-//        progressDialog.show();
-//        progressDialog.setCancelable(false);
-//    }
 
     //on activity result when browse file button is clicked then the activity will start from here
     @Override
@@ -161,7 +193,7 @@ SharedPrefManager sharedPrefManager;
             }
         } catch (Exception e) {
             progressDialog.dismiss();
-            Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), "Something went wrong..", Toast.LENGTH_LONG).show();
         }
     }
 
