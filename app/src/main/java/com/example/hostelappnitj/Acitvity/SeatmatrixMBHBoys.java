@@ -37,6 +37,7 @@ public class SeatmatrixMBHBoys extends AppCompatActivity {
     GestureView gestureView;
     SharedPrefManager sharedPrefManager;
     String hostelName, username, rollNumber, email, branch;
+    TextView display;
     List<hostel> hostelList;
 //    final Resources res = getResources();
 
@@ -175,33 +176,47 @@ public class SeatmatrixMBHBoys extends AppCompatActivity {
                     int n = hostelList.size();
 //                            List<String>usernames = new ArrayList<>();
                     List<String>roomNumberFullyFilled = new ArrayList<>();
-                    String rollNumber1 , rollNumber2,room;
+                    String rollNumber1 , rollNumber2,room , room2 = "";
 
                     for (int i =0 ; i<n;i++){
                         rollNumber1 = hostelList.get(i).getRollNumber1();
                         rollNumber2 = hostelList.get(i).getRollNumber2();
                         room = hostelList.get(i).getRoomNumber();
-                        if(rollNumber1!=null&&rollNumber2!=null){
+                        room2=room+" ";
+                        if(room!=null) {
+                            if (rollNumber1 != null && rollNumber2 != null) {
 //                                    both ARE present
 //                            roomNumberFullyFilled.add(room);
 //                            Toast.makeText(SeatmatrixMBHBoys.this, room+" fully filled", Toast.LENGTH_SHORT).show();
-                            String btnid = "room"+room;
-                            int  resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
-                            Button b = (Button) findViewById(resId);
-                            b.setBackgroundResource(R.drawable.room_occupied_full);
-//                            b.setTextColor(R.color.white);
+                              try{
+                                  String btnid = "room" + room;
+                                  int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
+                                  Button b = (Button) findViewById(resId);
+                                  b.setBackgroundResource(R.drawable.room_occupied_full);
+                              }catch (NullPointerException e){
+                                  e.printStackTrace();
+                              }
 
-                        }
-                        else if(rollNumber1!=null&&rollNumber2==null){
+//                            b.setTextColor(R.color.white);
+                            } else if (rollNumber1 != null && rollNumber2 == null) {
 //                            student 1 is present only partially filled
 //                            roomNumber.add(room);
 //                            Toast.makeText(SeatmatrixMBHBoys.this, room+" partially filled", Toast.LENGTH_SHORT).show();
-                            String btnid = "room"+room;
-                            int  resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
-                            Button b = (Button) findViewById(resId);
-                            b.setBackgroundResource(R.drawable.room_occupied_partially);
+                                try{
+                                    String btnid = "room" + room;
+                                    int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
+                                    Button b = (Button) findViewById(resId);
+                                    b.setBackgroundResource(R.drawable.room_occupied_partially);
+                                }catch (NullPointerException e){
+                                    e.printStackTrace();
+                                }
+
+
+                            }
                         }
+
                     }
+                    binding.display.setText("total "+n);
 //                            hosteltxt.setText("names : "+usernames);
 
                 }else{

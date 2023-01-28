@@ -50,7 +50,7 @@
 
                 <com.alexvasilkov.gestures.views.GestureFrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_300sdp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/gestureview">
 
@@ -277,6 +277,7 @@
                             android:text="314" />
 
                         <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room316"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_margin="@dimen/_1sdp"
@@ -285,7 +286,7 @@
                             android:text="316" />
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room316"
+                            android:id="@+id/room318"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_margin="@dimen/_1sdp"
@@ -1108,6 +1109,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hloooo"
+        app:layout_constraintBottom_toTopOf="@+id/btnRoomBook3"
+        app:layout_constraintEnd_toEndOf="parent" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +50,7 @@ TextView username , rollNumber,roomNumber , branch,hostelName , email , phone;
 ImageView imgProfile ;
 FloatingActionButton btnChangeProfileImg ;
 FloatingActionButton btnChangeProfile ;
+LinearLayout roomLayout;
 SharedPrefManager sharedPrefManager;
     String picturePath , id;
     RegisterResponse responseFromApi;
@@ -78,6 +80,7 @@ SharedPrefManager sharedPrefManager;
         imgProfile=view.findViewById(R.id.profileImage);
         btnChangeProfileImg=view.findViewById(R.id.changeProfile);
         btnChangeProfile=view.findViewById(R.id.editProfile);
+        roomLayout=view.findViewById(R.id.roomlinearLayout);
         sharedPrefManager= new SharedPrefManager(getActivity());
         email.setText(sharedPrefManager.getUser().getEmail());
         username.setText(sharedPrefManager.getUser().getUsername());
@@ -85,9 +88,27 @@ SharedPrefManager sharedPrefManager;
         phone.setText(sharedPrefManager.getUser().getPhone());
         branch.setText(sharedPrefManager.getUser().getAddress());
 
+        if(sharedPrefManager.getHostelUser().getRoomNumber()==null){
+//            make view of roomNaumber in profile invisible
+            roomLayout.setVisibility(View.INVISIBLE);
+
+        }else{
+            roomNumber.setText(sharedPrefManager.getHostelUser().getRoomNumber());
+//            Also set the other information here
+        }
+
+        if(sharedPrefManager.getHostelUser().getHostelName()==null){
+//            make view of roomNaumber in profile invisible
+            roomLayout.setVisibility(View.INVISIBLE);
+        }else{
+            hostelName.setText(sharedPrefManager.getHostelUser().getHostelName());
+        }
+
+
         this.pd = ProgressDialog.show(getActivity(), "Downloading", "Loading...\nPlease wait...", true, false);
         // Start a new thread that will download all the data
         new IAmABackgroundTask().execute(); //to show the dialog box before creating the activtiy
+
 
         String imageFromDatabase= sharedPrefManager.getUser().getAvatar();
 ////center crop is use to not the image to be streched when resized
@@ -135,10 +156,10 @@ SharedPrefManager sharedPrefManager;
                     if (ProfileFragment.this.pd != null) {
                         ProfileFragment.this.pd.dismiss();
                     }
-                    handler.postDelayed(this, 5000);
+                    handler.postDelayed(this, 2000);
                 }
             };
-            handler.postDelayed(runnable, 5000);
+            handler.postDelayed(runnable, 2000);
 
         }
 

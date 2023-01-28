@@ -5,10 +5,27 @@ public class hostel {
     private String       userName2 , email2,phone2,address2,branch2,rollNumber2,fatherName2,fatherPhone2;
     private String message , status ;
 
+//    public hostel(String roomNumber) {
+//        this.roomNumber = roomNumber;
+//    }
+
+    public hostel(String _id, String roomNumber,String hostelName, String userName1, String email1,String rollNumber1, String phone1,String fatherName1, String fatherPhone1 , String address1, String branch1) {
+        this._id = _id;
+        this.userName1 = userName1;
+        this.email1 = email1;
+        this.phone1 = phone1;
+        this.address1 = address1;
+        this.branch1 = branch1;
+        this.rollNumber1 = rollNumber1;
+        this.fatherName1 = fatherName1;
+        this.fatherPhone1 = fatherPhone1;
+        this.roomNumber = roomNumber;
+        this.hostelName = hostelName;
+    }
+
     public hostel(String roomNumber) {
         this.roomNumber = roomNumber;
     }
-
     public String getFatherName1() {
         return fatherName1;
     }

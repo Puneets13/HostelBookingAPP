@@ -43,6 +43,7 @@ import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
+import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.snackbar.Snackbar;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
@@ -65,7 +66,7 @@ public class RegisterationActivity extends AppCompatActivity {
     RadioButton btn1, btn2, btn3, btn4;
     RadioGroup radioGroup, radioGroupGender;
     Spinner spinnerBranch;
-
+SharedPrefManager sharedPrefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,6 +100,7 @@ public class RegisterationActivity extends AppCompatActivity {
         txtHostelname.setText(hostelName);
         txtUsername.setText(username);
         txtBranch.setText(branch);
+sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
 //        setting spinner for branch
         //get the spinner from the xml.
@@ -232,7 +234,8 @@ public class RegisterationActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             if (responseFromApi.getMessage().equals("success")) {
                                 progressDialog.dismiss();
-                                Toast.makeText(RegisterationActivity.this, responseFromApi.getHostel().getUsername1() + " Registered", Toast.LENGTH_SHORT).show();
+                                sharedPrefManager.SaveHostelUser(responseFromApi.getHostel());  //this is used to save the user properties in the sharePrefManager
+                                Toast.makeText(RegisterationActivity.this, responseFromApi.getHostel().getRoomNumber(), Toast.LENGTH_SHORT).show();
                                 finish(); //to remove the current activity
                             } else {
                                 progressDialog.dismiss();
