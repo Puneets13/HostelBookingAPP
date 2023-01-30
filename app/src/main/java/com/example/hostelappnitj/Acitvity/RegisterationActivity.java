@@ -235,8 +235,8 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                             if (responseFromApi.getMessage().equals("success")) {
                                 progressDialog.dismiss();
                                 sharedPrefManager.SaveHostelUser(responseFromApi.getHostel());
-                                etAddress.setText(sharedPrefManager.getHostelUser().getHostelName());
-                                etFatherName.setText(sharedPrefManager.getHostelUser().getRoomNumber());
+//                                etAddress.setText(sharedPrefManager.getHostelUser().getHostelName());
+//                                etFatherName.setText(sharedPrefManager.getHostelUser().getRoomNumber());
 
                                 //this is used to save the user properties in the sharePrefManager
                                 Toast.makeText(RegisterationActivity.this, responseFromApi.getHostel().getRoomNumber(), Toast.LENGTH_SHORT).show();
