@@ -66,7 +66,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private void CreateUser() {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Registering user");
-        progressDialog.setMessage("Creating New User");
+        progressDialog.setMessage("Sending OTP to entered Email..");
         progressDialog.show();
         progressDialog.setCancelable(false);
         String rollno = rollNumber.getText().toString();
@@ -162,12 +162,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     }
                     else{
                         //Call intent to transefer to new login activity
-                        String responseOfUser=user.get_id()+" \n"+user.getUsername()+"\n"+user.getEmail();
 
-                        Toast.makeText(SignUpActivity.this, "User Registered", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                        Intent intent = new Intent(SignUpActivity.this, OTPActivity.class);
+                        intent.putExtra("email",useremail);
 //                        //this is used to clear the previous stack of activities so when back button pressed then previous activites
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
 
                     }

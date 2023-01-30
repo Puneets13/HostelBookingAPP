@@ -83,7 +83,7 @@ SharedPrefManager sharedPrefManager;
         etStdPhone = findViewById(R.id.etPhone);
         etAddress = findViewById(R.id.etAddress);
         btnBook_room = findViewById(R.id.btnBookRoom);
-        btnPayment = findViewById(R.id.btnPayment);
+//        btnPayment = findViewById(R.id.btnPayment);
 
         radioGroup = findViewById(R.id.radioGroup);
         radioGroupGender = findViewById(R.id.radioGroupGender);

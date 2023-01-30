@@ -19,12 +19,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Acitvity.OTPActivity"
+            android:exported="false" />
+        <activity
             android:name=".Acitvity.settingUserProfile"
             android:exported="false" />
         <activity
             android:name=".Acitvity.SeatmatrixMBHBoys"
-            android:exported="false" >
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".Hostels.GirlsH2Activity"
             android:exported="false" />
@@ -57,23 +59,23 @@
             android:exported="false" />
         <activity
             android:name=".Acitvity.SignInActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Acitvity.SignUpActivity"
             android:exported="false">
-
         </activity>
         <activity
             android:name=".Acitvity.RegisterationActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

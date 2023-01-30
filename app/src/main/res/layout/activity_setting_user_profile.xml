@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,127 +8,168 @@
     android:layout_gravity="center"
     android:gravity="center"
     >
-
-<LinearLayout
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-android:orientation="vertical"
-    android:background="@color/white"
-    >
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:src="@drawable/profile_bg" />
+
     <TextView
-        android:id="@+id/txtedit"
+        android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="30dp"
-        android:fontFamily="@font/audiowide"
-        android:padding="@dimen/_8sdp"
-        android:text="Edit Profile"
-        android:textColor="@color/black"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:fontFamily="@font/kavivanar"
+        android:text="National Institute of\n Technology , \n Jalandhar"
+        android:textColor="#fff"
         android:textSize="@dimen/_25sdp"
         android:textStyle="bold" />
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/_230sdp"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_below="@+id/txtedit"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="25dp"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:id="@+id/emaillayout">
 
-        <EditText
-            android:id="@+id/etusername"
-            android:layout_width="match_parent"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/logo"
+        android:layout_width="147dp"
+        android:layout_height="164dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_95sdp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:elevation="@dimen/_550sdp"
+        android:src="@drawable/nitjlogo"
+        app:civ_circle_background_color="@color/white" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_170sdp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtedit"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Username" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/_230sdp"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_below="@+id/passwordlayout"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/branch"
-        android:layout_gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/audiowide"
+            android:padding="@dimen/_8sdp"
+            android:text="Edit Profile"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_25sdp"
+            android:textStyle="bold" />
 
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emaillayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="wrap_content"
-            android:hint="Branch"
-            android:singleLine="true"
-            android:inputType="text"
-            android:id="@+id/etBranch" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_below="@+id/txtedit"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="30dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/_230sdp"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_below="@+id/emaillayout"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/passwordlayout"
-        android:layout_gravity="center"
+            <EditText
+                android:id="@+id/etusername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/branch"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="wrap_content"
-            android:hint="Phone"
-            android:maxLength="10"
-            android:singleLine="true"
-            android:inputType="phone"
-            android:id="@+id/etPhone" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/_230sdp"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_below="@+id/passwordlayout"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/addresslayout"
-        android:layout_gravity="center"
+            android:layout_below="@+id/passwordlayout"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
 
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBranch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Branch"
+                android:inputType="text"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordlayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="wrap_content"
-            android:hint="Address"
-            android:singleLine="true"
-            android:inputType="text"
-            android:id="@+id/etAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_below="@+id/emaillayout"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
 
-    <android.widget.Button
-        android:id="@+id/btnCreateProfile"
-        android:layout_width="@dimen/_230sdp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/addresslayout"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="@dimen/_20sdp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:background="@color/black"
-        android:text="Edit Profile"
-        android:textColor="@color/white"
-        android:textSize="18dp" />
+            >
 
-</LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addresslayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passwordlayout"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:inputType="text"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <android.widget.Button
+            android:id="@+id/btnCreateProfile"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addresslayout"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@color/black"
+            android:text="Edit Profile"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+    </LinearLayout>
 
 
 <!--    <de.hdodenhof.circleimageview.CircleImageView-->
@@ -242,4 +283,7 @@ android:orientation="vertical"
 <!--        android:layout_centerInParent="true"-->
 <!--        android:visibility="gone"-->
 <!--        />-->
+
 </RelativeLayout>
+
+</ScrollView>

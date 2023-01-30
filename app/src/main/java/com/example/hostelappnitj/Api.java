@@ -2,9 +2,11 @@ package com.example.hostelappnitj;
 
 import android.provider.SyncStateContract;
 
+import com.example.hostelappnitj.Acitvity.OTPActivity;
 import com.example.hostelappnitj.ModelResponse.CreateProfileResponse;
 import com.example.hostelappnitj.ModelResponse.DataModel;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
+import com.example.hostelappnitj.ModelResponse.OTP_model;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
@@ -27,7 +29,15 @@ public interface Api {
     @POST("Signup")
     Call<DataModel> register(
             @Body DataModel dataModel);
-//
+//    FOR VERIFICATION OTP
+    @POST("verifyOTP")
+    Call<OTP_model> veriftyOTP(
+            @Body OTP_model otp_model);
+
+    //    FOR VERIFICATION OTP
+    @POST("resendOTP")
+    Call<OTP_model> resendOTP(
+            @Body OTP_model otp_model);
 //    //    for LOGIN user
     @POST("login")
     Call<DataModel>login(

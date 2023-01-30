@@ -1109,13 +1109,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/display"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="hloooo"
-        app:layout_constraintBottom_toTopOf="@+id/btnRoomBook3"
-        app:layout_constraintEnd_toEndOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/display"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="hloooo"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/btnRoomBook3"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Acitvity.SignUpActivity"
     >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/bg_img"
@@ -52,25 +55,6 @@
         android:textColor="@color/black"
         android:textSize="@dimen/_25sdp"
         android:textStyle="bold" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_centerInParent="true"
-        app:cardBackgroundColor="#DFE3E3"
-        app:cardCornerRadius="@dimen/_10sdp"
-        android:layout_centerHorizontal="true"
-        app:cardElevation="10dp"
-        app:cardMaxElevation="@dimen/_20sdp">
-
-
-    </androidx.cardview.widget.CardView>
-
-
 
     <!--    this edit text is used imported from material desgin so used in this manner-->
     <com.google.android.material.textfield.TextInputLayout
@@ -168,3 +152,5 @@
         android:visibility="gone"
         />
 </RelativeLayout>
+
+</ScrollView>

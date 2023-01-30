@@ -216,7 +216,7 @@ public class SeatmatrixMBHBoys extends AppCompatActivity {
                         }
 
                     }
-                    binding.display.setText("total "+n);
+//                    binding.display.setText("total "+n);
 //                            hosteltxt.setText("names : "+usernames);
 
                 }else{
