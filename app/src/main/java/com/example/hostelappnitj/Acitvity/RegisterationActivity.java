@@ -186,10 +186,17 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 fatherPhone = etFatherPhone.getText().toString();
                 phone = etStdPhone.getText().toString();
                 address = etAddress.getText().toString();
-//
+                String room_substring = roomNo.substring(Math.max(roomNo.length() - 2, 0));
+                int room_int=Integer.parseInt(room_substring);
                 if (roomNo.isEmpty()) {
                     etRoomNumber.requestFocus();
                     etRoomNumber.setError("Please enter required Room Number");
+                    progressDialog.dismiss();
+                    return;
+                }
+                if(room_int>=46 || room_int<=01){
+                    etRoomNumber.requestFocus();
+                    etRoomNumber.setError("Please enter Valid Room Number");
                     progressDialog.dismiss();
                     return;
                 }
@@ -241,7 +248,10 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                                 //this is used to save the user properties in the sharePrefManager
                                 Toast.makeText(RegisterationActivity.this, responseFromApi.getHostel().getRoomNumber(), Toast.LENGTH_SHORT).show();
 //                                finish(); //to remove the current activity
-                            } else {
+                            } else if(responseFromApi.getMessage().equals("Room Not Available")){
+                                Toast.makeText(RegisterationActivity.this, "Room Not Available..", Toast.LENGTH_SHORT).show();
+                            }
+                            else {
                                 progressDialog.dismiss();
                                 Toast.makeText(RegisterationActivity.this, responseFromApi.getMessage(), Toast.LENGTH_SHORT).show();
                             }
