@@ -23,7 +23,7 @@ public class hostel {
         this.hostelName = hostelName;
     }
 
-    public hostel(String roomNumber, String hostelName) {
+    public hostel( String roomNumber, String hostelName) {
         this.roomNumber = roomNumber;
         this.hostelName = hostelName;
     }

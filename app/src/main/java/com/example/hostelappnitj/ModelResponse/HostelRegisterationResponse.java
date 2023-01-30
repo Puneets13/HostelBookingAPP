@@ -160,11 +160,11 @@ public class HostelRegisterationResponse {
         this.status = status;
     }
 
-    public com.example.hostelappnitj.ModelResponse.hostel getHostel() {
+    public hostel getHostel() {
         return hostel;
     }
 
-    public void setHostel(com.example.hostelappnitj.ModelResponse.hostel hostel) {
+    public void setHostel(hostel hostel) {
         this.hostel = hostel;
     }
 }

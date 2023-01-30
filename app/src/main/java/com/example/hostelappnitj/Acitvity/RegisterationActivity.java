@@ -234,9 +234,13 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                         if (response.isSuccessful()) {
                             if (responseFromApi.getMessage().equals("success")) {
                                 progressDialog.dismiss();
-                                sharedPrefManager.SaveHostelUser(responseFromApi.getHostel());  //this is used to save the user properties in the sharePrefManager
+                                sharedPrefManager.SaveHostelUser(responseFromApi.getHostel());
+                                etAddress.setText(sharedPrefManager.getHostelUser().getHostelName());
+                                etFatherName.setText(sharedPrefManager.getHostelUser().getRoomNumber());
+
+                                //this is used to save the user properties in the sharePrefManager
                                 Toast.makeText(RegisterationActivity.this, responseFromApi.getHostel().getRoomNumber(), Toast.LENGTH_SHORT).show();
-                                finish(); //to remove the current activity
+//                                finish(); //to remove the current activity
                             } else {
                                 progressDialog.dismiss();
                                 Toast.makeText(RegisterationActivity.this, responseFromApi.getMessage(), Toast.LENGTH_SHORT).show();

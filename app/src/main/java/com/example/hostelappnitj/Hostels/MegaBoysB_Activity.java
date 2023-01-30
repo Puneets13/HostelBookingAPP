@@ -54,22 +54,27 @@ public class MegaBoysB_Activity extends AppCompatActivity {
                                 break;
                             case 2 : //floor 2
                                 Intent intent2 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                intent2.putExtra("hostelName","Mega Boys Hostel B");
                                 startActivity(intent2);
                                 break;
                             case 3 : //floor 3
                                 Intent intent3 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                intent3.putExtra("hostelName","Mega Boys Hostel B");
                                 startActivity(intent3);
                                 break;
                             case 4 : //floor 1
                                 Intent intent4 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                intent4.putExtra("hostelName","Mega Boys Hostel B");
                                 startActivity(intent4);
                                 break;
                             case 5 : //floor 2
                                 Intent intent5 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                intent5.putExtra("hostelName","Mega Boys Hostel B");
                                 startActivity(intent5);
                                 break;
                             case 6 : //floor 3
                                 Intent intent6 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                intent6.putExtra("hostelName","Mega Boys Hostel B");
                                 startActivity(intent6);
                                 break;
                         }
