@@ -110,12 +110,19 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         Toast.makeText(SignInActivity.this, useremail+" has not registered", Toast.LENGTH_SHORT).show();
 
                     }
+                    else if(responseFromAPi.getMessage().equals("not verified")&& responseFromAPi.getError().equals("please register again")){
+                        email.setText("");
+                        password.setText("");
+                        Toast.makeText(SignInActivity.this, useremail+" has not registered", Toast.LENGTH_SHORT).show();
+
+                    }
                     else{
 //                      when it is successfull then
-                        String responseString =  "\nUsername : " + user.getUsername()+"\n"+user.getEmail();
+//                        String responseString =  "\nUsername : " + user.getUsername()+"\n"+user.getEmail();
 
                         sharedPrefManager.SaveUser(responseFromAPi.getUser());  //this is used to save the user properties in the sharePrefManager
 //sharedPrefManager.getHostelUser(res)
+                        sharedPrefManager.SaveHostelUser(responseFromAPi.getHostel());
                         Toast.makeText(SignInActivity.this, user.getEmail()+" Login successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignInActivity.this, MainActivity.class);
 //this is used to clear the previous stack of activities so when back button pressed then previous activites

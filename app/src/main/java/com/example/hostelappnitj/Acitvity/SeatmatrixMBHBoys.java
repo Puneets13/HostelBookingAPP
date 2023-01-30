@@ -171,7 +171,7 @@ public class SeatmatrixMBHBoys extends AppCompatActivity {
             public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
                 HostelRegisterationResponse responseFromAPI= response.body();
                 if(response.isSuccessful()){
-                    Toast.makeText(SeatmatrixMBHBoys.this, "Hostels recieved", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SeatmatrixMBHBoys.this, "Hostels Updated", Toast.LENGTH_SHORT).show();
                     hostelList=  responseFromAPI.getHostelList();
                     int n = hostelList.size();
 //                            List<String>usernames = new ArrayList<>();

@@ -31,6 +31,7 @@ DrawerLayout drawerLayout;
 NavigationView navigationView;
 Toolbar toolbar;
 SharedPrefManager sharedPrefManager;
+    private final static String TAG_FRAGMENT = "TAG_FRAGMENT";
     private DialogInterface.OnClickListener dialogClickListener;
 
     @Override
@@ -102,21 +103,34 @@ sharedPrefManager=new SharedPrefManager(MainActivity.this);
         });
     }
 
-//    to close the drawer when backPress button is pressed on phone if it is opend
+////    to close the drawer when backPress button is pressed on phone if it is opend
+//    @Override
+//    public void onBackPressed() {
+//
+//    }
     @Override
     public void onBackPressed() {
+
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
             super.onBackPressed();
         }
+//        int count = getSupportFragmentManager().getBackStackEntryCount();
+//        if (count == 0) {
+//            super.onBackPressed();
+//            //additional code
+//        } else {
+//            getSupportFragmentManager().popBackStack();
+//        }
     }
+
 
 //    function to load the fragment
     private void loadFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.home_container,fragment);
+        fragmentTransaction.replace(R.id.home_container,fragment);  //to move to backword
         fragmentTransaction.commit();
     }
     private void logoutUser() {

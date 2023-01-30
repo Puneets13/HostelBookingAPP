@@ -26,7 +26,7 @@ public class MegaBoysB_Activity extends AppCompatActivity {
 
 
         hostelFloors = new CharSequence[]{
-                "FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
+                "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
         };
 
         hostelRegisteration.setOnClickListener(new View.OnClickListener() {
@@ -42,28 +42,33 @@ public class MegaBoysB_Activity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
-                            case 0 : //floor 1
+                            case 0 : // Ground floor
+                                Intent intent0 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
+                                intent0.putExtra("hostelName","Mega Boys Hostel B");
+                                startActivity(intent0);
+                                break;
+                            case 1 : //floor 1
                                 Intent intent = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
                                 intent.putExtra("hostelName","Mega Boys Hostel B");
                                 startActivity(intent);
                                 break;
-                            case 1 : //floor 2
+                            case 2 : //floor 2
                                 Intent intent2 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
                                 startActivity(intent2);
                                 break;
-                            case 2 : //floor 3
+                            case 3 : //floor 3
                                 Intent intent3 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
                                 startActivity(intent3);
                                 break;
-                            case 3 : //floor 1
+                            case 4 : //floor 1
                                 Intent intent4 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
                                 startActivity(intent4);
                                 break;
-                            case 4 : //floor 2
+                            case 5 : //floor 2
                                 Intent intent5 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
                                 startActivity(intent5);
                                 break;
-                            case 5 : //floor 3
+                            case 6 : //floor 3
                                 Intent intent6 = new Intent(MegaBoysB_Activity.this, SeatmatrixMBHBoys.class);
                                 startActivity(intent6);
                                 break;

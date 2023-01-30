@@ -11,6 +11,16 @@ public class DataModel {
     private User user ;
     private String user_Id;
 
+    private hostel hostel ;
+
+    public hostel getHostel() {
+        return hostel;
+    }
+
+    public void setHostel(hostel hostel) {
+        this.hostel = hostel;
+    }
+
     public User getUser() {
         return user;
     }

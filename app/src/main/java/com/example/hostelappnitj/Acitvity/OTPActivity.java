@@ -62,7 +62,7 @@ public class OTPActivity extends AppCompatActivity {
                     call.enqueue(new Callback<OTP_model>() {
                         @Override
                         public void onResponse(Call<OTP_model> call, Response<OTP_model> response) {
-                            Toast.makeText(OTPActivity.this, "Entered response", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(OTPActivity.this, "Entered response", Toast.LENGTH_SHORT).show();
                             OTP_model responseFromAPI = response.body();
                             if(response.isSuccessful()){
                                 if(responseFromAPI.getMessage().equals("User Already Exist")){
