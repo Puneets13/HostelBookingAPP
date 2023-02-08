@@ -45,8 +45,8 @@ import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.snackbar.Snackbar;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+//import com.itextpdf.text.pdf.PdfReader;
+//import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
 import java.io.File;
 

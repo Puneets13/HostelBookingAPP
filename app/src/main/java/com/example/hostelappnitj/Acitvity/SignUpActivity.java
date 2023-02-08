@@ -104,7 +104,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             progressDialog.dismiss();
 
             return;
-        }else if(userpassword.length() < 8){
+        }
+        else if(!containsNumbers(userpassword)) {
+            Toast.makeText(this, "Password must contain numbers", Toast.LENGTH_LONG).show();
+            progressDialog.dismiss();
+        }
+
+        else if(userpassword.length() < 8){
             Toast.makeText(this, "Minimum length Required is 8 ", Toast.LENGTH_LONG).show();
             progressDialog.dismiss();
             return;
@@ -190,5 +196,16 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private void switchonlogin() {
         Intent intent = new Intent(SignUpActivity.this,SignInActivity.class);
         startActivity(intent);
+    }
+    public static boolean containsNumbers(String string) {
+        if (string == null || string.isEmpty()) {
+            return false;
+        }
+        for (int i = 0; i < string.length(); ++i) {
+            if (Character.isDigit(string.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
     }
 }

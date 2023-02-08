@@ -23,13 +23,22 @@ import com.example.hostelappnitj.SharedPrefManager;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
+    Integer attempts=0;
     TextView registerlink;
     EditText password,email;
     Button login;
     ProgressDialog progressDialog ;
     SharedPrefManager sharedPrefManager ; //to maintain the login-logout session
+
+    public int getAttempts() {
+        return attempts;
+    }
+
+    public void setAttempts(int attempts) {
+        this.attempts = attempts;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,14 +53,20 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         login.setOnClickListener(this);
         sharedPrefManager = new SharedPrefManager(this.getApplicationContext());  //pass the context of the application to sharedprefmanager
 
-
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnlogin:
-                Loginuser();
+                if(getAttempts()==2){
+                    login.setText("Too many attempts");
+                    login.setClickable(false);
+                }
+                else{
+                    Loginuser();
+                }
+
 //                Intent intent=new Intent(LoginActivity.this, HomeActivity.class);
 //                startActivity(intent);
                 break;
@@ -101,18 +116,22 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 if(response.isSuccessful()){
                     if(responseFromAPi.getMessage().equals("false") && responseFromAPi.getError().equals("Incorrect Password")){
                         password.setText("");
+                        setAttempts(getAttempts()+1);
                         Toast.makeText(SignInActivity.this, "Incorrect Password\nPlease try again", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     else if(responseFromAPi.getError().equals("user not found") && responseFromAPi.getMessage().equals("false")){
                         email.setText("");
                         password.setText("");
+                        setAttempts(getAttempts()+1);
                         Toast.makeText(SignInActivity.this, useremail+" has not registered", Toast.LENGTH_SHORT).show();
 
                     }
                     else if(responseFromAPi.getMessage().equals("not verified")&& responseFromAPi.getError().equals("please register again")){
                         email.setText("");
                         password.setText("");
+                        setAttempts(getAttempts()+1);
+
                         Toast.makeText(SignInActivity.this, useremail+" has not registered", Toast.LENGTH_SHORT).show();
 
                     }
@@ -123,7 +142,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         sharedPrefManager.SaveUser(responseFromAPi.getUser());  //this is used to save the user properties in the sharePrefManager
 //sharedPrefManager.getHostelUser(res)
                         sharedPrefManager.SaveHostelUser(responseFromAPi.getHostel());
-                        
+
                         Toast.makeText(SignInActivity.this, user.getEmail()+" Login successfully", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(SignInActivity.this, MainActivity.class);
 //this is used to clear the previous stack of activities so when back button pressed then previous activites
@@ -135,6 +154,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                     password.setText("");
                     email.setText("");
                     progressDialog.dismiss();
+                    setAttempts(getAttempts()+1);
                     Toast.makeText(SignInActivity.this, "Incorrect Password or Email", Toast.LENGTH_SHORT).show();
                     return;
                 }
