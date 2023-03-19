@@ -112,7 +112,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/email"
                     android:drawablePadding="@dimen/_8sdp"
-                    android:hint="puneets.ce.20@nitj.ac.in"
+                    android:hint=""
                     android:textSize="@dimen/_20sdp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/department"
                     android:drawablePadding="@dimen/_8sdp"
-                    android:hint="Information Technology"
+                    android:hint=""
                     android:textSize="@dimen/_20sdp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -153,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_user"
                     android:drawablePadding="@dimen/_8sdp"
-                    android:hint="Name"
+                    android:hint=""
                     android:textSize="@dimen/_20sdp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -173,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/hostel_bed"
                     android:drawablePadding="@dimen/_8sdp"
-                    android:hint="Mega Boys Hostel"
+                    android:hint="Hostel Name"
                     android:textSize="@dimen/_20sdp" />
             </com.google.android.material.textfield.TextInputLayout>
 

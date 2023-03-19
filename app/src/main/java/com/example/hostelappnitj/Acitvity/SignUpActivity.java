@@ -197,6 +197,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         Intent intent = new Intent(SignUpActivity.this,SignInActivity.class);
         startActivity(intent);
     }
+
     public static boolean containsNumbers(String string) {
         if (string == null || string.isEmpty()) {
             return false;

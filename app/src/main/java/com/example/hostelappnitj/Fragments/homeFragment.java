@@ -35,8 +35,6 @@ public class homeFragment extends Fragment {
 ImageView imageViewHostels ;
 ExtendedFloatingActionButton registerBtn;
     AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH5,btnBoysH6,btnBoysH7,btnGirlsMega , btnGirlsH1,btnGirlsH2 ;
-
-
     public homeFragment() {
         // Required empty public constructor
     }
