@@ -98,13 +98,13 @@
                             android:src="@drawable/ic_toilet" />
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room309"
+                            android:id="@+id/room509"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_margin="@dimen/_1sdp"
                             android:background="@drawable/room_gradient2"
                             android:textSize="@dimen/_6sdp"
-                            android:text="309" />
+                            android:text="509" />
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/room311"
