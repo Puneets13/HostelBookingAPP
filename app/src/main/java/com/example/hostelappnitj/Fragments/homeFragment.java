@@ -24,7 +24,7 @@ import com.example.hostelappnitj.Hostels.GirlsH2Activity;
 import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
 import com.example.hostelappnitj.MBH_B_Hostel.MegaBoysB_Activity;
 import com.example.hostelappnitj.MBH_F_Hostel.MegaBoysF_Activity;
-import com.example.hostelappnitj.Hostels.MegaGirlsActivity;
+import com.example.hostelappnitj.MGH_Girls.MegaGirlsActivity;
 import com.example.hostelappnitj.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 

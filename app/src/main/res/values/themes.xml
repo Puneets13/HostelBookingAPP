@@ -27,4 +27,11 @@
         <!--on below line we are adding a window animationstyle-->
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
     </style>
+    <style name="Theme.HostelAPPNITJ.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.HostelAPPNITJ.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.HostelAPPNITJ.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
