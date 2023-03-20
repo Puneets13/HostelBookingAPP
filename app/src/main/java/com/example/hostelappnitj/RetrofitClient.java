@@ -10,7 +10,7 @@ public class RetrofitClient {
 //    use CMD ipconfig to get the ip address and then set the WIFI LAN ADAPTER Wifi IPV$ address
 //    use "http://IP_ADDRESS:PORT_NUMBER/"    192.168.47.243  192.168.29.242 192.168.47.243  192.168.47.243  192.168.47.243  192.168.212.243 192.168.212.243
 //    private static String BASE_URL = "http://192.168.195.243:1313/nitj_hostels/";  puneet url
-    private static String BASE_URL = "http://10.10.214.237:1313/nitj_hostels/";
+    private static String BASE_URL = "http://10.10.203.153:1313/nitj_hostels/";
 
 
     private static Retrofit retrofit;

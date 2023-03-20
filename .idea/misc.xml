@@ -62,8 +62,14 @@
         <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/drawable/background.xml" value="0.1055" />
         <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/drawable/room_bg.xml" value="0.1055" />
         <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/drawable/signin_bg1.xml" value="0.1" />
+        <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/layout/activity_mbhb_activity.xml" value="0.11296859169199595" />
+        <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/layout/activity_mega_girls.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/layout/activity_otpactivity.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/layout/activity_seatmatrix_mbhboys.xml" value="0.176" />
+        <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/layout/activity_setting_user_profile.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/layout/activity_sign_in.xml" value="0.11296859169199595" />
+        <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/layout/fragment_about.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/layout/fragment_profile.xml" value="0.23229166666666667" />
       </map>
     </option>
   </component>

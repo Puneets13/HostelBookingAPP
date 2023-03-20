@@ -52,6 +52,7 @@ Button btncreateprofile ;
     Uri selectedImage ;
     private static int RESULT_LOAD_IMAGE = 1;
     public static final String TAG = "Test";
+    String branch,name,roll,phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +84,14 @@ Button btncreateprofile ;
 //                }
 //            }
 //        });
+        Intent intent = getIntent();
+        name=intent.getStringExtra("name");
+        branch=intent.getStringExtra("branch");
+        phone=intent.getStringExtra("phone");
+        etBranch.setText(branch);
+        etPhone.setText(phone);
+        etUsername.setText(name);
+
 
     btncreateprofile.setOnClickListener(new View.OnClickListener() {
         @Override

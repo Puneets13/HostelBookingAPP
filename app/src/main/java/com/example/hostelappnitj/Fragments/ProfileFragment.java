@@ -104,7 +104,6 @@ SharedPrefManager sharedPrefManager;
             hostelName.setText(sharedPrefManager.getHostelUser().getHostelName());
         }
 
-
         this.pd = ProgressDialog.show(getActivity(), "Downloading", "Loading...\nPlease wait...", true, false);
         // Start a new thread that will download all the data
         new IAmABackgroundTask().execute(); //to show the dialog box before creating the activtiy
@@ -113,6 +112,9 @@ SharedPrefManager sharedPrefManager;
         String imageFromDatabase= sharedPrefManager.getUser().getAvatar();
 ////center crop is use to not the image to be streched when resized
         Picasso.get().load(imageFromDatabase).resize(550,550).centerCrop().into(imgProfile);
+
+
+
 
         btnChangeProfileImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +134,9 @@ SharedPrefManager sharedPrefManager;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), settingUserProfile.class);
+                intent.putExtra("name",username.getText().toString());
+                intent.putExtra("phone",phone.getText().toString());
+                intent.putExtra("branch",branch.getText().toString());
                 startActivity(intent);
             }
         });
