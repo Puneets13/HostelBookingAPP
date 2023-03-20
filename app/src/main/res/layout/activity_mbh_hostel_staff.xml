@@ -6,4 +6,341 @@
     android:layout_height="match_parent"
     tools:context=".MBH_B_Hostel.MBH_Hostel_Staff">
 
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:background="@drawable/gradient"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="NITJ HOSTELS"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:background="@drawable/rectangle"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/nitjlogo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:fontFamily="@font/calistoga"
+            android:text="HOSTEL STAFF"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sdp" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="@dimen/_50sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="horizontal">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:rowCount="4"
+            android:background="@drawable/staff_bg"
+            android:padding="@dimen/_2sdp"
+            android:layout_margin="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:elevation="@dimen/_10sdp"
+                android:fontFamily="@font/calistoga"
+                android:justificationMode="inter_word"
+                android:padding="@dimen/_10sdp"
+                android:text="Name Of Staff"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:elevation="@dimen/_10sdp"
+                android:fontFamily="@font/calistoga"
+                android:justificationMode="inter_word"
+                android:padding="@dimen/_10sdp"
+                android:text="Designation"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:elevation="@dimen/_10sdp"
+                android:fontFamily="@font/calistoga"
+                android:padding="@dimen/_10sdp"
+                android:text="Contact Number"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="Mr. Hari Kumar"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="Clerk"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="7837797418"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="Mr. Rajesh Kumar"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="Attendant"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="9878329873"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="Mr.Awdesh k."
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="Attendant"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="9872548026"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="Mr. Ritesh Kumar"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="Attendant"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:text="8219347118"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:text="Mr. Dinesh Roy"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:text="Attendant"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:background="@drawable/text_bg"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:text="8054549808"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp" />
+        </GridLayout>
+        </HorizontalScrollView>
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

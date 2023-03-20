@@ -31,7 +31,6 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 
 public class homeFragment extends Fragment {
 ImageView imageViewHostels ;
-ExtendedFloatingActionButton registerBtn;
     AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH5,btnBoysH6,btnBoysH7,btnGirlsMega , btnGirlsH1,btnGirlsH2 ;
     public homeFragment() {
         // Required empty public constructor
@@ -44,7 +43,6 @@ ExtendedFloatingActionButton registerBtn;
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         imageViewHostels=view.findViewById(R.id.imageView_hostels);
-        registerBtn=view.findViewById(R.id.registerBtn);
         btnmghB=view.findViewById(R.id.btnMghB);
         btnmghA=view.findViewById(R.id.btnMghA);
         btnmghF=view.findViewById(R.id.btnMghF);
@@ -73,15 +71,6 @@ ExtendedFloatingActionButton registerBtn;
             }
         };
         handler.postDelayed(runnable, 2000);
-        registerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "Register here", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), RegisterationActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
 
 
         btnmghB.setOnClickListener(new View.OnClickListener() {
