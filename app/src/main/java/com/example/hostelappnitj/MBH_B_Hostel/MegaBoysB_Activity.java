@@ -13,7 +13,7 @@ import com.example.hostelappnitj.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MegaBoysB_Activity extends AppCompatActivity {
-    CardView hostelRegisteration;
+    CardView hostelRegisteration,hostelRules;
 
      private CharSequence[] hostelFloors ;
     @Override
@@ -21,12 +21,19 @@ public class MegaBoysB_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mbhb_activity);
         hostelRegisteration=findViewById(R.id.hostelRegisteration);
-
+hostelRules=findViewById(R.id.hostelrules);
 
         hostelFloors = new CharSequence[]{
                 "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
         };
 
+//        hostelRules.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MegaBoysB_Activity.this, Hostel_Rules_Activity.class);
+//                startActivity(intent);
+//            }
+//        });
         hostelRegisteration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
