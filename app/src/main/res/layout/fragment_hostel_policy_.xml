@@ -45,8 +45,6 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20sdp" />
         </LinearLayout>
-
-
     </LinearLayout>
 
 
@@ -61,8 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
 
 
             <TextView
@@ -139,6 +135,7 @@
                 android:layout_margin="@dimen/_9sdp"
                 android:background="@drawable/text_bg"
                 />
+
 
         </LinearLayout>
     </ScrollView>

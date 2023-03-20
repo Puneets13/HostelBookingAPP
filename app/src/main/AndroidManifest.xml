@@ -19,6 +19,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Floor_6_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_5_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_4_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_3_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_2_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_1_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_1_SeatMatrix"
+            android:exported="false" />
+        <activity
             android:name=".Hostels.ExpulsionFromHostelRules"
             android:exported="false" />
         <activity
