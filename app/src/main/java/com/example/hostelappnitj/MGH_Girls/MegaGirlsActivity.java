@@ -15,7 +15,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 public class MegaGirlsActivity extends AppCompatActivity {
 
     CardView hostelRegisteration;
-
     private CharSequence[] hostelFloors ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +22,10 @@ public class MegaGirlsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mega_girls);
         hostelRegisteration=findViewById(R.id.hostelRegisteration);
 
-
         hostelFloors = new CharSequence[]{
                 "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
         };
+
 
         hostelRegisteration.setOnClickListener(new View.OnClickListener() {
             @Override
