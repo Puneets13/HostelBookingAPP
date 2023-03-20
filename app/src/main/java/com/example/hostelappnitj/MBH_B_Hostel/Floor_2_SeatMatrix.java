@@ -126,7 +126,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                             if(room!=null) {
                                 if (rollNumber1 != null && rollNumber2 != null) {
 //                                    both ARE present
-//                            roomNumberFullyFilled.add(room);
+//                            roomNumber FullyFilled. add(room);
 //                            Toast.makeText(SeatmatrixMBHBoys.this, room+" fully filled", Toast.LENGTH_SHORT).show();
                                     try{
                                         String btnid = "room" + room;

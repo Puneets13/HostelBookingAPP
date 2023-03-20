@@ -157,12 +157,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room311"
+                        android:id="@+id/room111"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="311"
+                        android:text="111"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -173,16 +173,14 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room313"
+                        android:id="@+id/room113"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="313"
+                        android:text="113"
                         android:textSize="@dimen/_6sdp"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-
+                        tools:ignore="TouchTargetSizeCheck"/>
                 </GridLayout>
 
                 <GridLayout
@@ -204,12 +202,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room310"
+                        android:id="@+id/room110"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="310"
+                        android:text="110"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -220,12 +218,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room314"
+                        android:id="@+id/room114"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="314"
+                        android:text="114"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -258,12 +256,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room309"
+                        android:id="@+id/room109"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="309"
+                        android:text="109"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -274,12 +272,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room315"
+                        android:id="@+id/room115"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="315"
+                        android:text="115"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -314,12 +312,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room308"
+                        android:id="@+id/room108"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="308"
+                        android:text="108"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -330,12 +328,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room316"
+                        android:id="@+id/room116"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="316"
+                        android:text="116"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -371,12 +369,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room307"
+                        android:id="@+id/room107"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="307"
+                        android:text="107"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -478,12 +476,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room306"
+                        android:id="@+id/room106"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="306"
+                        android:text="106"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -535,12 +533,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room305"
+                        android:id="@+id/room105"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="305"
+                        android:text="105"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -551,12 +549,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room317"
+                        android:id="@+id/room117"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient4"
-                        android:text="317"
+                        android:text="117"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -591,12 +589,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room304"
+                        android:id="@+id/room104"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="304"
+                        android:text="104"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -607,12 +605,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room318"
+                        android:id="@+id/room118"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient4"
-                        android:text="318"
+                        android:text="118"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -640,12 +638,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room303"
+                        android:id="@+id/room103"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient4"
-                        android:text="303"
+                        android:text="103"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -658,12 +656,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room319"
+                        android:id="@+id/room119"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient2"
-                        android:text="319"
+                        android:text="119"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -690,12 +688,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:layout_margin="@dimen/_1sdp"
                         android:src="@drawable/blank_room" />
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room302"
+                        android:id="@+id/room102"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient4"
-                        android:text="302"
+                        android:text="102"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -708,12 +706,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room320"
+                        android:id="@+id/room120"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient4"
-                        android:text="320"
+                        android:text="120"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
                 </GridLayout>
@@ -743,12 +741,12 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:src="@drawable/blank_room" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room301"
+                        android:id="@+id/room101"
                         android:layout_width="19dp"
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient"
-                        android:text="301"
+                        android:text="101"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
                     <ImageView
