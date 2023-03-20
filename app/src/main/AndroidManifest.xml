@@ -19,6 +19,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Hostels.Hostel_Rules_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Hostels.Mess_Rules"
+            android:exported="false" />
+        <activity
+            android:name=".MBH_B_Hostel.MBH_Hostel_Staff"
+            android:exported="false" />
+        <activity
             android:name=".MGH_Girls.MghSeatMatrixFloor6"
             android:exported="false" />
         <activity

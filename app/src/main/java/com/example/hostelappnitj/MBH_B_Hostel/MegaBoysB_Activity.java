@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.hostelappnitj.Acitvity.SeatmatrixMBHBoys;
+import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
 import com.example.hostelappnitj.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -27,13 +28,13 @@ hostelRules=findViewById(R.id.hostelrules);
                 "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
         };
 
-//        hostelRules.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MegaBoysB_Activity.this, Hostel_Rules_Activity.class);
-//                startActivity(intent);
-//            }
-//        });
+        hostelRules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MegaBoysB_Activity.this, Hostel_Rules_Activity.class);
+                startActivity(intent);
+            }
+        });
         hostelRegisteration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

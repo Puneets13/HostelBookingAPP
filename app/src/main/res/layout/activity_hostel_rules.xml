@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Hostels.Hostel_Rules_Activity">
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:background="@drawable/gradient"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="NITJ HOSTELS"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:background="@drawable/rectangle"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/nitjlogo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            android:fontFamily="@font/calistoga"
+            android:text="HOSTEL RULES"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20sdp" />
+    </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_110sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1. No student should be in possession of fire-arm, lethal weapon, alcohol or drugs, poisonous thing or intoxicant of any kind in the hostel. If anyone found guilty of having said material is considered breach of the rule and shall be liable to be expelled from the hostel, apart from any other punishment that may be posed to him/her by the Chief Warden/Institute Discipline Committee or by law of land."
+                    android:justificationMode="inter_word"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp"
+                    android:elevation="@dimen/_50sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:background="@drawable/text_bg"
+                    android:layout_margin="@dimen/_9sdp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2.Any student found involved in making comments on political parties or govt and making anti national comments or statements and sharing it on social media (like twitter, face book, whats App etc) will be liable to strict disciplinary action including expulsion from hostel with immediate effect. He /She will be suspended from classes or may be rusticated and will be liable for suitable legal action."
+                    android:textColor="@color/black"
+                    android:justificationMode="inter_word"
+                    android:elevation="@dimen/_50sdp"
+                    android:textSize="@dimen/_11sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_margin="@dimen/_9sdp"
+                    android:background="@drawable/text_bg"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3.No anti social, gender-based, caste-based, religion-based and region-based comments/statements are acceptable from the students/hostel residents. This will be liable to strict disciplinary action as mentioned in para (2)"
+                    android:textColor="@color/black"
+                    android:justificationMode="inter_word"
+                    android:elevation="@dimen/_50sdp"
+                    android:textSize="@dimen/_11sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_margin="@dimen/_9sdp"
+                    android:background="@drawable/text_bg"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4.Any type of students' gathering/campaign/agitation/protest and threatening the faculty/staff/student is not permitted in the premises of hostel/Institute. However, any campaign for the social awareness or well being or social concern may be organized with the prior permission of competent authority."
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp"
+                    android:justificationMode="inter_word"
+                    android:padding="@dimen/_10sdp"
+                    android:elevation="@dimen/_50sdp"
+                    android:layout_margin="@dimen/_9sdp"
+                    android:background="@drawable/text_bg"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5.Any type of electrical appliances (electric kettle, heaters, iron, induction etc) is not allowed in hostel room. If any student is found keeping these things in his/her room, he/she will be liable to disciplinary action."
+                    android:textColor="@color/black"
+                    android:justificationMode="inter_word"
+                    android:textSize="@dimen/_11sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_margin="@dimen/_9sdp"
+                    android:elevation="@dimen/_50sdp"
+                    android:background="@drawable/text_bg"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="6.The students should not indulge in activities amounting to an act of indiscipline and misdemeanor such as:
+#Disturbing the classes, misbehavior with  teachers and students taking examination or in any other academic activity.
+#Interfering with the functioning of various committees."
+                    android:textColor="@color/black"
+                    android:justificationMode="inter_word"
+                    android:elevation="@dimen/_50sdp"
+                    android:textSize="@dimen/_11sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_margin="@dimen/_9sdp"
+                    android:background="@drawable/text_bg"
+                    />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
