@@ -57,7 +57,7 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_15sdp"
             android:fontFamily="@font/calistoga"
-            android:text="MESS RULES"
+            android:text="EXPULSION RULES"
             android:textColor="@color/black"
             android:textSize="@dimen/_20sdp" />
     </LinearLayout>
@@ -77,7 +77,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-               android:text="1.The messes of all hostels operate on cooperative basis. A committee of the students from every hostel manages the affairs of the mess under the supervision of wardens."
+android:text="1.After the general allotment, application for withdrawal from the hostel should be counter-signed by the father/guardian and submitted to the hostel warden. It should also be ensured that the student does not owe any hostel dues."
                 android:justificationMode="inter_word"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_11sdp"
@@ -91,13 +91,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2.While visiting the dining hall, the common room and canteen, the students should be in their proper dress."
+                android:text="2.The Director/ DSW/ Chief Warden may expel a boarder from the hostel, if he/she is in the habit of staying away without intimation to the hostel office, or hostel fee and mess dues are not cleared in time"
                 android:textColor="@color/black"
                 android:justificationMode="inter_word"
                 android:elevation="@dimen/_10sdp"
                 android:textSize="@dimen/_11sdp"
                 android:padding="@dimen/_15sdp"
-
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_9sdp"
                 android:layout_marginLeft="@dimen/_9sdp"
@@ -106,23 +105,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3.All hostel inmates are required to follow the norms of the hostel/mess and required to deposit the mess advance (mess charges, maintenance charges, extra meal charges, service charges etc) as decided from time to time in each semester by the hostel authorities for availing mess facility."
-                android:textColor="@color/black"
-                android:justificationMode="inter_word"
-                android:elevation="@dimen/_10sdp"
-                android:textSize="@dimen/_11sdp"
-                android:padding="@dimen/_15sdp"
-
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_9sdp"
-                android:layout_marginLeft="@dimen/_9sdp"
-                android:background="@drawable/text_bg"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="4.Minimum 55 diets are mandatory for every hostel resident. The remaining balance of mess advance (if any) will be refunded after one year or the student leaves hostel whichever is earlier."
+android:text="3.Students who do not clear their dues, such as dues of the hostel mess, canteen, fine etc. by the prescribed date will not be registered for the subsequent semester until and unless, they clear all their dues and submit from the Account Section and the concerned hostel warden."
                 android:textColor="@color/black"
                 android:justificationMode="inter_word"
                 android:elevation="@dimen/_10sdp"
@@ -137,12 +120,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5.Wastage of food is strictly prohibited; the same may be liable to charging of fine as decided by the competent authority."
+android:text="4.The students who leave the Institute after completing the degree requirements or otherwise, their result as well as the provisional certificate/ degree will be withheld till NO DUE CERTIFICATE is produced."
                 android:textColor="@color/black"
-                android:textSize="@dimen/_11sdp"
                 android:justificationMode="inter_word"
-                android:padding="@dimen/_15sdp"
                 android:elevation="@dimen/_10sdp"
+                android:textSize="@dimen/_11sdp"
+                android:padding="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_9sdp"
                 android:layout_marginLeft="@dimen/_9sdp"
@@ -152,7 +135,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="6.Boarders who stay out, without any valid reasons, during the term are liable to pay the full charges of the Mess. Only during the vacation they are exempted from paying charges. However, the establishment and mess charges of the staff (Rs.100/- per month) will have to be shared by them also."
+android:text="5.No boarder shall leave the hostel without handing over the charge of the room as per the inventory issued at the time of allotment"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_11sdp"
                 android:justificationMode="inter_word"
