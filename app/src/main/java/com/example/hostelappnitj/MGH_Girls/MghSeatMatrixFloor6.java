@@ -22,6 +22,7 @@ import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
 import com.example.hostelappnitj.databinding.ActivityFloor1SeatMatrixBinding;
 import com.example.hostelappnitj.databinding.ActivityFloor6SeatMatrixBinding;
+import com.example.hostelappnitj.databinding.ActivityMghSeatMatrixFloor6Binding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ import retrofit2.Response;
 
 public class MghSeatMatrixFloor6 extends AppCompatActivity {
 
-    private ActivityFloor6SeatMatrixBinding binding;
+    private ActivityMghSeatMatrixFloor6Binding binding;
     AppCompatButton room301;
     AppCompatButton btnBook3;
     GestureView gestureView;
@@ -45,7 +46,7 @@ public class MghSeatMatrixFloor6 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding =  ActivityFloor6SeatMatrixBinding.inflate(getLayoutInflater());
+        binding =  ActivityMghSeatMatrixFloor6Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
