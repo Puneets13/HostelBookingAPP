@@ -19,6 +19,30 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Floor_Ground_SeatMatrix"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_6_SeatMatrix"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_5_SeatMatrix"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_4_SeatMatrix"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_3_SeatMatrix"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_2_SeatMatrix"
+            android:exported="false" />
+        <activity
+            android:name=".Floor_1_SeatMatrix"
+            android:exported="false" />
+        <activity
+            android:name=".SeatMatrixFloor_1"
+            android:exported="false" />
+        <activity
             android:name=".Acitvity.OTPActivity"
             android:exported="false" />
         <activity
@@ -26,7 +50,7 @@
             android:exported="false" />
         <activity
             android:name=".Acitvity.SeatmatrixMBHBoys"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".Hostels.GirlsH2Activity"
             android:exported="false" />
@@ -49,13 +73,13 @@
             android:name=".Hostels.BoysH4Activity"
             android:exported="false" />
         <activity
-            android:name=".Hostels.MegaBoysF_Activity"
+            android:name=".MBH_F_Hostel.MegaBoysF_Activity"
             android:exported="false" />
         <activity
-            android:name=".Hostels.MegaBoysB_Activity"
+            android:name=".MBH_B_Hostel.MegaBoysB_Activity"
             android:exported="false" />
         <activity
-            android:name=".Hostels.MegaBoysA_Activity"
+            android:name=".MBH_A_Hostel.MegaBoysA_Activity"
             android:exported="false" />
         <activity
             android:name=".Acitvity.SignInActivity"
@@ -68,8 +92,7 @@
         </activity>
         <activity
             android:name=".Acitvity.SignUpActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Acitvity.RegisterationActivity"
             android:exported="false" />
