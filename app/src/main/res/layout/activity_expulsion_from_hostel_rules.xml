@@ -62,91 +62,234 @@
             android:textSize="@dimen/_20sdp" />
     </LinearLayout>
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/_110sdp">
+        android:layout_marginTop="@dimen/_110sdp"
+        tools:layout_editor_absoluteY="169dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_margin="@dimen/_9sdp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/text_bg"
+            android:justificationMode="inter_word"
+            android:paddingLeft="@dimen/_40sdp"
+            android:paddingTop="@dimen/_13sdp"
+            android:paddingRight="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_15sdp"
+        android:text="1.After the general allotment, application for withdrawal from the hostel should be counter-signed by the father/guardian and submitted to the hostel warden. It should also be ensured that the student does not owe any hostel dues."
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-android:text="1.After the general allotment, application for withdrawal from the hostel should be counter-signed by the father/guardian and submitted to the hostel warden. It should also be ensured that the student does not owe any hostel dues."
-                android:justificationMode="inter_word"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_11sdp"
-                android:elevation="@dimen/_10sdp"
-                android:padding="@dimen/_15sdp"
-                android:background="@drawable/text_bg"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_9sdp"
-                android:layout_marginLeft="@dimen/_9sdp"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2.The Director/ DSW/ Chief Warden may expel a boarder from the hostel, if he/she is in the habit of staying away without intimation to the hostel office, or hostel fee and mess dues are not cleared in time"
-                android:textColor="@color/black"
-                android:justificationMode="inter_word"
-                android:elevation="@dimen/_10sdp"
-                android:textSize="@dimen/_11sdp"
-                android:padding="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_9sdp"
-                android:layout_marginLeft="@dimen/_9sdp"
-                android:background="@drawable/text_bg"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-android:text="3.Students who do not clear their dues, such as dues of the hostel mess, canteen, fine etc. by the prescribed date will not be registered for the subsequent semester until and unless, they clear all their dues and submit from the Account Section and the concerned hostel warden."
-                android:textColor="@color/black"
-                android:justificationMode="inter_word"
-                android:elevation="@dimen/_10sdp"
-                android:textSize="@dimen/_11sdp"
-                android:padding="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_9sdp"
-                android:layout_marginLeft="@dimen/_9sdp"
-                android:background="@drawable/text_bg"
-                />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView8"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="-40dp"
+            android:src="@drawable/ic_1"
+            app:civ_border_color="@color/mainColor"
+            app:civ_border_width="@dimen/_3sdp"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/textView4" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-android:text="4.The students who leave the Institute after completing the degree requirements or otherwise, their result as well as the provisional certificate/ degree will be withheld till NO DUE CERTIFICATE is produced."
-                android:textColor="@color/black"
-                android:justificationMode="inter_word"
-                android:elevation="@dimen/_10sdp"
-                android:textSize="@dimen/_11sdp"
-                android:padding="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_9sdp"
-                android:layout_marginLeft="@dimen/_9sdp"
-                android:background="@drawable/text_bg"
-                />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-android:text="5.No boarder shall leave the hostel without handing over the charge of the room as per the inventory issued at the time of allotment"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_11sdp"
-                android:justificationMode="inter_word"
-                android:padding="@dimen/_15sdp"
-                android:elevation="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_9sdp"
-                android:layout_marginLeft="@dimen/_9sdp"
-                android:background="@drawable/text_bg"
-                />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="368dp"
+            android:background="@drawable/text_bg"
+            android:justificationMode="inter_word"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_13sdp"
+            android:paddingRight="@dimen/_40sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            android:text="2.The Director/ DSW/ Chief Warden may expel a boarder from the hostel, if he/she is in the habit of staying away without intimation to the hostel office, or hostel fee and mess dues are not cleared in time"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        </LinearLayout>
-    </ScrollView>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView9"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_2"
+            android:layout_marginRight="-40dp"
+            app:civ_border_color="#D856E6"
+            app:civ_border_width="@dimen/_3sdp"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="@+id/textView5"
+            app:layout_constraintVertical_bias="0.434" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="200dp"
+            android:background="@drawable/text_bg"
+            android:justificationMode="inter_word"
+            android:paddingLeft="@dimen/_50sdp"
+            android:paddingTop="@dimen/_13sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            android:text="3.Students who do not clear their dues, such as dues of the hostel mess, canteen, fine etc. by the prescribed date will not be registered for the subsequent semester until and unless, they clear all their dues ."
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView10"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_3"
+            android:layout_marginLeft="-40dp"
+            app:civ_border_color="#E6CE56"
+            app:civ_border_width="@dimen/_3sdp"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.434" />
+
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/text_bg"
+            android:justificationMode="inter_word"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_13sdp"
+            android:paddingRight="@dimen/_40sdp"
+            android:paddingBottom="@dimen/_15sdp"
+        android:text="4.The students who leave the Institute after completing the degree requirements or otherwise, their result as well as the provisional certificate/ degree will be withheld till NO DUE CERTIFICATE is produced."
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView11"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_4"
+            app:civ_border_color="#F44336"
+            android:layout_marginRight="-40dp"
+            app:civ_border_width="@dimen/_3sdp"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.434" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:layout_marginTop="@dimen/_110sdp">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--android:text="1.After the general allotment, application for withdrawal from the hostel should be counter-signed by the father/guardian and submitted to the hostel warden. It should also be ensured that the student does not owe any hostel dues."-->
+<!--                android:justificationMode="inter_word"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_11sdp"-->
+<!--                android:elevation="@dimen/_10sdp"-->
+<!--                android:padding="@dimen/_15sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:layout_marginTop="@dimen/_20sdp"-->
+<!--                android:layout_marginRight="@dimen/_9sdp"-->
+<!--                android:layout_marginLeft="@dimen/_9sdp"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="2.The Director/ DSW/ Chief Warden may expel a boarder from the hostel, if he/she is in the habit of staying away without intimation to the hostel office, or hostel fee and mess dues are not cleared in time"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:justificationMode="inter_word"-->
+<!--                android:elevation="@dimen/_10sdp"-->
+<!--                android:textSize="@dimen/_11sdp"-->
+<!--                android:padding="@dimen/_15sdp"-->
+<!--                android:layout_marginTop="@dimen/_20sdp"-->
+<!--                android:layout_marginRight="@dimen/_9sdp"-->
+<!--                android:layout_marginLeft="@dimen/_9sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                />-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--android:text="3.Students who do not clear their dues, such as dues of the hostel mess, canteen, fine etc. by the prescribed date will not be registered for the subsequent semester until and unless, they clear all their dues and submit from the Account Section and the concerned hostel warden."-->
+<!--                android:textColor="@color/black"-->
+<!--                android:justificationMode="inter_word"-->
+<!--                android:elevation="@dimen/_10sdp"-->
+<!--                android:textSize="@dimen/_11sdp"-->
+<!--                android:padding="@dimen/_15sdp"-->
+<!--                android:layout_marginTop="@dimen/_20sdp"-->
+<!--                android:layout_marginRight="@dimen/_9sdp"-->
+<!--                android:layout_marginLeft="@dimen/_9sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--android:text="4.The students who leave the Institute after completing the degree requirements or otherwise, their result as well as the provisional certificate/ degree will be withheld till NO DUE CERTIFICATE is produced."-->
+<!--                android:textColor="@color/black"-->
+<!--                android:justificationMode="inter_word"-->
+<!--                android:elevation="@dimen/_10sdp"-->
+<!--                android:textSize="@dimen/_11sdp"-->
+<!--                android:padding="@dimen/_15sdp"-->
+<!--                android:layout_marginTop="@dimen/_20sdp"-->
+<!--                android:layout_marginRight="@dimen/_9sdp"-->
+<!--                android:layout_marginLeft="@dimen/_9sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--android:text="5.No boarder shall leave the hostel without handing over the charge of the room as per the inventory issued at the time of allotment"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_11sdp"-->
+<!--                android:justificationMode="inter_word"-->
+<!--                android:padding="@dimen/_15sdp"-->
+<!--                android:elevation="@dimen/_10sdp"-->
+<!--                android:layout_marginTop="@dimen/_20sdp"-->
+<!--                android:layout_marginRight="@dimen/_9sdp"-->
+<!--                android:layout_marginLeft="@dimen/_9sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                />-->
+
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

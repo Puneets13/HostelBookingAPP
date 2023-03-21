@@ -7,7 +7,6 @@
         tools:context=".Hostels.Hostel_Rules_Activity">
 
 
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -62,96 +61,199 @@
             android:textSize="@dimen/_20sdp" />
     </LinearLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_110sdp"
+        tools:layout_editor_absoluteY="169dp">
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_9sdp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/text_bg"
+            android:justificationMode="inter_word"
+            android:paddingLeft="@dimen/_40sdp"
+            android:paddingTop="@dimen/_13sdp"
+            android:paddingRight="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            android:text="1. No student should be in possession of fire-arm, lethal weapon, alcohol or drugs, poisonous thing or intoxicant of any kind in the hostel. If anyone found guilty of having said material is considered breach of the rule and shall be liable to be expelled from the hostel, apart from any other punishment that may be posed to him/her by the Chief Warden/Institute Discipline Committee or by law of land."
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView8"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="-40dp"
+            android:src="@drawable/ic_1"
+            app:civ_border_color="@color/mainColor"
+            app:civ_border_width="@dimen/_3sdp"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="212dp"
+            android:background="@drawable/text_bg"
+            android:justificationMode="inter_word"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_13sdp"
+            android:paddingRight="@dimen/_40sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            android:text="2.Any student found involved in making comments on political parties or govt and making anti national comments or statements and sharing it on social media (like twitter, face book, whats App etc) will be liable to strict disciplinary action including expulsion from hostel with immediate effect. He /She will be suspended from classes or may be rusticated and will be liable for suitable legal action."
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="@dimen/_110sdp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView9"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_2"
+            android:layout_marginRight="-40dp"
+            app:civ_border_color="#D856E6"
+            app:civ_border_width="@dimen/_3sdp"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintTop_toTopOf="@+id/textView5"
+            app:layout_constraintVertical_bias="0.434" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/text_bg"
+            android:justificationMode="inter_word"
+            android:paddingLeft="@dimen/_50sdp"
+            android:paddingTop="@dimen/_13sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            android:text="3.No anti social, gender-based, caste-based, religion-based and region-based comments/statements are acceptable from the students/hostel residents. This will be liable to strict disciplinary action as mentioned in 2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView10"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_3"
+            android:layout_marginLeft="-40dp"
+            app:civ_border_color="#E6CE56"
+            app:civ_border_width="@dimen/_3sdp"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.434" />
 
 
 
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="1. No student should be in possession of fire-arm, lethal weapon, alcohol or drugs, poisonous thing or intoxicant of any kind in the hostel. If anyone found guilty of having said material is considered breach of the rule and shall be liable to be expelled from the hostel, apart from any other punishment that may be posed to him/her by the Chief Warden/Institute Discipline Committee or by law of land."
-                    android:justificationMode="inter_word"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_11sdp"
-                    android:elevation="@dimen/_50sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:background="@drawable/text_bg"
-                    android:layout_margin="@dimen/_9sdp"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="2.Any student found involved in making comments on political parties or govt and making anti national comments or statements and sharing it on social media (like twitter, face book, whats App etc) will be liable to strict disciplinary action including expulsion from hostel with immediate effect. He /She will be suspended from classes or may be rusticated and will be liable for suitable legal action."
-                    android:textColor="@color/black"
-                    android:justificationMode="inter_word"
-                    android:elevation="@dimen/_50sdp"
-                    android:textSize="@dimen/_11sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:layout_margin="@dimen/_9sdp"
-                    android:background="@drawable/text_bg"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="3.No anti social, gender-based, caste-based, religion-based and region-based comments/statements are acceptable from the students/hostel residents. This will be liable to strict disciplinary action as mentioned in para (2)"
-                    android:textColor="@color/black"
-                    android:justificationMode="inter_word"
-                    android:elevation="@dimen/_50sdp"
-                    android:textSize="@dimen/_11sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:layout_margin="@dimen/_9sdp"
-                    android:background="@drawable/text_bg"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="4.Any type of students' gathering/campaign/agitation/protest and threatening the faculty/staff/student is not permitted in the premises of hostel/Institute. However, any campaign for the social awareness or well being or social concern may be organized with the prior permission of competent authority."
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_11sdp"
-                    android:justificationMode="inter_word"
-                    android:padding="@dimen/_10sdp"
-                    android:elevation="@dimen/_50sdp"
-                    android:layout_margin="@dimen/_9sdp"
-                    android:background="@drawable/text_bg"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="5.Any type of electrical appliances (electric kettle, heaters, iron, induction etc) is not allowed in hostel room. If any student is found keeping these things in his/her room, he/she will be liable to disciplinary action."
-                    android:textColor="@color/black"
-                    android:justificationMode="inter_word"
-                    android:textSize="@dimen/_11sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:layout_margin="@dimen/_9sdp"
-                    android:elevation="@dimen/_50sdp"
-                    android:background="@drawable/text_bg"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="6.The students should not indulge in activities amounting to an act of indiscipline and misdemeanor such as:
-#Disturbing the classes, misbehavior with  teachers and students taking examination or in any other academic activity.
-#Interfering with the functioning of various committees."
-                    android:textColor="@color/black"
-                    android:justificationMode="inter_word"
-                    android:elevation="@dimen/_50sdp"
-                    android:textSize="@dimen/_11sdp"
-                    android:padding="@dimen/_10sdp"
-                    android:layout_margin="@dimen/_9sdp"
-                    android:background="@drawable/text_bg"
-                    />
-
-            </LinearLayout>
-        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
+<!--                -->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="1. No student should be in possession of fire-arm, lethal weapon, alcohol or drugs, poisonous thing or intoxicant of any kind in the hostel. If anyone found guilty of having said material is considered breach of the rule and shall be liable to be expelled from the hostel, apart from any other punishment that may be posed to him/her by the Chief Warden/Institute Discipline Committee or by law of land."-->
+<!--                    android:justificationMode="inter_word"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/_11sdp"-->
+<!--                    android:padding="@dimen/_10sdp"-->
+<!--                    android:background="@drawable/text_bg"-->
+<!--                    android:layout_margin="@dimen/_9sdp"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="2.Any student found involved in making comments on political parties or govt and making anti national comments or statements and sharing it on social media (like twitter, face book, whats App etc) will be liable to strict disciplinary action including expulsion from hostel with immediate effect. He /She will be suspended from classes or may be rusticated and will be liable for suitable legal action."-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:justificationMode="inter_word"-->
+<!--                    android:elevation="@dimen/_50sdp"-->
+<!--                    android:textSize="@dimen/_11sdp"-->
+<!--                    android:padding="@dimen/_10sdp"-->
+<!--                    android:layout_margin="@dimen/_9sdp"-->
+<!--                    android:background="@drawable/text_bg"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="3.No anti social, gender-based, caste-based, religion-based and region-based comments/statements are acceptable from the students/hostel residents. This will be liable to strict disciplinary action as mentioned in para (2)"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:justificationMode="inter_word"-->
+<!--                    android:elevation="@dimen/_50sdp"-->
+<!--                    android:textSize="@dimen/_11sdp"-->
+<!--                    android:padding="@dimen/_10sdp"-->
+<!--                    android:layout_margin="@dimen/_9sdp"-->
+<!--                    android:background="@drawable/text_bg"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="4.Any type of students' gathering/campaign/agitation/protest and threatening the faculty/staff/student is not permitted in the premises of hostel/Institute. However, any campaign for the social awareness or well being or social concern may be organized with the prior permission of competent authority."-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="@dimen/_11sdp"-->
+<!--                    android:justificationMode="inter_word"-->
+<!--                    android:padding="@dimen/_10sdp"-->
+<!--                    android:elevation="@dimen/_50sdp"-->
+<!--                    android:layout_margin="@dimen/_9sdp"-->
+<!--                    android:background="@drawable/text_bg"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="5.Any type of electrical appliances (electric kettle, heaters, iron, induction etc) is not allowed in hostel room. If any student is found keeping these things in his/her room, he/she will be liable to disciplinary action."-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:justificationMode="inter_word"-->
+<!--                    android:textSize="@dimen/_11sdp"-->
+<!--                    android:padding="@dimen/_10sdp"-->
+<!--                    android:layout_margin="@dimen/_9sdp"-->
+<!--                    android:elevation="@dimen/_50sdp"-->
+<!--                    android:background="@drawable/text_bg"-->
+<!--                    />-->
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="6.The students should not indulge in activities amounting to an act of indiscipline and misdemeanor such as:-->
+<!--#Disturbing the classes, misbehavior with  teachers and students taking examination or in any other academic activity.-->
+<!--#Interfering with the functioning of various committees."-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:justificationMode="inter_word"-->
+<!--                    android:elevation="@dimen/_50sdp"-->
+<!--                    android:textSize="@dimen/_11sdp"-->
+<!--                    android:padding="@dimen/_10sdp"-->
+<!--                    android:layout_margin="@dimen/_9sdp"-->
+<!--                    android:background="@drawable/text_bg"-->
+<!--                    />-->
+
+<!--            </LinearLayout>-->
