@@ -19,25 +19,46 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Floor_6_SeatMatrix_A"
+            android:name=".MBH_F_Hostel.mbhfFloorGround"
             android:exported="false" />
         <activity
-            android:name=".Floor_5_SeatMatrix_A"
+            android:name=".MBH_F_Hostel.mbhfFloor6"
             android:exported="false" />
         <activity
-            android:name=".Floor_4_SeatMatrix_A"
+            android:name=".MBH_F_Hostel.mbhfFloor5"
             android:exported="false" />
         <activity
-            android:name=".Floor_3_SeatMatrix_A"
+            android:name=".MBH_F_Hostel.mbhfFloor4"
             android:exported="false" />
         <activity
-            android:name=".Floor_2_SeatMatrix_A"
+            android:name=".MBH_F_Hostel.mbhfFloor3"
             android:exported="false" />
         <activity
-            android:name=".Floor_1_SeatMatrix_A"
+            android:name=".MBH_F_Hostel.mbhfFloor2"
             android:exported="false" />
         <activity
-            android:name=".Floor_1_SeatMatrix"
+            android:name=".MBH_F_Hostel.mbhfFloor1"
+            android:exported="false" />
+        <activity
+            android:name=".MBH_A_Hostel.Floor_6_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".MBH_A_Hostel.Floor_5_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".MBH_A_Hostel.Floor_4_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".MBH_A_Hostel.Floor_3_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".MBH_A_Hostel.Floor_2_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".MBH_A_Hostel.Floor_1_SeatMatrix_A"
+            android:exported="false" />
+        <activity
+            android:name=".MBH_A_Hostel.MegaBoysA_Activity"
             android:exported="false" />
         <activity
             android:name=".Hostels.ExpulsionFromHostelRules"
@@ -131,9 +152,9 @@
         <activity
             android:name=".MBH_B_Hostel.MegaBoysB_Activity"
             android:exported="false" />
-        <activity
-            android:name=".MBH_A_Hostel.MegaBoysA_Activity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".MBH_B_Hostel.MegaBoysB_Activity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".Acitvity.SignInActivity"
             android:exported="true">
