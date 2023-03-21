@@ -75,19 +75,20 @@
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_9sdp"
-            android:layout_marginTop="16dp"
             android:background="@drawable/text_bg"
             android:justificationMode="inter_word"
             android:paddingLeft="@dimen/_40sdp"
             android:paddingTop="@dimen/_13sdp"
             android:paddingRight="@dimen/_15sdp"
             android:paddingBottom="@dimen/_15sdp"
-        android:text="1.After the general allotment, application for withdrawal from the hostel should be counter-signed by the father/guardian and submitted to the hostel warden. It should also be ensured that the student does not owe any hostel dues."
+            android:text="1.After the general allotment, application for withdrawal from the hostel should be counter-signed by the father/guardian and submitted to the hostel warden. It should also be ensured that the student does not owe any hostel dues."
             android:textColor="@color/black"
             android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.011" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView8"
@@ -119,7 +120,9 @@
             android:textSize="@dimen/_11sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintVertical_bias="0.833" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView9"
@@ -151,7 +154,9 @@
             android:textSize="@dimen/_11sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintVertical_bias="0.941" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView10"
@@ -179,12 +184,14 @@
             android:paddingTop="@dimen/_13sdp"
             android:paddingRight="@dimen/_40sdp"
             android:paddingBottom="@dimen/_15sdp"
-        android:text="4.The students who leave the Institute after completing the degree requirements or otherwise, their result as well as the provisional certificate/ degree will be withheld till NO DUE CERTIFICATE is produced."
+            android:text="4.The students who leave the Institute after completing the degree requirements or otherwise, their result as well as the provisional certificate/ degree will be withheld till NO DUE CERTIFICATE is produced."
             android:textColor="@color/black"
             android:textSize="@dimen/_11sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.85" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView11"

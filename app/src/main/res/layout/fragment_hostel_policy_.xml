@@ -59,7 +59,6 @@
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_9sdp"
-            android:layout_marginTop="4dp"
             android:background="@drawable/text_bg"
             android:justificationMode="inter_word"
             android:paddingLeft="@dimen/_40sdp"
@@ -69,9 +68,11 @@
             android:text="1. No student should be in possession of fire-arm, lethal weapon, alcohol or drugs, poisonous thing or intoxicant of any kind in the hostel. If anyone found guilty of having said material is considered breach of the rule and shall be liable to be expelled from the hostel, apart from any other punishment that may be posed to him/her by the Chief Warden/Institute Discipline Committee or by law of land."
             android:textColor="@color/black"
             android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.031" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView8"
@@ -137,7 +138,9 @@
             android:textSize="@dimen/_11sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintVertical_bias="0.804" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView10"
