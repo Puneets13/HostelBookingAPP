@@ -55,7 +55,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_15sdp"
-            android:text="MEGA BOYS HOSTEL B"
+            android:text="MEGA BOYS HOSTEL F"
             android:textColor="@color/black" />
     </LinearLayout>
 

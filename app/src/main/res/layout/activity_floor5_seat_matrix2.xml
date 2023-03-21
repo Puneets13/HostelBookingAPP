@@ -1125,7 +1125,7 @@
         android:background="@color/white"
         android:fontFamily="@font/audiowide"
         android:padding="@dimen/_5sdp"
-        android:text="ROOM PLAN FOR MBH B"
+        android:text="ROOM PLAN FOR MBH A"
         android:textColor="@color/black"
         android:textSize="@dimen/_20sdp"
         android:textStyle="bold"

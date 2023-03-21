@@ -20,9 +20,8 @@ import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
-import com.example.hostelappnitj.databinding.ActivityFloor1SeatMatrix2Binding;
-import com.example.hostelappnitj.databinding.ActivityFloor3SeatMatrix2Binding;
 import com.example.hostelappnitj.databinding.ActivityFloor6SeatMatrix2Binding;
+import com.example.hostelappnitj.databinding.ActivityFloorGroundSeatMatrix2Binding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +30,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Floor_6_SeatMatrix_A extends AppCompatActivity {
-    private ActivityFloor6SeatMatrix2Binding binding;
+public class Floor_Ground_SeatMatrix_A extends AppCompatActivity {
+    private ActivityFloorGroundSeatMatrix2Binding binding;
     AppCompatButton room301;
     AppCompatButton btnBook3;
     GestureView gestureView;
@@ -45,10 +44,10 @@ public class Floor_6_SeatMatrix_A extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityFloor6SeatMatrix2Binding.inflate(getLayoutInflater());
+        binding = ActivityFloorGroundSeatMatrix2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        sharedPrefManager = new SharedPrefManager(Floor_6_SeatMatrix_A.this);
+        sharedPrefManager = new SharedPrefManager(Floor_Ground_SeatMatrix_A.this);
         username = sharedPrefManager.getUser().getUsername();
         email = sharedPrefManager.getUser().getEmail();
         rollNumber = sharedPrefManager.getUser().getRollNumber();
@@ -80,8 +79,8 @@ public class Floor_6_SeatMatrix_A extends AppCompatActivity {
         binding.btnRoomBook3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Floor_6_SeatMatrix_A.this, "Register here", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Floor_6_SeatMatrix_A.this, RegisterationActivity.class);
+                Toast.makeText(Floor_Ground_SeatMatrix_A.this, "Register here", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Floor_Ground_SeatMatrix_A.this, RegisterationActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("hostelName", hostelName);
                 intent.putExtra("username", username);
@@ -93,7 +92,6 @@ public class Floor_6_SeatMatrix_A extends AppCompatActivity {
         });
     }
 
-
     public void loadRooms(){
         Call<HostelRegisterationResponse> call = RetrofitClient.getInstance().getApi().fetchAllHostels();
         call.enqueue(new Callback<HostelRegisterationResponse>() {
@@ -102,7 +100,7 @@ public class Floor_6_SeatMatrix_A extends AppCompatActivity {
             public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
                 HostelRegisterationResponse responseFromAPI= response.body();
                 if(response.isSuccessful()){
-                    Toast.makeText(Floor_6_SeatMatrix_A.this, "Hostels Updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Floor_Ground_SeatMatrix_A.this, "Hostels Updated", Toast.LENGTH_SHORT).show();
                     hostelList=  responseFromAPI.getHostelList();
                     int n = hostelList.size();
 
@@ -158,13 +156,13 @@ public class Floor_6_SeatMatrix_A extends AppCompatActivity {
 //                            hosteltxt.setText("names : "+usernames);
 
                 }else{
-                    Toast.makeText(Floor_6_SeatMatrix_A.this, "Something went Wrong..", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Floor_Ground_SeatMatrix_A.this, "Something went Wrong..", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<HostelRegisterationResponse> call, Throwable t) {
-                Toast.makeText(Floor_6_SeatMatrix_A.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Floor_Ground_SeatMatrix_A.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -175,6 +173,5 @@ public class Floor_6_SeatMatrix_A extends AppCompatActivity {
         super.onResume();
         loadRooms();
     }
-
 
 }

@@ -19,6 +19,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Floor_Ground_SeatMatrix_A"
+            android:exported="false" />
+        <activity
             android:name=".MBH_F_Hostel.mbhfFloorGround"
             android:exported="false" />
         <activity
@@ -151,10 +154,9 @@
             android:exported="false" />
         <activity
             android:name=".MBH_B_Hostel.MegaBoysB_Activity"
-            android:exported="false" />
-<!--        <activity-->
-<!--            android:name=".MBH_B_Hostel.MegaBoysB_Activity"-->
-<!--            android:exported="false" />-->
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".MBH_B_Hostel.MegaBoysB_Activity" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".Acitvity.SignInActivity"
             android:exported="true">
