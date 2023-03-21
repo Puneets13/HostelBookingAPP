@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Hostels.Hostel_Rules_Activity">
+        >
 
 
     <LinearLayout
@@ -22,8 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:padding="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:padding="@dimen/_5sdp"
             android:text="NITJ HOSTELS"
             android:textColor="@color/white"
             android:textSize="@dimen/_15sdp"
@@ -61,12 +61,20 @@
             android:textSize="@dimen/_20sdp" />
     </LinearLayout>
 
-
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_marginTop="@dimen/_110sdp"
+    android:fillViewport="true"
+    app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+    android:id="@+id/scroll">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_110sdp"
         tools:layout_editor_absoluteY="169dp">
 
 
@@ -75,17 +83,19 @@
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_9sdp"
-            android:layout_marginTop="16dp"
             android:background="@drawable/text_bg"
+
             android:justificationMode="inter_word"
             android:paddingLeft="@dimen/_40sdp"
             android:paddingTop="@dimen/_13sdp"
             android:paddingRight="@dimen/_15sdp"
             android:paddingBottom="@dimen/_15sdp"
-            android:text="1. No student should be in possession of fire-arm, lethal weapon, alcohol or drugs, poisonous thing or intoxicant of any kind in the hostel. If anyone found guilty of having said material is considered breach of the rule and shall be liable to be expelled from the hostel, apart from any other punishment that may be posed to him/her by the Chief Warden/Institute Discipline Committee or by law of land."
+            android:text="No student should be in possession of fire-arm, lethal weapon, alcohol or drugs, poisonous thing or intoxicant of any kind in the hostel. If anyone found guilty of having said material is considered breach of the rule and shall be liable to be expelled from the hostel, apart from any other punishment that may be posed to him/her by the Chief Warden/Institute Discipline Committee or by law of land."
             android:textColor="@color/black"
             android:textSize="@dimen/_11sdp"
+            app:layout_constraintBottom_toTopOf="@id/textView5"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -93,7 +103,7 @@
             android:id="@+id/imageView8"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="60dp"
-            android:layout_marginLeft="-40dp"
+            android:layout_marginLeft="-30dp"
             android:src="@drawable/ic_1"
             app:civ_border_color="@color/mainColor"
             app:civ_border_width="@dimen/_3sdp"
@@ -107,26 +117,28 @@
             android:id="@+id/textView5"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="212dp"
+            android:layout_margin="@dimen/_9sdp"
             android:background="@drawable/text_bg"
             android:justificationMode="inter_word"
+
             android:paddingLeft="@dimen/_10sdp"
             android:paddingTop="@dimen/_13sdp"
-            android:paddingRight="@dimen/_40sdp"
+            android:paddingRight="@dimen/_45sdp"
             android:paddingBottom="@dimen/_15sdp"
-            android:text="2.Any student found involved in making comments on political parties or govt and making anti national comments or statements and sharing it on social media (like twitter, face book, whats App etc) will be liable to strict disciplinary action including expulsion from hostel with immediate effect. He /She will be suspended from classes or may be rusticated and will be liable for suitable legal action."
+            android:text="Any student found involved in making comments on political parties or govt and making anti national comments or statements and sharing it on social media (like twitter, face book, whats App etc) will be liable to strict disciplinary action including expulsion from hostel with immediate effect. He /She will be suspended from classes or may be rusticated and will be liable for suitable legal action."
             android:textColor="@color/black"
             android:textSize="@dimen/_11sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView9"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="60dp"
             android:src="@drawable/ic_2"
-            android:layout_marginRight="-40dp"
+            android:layout_marginRight="-22dp"
             app:civ_border_color="#D856E6"
             app:civ_border_width="@dimen/_3sdp"
             app:civ_circle_background_color="@color/white"
@@ -139,39 +151,76 @@
             android:id="@+id/textView6"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
+            android:layout_margin="@dimen/_9sdp"
             android:background="@drawable/text_bg"
             android:justificationMode="inter_word"
             android:paddingLeft="@dimen/_50sdp"
             android:paddingTop="@dimen/_13sdp"
             android:paddingRight="@dimen/_10sdp"
             android:paddingBottom="@dimen/_15sdp"
-            android:text="3.No anti social, gender-based, caste-based, religion-based and region-based comments/statements are acceptable from the students/hostel residents. This will be liable to strict disciplinary action as mentioned in 2"
+            android:text="No anti social, gender-based, caste-based, religion-based and region-based comments/statements are acceptable from the students/hostel residents. This will be liable to strict disciplinary action as mentioned in 2"
             android:textColor="@color/black"
             android:textSize="@dimen/_11sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textView7"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView10"
             android:layout_width="@dimen/_60sdp"
             android:layout_height="60dp"
             android:src="@drawable/ic_3"
-            android:layout_marginLeft="-40dp"
+            android:layout_marginLeft="-25dp"
             app:civ_border_color="#E6CE56"
             app:civ_border_width="@dimen/_3sdp"
             app:civ_circle_background_color="@color/white"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintBottom_toTopOf="@id/textView7"
             app:layout_constraintStart_toStartOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.434" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_13sdp"
+            android:background="@drawable/text_bg"
+            android:justificationMode="inter_word"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingTop="@dimen/_13sdp"
+            android:paddingRight="@dimen/_50sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            android:text="No anti social, gender-based, caste-based, religion-based and region-based comments/statements are acceptable from the students/hostel residents. This will be liable to strict disciplinary action as mentioned in 2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_11sdp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView11"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_4"
+            app:civ_border_color="#F44336"
+            android:padding="@dimen/_1sdp"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="-10dp"
+            app:civ_border_width="@dimen/_3sdp"
+            app:civ_circle_background_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView7"
             app:layout_constraintVertical_bias="0.434" />
 
 
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+</ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
