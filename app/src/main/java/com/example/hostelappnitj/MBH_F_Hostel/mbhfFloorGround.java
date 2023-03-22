@@ -121,7 +121,7 @@ public class mbhfFloorGround extends AppCompatActivity {
 //                            if condition for evaluating the hostel name
                         String hostel_name = hostelList.get(i).getHostelName();
 
-                        if(hostel_name.equals("Mega Boys Hostel B")){
+                        if(hostel_name.equals("Mega Boys Hostel F")){
                             if(room!=null) {
                                 if (rollNumber1 != null && rollNumber2 != null) {
 //                                    both ARE present
