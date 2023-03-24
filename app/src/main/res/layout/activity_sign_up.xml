@@ -56,90 +56,128 @@
         android:textSize="@dimen/_25sdp"
         android:textStyle="bold" />
 
-    <!--    this edit text is used imported from material desgin so used in this manner-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/_230sdp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView1"
+        android:layout_width="@dimen/_270sdp"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_centerInParent="true"
         android:layout_below="@+id/txtsignup"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="-25dp"
-        android:id="@+id/rollNolayout"
-        >
+        android:layout_centerHorizontal="true"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="@dimen/_20sdp">
 
-        <EditText
-            android:id="@+id/etRollno"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/rollNolayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="Roll Number" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/_230sdp"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_below="@+id/rollNolayout"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/emaillayout">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:id="@+id/etemail" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_below="@+id/txtsignup"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="30dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/_230sdp"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_below="@+id/emaillayout"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/passwordlayout"
-        app:passwordToggleTint="#595656"
-        app:endIconDrawable="@drawable/custom_password_eye"
-        app:passwordToggleEnabled="true"
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/etRollno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/id_roll"
+                android:drawablePadding="@dimen/_7sdp"
+                android:hint="Roll Number"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--    this edit text is used imported from material desgin so used in this manner-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emaillayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/_230sdp"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:id="@+id/etpassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_below="@+id/rollNolayout"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginRight="30dp">
+
+            <EditText
+                android:id="@+id/etemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/email"
+                android:drawablePadding="@dimen/_7sdp"
+                android:hint="Email" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordlayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emaillayout"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="155dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            app:endIconDrawable="@drawable/custom_password_eye"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#595656">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="@dimen/_5sdp"
+                android:hint="Password"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </androidx.cardview.widget.CardView>
 
     <android.widget.Button
         android:id="@+id/btnSignUp"
-        android:layout_width="@dimen/_230sdp"
+        android:layout_width="@dimen/_200sdp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordlayout"
+        android:layout_below="@+id/cardView1"
         android:layout_centerInParent="true"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-30dp"
         android:layout_marginRight="30dp"
-        android:background="@color/black"
+        android:background="@drawable/btn_bg"
+        android:elevation="40dp"
+        android:stateListAnimator="@null"
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/loginlink"
+        android:id="@+id/loginlink1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnSignUp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="@dimen/_15sdp"
         android:gravity="center_horizontal"
-        android:text="Already have Account? LogIn"
+        android:text="Already have Account? "
         android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/loginlink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSignUp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="@dimen/_225sdp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_toRightOf="@+id/loginlink1"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:text="LogIn"
+        android:textSize="@dimen/_12sdp" />
+
 
 
     <!--progress bar for loading -->
