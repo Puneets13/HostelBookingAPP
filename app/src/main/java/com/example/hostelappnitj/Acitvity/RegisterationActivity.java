@@ -58,7 +58,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterationActivity extends AppCompatActivity {
-    String hostelName, username, rollNumber, email, branch, hostel_id, year, gender;
+    String hostelName, username, rollNumber, email, branch, hostel_id, year, gender,roomNum;
     TextView txtUsername, txtRollNumber, txtEmail, txtHostelname, txtBranch;
     EditText etRoomNumber, etFatherName, etFatherPhone, etStdPhone, etAddress;
     AppCompatButton btnBook_room, btnPayment;
@@ -94,12 +94,15 @@ SharedPrefManager sharedPrefManager;
         rollNumber = intent.getStringExtra("rollNumber");
         email = intent.getStringExtra("email");
         branch = intent.getStringExtra("branch");
+        roomNum=intent.getStringExtra("roomNum");
 
         txtRollNumber.setText(rollNumber);
         txtEmail.setText(email);
         txtHostelname.setText(hostelName);
         txtUsername.setText(username);
         txtBranch.setText(branch);
+        Toast.makeText(this, roomNum, Toast.LENGTH_SHORT).show();
+        etRoomNumber.setText(roomNum);
 sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
 //        setting spinner for branch
