@@ -50,7 +50,7 @@
         android:fontFamily="@font/audiowide"
         android:padding="@dimen/_8sdp"
         android:text="Sign In"
-        android:textColor="@color/black"
+        android:textColor="#2C1850"
         android:textSize="@dimen/_25sdp"
         android:textStyle="bold" />
 
@@ -81,6 +81,7 @@
                 android:id="@+id/etemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableTint="#2C1850"
                 android:drawableStart="@drawable/email"
                 android:drawablePadding="@dimen/_7sdp"
                 android:hint="Email" />
@@ -106,6 +107,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_password"
+                android:drawableTint="#2C1850"
                 android:drawablePadding="@dimen/_5sdp"
                 android:hint="Password"
                 android:inputType="textPassword" />
@@ -123,7 +125,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="-30dp"
         android:layout_marginRight="30dp"
-        android:background="@drawable/btn_bg"
+        android:background="@drawable/btn_bg1"
         android:elevation="40dp"
         android:stateListAnimator="@null"
         android:text="Log In"
@@ -149,13 +151,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnlogin"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="@dimen/_215sdp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="@dimen/_15sdp"
         android:layout_toRightOf="@+id/loginlink1"
         android:gravity="center_horizontal"
-        android:textColor="@color/black"
         android:text="Register"
+        android:textColor="#2C1850"
         android:textSize="@dimen/_12sdp" />
 
 
