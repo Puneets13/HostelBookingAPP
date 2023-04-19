@@ -263,7 +263,6 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
         super.onRestart();
         finish();
         loadRooms();
-
         startActivity(getIntent());
     }
 }
