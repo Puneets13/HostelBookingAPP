@@ -341,7 +341,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                     if(responseFromAPI.getMessage().equals("session expire")){
                         Toast.makeText(RegisterationActivity.this, "Session Expired", Toast.LENGTH_SHORT).show();
                         // When the user click yes button then app will close
-                            finish();
+                        finish();
                     }
                 }
             }
@@ -367,9 +367,8 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                     if(responseFromAPI.getMessage().equals("session expire")){
                         Toast.makeText(RegisterationActivity.this, "Room Not Registered..", Toast.LENGTH_SHORT).show();
                         // When the user click yes button then app will close
-                        Intent intent = new Intent(RegisterationActivity.this, MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
+                        finish();
+
                     }
                 }
             }

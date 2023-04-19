@@ -96,6 +96,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
 //                Toast.makeText(Floor_2_SeatMatrix.this, "Register here", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Floor_2_SeatMatrix.this, RoomConfirmer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+
                 intent.putExtra("hostelName", hostelName);
                 intent.putExtra("username", username);
                 intent.putExtra("rollNumber", rollNumber);
@@ -256,4 +257,13 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
         loadRooms();
     }
 
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        loadRooms();
+
+        startActivity(getIntent());
+    }
 }

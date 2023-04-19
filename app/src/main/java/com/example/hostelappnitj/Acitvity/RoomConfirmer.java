@@ -22,7 +22,7 @@ import retrofit2.Response;
 public class RoomConfirmer extends AppCompatActivity {
 EditText etroomNumber;
 Button proceed;
-    String hostelName, username, rollNumber, email, branch,roomNumber;
+    String hostelName, username, rollNumber, email, branch,roomNumber ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
