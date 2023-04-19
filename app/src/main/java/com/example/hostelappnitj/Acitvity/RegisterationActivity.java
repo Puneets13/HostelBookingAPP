@@ -248,18 +248,31 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                             if (responseFromApi.getMessage().equals("success")) {
                                 progressDialog.dismiss();
                                 sharedPrefManager.SaveHostelUser(responseFromApi.getHostel());
-//                                etAddress.setText(sharedPrefManager.getHostelUser().getHostelName());
-//                                etFatherName.setText(sharedPrefManager.getHostelUser().getRoomNumber());
+                                etAddress.setText("");
+                                etFatherName.setText("");
+                                etFatherPhone.setText("");
+                                etRoomNumber.setText("");
+                                etStdPhone.setText("");
 
                                 //this is used to save the user properties in the sharePrefManager
-                                Toast.makeText(RegisterationActivity.this, responseFromApi.getHostel().getRoomNumber(), Toast.LENGTH_SHORT).show();
-//                                finish(); //to remove the current activity
+                                Toast.makeText(RegisterationActivity.this,"Room "+ responseFromApi.getHostel().getRoomNumber()+"Registered", Toast.LENGTH_SHORT).show();
+                                finish(); //to remove the current activity
                             } else if(responseFromApi.getMessage().equals("Room Not Available")){
                                 Toast.makeText(RegisterationActivity.this, "Room Not Available..", Toast.LENGTH_SHORT).show();
+                                etAddress.setText("");
+                                etFatherName.setText("");
+                                etFatherPhone.setText("");
+                                etRoomNumber.setText("");
+                                etStdPhone.setText("");
                             }
                             else {
                                 progressDialog.dismiss();
                                 Toast.makeText(RegisterationActivity.this, responseFromApi.getMessage(), Toast.LENGTH_SHORT).show();
+                                etAddress.setText("");
+                                etFatherName.setText("");
+                                etFatherPhone.setText("");
+                                etRoomNumber.setText("");
+                                etStdPhone.setText("");
                             }
                         }
                     }
