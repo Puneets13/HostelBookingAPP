@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -45,6 +46,7 @@ public class Floor_6_SeatMatrix extends AppCompatActivity {
     TextView display;
     List<hostel> hostelList;
     List<statusModel>hostelStatusList;
+    ProgressDialog progressDialog ;   //this will give the background box also
 
 
     @Override
@@ -58,6 +60,12 @@ public class Floor_6_SeatMatrix extends AppCompatActivity {
         email = sharedPrefManager.getUser().getEmail();
         rollNumber = sharedPrefManager.getUser().getRollNumber();
         branch = sharedPrefManager.getUser().getBranch();
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading...");
+        progressDialog.setMessage("Updating Seat Matrix..");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
 
 //        intent from MegaBoysB_activity
         Intent intent = getIntent();
@@ -115,6 +123,7 @@ public class Floor_6_SeatMatrix extends AppCompatActivity {
             public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
                 HostelRegisterationResponse responseFromAPI= response.body();
                 if(response.isSuccessful()){
+                    progressDialog.dismiss();  //if any error occurs then it need to be returned
                     hostelList=  responseFromAPI.getHostelList();
                     int n = hostelList.size();
 
@@ -173,12 +182,14 @@ public class Floor_6_SeatMatrix extends AppCompatActivity {
 //                            hosteltxt.setText("names : "+usernames);
 
                 }else{
+                    progressDialog.dismiss();  //if any error occurs then it need to be returned
                     Toast.makeText(Floor_6_SeatMatrix.this, "Something went Wrong..", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<HostelRegisterationResponse> call, Throwable t) {
+                progressDialog.dismiss();  //if any error occurs then it need to be returned
                 Toast.makeText(Floor_6_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -190,6 +201,7 @@ public class Floor_6_SeatMatrix extends AppCompatActivity {
             public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
                 PreRegisterResponse responseFromAPI1 = response.body();
                 if(response.isSuccessful()){
+                    progressDialog.dismiss();  //if any error occurs then it need to be returned
                     hostelStatusList=responseFromAPI1.getHostelStatusList();
                     int n = hostelStatusList.size();
                     String status_received,room,hostel_name;
@@ -223,6 +235,7 @@ public class Floor_6_SeatMatrix extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
+                progressDialog.dismiss();  //if any error occurs then it need to be returned
                 Toast.makeText(Floor_6_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
