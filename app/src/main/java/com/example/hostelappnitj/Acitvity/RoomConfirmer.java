@@ -50,7 +50,7 @@ Button proceed;
                     return;
                 }else{
 
-                    PreRegisterResponse preRegisterResponse = new PreRegisterResponse(roomNumber,rollNumber,email);
+                    PreRegisterResponse preRegisterResponse = new PreRegisterResponse(roomNumber,rollNumber,email,hostelName);
                     Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterResponse(preRegisterResponse);
                     call.enqueue(new Callback<PreRegisterResponse>() {
                         @Override
@@ -79,7 +79,11 @@ Button proceed;
                                 }
                                 else if(responseFromAPI.getMessage().equals("booking in process")){
                                     Toast.makeText(RoomConfirmer.this, "Can't Book..Wait for While", Toast.LENGTH_SHORT).show();
-
+                                }
+                                else if(responseFromAPI.getMessage().equals("user already registered")){
+                                    Toast.makeText(RoomConfirmer.this, "You Have Already Registered", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(RoomConfirmer.this, "Something went wrong..", Toast.LENGTH_SHORT).show();
                                 }
 
                             }

@@ -75,6 +75,10 @@ public interface Api {
             @Body PreRegisterResponse preRegisterResponse
     );
 
+    @GET("hostelbook/getAllRoomStatus")
+    Call<PreRegisterResponse>fetchAllHostelsStatus();
+
+
 
 //    @Multipart
 //    @POST("XXXX")

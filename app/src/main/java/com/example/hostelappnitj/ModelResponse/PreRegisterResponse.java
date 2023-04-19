@@ -1,13 +1,37 @@
 package com.example.hostelappnitj.ModelResponse;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class PreRegisterResponse {
-    private String roomNumber,rollNumber,email;
+    private String roomNumber,rollNumber,email,hostelName;
     private String message,error;
 
-    public PreRegisterResponse(String roomNumber, String rollNumber, String email) {
+    @SerializedName("hostels")    //means the actuall name in the response is users but we are using userList so we serialized annotations
+    List<statusModel> hostelStatusList;
+
+    public PreRegisterResponse(String roomNumber, String rollNumber, String email,String hostelName) {
         this.roomNumber = roomNumber;
         this.rollNumber = rollNumber;
         this.email = email;
+        this.hostelName=hostelName;
+    }
+
+    public List<statusModel> getHostelStatusList() {
+        return hostelStatusList;
+    }
+
+    public void setHostelStatusList(List<statusModel> hostelStatusList) {
+        this.hostelStatusList = hostelStatusList;
+    }
+
+    public String getHostelName() {
+        return hostelName;
+    }
+
+    public void setHostelName(String hostelName) {
+        this.hostelName = hostelName;
     }
 
     public String getRoomNumber() {
