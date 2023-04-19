@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.alexvasilkov.gestures.Settings;
 import com.alexvasilkov.gestures.views.interfaces.GestureView;
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
+import com.example.hostelappnitj.Acitvity.RoomConfirmer;
 import com.example.hostelappnitj.MBH_B_Hostel.Floor_2_SeatMatrix;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
@@ -83,7 +84,7 @@ public class mbhfFloor2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mbhfFloor2.this, "Register here", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(mbhfFloor2.this, RegisterationActivity.class);
+                Intent intent = new Intent(mbhfFloor2.this, RoomConfirmer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("hostelName", hostelName);
                 intent.putExtra("username", username);

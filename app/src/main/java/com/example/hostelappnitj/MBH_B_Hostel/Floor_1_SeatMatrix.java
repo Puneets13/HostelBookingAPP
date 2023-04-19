@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.alexvasilkov.gestures.Settings;
 import com.alexvasilkov.gestures.views.interfaces.GestureView;
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
+import com.example.hostelappnitj.Acitvity.RoomConfirmer;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.R;
@@ -80,7 +81,7 @@ public class Floor_1_SeatMatrix extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Floor_1_SeatMatrix.this, "Register here", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Floor_1_SeatMatrix.this, RegisterationActivity.class);
+                Intent intent = new Intent(Floor_1_SeatMatrix.this, RoomConfirmer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("hostelName", hostelName);
                 intent.putExtra("username", username);

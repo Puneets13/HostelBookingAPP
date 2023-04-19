@@ -76,11 +76,9 @@ Button proceed;
                                 }
                                 else if(responseFromAPI.getMessage().equals("fully filled")){
                                     Toast.makeText(RoomConfirmer.this, "Room Fully Occupied", Toast.LENGTH_SHORT).show();
-                                    return;
                                 }
                                 else if(responseFromAPI.getMessage().equals("booking in process")){
                                     Toast.makeText(RoomConfirmer.this, "Can't Book..Wait for While", Toast.LENGTH_SHORT).show();
-                                    return;
 
                                 }
 
