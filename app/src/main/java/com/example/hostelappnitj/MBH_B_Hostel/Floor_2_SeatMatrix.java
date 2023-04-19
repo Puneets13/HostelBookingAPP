@@ -82,7 +82,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
         binding.btnRoomBook3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Floor_2_SeatMatrix.this, "Register here", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(Floor_2_SeatMatrix.this, "Register here", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Floor_2_SeatMatrix.this, RoomConfirmer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("hostelName", hostelName);

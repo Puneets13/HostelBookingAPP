@@ -297,7 +297,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
             }
         };
-        handler.postDelayed(x, 6000);
+        handler.postDelayed(x, 60000);
 
     }
 }
