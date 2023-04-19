@@ -40,6 +40,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
+import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
@@ -287,17 +288,34 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 builder.setCancelable(false);
                 builder.create();
                 builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
-                    // When the user click yes button then app will close
-                    finish();
+                    PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
+                    Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
+                    call.enqueue(new Callback<PreRegisterResponse>() {
+                        @Override
+                        public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
+                            PreRegisterResponse responseFromAPI = response.body();
+
+                            if(response.isSuccessful()){
+                                Toast.makeText(RegisterationActivity.this, "response received", Toast.LENGTH_SHORT).show();
+                                if(responseFromAPI.getMessage().equals("session expire")){
+                                    Toast.makeText(RegisterationActivity.this, "Session Expired", Toast.LENGTH_SHORT).show();
+                                    // When the user click yes button then app will close
+                                    finish();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
+                            Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });/////////
                 });
                 builder.show();
 
-                // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
-
-
             }
         };
-        handler.postDelayed(x, 60000);
+        handler.postDelayed(x, 6000);
 
     }
 }

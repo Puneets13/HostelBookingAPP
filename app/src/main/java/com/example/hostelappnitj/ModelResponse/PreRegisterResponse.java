@@ -18,6 +18,11 @@ public class PreRegisterResponse {
         this.hostelName=hostelName;
     }
 
+    public PreRegisterResponse(String roomNumber, String hostelName) {
+        this.roomNumber = roomNumber;
+        this.hostelName = hostelName;
+    }
+
     public List<statusModel> getHostelStatusList() {
         return hostelStatusList;
     }

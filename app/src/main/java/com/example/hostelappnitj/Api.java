@@ -78,6 +78,10 @@ public interface Api {
     @GET("hostelbook/getAllRoomStatus")
     Call<PreRegisterResponse>fetchAllHostelsStatus();
 
+    @POST("hostelbook/expire")
+    Call<PreRegisterResponse> PreRegisterExpireResponse(
+            @Body PreRegisterResponse preRegisterResponse
+    );
 
 
 //    @Multipart

@@ -192,13 +192,12 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                         room=hostelStatusList.get(i).getRoomNumber();
                         hostel_name=hostelStatusList.get(i).getHostelName();
 
-                        room = hostelList.get(i).getRoomNumber();
                         room2=room+" ";
 
 //                            if condition for evaluating the hostel name
                         if(hostel_name.equals("Mega Boys Hostel B")){
                             if(room!=null) {
-                                if (status_received=="1") {   //temporary blocked
+                                if (status_received.equals("1")) {   //temporary blocked
                                     try{
                                         String btnid = "room" + room;
                                         int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
