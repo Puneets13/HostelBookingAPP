@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -96,6 +97,15 @@ public class Floor_3_SeatMatrix extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Handler handler= new Handler();
+        Runnable runnable=new Runnable() {
+            @Override
+            public void run() {
+                loadRooms();
+                handler.postDelayed(this, 2000);
+            }
+        };
+        handler.postDelayed(runnable,5000);
     }
 
     public void loadRooms(){
@@ -106,7 +116,6 @@ public class Floor_3_SeatMatrix extends AppCompatActivity {
             public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
                 HostelRegisterationResponse responseFromAPI= response.body();
                 if(response.isSuccessful()){
-                    Toast.makeText(Floor_3_SeatMatrix.this, "Hostels Updated", Toast.LENGTH_SHORT).show();
                     hostelList=  responseFromAPI.getHostelList();
                     int n = hostelList.size();
 
@@ -182,7 +191,6 @@ public class Floor_3_SeatMatrix extends AppCompatActivity {
             public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
                 PreRegisterResponse responseFromAPI1 = response.body();
                 if(response.isSuccessful()){
-                    Toast.makeText(Floor_3_SeatMatrix.this, "Status received", Toast.LENGTH_SHORT).show();
                     hostelStatusList=responseFromAPI1.getHostelStatusList();
                     int n = hostelStatusList.size();
                     String status_received,room,hostel_name;
@@ -207,9 +215,7 @@ public class Floor_3_SeatMatrix extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
                                 }
-                                else{
-                                    Toast.makeText(Floor_3_SeatMatrix.this, "Something went Wrong..", Toast.LENGTH_SHORT).show();
-                                }
+
                             }
                         }
                     }
