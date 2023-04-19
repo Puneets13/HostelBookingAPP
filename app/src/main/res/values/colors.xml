@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#56A3E6</color>
-<!--    <color name="button">#7E7E7E</color>-->
-    <color name="button">#2C1850</color>
+    <color name="button">#7E7E7E</color>
+<!--    <color name="button">#2C1850</color>-->
     <!--    #56A3E6 mainColor-->
 </resources>

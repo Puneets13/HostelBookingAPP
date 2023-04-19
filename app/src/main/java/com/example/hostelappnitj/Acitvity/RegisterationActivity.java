@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
@@ -30,8 +31,10 @@ import android.provider.MediaStore;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -39,11 +42,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.MBH_B_Hostel.Floor_1_SeatMatrix;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
+import com.example.hostelappnitj.ModelResponse.statusModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
@@ -52,6 +57,8 @@ import com.google.android.material.snackbar.Snackbar;
 //import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -70,6 +77,9 @@ public class RegisterationActivity extends AppCompatActivity {
     RadioGroup radioGroup, radioGroupGender;
     Spinner spinnerBranch;
 SharedPrefManager sharedPrefManager;
+
+    List<hostel> hostelList;
+    List<statusModel>hostelStatusList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -255,9 +265,10 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                                 etStdPhone.setText("");
 
                                 //this is used to save the user properties in the sharePrefManager
-                                Toast.makeText(RegisterationActivity.this,"Room "+ responseFromApi.getHostel().getRoomNumber()+"Registered", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterationActivity.this,"Room "+ responseFromApi.getHostel().getRoomNumber()+" Registered", Toast.LENGTH_SHORT).show();
                                 finish(); //to remove the current activity
                             } else if(responseFromApi.getMessage().equals("Room Not Available")){
+                                progressDialog.dismiss();
                                 Toast.makeText(RegisterationActivity.this, "Room Not Available..", Toast.LENGTH_SHORT).show();
                                 etAddress.setText("");
                                 etFatherName.setText("");
@@ -303,7 +314,14 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
                     expireSession();
                 });
-                builder.show();
+
+                try {
+                    builder.show();
+                }
+                catch (WindowManager.BadTokenException e) {
+                    //use a log message
+
+                }
 
             }
         };
@@ -323,7 +341,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                     if(responseFromAPI.getMessage().equals("session expire")){
                         Toast.makeText(RegisterationActivity.this, "Session Expired", Toast.LENGTH_SHORT).show();
                         // When the user click yes button then app will close
-                        finish();
+                            finish();
                     }
                 }
             }
@@ -337,6 +355,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
         PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
         Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
         call.enqueue(new Callback<PreRegisterResponse>() {
@@ -346,7 +365,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
                 if(response.isSuccessful()){
                     if(responseFromAPI.getMessage().equals("session expire")){
-                        Toast.makeText(RegisterationActivity.this, "Session Expired", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterationActivity.this, "Room Not Registered..", Toast.LENGTH_SHORT).show();
                         // When the user click yes button then app will close
                         finish();
                     }
@@ -358,7 +377,6 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        super.onBackPressed();
     }
 }
 //

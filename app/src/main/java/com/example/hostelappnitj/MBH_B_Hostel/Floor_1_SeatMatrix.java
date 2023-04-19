@@ -109,10 +109,10 @@ public class Floor_1_SeatMatrix extends AppCompatActivity {
             @Override
             public void run() {
                 loadRooms();
-                handler.postDelayed(this, 5000);
+                handler.postDelayed(this, 2000);
             }
         };
-        handler.postDelayed(runnable,5000);
+        handler.postDelayed(runnable,2000);
     }
 
     public void loadRooms(){
@@ -240,8 +240,6 @@ public class Floor_1_SeatMatrix extends AppCompatActivity {
 
 
     }
-
-
 
     @Override
     protected void onResume() {
