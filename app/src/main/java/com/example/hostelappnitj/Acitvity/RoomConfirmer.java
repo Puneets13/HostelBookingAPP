@@ -13,16 +13,21 @@ import android.widget.Toast;
 import com.example.hostelappnitj.MBH_A_Hostel.Floor_6_SeatMatrix_A;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.R;
+import com.example.hostelappnitj.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RoomConfirmer extends AppCompatActivity {
-EditText roomNumber;
+EditText etroomNumber;
 Button proceed;
-    String hostelName, username, rollNumber, email, branch,roomNum;
+    String hostelName, username, rollNumber, email, branch,roomNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_confirmer);
-        roomNumber = findViewById(R.id.editRoom);
+        etroomNumber = findViewById(R.id.editRoom);
         proceed= findViewById(R.id.proceed);
 
         Intent intent = getIntent();
@@ -37,30 +42,70 @@ Button proceed;
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(RoomConfirmer.this, "Proceeded", Toast.LENGTH_SHORT).show();
-                roomNum=roomNumber.getText().toString();
+                roomNumber=etroomNumber.getText().toString();
 
-                if(roomNumber.getText().toString().isEmpty()){
-                    roomNumber.requestFocus();
-                    roomNumber.setError("Enter Room Number");
+                if(etroomNumber.getText().toString().isEmpty()){
+                    etroomNumber.requestFocus();
+                    etroomNumber.setError("Enter Room Number");
                     return;
                 }else{
-                    PreRegisterResponse preRegisterResponse = new PreRegisterResponse(roomNum,rollNumber,email);
 
+                    PreRegisterResponse preRegisterResponse = new PreRegisterResponse(roomNumber,rollNumber,email);
+                    Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterResponse(preRegisterResponse);
+                    call.enqueue(new Callback<PreRegisterResponse>() {
+                        @Override
+                        public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
+                            PreRegisterResponse responseFromAPI = response.body();
+                            Toast.makeText(RoomConfirmer.this, "response received", Toast.LENGTH_SHORT).show();
+                            if(response.isSuccessful()){
+                                Toast.makeText(RoomConfirmer.this, "response succesful", Toast.LENGTH_SHORT).show();
+                                if(responseFromAPI.getMessage().equals("go")){
+//                                    show the intent for Register room
+                                    Toast.makeText(RoomConfirmer.this, "Gooo", Toast.LENGTH_SHORT).show();
+
+                                    Intent intent = new Intent(RoomConfirmer.this, RegisterationActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    intent.putExtra("hostelName", hostelName);
+                                    intent.putExtra("username", username);
+                                    intent.putExtra("rollNumber", rollNumber);
+                                    intent.putExtra("email", email);
+                                    intent.putExtra("branch", branch);
+                                    intent.putExtra("roomNum",roomNumber);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                                else if(responseFromAPI.getMessage().equals("fully filled")){
+                                    Toast.makeText(RoomConfirmer.this, "Room Fully Occupied", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                else if(responseFromAPI.getMessage().equals("booking in process")){
+                                    Toast.makeText(RoomConfirmer.this, "Can't Book..Wait for While", Toast.LENGTH_SHORT).show();
+                                    return;
+
+                                }
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
+                            Toast.makeText(RoomConfirmer.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
 
                 }
 
 
-                Intent intent = new Intent(RoomConfirmer.this, RegisterationActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("hostelName", hostelName);
-                intent.putExtra("username", username);
-                intent.putExtra("rollNumber", rollNumber);
-                intent.putExtra("email", email);
-                intent.putExtra("branch", branch);
-                intent.putExtra("roomNum",roomNum);
-                startActivity(intent);
-                finish();
+//                Intent intent = new Intent(RoomConfirmer.this, RegisterationActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.putExtra("hostelName", hostelName);
+//                intent.putExtra("username", username);
+//                intent.putExtra("rollNumber", rollNumber);
+//                intent.putExtra("email", email);
+//                intent.putExtra("branch", branch);
+//                intent.putExtra("roomNum",roomNum);
+//                startActivity(intent);
+//                finish();
             }
         });
     }

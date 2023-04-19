@@ -173,6 +173,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         intent.putExtra("email",useremail);
 //                        //this is used to clear the previous stack of activities so when back button pressed then previous activites
                         startActivity(intent);
+                        finish();
 
                     }
 

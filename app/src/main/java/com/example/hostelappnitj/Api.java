@@ -7,6 +7,7 @@ import com.example.hostelappnitj.ModelResponse.CreateProfileResponse;
 import com.example.hostelappnitj.ModelResponse.DataModel;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.OTP_model;
+import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
@@ -66,6 +67,14 @@ public interface Api {
 //            @Field ("email") String email,
 //            @Field("rollNumber")String rollNumber
             );
+
+
+//    For processing of Hostel button
+    @POST("hostelbook/proceed")
+    Call<PreRegisterResponse> PreRegisterResponse(
+            @Body PreRegisterResponse preRegisterResponse
+    );
+
 
 //    @Multipart
 //    @POST("XXXX")

@@ -38,13 +38,6 @@ public class HostelRegisterationResponse {
     public void setHostelList(List<hostel> hostelList) {
         this.hostelList = hostelList;
     }
-//    public List<com.example.hostelappnitj.ModelResponse.hostel> getHostelList() {
-//        return hostelList;
-//    }
-//
-//    public void setHostelList(List<com.example.hostelappnitj.ModelResponse.hostel> hostelList) {
-//        this.hostelList = hostelList;
-//    }
 
     public String getUserName() {
         return userName;
