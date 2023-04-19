@@ -177,9 +177,6 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                                     }
                                 }
                             }
-
-
-
                         }
                     }
 //                    binding.display.setText("total "+n);
@@ -201,6 +198,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
 //        API call for Status verification
         Call<PreRegisterResponse>call1 = RetrofitClient.getInstance().getApi().fetchAllHostelsStatus();
         call1.enqueue(new Callback<PreRegisterResponse>() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
                 PreRegisterResponse responseFromAPI1 = response.body();
@@ -245,10 +243,6 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                 Toast.makeText(Floor_2_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
     }
 
     @Override
@@ -262,7 +256,21 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
     {
         super.onRestart();
         finish();
-        loadRooms();
-        startActivity(getIntent());
+        startActivity(getIntent()); // to restart the activity after onBackPressed() method
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Handler handler= new Handler();
+        Runnable runnable=new Runnable() {
+            @Override
+            public void run() {
+                loadRooms();
+                handler.postDelayed(this, 2000);
+            }
+        };
+        handler.postDelayed(runnable,2000);
+    }
+
 }
