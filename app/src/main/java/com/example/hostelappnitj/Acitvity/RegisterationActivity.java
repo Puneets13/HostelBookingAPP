@@ -378,6 +378,8 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
             }
         });
     }
+
+
 }
 //
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
