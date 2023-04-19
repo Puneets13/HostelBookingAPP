@@ -43,12 +43,19 @@ Button proceed;
             @Override
             public void onClick(View v) {
                 roomNumber=etroomNumber.getText().toString();
-
+                String room_substring = roomNumber.substring(Math.max(roomNumber.length() - 2, 0));
+                int room_int=Integer.parseInt(room_substring);
                 if(etroomNumber.getText().toString().isEmpty()){
                     etroomNumber.requestFocus();
                     etroomNumber.setError("Enter Room Number");
                     return;
-                }else{
+                }
+                else if(room_int>=46 || room_int<=01){
+                    etroomNumber.requestFocus();
+                    etroomNumber.setError("Please enter Valid Room Number");
+                    return;
+                }
+                else{
 
                     PreRegisterResponse preRegisterResponse = new PreRegisterResponse(roomNumber,rollNumber,email,hostelName);
                     Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterResponse(preRegisterResponse);
@@ -56,9 +63,9 @@ Button proceed;
                         @Override
                         public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
                             PreRegisterResponse responseFromAPI = response.body();
-                            Toast.makeText(RoomConfirmer.this, "response received", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(RoomConfirmer.this, "response received", Toast.LENGTH_SHORT).show();
                             if(response.isSuccessful()){
-                                Toast.makeText(RoomConfirmer.this, "response succesful", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(RoomConfirmer.this, "response succesful", Toast.LENGTH_SHORT).show();
                                 if(responseFromAPI.getMessage().equals("go")){
 //                                    show the intent for Register room
                                     Toast.makeText(RoomConfirmer.this, "Gooo", Toast.LENGTH_SHORT).show();

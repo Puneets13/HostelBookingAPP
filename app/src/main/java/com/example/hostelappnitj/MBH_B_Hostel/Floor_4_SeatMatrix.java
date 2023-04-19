@@ -17,7 +17,9 @@ import com.alexvasilkov.gestures.views.interfaces.GestureView;
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
 import com.example.hostelappnitj.Acitvity.RoomConfirmer;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
+import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
+import com.example.hostelappnitj.ModelResponse.statusModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
@@ -41,6 +43,7 @@ public class Floor_4_SeatMatrix extends AppCompatActivity {
     String hostelName, username, rollNumber, email, branch;
     TextView display;
     List<hostel> hostelList;
+    List<statusModel>hostelStatusList;
 
 
     @Override
@@ -170,6 +173,56 @@ public class Floor_4_SeatMatrix extends AppCompatActivity {
                 Toast.makeText(Floor_4_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        //        API call for Status verification
+        Call<PreRegisterResponse>call1 = RetrofitClient.getInstance().getApi().fetchAllHostelsStatus();
+        call1.enqueue(new Callback<PreRegisterResponse>() {
+            @Override
+            public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
+                PreRegisterResponse responseFromAPI1 = response.body();
+                if(response.isSuccessful()){
+                    Toast.makeText(Floor_4_SeatMatrix.this, "Status received", Toast.LENGTH_SHORT).show();
+                    hostelStatusList=responseFromAPI1.getHostelStatusList();
+                    int n = hostelStatusList.size();
+                    String status_received,room,hostel_name;
+                    String room2 = "";
+                    for (int i =0 ; i<n;i++){
+                        status_received=hostelStatusList.get(i).getStatus();
+                        room=hostelStatusList.get(i).getRoomNumber();
+                        hostel_name=hostelStatusList.get(i).getHostelName();
+
+                        room2=room+" ";
+
+//                            if condition for evaluating the hostel name
+                        if(hostel_name.equals("Mega Boys Hostel B")){
+                            if(room!=null) {
+                                if (status_received.equals("1")) {   //temporary blocked
+                                    try{
+                                        String btnid = "room" + room;
+                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
+                                        Button b = (Button) findViewById(resId);
+                                        b.setBackgroundResource(R.drawable.room_temporarily_blocked);
+                                    }catch (NullPointerException e){
+                                        e.printStackTrace();
+                                    }
+                                }
+                                else{
+                                    Toast.makeText(Floor_4_SeatMatrix.this, "Something went Wrong..", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
+                Toast.makeText(Floor_4_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
     }
 
 

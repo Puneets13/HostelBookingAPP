@@ -282,34 +282,13 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 builder.setMessage("Sorry! Try again");
 
                 // Set Alert Title
-                builder.setTitle("Session Timed OUt!");
+                builder.setTitle("Session Timed Out!");
 
                 // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
                 builder.setCancelable(false);
                 builder.create();
                 builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
-                    PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
-                    Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
-                    call.enqueue(new Callback<PreRegisterResponse>() {
-                        @Override
-                        public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
-                            PreRegisterResponse responseFromAPI = response.body();
-
-                            if(response.isSuccessful()){
-                                Toast.makeText(RegisterationActivity.this, "response received", Toast.LENGTH_SHORT).show();
-                                if(responseFromAPI.getMessage().equals("session expire")){
-                                    Toast.makeText(RegisterationActivity.this, "Session Expired", Toast.LENGTH_SHORT).show();
-                                    // When the user click yes button then app will close
-                                    finish();
-                                }
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
-                            Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });/////////
+                    expireSession();
                 });
                 builder.show();
 
@@ -317,6 +296,30 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
         };
         handler.postDelayed(x, 6000);
 
+    }
+
+    private void expireSession() {
+        PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
+        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
+        call.enqueue(new Callback<PreRegisterResponse>() {
+            @Override
+            public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
+                PreRegisterResponse responseFromAPI = response.body();
+
+                if(response.isSuccessful()){
+                    if(responseFromAPI.getMessage().equals("session expire")){
+                        Toast.makeText(RegisterationActivity.this, "Session Expired", Toast.LENGTH_SHORT).show();
+                        // When the user click yes button then app will close
+                        finish();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
+                Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
 //
@@ -348,8 +351,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 ////            progressDialog.dismiss();
 //            Toast.makeText(RegisterationActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
 //        }
-//    }
-//
+//    }//
 //    @Override
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
