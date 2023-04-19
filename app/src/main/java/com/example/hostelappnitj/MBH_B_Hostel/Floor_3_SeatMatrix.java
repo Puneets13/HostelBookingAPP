@@ -175,9 +175,6 @@ public class Floor_3_SeatMatrix extends AppCompatActivity {
                                     }
                                 }
                             }
-
-
-
                         }
                     }
 //                    binding.display.setText("total "+n);

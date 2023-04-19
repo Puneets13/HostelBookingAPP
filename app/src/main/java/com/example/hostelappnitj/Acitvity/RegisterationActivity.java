@@ -321,6 +321,32 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
+        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
+        call.enqueue(new Callback<PreRegisterResponse>() {
+            @Override
+            public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
+                PreRegisterResponse responseFromAPI = response.body();
+
+                if(response.isSuccessful()){
+                    if(responseFromAPI.getMessage().equals("session expire")){
+                        Toast.makeText(RegisterationActivity.this, "Session Expired", Toast.LENGTH_SHORT).show();
+                        // When the user click yes button then app will close
+                        finish();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
+                Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        super.onBackPressed();
+    }
 }
 //
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
