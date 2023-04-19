@@ -43,6 +43,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.MBH_B_Hostel.Floor_1_SeatMatrix;
+import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
@@ -320,7 +321,6 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 }
                 catch (WindowManager.BadTokenException e) {
                     //use a log message
-
                 }
 
             }
@@ -367,7 +367,9 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                     if(responseFromAPI.getMessage().equals("session expire")){
                         Toast.makeText(RegisterationActivity.this, "Room Not Registered..", Toast.LENGTH_SHORT).show();
                         // When the user click yes button then app will close
-                        finish();
+                        Intent intent = new Intent(RegisterationActivity.this, MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
                     }
                 }
             }
