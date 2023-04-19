@@ -76,6 +76,10 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="25dp"
+            app:boxCornerRadiusBottomEnd="@dimen/_15sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_15sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_15sdp"
+            app:boxCornerRadiusTopStart="@dimen/_15sdp"
             android:layout_marginRight="30dp">
 
             <EditText
@@ -98,7 +102,11 @@
             android:layout_below="@+id/rollNolayout"
             android:layout_centerInParent="true"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="90dp"
+            app:boxCornerRadiusBottomEnd="@dimen/_15sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_15sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_15sdp"
+            app:boxCornerRadiusTopStart="@dimen/_15sdp"
+            android:layout_marginTop="105dp"
             android:layout_marginRight="30dp">
 
             <EditText
@@ -119,10 +127,14 @@
             android:layout_below="@+id/emaillayout"
             android:layout_centerInParent="true"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="155dp"
+            android:layout_marginTop="185dp"
             android:layout_marginRight="30dp"
             android:layout_marginBottom="@dimen/_40sdp"
             app:endIconDrawable="@drawable/custom_password_eye"
+            app:boxCornerRadiusBottomEnd="@dimen/_15sdp"
+            app:boxCornerRadiusBottomStart="@dimen/_15sdp"
+            app:boxCornerRadiusTopEnd="@dimen/_15sdp"
+            app:boxCornerRadiusTopStart="@dimen/_15sdp"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="#595656">
 
@@ -132,7 +144,6 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_password"
                 android:drawableTint="#2C1850"
-
                 android:drawablePadding="@dimen/_5sdp"
                 android:hint="Password"
                 android:inputType="textPassword" />

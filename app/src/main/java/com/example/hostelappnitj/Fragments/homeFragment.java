@@ -26,7 +26,8 @@ import com.example.hostelappnitj.MBH_B_Hostel.MegaBoysB_Activity;
 import com.example.hostelappnitj.MBH_F_Hostel.MegaBoysF_Activity;
 import com.example.hostelappnitj.MGH_Girls.MegaGirlsActivity;
 import com.example.hostelappnitj.R;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+//import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+//import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 
 public class homeFragment extends Fragment {
@@ -46,17 +47,17 @@ ImageView imageViewHostels ;
         btnmghB=view.findViewById(R.id.btnMghB);
         btnmghA=view.findViewById(R.id.btnMghA);
         btnmghF=view.findViewById(R.id.btnMghF);
-        btnBoysH4=view.findViewById(R.id.btnHostel4);
-        btnBoysH5=view.findViewById(R.id.btnHostel5);
-        btnBoysH6=view.findViewById(R.id.btnHostel6);
-        btnBoysH7=view.findViewById(R.id.btnHostel7);
+//        btnBoysH4=view.findViewById(R.id.btnHostel4);
+//        btnBoysH5=view.findViewById(R.id.btnHostel5);
+//        btnBoysH6=view.findViewById(R.id.btnHostel6);
+//        btnBoysH7=view.findViewById(R.id.btnHostel7);
         btnGirlsMega=view.findViewById(R.id.btnMegaGirls);
-        btnGirlsH1=view.findViewById(R.id.btnGrlHostel1);
-        btnGirlsH2=view.findViewById(R.id.btnGrlHostel2);
+//        btnGirlsH1=view.findViewById(R.id.btnGrlHostel1);
+//        btnGirlsH2=view.findViewById(R.id.btnGrlHostel2);
 
 
 //        for showing the images autoMatically
-        int[] imageArray = { R.drawable.img_2, R.drawable.img_3, R.drawable.img_4, R.drawable.img_5};
+        int[] imageArray = { R.drawable.img_2, R.drawable.img_4, R.drawable.img_5};
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             int i = 0;
@@ -100,43 +101,43 @@ ImageView imageViewHostels ;
                 startActivity(intent);
             }
         });
-        btnBoysH4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "H4 BOYS", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), BoysH4Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
-        btnBoysH5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "H5 BOYS", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), BoysH5Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
-        btnBoysH6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "H6 BOYS", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), BoysH6Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
-
-        btnBoysH7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "H7 BOYS", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), BoysH7Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
+//        btnBoysH4.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "H4 BOYS", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(), BoysH4Activity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
+//        btnBoysH5.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "H5 BOYS", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(), BoysH5Activity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
+//        btnBoysH6.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "H6 BOYS", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(), BoysH6Activity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        btnBoysH7.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "H7 BOYS", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(), BoysH7Activity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
         btnGirlsMega.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,25 +148,25 @@ ImageView imageViewHostels ;
             }
         });
 
-        btnGirlsH1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "H1 GIRLS", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), GirlsH1Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
-
-        btnGirlsH2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "H2 GIRLS", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), GirlsH2Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
+//        btnGirlsH1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "H1 GIRLS", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(), GirlsH1Activity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        btnGirlsH2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "H2 GIRLS", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getActivity(), GirlsH2Activity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
 
 
         return view;

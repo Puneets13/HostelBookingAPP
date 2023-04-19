@@ -12,10 +12,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -269,7 +271,33 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 });
             }
         });
+        Handler handler = new Handler();
+        Runnable x=new Runnable() {
+            @Override
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterationActivity.this);
 
+                // Set the message show for the Alert time
+                builder.setMessage("Sorry! Try again");
+
+                // Set Alert Title
+                builder.setTitle("Session Timed OUt!");
+
+                // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                builder.setCancelable(false);
+                builder.create();
+                builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    // When the user click yes button then app will close
+                    finish();
+                });
+                builder.show();
+
+                // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+
+
+            }
+        };
+        handler.postDelayed(x, 6000);
 
     }
 }

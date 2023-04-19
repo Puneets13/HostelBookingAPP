@@ -35,7 +35,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.material:material:1.8.0-beta01'  //material desgin
-    implementation 'com.intuit.sdp:sdp-android:1.1.0'  //dimensions
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 //    implementation 'androidx.navigation:navigation-fragment:+'
 //    implementation 'androidx.navigation:navigation-ui:+'//circularImage
@@ -47,5 +47,5 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'  //GSon for converting the JSON to JavaObject
     implementation 'de.hdodenhof:circleimageview:3.1.0' //circular image view
     implementation 'com.squareup.picasso:picasso:2.8'  //picasso for loading the image from u
-
+    implementation 'com.airbnb.android:lottie:3.5.0'  //lottie animation
 }

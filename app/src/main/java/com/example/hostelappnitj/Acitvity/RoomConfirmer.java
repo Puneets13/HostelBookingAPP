@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.MBH_A_Hostel.Floor_6_SeatMatrix_A;
+import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.R;
 
 public class RoomConfirmer extends AppCompatActivity {
@@ -31,13 +32,25 @@ Button proceed;
         email = intent.getStringExtra("email");
         branch = intent.getStringExtra("branch");
 
-
+//here we need to add proced
 
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(RoomConfirmer.this, "Proceeded", Toast.LENGTH_SHORT).show();
                 roomNum=roomNumber.getText().toString();
+
+                if(roomNumber.getText().toString().isEmpty()){
+                    roomNumber.requestFocus();
+                    roomNumber.setError("Enter Room Number");
+                    return;
+                }else{
+                    PreRegisterResponse preRegisterResponse = new PreRegisterResponse(roomNum,rollNumber,email);
+
+
+                }
+
+
                 Intent intent = new Intent(RoomConfirmer.this, RegisterationActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("hostelName", hostelName);
@@ -47,6 +60,7 @@ Button proceed;
                 intent.putExtra("branch", branch);
                 intent.putExtra("roomNum",roomNum);
                 startActivity(intent);
+                finish();
             }
         });
     }
