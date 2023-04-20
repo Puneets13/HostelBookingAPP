@@ -1,5 +1,7 @@
 package com.example.hostelappnitj.Fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
@@ -16,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
+import com.example.hostelappnitj.Acitvity.SignInActivity;
 import com.example.hostelappnitj.Hostels.BoysH4Activity;
 import com.example.hostelappnitj.Hostels.BoysH5Activity;
 import com.example.hostelappnitj.Hostels.BoysH6Activity;
@@ -28,6 +31,7 @@ import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
 import com.example.hostelappnitj.MBH_B_Hostel.MegaBoysB_Activity;
 import com.example.hostelappnitj.MBH_F_Hostel.MegaBoysF_Activity;
 import com.example.hostelappnitj.MGH_Girls.MegaGirlsActivity;
+import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -38,6 +42,7 @@ public class homeFragment extends Fragment {
     ImageView imageViewHostels ;
     AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH5,btnBoysH6,btnBoysH7,btnGirlsMega , btnhostelPolicy, btnMesslRule ;
    FloatingActionButton floatingActionButton_call;
+    private DialogInterface.OnClickListener dialogClickListener;
 
     public homeFragment() {
         // Required empty public constructor
@@ -99,10 +104,37 @@ public class homeFragment extends Fragment {
         floatingActionButton_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                making call
-                Intent callIntent=new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:"+"8360699022"));//change the number
-                startActivity(callIntent);
+
+                dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            // on below line we are setting a click listener
+                            // for our positive button
+                            case DialogInterface.BUTTON_POSITIVE:
+//                        Make the Call Action
+                                Intent callIntent=new Intent(Intent.ACTION_CALL);
+                                callIntent.setData(Uri.parse("tel:"+"8360699022"));//change the number
+                                startActivity(callIntent);
+
+                                break;
+                            // on below line we are setting click listener
+                            // for our negative button.
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                // on below line we are dismissing our dialog box.
+                                dialog.dismiss();
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                // on below line we are setting message for our dialog box.
+                builder.setTitle("EMERGENCY CALL");
+                builder.setMessage("Make a call to Main Gate Security Guard ?")
+                        .setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener)
+                        .show();
+
             }
         });
 

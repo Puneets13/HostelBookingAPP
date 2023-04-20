@@ -80,9 +80,7 @@ public class MainActivity extends AppCompatActivity {
                         toolbar.setTitleTextColor(Color.WHITE);
                         fragment = new ProfileFragment();
                         break;
-                    case R.id.notifications:
 
-                        break;
                     case R.id.account_settings:
                         toolbar.setTitle("ACCOUNT SETTINGS");
                         toolbar.setTitleTextColor(Color.WHITE);
@@ -113,11 +111,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    ////    to close the drawer when backPress button is pressed on phone if it is opend
-//    @Override
-//    public void onBackPressed() {
-//
-//    }
+
     @Override
     public void onBackPressed() {
 
@@ -126,13 +120,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             super.onBackPressed();
         }
-//        int count = getSupportFragmentManager().getBackStackEntryCount();
-//        if (count == 0) {
-//            super.onBackPressed();
-//            //additional code
-//        } else {
-//            getSupportFragmentManager().popBackStack();
-//        }
+
     }
 
 

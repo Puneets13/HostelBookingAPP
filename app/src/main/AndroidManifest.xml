@@ -21,7 +21,7 @@
         <activity
             android:name=".Acitvity.RoomConfirmer"
             android:exported="false" />
-       
+
         <activity
             android:name=".MBH_A_Hostel.Floor_Ground_SeatMatrix_A"
             android:exported="false" />
