@@ -2,6 +2,7 @@ package com.example.hostelappnitj.Fragments;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
@@ -21,18 +22,23 @@ import com.example.hostelappnitj.Hostels.BoysH6Activity;
 import com.example.hostelappnitj.Hostels.BoysH7Activity;
 import com.example.hostelappnitj.Hostels.GirlsH1Activity;
 import com.example.hostelappnitj.Hostels.GirlsH2Activity;
+import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
+import com.example.hostelappnitj.Hostels.Mess_Rules;
 import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
 import com.example.hostelappnitj.MBH_B_Hostel.MegaBoysB_Activity;
 import com.example.hostelappnitj.MBH_F_Hostel.MegaBoysF_Activity;
 import com.example.hostelappnitj.MGH_Girls.MegaGirlsActivity;
 import com.example.hostelappnitj.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 
 public class homeFragment extends Fragment {
     ImageView imageViewHostels ;
-    AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH5,btnBoysH6,btnBoysH7,btnGirlsMega , btnGirlsH1,btnGirlsH2 ;
+    AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH5,btnBoysH6,btnBoysH7,btnGirlsMega , btnhostelPolicy, btnMesslRule ;
+   FloatingActionButton floatingActionButton_call;
+
     public homeFragment() {
         // Required empty public constructor
     }
@@ -47,14 +53,10 @@ public class homeFragment extends Fragment {
         btnmghB=view.findViewById(R.id.btnMghB);
         btnmghA=view.findViewById(R.id.btnMghA);
         btnmghF=view.findViewById(R.id.btnMghF);
-//        btnBoysH4=view.findViewById(R.id.btnHostel4);
-//        btnBoysH5=view.findViewById(R.id.btnHostel5);
-//        btnBoysH6=view.findViewById(R.id.btnHostel6);
-//        btnBoysH7=view.findViewById(R.id.btnHostel7);
+        btnhostelPolicy=view.findViewById(R.id.HostelPolicy);
+        btnMesslRule=view.findViewById(R.id.Mess_rule);
         btnGirlsMega=view.findViewById(R.id.btnMegaGirls);
-//        btnGirlsH1=view.findViewById(R.id.btnGrlHostel1);
-//        btnGirlsH2=view.findViewById(R.id.btnGrlHostel2);
-
+        floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
 
 //        for showing the images autoMatically
         int[] imageArray = { R.drawable.img_2, R.drawable.img_4, R.drawable.img_5};
@@ -73,6 +75,36 @@ public class homeFragment extends Fragment {
         };
         handler.postDelayed(runnable, 2000);
 
+
+        btnhostelPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Hostel_Rules_Activity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+
+        btnMesslRule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Mess_Rules.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+
+        floatingActionButton_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                making call
+                Intent callIntent=new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:"+"8360699022"));//change the number
+                startActivity(callIntent);
+            }
+        });
 
         btnmghB.setOnClickListener(new View.OnClickListener() {
             @Override

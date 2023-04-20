@@ -206,7 +206,6 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
             @Override
             public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
                 progressDialog.dismiss();  //if any error occurs then it need to be returned
-                Toast.makeText(Floor_2_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -288,57 +287,6 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                 Toast.makeText(Floor_2_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-////        API call for Status verification
-//        Call<PreRegisterResponse>call1 = RetrofitClient.getInstance().getApi().fetchAllHostelsStatus();
-//        call1.enqueue(new Callback<PreRegisterResponse>() {
-//            @SuppressLint("ResourceAsColor")
-//            @Override
-//            public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
-//                PreRegisterResponse responseFromAPI1 = response.body();
-//                if(response.isSuccessful()){
-//                    progressDialog.dismiss();  //if any error occurs then it need to be returned
-//
-//                    hostelStatusList=responseFromAPI1.getHostelStatusList();
-//                    int n = hostelStatusList.size();
-//                    String status_received,room,hostel_name;
-//                    String room2 = "";
-//                    for (int i =0 ; i<n;i++){
-//                        status_received=hostelStatusList.get(i).getStatus();
-//                        room=hostelStatusList.get(i).getRoomNumber();
-//                        hostel_name=hostelStatusList.get(i).getHostelName();
-//
-//                        room2=room+" ";
-//
-////                            if condition for evaluating the hostel name
-//                        if(hostel_name.equals("Mega Boys Hostel B")){
-//                            if(room!=null) {
-//                                if (status_received.equals("1")) {   //temporary blocked
-//                                    try{
-//                                        String btnid = "room" + room;
-//                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
-//                                        Button b = (Button) findViewById(resId);
-//                                        b.setBackgroundResource(R.drawable.room_temporarily_blocked);
-//                                    }catch (NullPointerException e){
-//                                        progressDialog.dismiss();  //if any error occurs then it need to be returned
-//                                        e.printStackTrace();
-//                                    }
-//                                }
-//
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
-//                progressDialog.dismiss();  //if any error occurs then it need to be returned
-//                Toast.makeText(Floor_2_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-
     }
 
     @Override

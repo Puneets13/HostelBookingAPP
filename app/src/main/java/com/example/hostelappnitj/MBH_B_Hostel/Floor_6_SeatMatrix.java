@@ -115,105 +115,39 @@ public class Floor_6_SeatMatrix extends AppCompatActivity {
         handler.postDelayed(runnable,2000);
     }
 
-    public void loadRooms(){
-        Call<HostelRegisterationResponse> call = RetrofitClient.getInstance().getApi().fetchAllHostels();
-        call.enqueue(new Callback<HostelRegisterationResponse>() {
-            @SuppressLint("ResourceAsColor")
-            @Override
-            public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
-                HostelRegisterationResponse responseFromAPI= response.body();
-                if(response.isSuccessful()){
-                    progressDialog.dismiss();  //if any error occurs then it need to be returned
-                    hostelList=  responseFromAPI.getHostelList();
-                    int n = hostelList.size();
 
-
-//                            List<String>usernames = new ArrayList<>();
-                    List<String>roomNumberFullyFilled = new ArrayList<>();
-                    String rollNumber1 , rollNumber2,room , room2 = "";
-
-
-
-                    for (int i =0 ; i<n;i++){
-                        rollNumber1 = hostelList.get(i).getRollNumber1();
-                        rollNumber2 = hostelList.get(i).getRollNumber2();
-                        room = hostelList.get(i).getRoomNumber();
-                        room2=room+" ";
-
-//                            if condition for evaluating the hostel name
-                        String hostel_name = hostelList.get(i).getHostelName();
-
-                        if(hostel_name.equals("Mega Boys Hostel B")){
-                            if(room!=null) {
-                                if (rollNumber1 != null && rollNumber2 != null) {
-//                                    both ARE present
-//                            roomNumberFullyFilled.add(room);
-//                            Toast.makeText(SeatmatrixMBHBoys.this, room+" fully filled", Toast.LENGTH_SHORT).show();
-                                    try{
-                                        String btnid = "room" + room;
-                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
-                                        Button b = (Button) findViewById(resId);
-                                        b.setBackgroundResource(R.drawable.room_occupied_full);
-                                    }catch (NullPointerException e){
-                                        e.printStackTrace();
-                                    }
-
-//                            b.setTextColor(R.color.white);
-                                } else if (rollNumber1 != null && rollNumber2 == null) {
-//                            student 1 is present only partially filled
-//                            roomNumber.add(room);
-//                            Toast.makeText(SeatmatrixMBHBoys.this, room+" partially filled", Toast.LENGTH_SHORT).show();
-                                    try{
-                                        String btnid = "room" + room;
-                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
-                                        Button b = (Button) findViewById(resId);
-                                        b.setBackgroundResource(R.drawable.room_occupied_partially);
-                                    }catch (NullPointerException e){
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }
-
-
-
-                        }
-                    }
-//                    binding.display.setText("total "+n);
-//                            hosteltxt.setText("names : "+usernames);
-
-                }else{
-                    progressDialog.dismiss();  //if any error occurs then it need to be returned
-                    Toast.makeText(Floor_6_SeatMatrix.this, "Something went Wrong..", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<HostelRegisterationResponse> call, Throwable t) {
-                progressDialog.dismiss();  //if any error occurs then it need to be returned
-                Toast.makeText(Floor_6_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
+    private void loadRooms() {
         //        API call for Status verification
         Call<PreRegisterResponse>call1 = RetrofitClient.getInstance().getApi().fetchAllHostelsStatus();
         call1.enqueue(new Callback<PreRegisterResponse>() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
                 PreRegisterResponse responseFromAPI1 = response.body();
                 if(response.isSuccessful()){
                     progressDialog.dismiss();  //if any error occurs then it need to be returned
+
                     hostelStatusList=responseFromAPI1.getHostelStatusList();
                     int n = hostelStatusList.size();
-                    String status_received,room,hostel_name;
+                    String status_received,room,hostel_name,nums;
                     String room2 = "";
                     for (int i =0 ; i<n;i++){
                         status_received=hostelStatusList.get(i).getStatus();
                         room=hostelStatusList.get(i).getRoomNumber();
                         hostel_name=hostelStatusList.get(i).getHostelName();
+                        nums=hostelStatusList.get(i).getNums();
 
-                        room2=room+" ";
+//                        room2=room+" ";
 
 //                            if condition for evaluating the hostel name
+                        //concept
+//                        vacancy    status   output
+//                           0        0         no
+//                           1        0         light blue
+//                           2        0         blue
+//                           0        1       red
+//                           1        1       red
+//                           2        1       red
                         if(hostel_name.equals("Mega Boys Hostel B")){
                             if(room!=null) {
                                 if (status_received.equals("1")) {   //temporary blocked
@@ -223,10 +157,43 @@ public class Floor_6_SeatMatrix extends AppCompatActivity {
                                         Button b = (Button) findViewById(resId);
                                         b.setBackgroundResource(R.drawable.room_temporarily_blocked);
                                     }catch (NullPointerException e){
+                                        progressDialog.dismiss();  //if any error occurs then it need to be returned
                                         e.printStackTrace();
                                     }
                                 }
-
+                                if (status_received.equals("0")&& nums.equals("1")) {   //unBlock room num people =1
+                                    try{
+                                        String btnid = "room" + room;
+                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
+                                        Button b = (Button) findViewById(resId);
+                                        b.setBackgroundResource(R.drawable.room_occupied_partially);
+                                    }catch (NullPointerException e){
+                                        progressDialog.dismiss();  //if any error occurs then it need to be returned
+                                        e.printStackTrace();
+                                    }
+                                }
+                                if (status_received.equals("0")&& nums.equals("2")) {   //unBlock room  , num people 2
+                                    try{
+                                        String btnid = "room" + room;
+                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
+                                        Button b = (Button) findViewById(resId);
+                                        b.setBackgroundResource(R.drawable.room_occupied_full);
+                                    }catch (NullPointerException e){
+                                        progressDialog.dismiss();  //if any error occurs then it need to be returned
+                                        e.printStackTrace();
+                                    }
+                                }
+                                if (status_received.equals("0")&& nums.equals("0")) {   //unBlock room  , num people 2
+                                    try{
+                                        String btnid = "room" + room;
+                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
+                                        Button b = (Button) findViewById(resId);
+                                        b.setBackgroundResource(R.drawable.room_gradient2);
+                                    }catch (NullPointerException e){
+                                        progressDialog.dismiss();  //if any error occurs then it need to be returned
+                                        e.printStackTrace();
+                                    }
+                                }
                             }
                         }
                     }
@@ -236,13 +203,8 @@ public class Floor_6_SeatMatrix extends AppCompatActivity {
             @Override
             public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
                 progressDialog.dismiss();  //if any error occurs then it need to be returned
-                Toast.makeText(Floor_6_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
     }
 
 
@@ -250,5 +212,11 @@ public class Floor_6_SeatMatrix extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadRooms();
+    }
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        this.recreate();
     }
 }
