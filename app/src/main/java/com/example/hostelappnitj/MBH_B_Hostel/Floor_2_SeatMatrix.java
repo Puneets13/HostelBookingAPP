@@ -88,7 +88,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                 .setGravity(Gravity.CENTER);
 
         loadRooms(); //to load the color of rooms in matrix
-
+        loadStatus();
 //        TO PASS THE INTENT TO NEXT REGISTER ACTIVITY
         binding.btnRoomBook3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,6 +149,17 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                                         int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
                                         Button b = (Button) findViewById(resId);
                                         b.setBackgroundResource(R.drawable.room_temporarily_blocked);
+                                    }catch (NullPointerException e){
+                                        progressDialog.dismiss();  //if any error occurs then it need to be returned
+                                        e.printStackTrace();
+                                    }
+                                }
+                                if (status_received.equals("0")) {   //unBlock room
+                                    try{
+                                        String btnid = "room" + room;
+                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
+                                        Button b = (Button) findViewById(resId);
+                                        b.setBackgroundResource(R.drawable.room_gradient2);
                                     }catch (NullPointerException e){
                                         progressDialog.dismiss();  //if any error occurs then it need to be returned
                                         e.printStackTrace();
@@ -310,7 +321,6 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
     public void onRestart()
     {
         super.onRestart();
-        finish();
-        startActivity(getIntent()); // to restart the activity after onBackPressed() method
+        this.recreate();
     }
 }
