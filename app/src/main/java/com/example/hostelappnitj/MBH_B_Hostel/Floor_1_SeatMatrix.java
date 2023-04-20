@@ -243,8 +243,8 @@ public class Floor_1_SeatMatrix extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        super.onResume();
         loadRooms();
+        super.onResume();
     }
 
 

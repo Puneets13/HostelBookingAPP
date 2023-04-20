@@ -314,6 +314,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 builder.create();
                 builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
                     expireSession();
+//                    handler.removeCallbacksAndMessages(null);
                 });
 
                 try {
@@ -351,11 +352,12 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+        finish();
     }
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+
         PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
         Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
         call.enqueue(new Callback<PreRegisterResponse>() {
@@ -378,6 +380,8 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+        finish();
+        super.onBackPressed();
     }
 
 

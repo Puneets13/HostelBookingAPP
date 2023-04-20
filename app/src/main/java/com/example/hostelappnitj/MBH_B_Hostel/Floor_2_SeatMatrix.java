@@ -87,7 +87,8 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                 .setFitMethod(Settings.Fit.INSIDE)
                 .setGravity(Gravity.CENTER);
 
-        loadRooms(); //to load the color of rooms in matrix
+//        loadRooms();
+        //to load the color of rooms in matrix
         loadStatus();
 //        TO PASS THE INTENT TO NEXT REGISTER ACTIVITY
         binding.btnRoomBook3.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +111,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
         Runnable runnable=new Runnable() {
             @Override
             public void run() {
-                loadRooms();
+//                loadRooms();
                 loadStatus();
                 handler.postDelayed(this, 2000);
             }
@@ -131,16 +132,25 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
 
                     hostelStatusList=responseFromAPI1.getHostelStatusList();
                     int n = hostelStatusList.size();
-                    String status_received,room,hostel_name;
+                    String status_received,room,hostel_name,nums;
                     String room2 = "";
                     for (int i =0 ; i<n;i++){
                         status_received=hostelStatusList.get(i).getStatus();
                         room=hostelStatusList.get(i).getRoomNumber();
                         hostel_name=hostelStatusList.get(i).getHostelName();
+                        nums=hostelStatusList.get(i).getNums();
 
-                        room2=room+" ";
+//                        room2=room+" ";
 
 //                            if condition for evaluating the hostel name
+                        //concept
+//                        vacancy    status   output
+//                           0        0         no
+//                           1        0         light blue
+//                           2        0         blue
+//                           0        1       red
+//                           1        1       red
+//                           2        1       red
                         if(hostel_name.equals("Mega Boys Hostel B")){
                             if(room!=null) {
                                 if (status_received.equals("1")) {   //temporary blocked
@@ -154,7 +164,29 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
                                 }
-                                if (status_received.equals("0")) {   //unBlock room
+                                if (status_received.equals("0")&& nums.equals("1")) {   //unBlock room num people =1
+                                    try{
+                                        String btnid = "room" + room;
+                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
+                                        Button b = (Button) findViewById(resId);
+                                        b.setBackgroundResource(R.drawable.room_occupied_partially);
+                                    }catch (NullPointerException e){
+                                        progressDialog.dismiss();  //if any error occurs then it need to be returned
+                                        e.printStackTrace();
+                                    }
+                                }
+                                if (status_received.equals("0")&& nums.equals("2")) {   //unBlock room  , num people 2
+                                    try{
+                                        String btnid = "room" + room;
+                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
+                                        Button b = (Button) findViewById(resId);
+                                        b.setBackgroundResource(R.drawable.room_occupied_full);
+                                    }catch (NullPointerException e){
+                                        progressDialog.dismiss();  //if any error occurs then it need to be returned
+                                        e.printStackTrace();
+                                    }
+                                }
+                                if (status_received.equals("0")&& nums.equals("0")) {   //unBlock room  , num people 2
                                     try{
                                         String btnid = "room" + room;
                                         int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
@@ -165,7 +197,6 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                                         e.printStackTrace();
                                     }
                                 }
-
                             }
                         }
                     }

@@ -5,22 +5,27 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class PreRegisterResponse {
-    private String roomNumber,rollNumber,email,hostelName;
-    private String message,error;
+    private String roomNumber,rollNumber,email,hostelName;  //hostelListComponents
+    private String message,error;//proceed function ===  2
 
     @SerializedName("hostels")    //means the actuall name in the response is users but we are using userList so we serialized annotations
-    List<statusModel> hostelStatusList;
+    List<statusModel> hostelStatusList;  //getAllStatuses ===1
 
     public PreRegisterResponse(String roomNumber, String rollNumber, String email,String hostelName) {
+        this.rollNumber = rollNumber;//unique
+        this.email = email;//unique
         this.roomNumber = roomNumber;
-        this.rollNumber = rollNumber;
-        this.email = email;
         this.hostelName=hostelName;
+        //room and hostel name to mark in proces to fill form
+
     }
 
+    //===1  getAllStatuses - no constructor associated
+    // ===2 proceed associated
     public PreRegisterResponse(String roomNumber, String hostelName) {
         this.roomNumber = roomNumber;
         this.hostelName = hostelName;
+        //gets response as message and error
     }
 
     public List<statusModel> getHostelStatusList() {

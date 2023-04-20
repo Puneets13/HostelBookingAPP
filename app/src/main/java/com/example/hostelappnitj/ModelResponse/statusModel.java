@@ -1,7 +1,7 @@
 package com.example.hostelappnitj.ModelResponse;
 
 public class statusModel {
-    String hostelName,status,roomNumber;
+    String hostelName,status,roomNumber,nums;
 
     public String getHostelName() {
         return hostelName;
@@ -25,5 +25,13 @@ public class statusModel {
 
     public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
+    }
+
+    public String getNums() {
+        return nums;
+    }
+
+    public void setNums(String nums) {
+        this.nums = nums;
     }
 }
