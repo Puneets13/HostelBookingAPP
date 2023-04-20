@@ -51,6 +51,7 @@
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/textRoom"
         android:layout_width="@dimen/_240sdp"
@@ -84,21 +85,27 @@
         app:layout_constraintTop_toBottomOf="@+id/bg"
         app:layout_constraintVertical_bias="0.186">
 
-            <TextView
-                android:id="@+id/editRoom"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/_20sdp"
-                android:justificationMode="inter_word"
-                android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_35sdp"
-                android:padding="@dimen/_10sdp"
-                android:text="The overall atmosphere of the hostel is calm and peaceful. There are various kinds of facilities available in hostels such as Room service, Saloon, Canteen, Mess etc.The facilities of reading room, indoor games, washing machines etc. are available in each hostel. Internet facility is provided in most of the hostels. Other facilities like geysers, water purifiers and water coolers are provided in all the hostels."
-                app:layout_constraintBottom_toTopOf="@+id/RoomNolayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textRoom"
-                app:layout_constraintVertical_bias="1.0" />
+        <TextView
+            android:id="@+id/editRoom"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/baskervville"
+            android:justificationMode="inter_word"
+            android:padding="@dimen/_10sdp"
+            android:text="The overall atmosphere of the hostel is calm and peaceful. There are various kinds of facilities available in hostels such as  Saloon, Canteen, Mess etc. \nThe facilities of reading room, indoor games, washing machines etc. are available in each hostel. Internet facility is provided in every hostel. Other facilities like geysers, water purifiers and water coolers are provided in all the hostels.
+\nThe hostels at NitJ offer comfortable and fully furnished rooms with personal storage space, ensuring a comfortable and homely stay for students.
+\nThe hostels at NITJ provide a supportive and inclusive environment for students, where they can make new friends and develop a sense of community.
+"
+            android:scrollbars="vertical"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintBottom_toTopOf="@+id/RoomNolayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textRoom"
+            app:layout_constraintVertical_bias="1.0" />
 
 
 
