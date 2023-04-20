@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout=findViewById(R.id.drawerLayout);
         navigationView=findViewById(R.id.navigation_view);
         toolbar=findViewById(R.id.toolBar);
-        toolbar.getNavigationIcon().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+//        toolbar.getNavigationIcon().setColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
         sharedPrefManager=new SharedPrefManager(MainActivity.this);
         setSupportActionBar(toolbar );
 
@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         );
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        actionBarDrawerToggle.getDrawerArrowDrawable()
-                .setColor(getResources().getColor(R.color.white));
+        actionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
+        toolbar.setTitleTextColor(Color.WHITE);
         loadFragment(new homeFragment());  //for loading the default fragment
 //        for handling the clickListners on navigationBar
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
