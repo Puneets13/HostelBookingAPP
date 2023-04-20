@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#B5B5B5</color> //screen background
-    <color name="purple_500">#7E7E7E</color> //app bar
+    <color name="purple_200">#B5B5B5  </color> //screen background
+    <color name="purple_500">#747274</color> //app bar
     <color name="purple_700">#000000</color> //status bar
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#56A3E6</color>
     <color name="button">#7E7E7E</color>
-<!--    <color name="button">#2C1850</color>-->
+<!--    <color name="button">#2C1850</color>    #7E7E7E app bar  #B5B5B5 screen bg    -->
     <!--    #56A3E6 mainColor-->
 </resources>
