@@ -9,19 +9,22 @@
     tools:context=".MainActivity"
     android:id="@+id/drawerLayout">
 
-<!--   including the AppBar main layout here ..since we had made all three layouts for appBar , navigationDrawer and HomeContainer differenlty-->
-  <include layout="@layout/app_bar_main"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"/>
-   <com.google.android.material.navigation.NavigationView
-       android:layout_width="wrap_content"
-       android:layout_height="match_parent"
-       android:layout_gravity="start"
-       android:fitsSystemWindows="true"
-       android:id="@+id/navigation_view"
-       app:headerLayout="@layout/header_layout"
-       app:menu="@menu/navigation_items"
-       />
+    <!--   including the AppBar main layout here ..since we had made all three layouts for appBar , navigationDrawer and HomeContainer differenlty-->
+    <include layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        android:id="@+id/navigation_view"
+        app:headerLayout="@layout/header_layout"
+        app:menu="@menu/navigation_items"
+        app:navigationIconTint="@color/white"
+        style="@style/DrawerArrowStyle"
+
+        />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

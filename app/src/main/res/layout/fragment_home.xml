@@ -9,6 +9,7 @@
     android:orientation="vertical"
     >
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
@@ -19,6 +20,36 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_gradient1"
+                android:orientation="horizontal">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/logo"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_alignLeft="@+id/logo"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:src="@drawable/nitjlogo"
+                    app:civ_circle_background_color="@color/white"
+                    app:layout_constraintStart_toStartOf="@+id/bg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="NotSibling" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome to Nitj Hostels"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_30sdp"
+                    android:fontFamily="cursive"
+                    android:textAlignment="textStart"
+                    android:padding="@dimen/_15sdp"
+                    />
+
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
