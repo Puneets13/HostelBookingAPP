@@ -73,7 +73,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_400sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_40sdp"
@@ -84,13 +84,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg"
         app:layout_constraintVertical_bias="0.186">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/_20sdp" >
         <TextView
             android:id="@+id/editRoom"
             android:layout_width="@dimen/_250sdp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_10sdp"
             android:fontFamily="@font/baskervville"
             android:justificationMode="inter_word"
             android:padding="@dimen/_10sdp"
@@ -108,7 +110,7 @@
             app:layout_constraintVertical_bias="1.0" />
 
 
-
+</ScrollView>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
