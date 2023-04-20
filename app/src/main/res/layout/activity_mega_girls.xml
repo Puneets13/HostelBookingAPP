@@ -84,10 +84,11 @@ tools:context=".MGH_Girls.MegaGirlsActivity">
 
         >
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
+            android:background="@drawable/dashboard_bg"
             android:layout_gravity="center_horizontal|center_vertical">
 
             <ImageView
@@ -99,7 +100,7 @@ tools:context=".MGH_Girls.MegaGirlsActivity">
                 android:layout_height="wrap_content"
                 android:text="HOSTEL STAFF"
                 android:layout_marginTop="@dimen/_9sdp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textAlignment="center"/>
         </LinearLayout>
@@ -119,10 +120,11 @@ tools:context=".MGH_Girls.MegaGirlsActivity">
         app:cardElevation="@dimen/_20sdp"
         >
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
+            android:background="@drawable/dashboard_bg"
             android:layout_gravity="center_horizontal|center_vertical">
 
             <ImageView
@@ -134,7 +136,7 @@ tools:context=".MGH_Girls.MegaGirlsActivity">
                 android:layout_height="wrap_content"
                 android:text="HOSTEL RULES"
                 android:layout_marginTop="@dimen/_9sdp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textAlignment="center"/>
         </LinearLayout>
@@ -155,10 +157,11 @@ tools:context=".MGH_Girls.MegaGirlsActivity">
         app:cardElevation="@dimen/_20sdp"
         >
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
+            android:background="@drawable/dashboard_bg"
             android:layout_gravity="center_horizontal|center_vertical">
 
             <ImageView
@@ -170,7 +173,7 @@ tools:context=".MGH_Girls.MegaGirlsActivity">
                 android:layout_height="wrap_content"
                 android:text="MESS RULES"
                 android:layout_marginTop="@dimen/_9sdp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textAlignment="center"/>
         </LinearLayout>
@@ -191,10 +194,11 @@ tools:context=".MGH_Girls.MegaGirlsActivity">
         app:cardElevation="@dimen/_20sdp"
         >
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
+            android:background="@drawable/dashboard_bg"
             android:layout_gravity="center_horizontal|center_vertical">
 
             <ImageView
@@ -206,7 +210,7 @@ tools:context=".MGH_Girls.MegaGirlsActivity">
                 android:layout_height="wrap_content"
                 android:text="EXPULSION \nFROM HOSTEL"
                 android:layout_marginTop="@dimen/_9sdp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textAlignment="center"/>
         </LinearLayout>
@@ -229,10 +233,11 @@ tools:context=".MGH_Girls.MegaGirlsActivity">
         android:layout_columnSpan="2"
         >
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center"
+            android:background="@drawable/dashboard_bg"
             android:layout_gravity="center_horizontal|center_vertical">
 
             <ImageView
@@ -244,7 +249,7 @@ tools:context=".MGH_Girls.MegaGirlsActivity">
                 android:layout_height="wrap_content"
                 android:text="HOSTEL REGISTERATION"
                 android:layout_marginTop="@dimen/_9sdp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:textAlignment="center"/>
         </LinearLayout>
