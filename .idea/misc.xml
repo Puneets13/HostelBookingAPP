@@ -49,19 +49,20 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_boys_h4.xml" value="0.26490066225165565" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_boys_h5.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_expulsion_from_hostel_rules.xml" value="0.1638888888888889" />
-        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor1_seat_matrix.xml" value="0.2" />
-        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor1_seat_matrix2.xml" value="0.136" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor1_seat_matrix.xml" value="0.264" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor1_seat_matrix2.xml" value="0.2" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor2_seat_matrix.xml" value="0.136" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor2_seat_matrix2.xml" value="0.1638888888888889" />
-        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor3_seat_matrix.xml" value="0.3411154345006485" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor3_seat_matrix.xml" value="0.264" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor3_seat_matrix2.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor4_seat_matrix.xml" value="0.2" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor4_seat_matrix2.xml" value="0.1638888888888889" />
-        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor5_seat_matrix.xml" value="0.536" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor5_seat_matrix.xml" value="0.176" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor5_seat_matrix2.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor6_seat_matrix.xml" value="0.3411154345006485" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor6_seat_matrix2.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor_ground_seat_matrix.xml" value="0.264" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor_ground_seat_matrix2.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_girls_h1.xml" value="0.264" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_girls_h2.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_hostel_rules.xml" value="0.176" />
@@ -75,18 +76,27 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mbhf_floor1.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mbhf_floor2.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mbhf_floor3.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mbhf_floor4.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mbhf_floor5.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mbhf_floor6.xml" value="0.1627379873073436" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mbhf_floor_ground.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mega_girls.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mega_girls_hostel_staff.xml" value="0.1936725096194955" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mess_rules.xml" value="0.136" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mgh_bactivity.xml" value="0.2359375" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mgh_seat_matrix_floor6.xml" value="0.176" />
-        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mgh_seatmatrix_floor1.xml" value="0.8800000000000001" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mgh_seatmarix_floor4.xml" value="0.1627379873073436" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mgh_seatmatrix_floor1.xml" value="0.264" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mgh_seatmatrix_floor2.xml" value="0.1627379873073436" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mgh_seatmatrix_floor3.xml" value="0.6" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mgh_seatmatrix_floor5.xml" value="0.1627379873073436" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_mgh_seatmatrix_ground.xml" value="0.4" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_otpactivity.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_registeration.xml" value="0.2" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_room_confirmer.xml" value="0.176" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_seat_matrix_floor1.xml" value="0.1638888888888889" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_seatmatrix_mbhboys.xml" value="0.2" />
-        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_setting_user_profile.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_setting_user_profile.xml" value="0.2" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_sign_in.xml" value="0.152" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_sign_up.xml" value="0.152" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/app_bar_main.xml" value="0.1" />

@@ -1142,27 +1142,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/display"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="hloooo"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/btnRoomBook3"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:background="@color/white"
-        android:fontFamily="@font/audiowide"
-        android:padding="@dimen/_5sdp"
-        android:text="ROOM PLAN FOR MBH B"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_20sdp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
