@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MBH_B_Hostel.MBH_Hostel_Staff">
-
-
+    tools:context=".MGH_Girls.Mega_girls_hostelStaff">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -47,7 +45,7 @@
             android:layout_marginEnd="36dp"
             android:fontFamily="@font/baskervville"
             android:gravity="center"
-            android:text="MBH B STAFF  "
+            android:text="MGH  STAFF  "
             android:textColor="#fff"
             android:textSize="@dimen/_25sdp"
             android:textStyle="bold"
@@ -129,7 +127,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_15sdp"
-                            android:text="Mr. Hari Kumar"
+                            android:text="Ms. Amarjeet Kaur"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_15sdp"></TextView>
@@ -138,7 +136,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_2sdp"
-                            android:text="mbhbb@nitj.ac.in"
+                            android:text="mhg@nitj.ac.in"
                             android:textAlignment="center"
                             android:textColor="#4E4D4D"
                             android:textSize="@dimen/_11sdp"></TextView>
@@ -146,7 +144,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="(+91 7837797418)"
+                            android:text="(+91 7888956947)"
                             android:textAlignment="center"
                             android:textColor="#4E4D4D"
                             android:textSize="@dimen/_12sdp"></TextView>
@@ -225,7 +223,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. Rajesh Kumar"
+                        android:text="Ms. Rita Kumari"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -234,7 +232,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
-                        android:text="mbhbb@nitj.ac.in"
+                        android:text="mhg@nitj.ac.in"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -317,7 +315,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. Awdesh Kumar"
+                        android:text="Mr. Gurmeet Kaur"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -326,7 +324,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
-                        android:text="mbhbb@nitj.ac.in"
+                        android:text="mhg@nitj.ac.in"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -407,7 +405,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. Ritesh Kumar"
+                        android:text="Ms. Vidya"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -416,7 +414,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
-                        android:text="mbhbb@nitj.ac.in"
+                        android:text="mhg@nitj.ac.in"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -498,7 +496,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. Dinesh Chandra Roy"
+                        android:text="Ms. Usha Devi"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -507,7 +505,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
-                        android:text="mbhbb@nitj.ac.in"
+                        android:text="mhg@nitj.ac.in"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -528,6 +526,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
