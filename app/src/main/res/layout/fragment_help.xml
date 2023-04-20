@@ -6,241 +6,329 @@
         android:layout_height="match_parent"
         tools:context=".Fragments.HelpFragment">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_80sdp"
-            android:background="@drawable/gradient"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:padding="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:text="NITJ HOSTELS"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15sdp"
-                android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@drawable/signin_bg1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    this edit text is used imported from material desgin so used in this manner-->
 
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_60sdp"
-            android:background="@drawable/rectangle"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+    <!--progress bar for loading -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_alignLeft="@+id/logo"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/nitjlogo"
+        app:civ_circle_background_color="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/bg"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="NotSibling" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:src="@drawable/nitjlogo" />
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/bg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Need Help..?     "
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="@dimen/_25sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginRight="@dimen/_15sdp"
-                android:fontFamily="@font/calistoga"
-                android:text="NEED HELP?"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_20sdp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/textRoom"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_bg1"
+        android:elevation="@dimen/_90sdp"
+        android:padding="@dimen/_10sdp"
+        android:stateListAnimator="@null"
+        android:text="Kiranjeet Kaur"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        android:layout_marginBottom="-30dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-        </LinearLayout>
-
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        android:layout_marginLeft="@dimen/_25sdp"
-        android:layout_marginRight="@dimen/_25sdp"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/_15sdp">
-
-       <TextView
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:text="Contact Us"
-           android:textColor="@color/white"
-           android:textSize="@dimen/_15sdp"
-           android:padding="@dimen/_5sdp"
-           android:background="#181819"/>
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bg"
+        app:layout_constraintVertical_bias="0.05">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#ECF4F8">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="100dp"
-                android:layout_height="120dp"
-                android:src="@drawable/kjj"
-                app:civ_border_width="1dp"
-                android:scaleType="centerCrop"
-                >
+            android:layout_marginLeft="@dimen/_25sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginRight="@dimen/_25sdp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-            </de.hdodenhof.circleimageview.CircleImageView>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="vertical"
-                android:gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_15sdp"
-                    android:text="Kiranjeet Kaur"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    ></TextView>
+                android:orientation="horizontal"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_12sdp"
-                    android:text="heykiranthakur@gmail.com"
-                    android:textAlignment="center"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:textColor="#4E4D4D"
-                    ></TextView>
+                >
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/kjj"
+                    app:civ_border_width="1dp">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_12sdp"
-                    android:text="(+91-8360699022)"
-                    android:textAlignment="center"
-                    android:textColor="#4E4D4D"
-                    ></TextView>
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="Kiranjeet Kaur"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15sdp"></TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:text="heykiranthakur@gmail.com"
+                        android:textAlignment="center"
+                        android:textColor="#4E4D4D"
+                        android:textSize="@dimen/_11sdp"></TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(+91-8360699022)"
+                        android:textAlignment="center"
+                        android:textColor="#4E4D4D"
+                        android:textSize="@dimen/_12sdp"></TextView>
+
+                </LinearLayout>
 
             </LinearLayout>
-
         </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/textRoom2"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_bg1"
+        android:elevation="@dimen/_90sdp"
+        android:padding="@dimen/_10sdp"
+        android:stateListAnimator="@null"
+        android:text="Puneet Singh"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginBottom="-30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bg"
+        app:layout_constraintVertical_bias="0.473">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
             android:orientation="horizontal"
-            android:background="#ECF4F8"
+
             >
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="100dp"
                 android:layout_height="120dp"
-                android:src="@drawable/puneet_singh"
-                app:civ_border_width="1dp"
                 android:scaleType="centerCrop"
-                >
+                android:src="@drawable/puneet_singh"
+                app:civ_border_width="1dp">
 
             </de.hdodenhof.circleimageview.CircleImageView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:orientation="vertical"
-                android:gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_15sdp"
-                    android:text="Puneet Sidhu"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    ></TextView>
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="Puneet Sidhu"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:text="sidhupuneet115@gmail.com"
                     android:textAlignment="center"
-                    android:layout_marginTop="@dimen/_2sdp"
                     android:textColor="#4E4D4D"
-                    ></TextView>
+                    android:textSize="@dimen/_12sdp"></TextView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_12sdp"
                     android:text="(+91-6283021307)"
                     android:textAlignment="center"
                     android:textColor="#4E4D4D"
-                    ></TextView>
+                    android:textSize="@dimen/_12sdp"></TextView>
 
             </LinearLayout>
-
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/textRoom3"
+        android:layout_width="@dimen/_240sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_bg1"
+        android:elevation="@dimen/_90sdp"
+        android:padding="@dimen/_10sdp"
+        android:stateListAnimator="@null"
+        android:text="Avneet"
+        android:layout_marginBottom="-30dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4"
+        app:layout_constraintVertical_bias="0.447">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_25sdp"
             android:orientation="horizontal"
-            android:background="#ECF4F8"
+
             >
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="100dp"
                 android:layout_height="120dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/avneet"
-                app:civ_border_width="1dp"
-                android:scaleType="centerCrop" >
+                app:civ_border_width="1dp">
 
             </de.hdodenhof.circleimageview.CircleImageView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:layout_marginLeft="@dimen/_2sdp"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_15sdp"
-                    android:text="Avneet"
-                    android:textColor="@color/black"
-                    android:textAlignment="center"
                     android:layout_marginTop="@dimen/_15sdp"
-                    ></TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/_12sdp"
-                    android:text="avneet@gmail.com"
+                    android:text="Avneet"
                     android:textAlignment="center"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:textColor="#4E4D4D"
-                    ></TextView>
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"></TextView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:text="avneet.ee.20@nitj.ac.in"
+                    android:textAlignment="center"
+                    android:textColor="#4E4D4D"
+                    android:textSize="@dimen/_12sdp"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="(+91-6284081950)"
                     android:textAlignment="center"
                     android:textColor="#4E4D4D"
-                    ></TextView>
+                    android:textSize="@dimen/_12sdp"></TextView>
 
             </LinearLayout>
-
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 

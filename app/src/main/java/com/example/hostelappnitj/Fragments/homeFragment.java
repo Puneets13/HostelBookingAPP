@@ -1,13 +1,17 @@
 package com.example.hostelappnitj.Fragments;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -43,7 +47,7 @@ public class homeFragment extends Fragment {
     AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH5,btnBoysH6,btnBoysH7,btnGirlsMega , btnhostelPolicy, btnMesslRule ;
    FloatingActionButton floatingActionButton_call;
     private DialogInterface.OnClickListener dialogClickListener;
-
+    private static final int REQUEST_PHONE_CALL = 1;
     public homeFragment() {
         // Required empty public constructor
     }
@@ -113,9 +117,17 @@ public class homeFragment extends Fragment {
                             // for our positive button
                             case DialogInterface.BUTTON_POSITIVE:
 //                        Make the Call Action
+//ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
                                 callIntent.setData(Uri.parse("tel:"+"8360699022"));//change the number
-                                startActivity(callIntent);
+                                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
+                                }
+                                else
+                                {
+                                    startActivity(callIntent);
+
+                                }
 
                                 break;
                             // on below line we are setting click listener

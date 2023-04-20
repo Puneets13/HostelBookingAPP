@@ -62,285 +62,350 @@
             android:textSize="@dimen/_20sdp" />
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="@dimen/_50sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginLeft="@dimen/_5sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        tools:ignore="MissingConstraints">
+        <androidx.appcompat.widget.AppCompatButton
 
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scrollbars="horizontal">
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingLeft="@dimen/_15sdp"
+            android:padding="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_3sdp"
+            android:background="@drawable/btn_bg_home"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="MEGA BOYS HOSTEL A"
+            android:textSize="@dimen/_12sdp"
+            android:drawableStart="@drawable/hostel2"
+            android:id="@+id/btnMghA"
+            />
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="3"
-            android:rowCount="4"
-            android:background="@drawable/staff_bg"
-            android:padding="@dimen/_2sdp"
-            android:layout_margin="@dimen/_5sdp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.AppCompatButton
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:elevation="@dimen/_10sdp"
-                android:fontFamily="@font/calistoga"
-                android:justificationMode="inter_word"
-                android:padding="@dimen/_10sdp"
-                android:text="Name Of Staff"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_11sdp" />
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_15sdp"
+            android:padding="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_3sdp"
+            android:background="@drawable/btn_bg_home"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="MEGA BOYS HOSTEL B"
+            android:textSize="@dimen/_12sdp"
+            android:drawableStart="@drawable/hostel2"
+            android:id="@+id/btnMghB"
+            />
+        <androidx.appcompat.widget.AppCompatButton
 
-            <TextView
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:elevation="@dimen/_10sdp"
-                android:fontFamily="@font/calistoga"
-                android:justificationMode="inter_word"
-                android:padding="@dimen/_10sdp"
-                android:text="Designation"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_11sdp" />
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_15sdp"
+            android:padding="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_3sdp"
+            android:background="@drawable/btn_bg_home"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="MEGA BOYS HOSTEL F"
+            android:textSize="@dimen/_12sdp"
+            android:drawableStart="@drawable/hostel2"
+            android:id="@+id/btnMghF"
+            />
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:elevation="@dimen/_10sdp"
-                android:fontFamily="@font/calistoga"
-                android:padding="@dimen/_10sdp"
-                android:text="Contact Number"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+    </LinearLayout>
+
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardElevation="@dimen/_50sdp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <HorizontalScrollView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:scrollbars="horizontal">-->
+
+<!--        <GridLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:columnCount="3"-->
+<!--            android:rowCount="4"-->
+<!--            android:background="@drawable/staff_bg"-->
+<!--            android:padding="@dimen/_2sdp"-->
+<!--            android:layout_margin="@dimen/_5sdp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_20sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:elevation="@dimen/_10sdp"-->
+<!--                android:fontFamily="@font/calistoga"-->
+<!--                android:justificationMode="inter_word"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Name Of Staff"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_11sdp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_90sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_20sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:elevation="@dimen/_10sdp"-->
+<!--                android:fontFamily="@font/calistoga"-->
+<!--                android:justificationMode="inter_word"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Designation"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_11sdp" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_20sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:elevation="@dimen/_10sdp"-->
+<!--                android:fontFamily="@font/calistoga"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Contact Number"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="Mr. Hari Kumar"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_25sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Mr. Hari Kumar"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="Clerk"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_90sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_25sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Clerk"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="7837797418"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_25sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="7837797418"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="Mr. Rajesh Kumar"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_9sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Mr. Rajesh Kumar"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_9sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="Attendant"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_90sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Attendant"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="9878329873"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="9878329873"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="Mr.Awdesh k."
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Mr.Awdesh k."-->
+<!--                android:textStyle="bold"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="Attendant"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_90sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Attendant"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="9872548026"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="9872548026"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="Mr. Ritesh Kumar"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Mr. Ritesh Kumar"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="Attendant"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_90sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Attendant"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:text="8219347118"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="8219347118"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:padding="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:text="Mr. Dinesh Roy"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:layout_marginBottom="@dimen/_20sdp"-->
+<!--                android:text="Mr. Dinesh Roy"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:padding="@dimen/_10sdp"
-                android:text="Attendant"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_90sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:layout_marginBottom="@dimen/_20sdp"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="Attendant"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
 
-            <TextView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_2sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_2sdp"
-                android:background="@drawable/text_bg"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:padding="@dimen/_10sdp"
-                android:text="8054549808"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_10sdp" />
-        </GridLayout>
-        </HorizontalScrollView>
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/_100sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="@dimen/_2sdp"-->
+<!--                android:layout_marginTop="@dimen/_10sdp"-->
+<!--                android:layout_marginRight="@dimen/_2sdp"-->
+<!--                android:background="@drawable/text_bg"-->
+<!--                android:layout_marginBottom="@dimen/_20sdp"-->
+<!--                android:padding="@dimen/_10sdp"-->
+<!--                android:text="8054549808"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/_10sdp" />-->
+<!--        </GridLayout>-->
+<!--        </HorizontalScrollView>-->
 
-    </androidx.cardview.widget.CardView>
+<!--    </androidx.cardview.widget.CardView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

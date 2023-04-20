@@ -32,6 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="NotSibling" />
 
+
     <TextView
         android:id="@+id/text1"
         android:layout_width="wrap_content"
@@ -42,12 +43,13 @@
         android:layout_marginEnd="36dp"
         android:fontFamily="cursive"
         android:gravity="center"
-        android:text="Hostel Registeration"
+        android:text="Nitj Hostels"
+        android:textAlignment="center"
         android:textColor="#fff"
-        android:textStyle="bold"
         android:textSize="@dimen/_25sdp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.383"
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,7 +74,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_400sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginRight="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_40sdp"
@@ -83,25 +85,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg"
         app:layout_constraintVertical_bias="0.186">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/_30sdp" >
+        <TextView
+            android:id="@+id/editRoom"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:fontFamily="@font/baskervville"
+            android:justificationMode="inter_word"
+            android:padding="@dimen/_10sdp"
+            android:text="The overall atmosphere of the hostel is calm and peaceful. There are various kinds of facilities available in hostels such as  Saloon, Canteen, Mess etc. \nThe facilities of reading room, indoor games, washing machines etc. are available in each hostel. Internet facility is provided in every hostel. Other facilities like geysers, water purifiers and water coolers are provided in all the hostels.
+\nThe hostels at NitJ offer comfortable and fully furnished rooms with personal storage space, ensuring a comfortable and homely stay for students.
+\nThe hostels at NITJ provide a supportive and inclusive environment for students, where they can make new friends and develop a sense of community.
+"
+            android:scrollbars="vertical"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintBottom_toTopOf="@+id/RoomNolayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textRoom"
+            app:layout_constraintVertical_bias="1.0" />
 
-            <TextView
-                android:id="@+id/editRoom"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/_20sdp"
-                android:justificationMode="inter_word"
-                android:textColor="@color/black"
-                android:layout_marginTop="@dimen/_35sdp"
-                android:padding="@dimen/_10sdp"
-                android:text="The overall atmosphere of the hostel is calm and peaceful. There are various kinds of facilities available in hostels such as Room service, Saloon, Canteen, Mess etc.The facilities of reading room, indoor games, washing machines etc. are available in each hostel. Internet facility is provided in most of the hostels. Other facilities like geysers, water purifiers and water coolers are provided in all the hostels."
-                app:layout_constraintBottom_toTopOf="@+id/RoomNolayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textRoom"
-                app:layout_constraintVertical_bias="1.0" />
 
-
-
+</ScrollView>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
