@@ -150,6 +150,13 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
                         sharedPrefManager.SaveUser(responseFromAPi.getUser());  //this is used to save the user properties in the sharePrefManager
 //sharedPrefManager.getHostelUser(res)
+                        if(userType=="Student"){
+                            sharedPrefManager.setAdmin("Student");
+                        }
+                        else{
+                            sharedPrefManager.setAdmin("Admin");
+                        }
+
                         sharedPrefManager.SaveHostelUser(responseFromAPi.getHostel());
 
                         Toast.makeText(SignInActivity.this, user.getEmail()+" Login successfully", Toast.LENGTH_SHORT).show();
@@ -157,7 +164,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 //                       define type
 
                         Intent intent = new Intent(SignInActivity.this, MainActivity.class);
-                        intent.putExtra("userType",userType);
 //this is used to clear the previous stack of activities so when back button pressed then previous activites
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);

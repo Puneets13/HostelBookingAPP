@@ -39,6 +39,18 @@ public class SharedPrefManager {
 // else the false default value will be returned
     }
 
+    public void setAdmin(String userType){
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+        editor=sharedPreferences.edit();
+        editor.putString("userType",userType);
+        editor.apply();
+    }
+
+    public String getAdmin(){
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+        return sharedPreferences.getString("userType",null);
+    }
+
     public User getUser(){
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new User(sharedPreferences.getString("_id","-1"),

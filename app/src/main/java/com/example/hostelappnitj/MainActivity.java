@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     Toolbar toolbar;
     SharedPrefManager sharedPrefManager;
-    String userType ;
     private final static String TAG_FRAGMENT = "TAG_FRAGMENT";
     private DialogInterface.OnClickListener dialogClickListener;
 
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        userType=intent.getStringExtra("userType");
 
 
 
@@ -73,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        if( userType.equals("Admin")){
+        if( sharedPrefManager.getAdmin().equals("Admin")){
             loadFragment(new AdminHomeFragment());
         }else{
             loadFragment(new homeFragment());  //for loading the default fragment
@@ -88,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nitj_hostels:
                         toolbar.setTitle("NITJ HOSTELS");
                         toolbar.setTitleTextColor(Color.WHITE);
-                        if( userType.equals("Admin")){
+                        if( sharedPrefManager.getAdmin().equals("Admin")){
                             fragment = new AdminHomeFragment();
                         }else{
                             fragment = new homeFragment();    //passing the new fragment that we have created
