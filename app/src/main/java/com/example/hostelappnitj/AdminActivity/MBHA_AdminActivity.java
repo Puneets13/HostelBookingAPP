@@ -239,6 +239,7 @@ CardView hostelList , hostelPlan;
                     etStudentName.setError("Enter Student Name");
                     return;
                 }else{
+                    etStudentName.setText("");
                     Intent intent = new Intent(MBHA_AdminActivity.this,StudentList_AdminActivity.class);
                     intent.putExtra("studentName",studentName);
                     intent.putExtra("hostelName","Mega Boys Hostel A");

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ public class StudentList_AdminActivity extends AppCompatActivity {
 String studentName , hostelname;
     RecyclerView recyclerView;
     List<person> userList;
+    ProgressDialog progressDialog ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,12 @@ String studentName , hostelname;
         Intent intent = getIntent();
         studentName = intent.getStringExtra("studentName");
         hostelname=intent.getStringExtra("hostelName");
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading...");
+        progressDialog.setMessage("Wait for a while...");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+        String hostelName =   "Mega Boys Hostel A";
         recyclerView=findViewById(R.id.recyleview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(StudentList_AdminActivity.this));
@@ -45,12 +54,14 @@ fetchStudentList model = new fetchStudentList(studentName,hostelname);
             public void onResponse(Call<fetchStudentList> call, Response<fetchStudentList> response) {
                 if(response.isSuccessful()){
                     if(response.body().getMessage().equals("has users")){
+                        progressDialog.dismiss();
                         userList=response.body().getUserList();
                         recyclerView.setAdapter(new UserAdapter(StudentList_AdminActivity.this, userList));
                     }
                 }
                     else {
-                        Toast.makeText(StudentList_AdminActivity.this, "Something went wrong..", Toast.LENGTH_LONG);
+                    progressDialog.dismiss();
+                    Toast.makeText(StudentList_AdminActivity.this, "Something went wrong..", Toast.LENGTH_LONG);
                     }
 
             }
