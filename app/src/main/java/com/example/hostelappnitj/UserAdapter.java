@@ -11,10 +11,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hostelappnitj.ModelResponse.person;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     Context context;
-
+    List<person>userList;
 //    make a constructor for adapter
+
+    public UserAdapter(Context context, List<person> userList) {
+        this.context = context;
+        this.userList = userList;
+    }
 
     @NonNull
     @Override
@@ -27,16 +37,26 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.username.setText(userList.get(position).getUsername());
+        holder.useremail.setText(userList.get(position).getEmail());
+        holder.userPhone.setText(userList.get(position).getPhone());
+        holder.userRollNumber.setText(userList.get(position).getRollNumber());
+        holder.userFather.setText(userList.get(position).getFatherName());
+        holder.branch.setText(userList.get(position).getBranch());
+        holder.address.setText(userList.get(position).getAddress());
+
+        String image = userList.get(position).getAvatar();
+        Picasso.get().load(image).resize(550,550).centerCrop().into(holder.userImage);
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return userList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView username,useremail,userPhone,userRollNumber,userFather;
+        TextView username,useremail,userPhone,userRollNumber,userFather,branch,address;
         ImageView userImage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -45,6 +65,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             userPhone=itemView.findViewById(R.id.txtStudentphone);
             userRollNumber=itemView.findViewById(R.id.txtStudentRollNumber);
             userFather=itemView.findViewById(R.id.txtStudentFather);
+            userImage=itemView.findViewById(R.id.imgStudent);
+            address=itemView.findViewById(R.id.txtStudentAddress);
+            branch=itemView.findViewById(R.id.txtStudentbranch);
         }
     }
 }

@@ -226,14 +226,25 @@ CardView hostelList , hostelPlan;
 
                         }
                     });
-
-
-
-
                 }
+            }
+        });
 
-
-
+        btnProccedStudentName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String studentName = etStudentName.getText().toString();
+                if(studentName.isEmpty()){
+                    etStudentName.requestFocus();
+                    etStudentName.setError("Enter Student Name");
+                    return;
+                }else{
+                    Intent intent = new Intent(MBHA_AdminActivity.this,StudentList_AdminActivity.class);
+                    intent.putExtra("studentName",studentName);
+                    intent.putExtra("hostelName","Mega Boys Hostel A");
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                }
             }
         });
 
