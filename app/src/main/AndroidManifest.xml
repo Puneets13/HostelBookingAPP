@@ -20,6 +20,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".AdminActivity.MGH_AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity.MBHF_AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity.MBHB_AdminActivity"
+            android:exported="false" />
+        <activity
             android:name=".AdminActivity.StudentList_Admin_HomeActivity"
             android:exported="false" />
         <activity
@@ -30,7 +39,7 @@
             android:exported="false" />
         <activity
             android:name=".AdminActivity.MBHA_AdminActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MGH_Girls.Mega_girls_hostelStaff"
             android:exported="false" />

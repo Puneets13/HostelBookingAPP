@@ -61,6 +61,11 @@ public class mbhfFloor2 extends AppCompatActivity {
         rollNumber = sharedPrefManager.getUser().getRollNumber();
         branch = sharedPrefManager.getUser().getBranch();
 
+        String userType = sharedPrefManager.getAdmin();
+
+        if(userType.equals("Admin")){
+            binding.btnRoomBook3.setVisibility(View.INVISIBLE);
+        }
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Updating Seat Matrix..");

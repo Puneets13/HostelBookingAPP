@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.MGH_Girls.MghSeatMatrixFloor6;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
 import com.example.hostelappnitj.ModelResponse.person;
 import com.example.hostelappnitj.R;
@@ -68,6 +69,7 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
                 else {
                     progressDialog.dismiss();
                     Toast.makeText(StudentList_Admin_HomeActivity.this, "Something went wrong..", Toast.LENGTH_LONG);
+                    finish();
                 }
 
             }
@@ -75,6 +77,8 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<fetchStudentList> call, Throwable t) {
                 Toast.makeText(StudentList_Admin_HomeActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                finish();
+
             }
         });
 

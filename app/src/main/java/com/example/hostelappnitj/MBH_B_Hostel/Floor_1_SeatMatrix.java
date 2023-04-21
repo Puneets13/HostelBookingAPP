@@ -74,7 +74,11 @@ public class Floor_1_SeatMatrix extends AppCompatActivity {
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
 
+        String userType = sharedPrefManager.getAdmin();
 
+        if(userType.equals("Admin")){
+            binding.btnRoomBook3.setVisibility(View.INVISIBLE);
+        }
         gestureView = findViewById(R.id.gestureview);
         gestureView.getController().getSettings()
                 .setMaxZoom(2f)

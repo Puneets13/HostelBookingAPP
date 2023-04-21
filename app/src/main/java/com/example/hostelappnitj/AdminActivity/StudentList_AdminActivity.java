@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.MGH_Girls.MghSeatMatrixFloor6;
 import com.example.hostelappnitj.ModelResponse.User;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
 import com.example.hostelappnitj.ModelResponse.person;
@@ -62,11 +63,13 @@ fetchStudentList model = new fetchStudentList(studentName,hostelname);
                     if (response.body().getMessage().equals("no user found")){
                         Toast.makeText(StudentList_AdminActivity.this, "No Such User Exist..", Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();
+                        finish();
                     }
                 }
                     else {
                     progressDialog.dismiss();
                     Toast.makeText(StudentList_AdminActivity.this, "Something went wrong..", Toast.LENGTH_LONG);
+                    finish();
                     }
 
             }
@@ -74,6 +77,7 @@ fetchStudentList model = new fetchStudentList(studentName,hostelname);
             @Override
             public void onFailure(Call<fetchStudentList> call, Throwable t) {
                 Toast.makeText(StudentList_AdminActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
