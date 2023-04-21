@@ -165,7 +165,7 @@ public class AdminHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "MBH A", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MegaBoysA_Activity.class);
+                Intent intent = new Intent(getActivity(), MBHA_AdminActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

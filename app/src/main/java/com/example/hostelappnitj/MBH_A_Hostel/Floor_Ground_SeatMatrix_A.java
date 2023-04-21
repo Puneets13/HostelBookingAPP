@@ -45,6 +45,7 @@ public class Floor_Ground_SeatMatrix_A extends AppCompatActivity {
     List<hostel> hostelList;
     List<statusModel>hostelStatusList;
     ProgressDialog progressDialog ;
+    String userType;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +54,13 @@ public class Floor_Ground_SeatMatrix_A extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         sharedPrefManager = new SharedPrefManager(Floor_Ground_SeatMatrix_A.this);
+
+        userType = sharedPrefManager.getAdmin();
+
+        if(userType.equals("Admin")){
+            binding.btnRoomBook3.setVisibility(View.INVISIBLE);
+        }
+
         username = sharedPrefManager.getUser().getUsername();
         email = sharedPrefManager.getUser().getEmail();
         rollNumber = sharedPrefManager.getUser().getRollNumber();
