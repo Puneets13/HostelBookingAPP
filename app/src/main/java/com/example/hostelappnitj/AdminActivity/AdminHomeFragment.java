@@ -101,6 +101,7 @@ public class AdminHomeFragment extends Fragment {
                    }else{
                        Intent intent = new Intent(getActivity(),StudentList_Admin_HomeActivity.class);
                        intent.putExtra("studentName",studentName);
+                       etStudentName.setText("");
                        startActivity(intent);
                    }
                 }
@@ -164,7 +165,7 @@ public class AdminHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "MBH A", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MBHF_AdminActivity.class);
+                Intent intent = new Intent(getActivity(), MBHA_AdminActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -173,7 +174,7 @@ public class AdminHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "MBH F", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MegaBoysF_Activity.class);
+                Intent intent = new Intent(getActivity(), MBHF_AdminActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

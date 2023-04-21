@@ -66,6 +66,17 @@ public class MGH_AdminActivity extends AppCompatActivity {
         };
 
 
+        hostelList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String hosteName = "Mega Girls Hostel";
+
+                Intent intent = new Intent(MGH_AdminActivity.this,StudentByName.class);
+                intent.putExtra("hostelName",hosteName);
+                startActivity(intent);
+            }
+        });
+
         hostelPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -177,7 +188,6 @@ public class MGH_AdminActivity extends AppCompatActivity {
                                     intent.putExtra("avatar",avatar);
                                     intent.putExtra("roomNumber",roomNumber);
                                     progressDialog.dismiss();
-
                                     startActivity(intent);
 
                                 }
@@ -251,6 +261,7 @@ public class MGH_AdminActivity extends AppCompatActivity {
                     Intent intent = new Intent(MGH_AdminActivity.this,StudentList_AdminActivity.class);
                     intent.putExtra("studentName",studentName);
                     intent.putExtra("hostelName","Mega Girls Hostel");
+                    etStudentName.setText("");
                     startActivity(intent);
                 }
             }

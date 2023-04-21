@@ -64,6 +64,16 @@ public class MBHF_AdminActivity extends AppCompatActivity {
                 "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
         };
 
+        hostelList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String hosteName = "Mega Boys Hostel F";
+
+                Intent intent = new Intent(MBHF_AdminActivity.this,StudentByName.class);
+                intent.putExtra("hostelName",hosteName);
+                startActivity(intent);
+            }
+        });
 
         hostelPlan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -250,6 +260,7 @@ public class MBHF_AdminActivity extends AppCompatActivity {
                     Intent intent = new Intent(MBHF_AdminActivity.this,StudentList_AdminActivity.class);
                     intent.putExtra("studentName",studentName);
                     intent.putExtra("hostelName","Mega Boys Hostel F");
+                    etStudentName.setText("");
                     startActivity(intent);
                 }
             }

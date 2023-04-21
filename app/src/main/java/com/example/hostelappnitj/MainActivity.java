@@ -140,7 +140,13 @@ public class MainActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
-            super.onBackPressed();
+            loadFragment(new homeFragment());
+            if( sharedPrefManager.getAdmin().equals("Admin")){
+                loadFragment(new AdminHomeFragment());
+
+            }else{
+                loadFragment(new homeFragment());
+            }
         }
 
     }

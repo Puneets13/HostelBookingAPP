@@ -88,6 +88,13 @@ SharedPrefManager sharedPrefManager;
         phone.setText(sharedPrefManager.getUser().getPhone());
         branch.setText(sharedPrefManager.getUser().getAddress());
 
+        if(sharedPrefManager.getAdmin().equals("Admin")){
+            rollNumber.setVisibility(View.GONE);
+            branch.setVisibility(View.GONE);
+            phone.setVisibility(View.INVISIBLE);
+            btnChangeProfile.setVisibility(View.GONE);
+        }
+
         if(sharedPrefManager.getHostelUser().getRoomNumber()==null){
 //            make view of roomNaumber in profile invisible
             roomLayout.setVisibility(View.INVISIBLE);

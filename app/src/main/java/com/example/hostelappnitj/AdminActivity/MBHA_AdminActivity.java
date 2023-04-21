@@ -20,6 +20,8 @@ import com.example.hostelappnitj.MBH_A_Hostel.Floor_5_SeatMatrix_A;
 import com.example.hostelappnitj.MBH_A_Hostel.Floor_6_SeatMatrix_A;
 import com.example.hostelappnitj.MBH_A_Hostel.Floor_Ground_SeatMatrix_A;
 import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
+import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
+import com.example.hostelappnitj.ModelResponse.fetchStudentList;
 import com.example.hostelappnitj.ModelResponse.person;
 import com.example.hostelappnitj.ModelResponse.studentListModel;
 import com.example.hostelappnitj.R;
@@ -56,6 +58,18 @@ CardView hostelList , hostelPlan;
         hostelFloors = new CharSequence[]{
                 "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
         };
+
+
+        hostelList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String hosteName = "Mega Boys Hostel A";
+
+                Intent intent = new Intent(MBHA_AdminActivity.this,StudentByName.class);
+                intent.putExtra("hostelName",hosteName);
+                startActivity(intent);
+            }
+        });
 
 
         hostelPlan.setOnClickListener(new View.OnClickListener() {
@@ -243,6 +257,7 @@ CardView hostelList , hostelPlan;
                     Intent intent = new Intent(MBHA_AdminActivity.this,StudentList_AdminActivity.class);
                     intent.putExtra("studentName",studentName);
                     intent.putExtra("hostelName","Mega Boys Hostel A");
+                    etStudentName.setText("");
                     startActivity(intent);
                 }
             }
