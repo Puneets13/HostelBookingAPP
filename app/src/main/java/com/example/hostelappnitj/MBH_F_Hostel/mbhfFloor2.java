@@ -137,7 +137,7 @@ public class mbhfFloor2 extends AppCompatActivity {
 //                           0        1       red
 //                           1        1       red
 //                           2        1       red
-                        if(hostel_name.equals("Mega Boys Hostel B")){
+                        if(hostel_name.equals("Mega Boys Hostel F")){
                             if(room!=null) {
                                 if (status_received.equals("1")) {   //temporary blocked
                                     try{
