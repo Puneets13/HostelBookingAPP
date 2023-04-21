@@ -84,22 +84,22 @@ public class MegaGirlsActivity extends AppCompatActivity {
                         switch (which){
                             case 0 : // Ground floor
                                 Intent intent0 = new Intent(MegaGirlsActivity.this, mgh_seatmatrix_ground.class);
-                                intent0.putExtra("hostelName","Mega Girls Hostel0");
+                                intent0.putExtra("hostelName","Mega Girls Hostel");
                                 startActivity(intent0);
                                 break;
                             case 1 : //floor 1
                                 Intent intent = new Intent(MegaGirlsActivity.this, mgh_seatmatrix_floor1.class);
-                                intent.putExtra("hostelName","Mega Girls Hostel1");
+                                intent.putExtra("hostelName","Mega Girls Hostel");
                                 startActivity(intent);
                                 break;
                             case 2 : //floor 2
                                 Intent intent2 = new Intent(MegaGirlsActivity.this,mgh_seatmatrix_floor2.class);
-                                intent2.putExtra("hostelName","Mega Girls Hostel2");
+                                intent2.putExtra("hostelName","Mega Girls Hostel");
                                 startActivity(intent2);
                                 break;
                             case 3 : //floor 3
                                 Intent intent3 = new Intent(MegaGirlsActivity.this, mgh_seatmatrix_floor3.class);
-                                intent3.putExtra("hostelName","Mega Girls Hostel3");
+                                intent3.putExtra("hostelName","Mega Girls Hostel");
                                 startActivity(intent3);
                                 break;
                             case 4 : //floor 1
