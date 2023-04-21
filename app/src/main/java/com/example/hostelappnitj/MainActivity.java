@@ -52,8 +52,12 @@ public class MainActivity extends AppCompatActivity {
         sharedPrefManager=new SharedPrefManager(MainActivity.this);
         setSupportActionBar(toolbar );
 
+
+
         Intent intent = getIntent();
         userType=intent.getStringExtra("userType");
+
+
 
         ActionBarDrawerToggle actionBarDrawerToggle=new ActionBarDrawerToggle(
                 this,
@@ -67,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
         actionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
         toolbar.setTitleTextColor(Color.WHITE);
 
-        if(userType.equals("Admin")){
+
+
+        if( userType.equals("Admin")){
             loadFragment(new AdminHomeFragment());
         }else{
             loadFragment(new homeFragment());  //for loading the default fragment
@@ -82,7 +88,11 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nitj_hostels:
                         toolbar.setTitle("NITJ HOSTELS");
                         toolbar.setTitleTextColor(Color.WHITE);
-                        fragment = new homeFragment();    //passing the new fragment that we have created
+                        if( userType.equals("Admin")){
+                            fragment = new AdminHomeFragment();
+                        }else{
+                            fragment = new homeFragment();    //passing the new fragment that we have created
+                        }
                         break;
                     case R.id.hostel_policy:
                         toolbar.setTitle("HOSTEL POLICY");

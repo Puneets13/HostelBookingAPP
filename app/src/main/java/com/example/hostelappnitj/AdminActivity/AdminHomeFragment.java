@@ -50,13 +50,13 @@ public class AdminHomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_admin_home, container, false);
         imageViewHostels=view.findViewById(R.id.imageView_hostels);
         btnmghB=view.findViewById(R.id.btnMghB);
         btnmghA=view.findViewById(R.id.btnMghA);
         btnmghF=view.findViewById(R.id.btnMghF);
-        btnhostelPolicy=view.findViewById(R.id.HostelPolicy);
-        btnMesslRule=view.findViewById(R.id.Mess_rule);
+//        btnhostelPolicy=view.findViewById(R.id.HostelPolicy);
+//        btnMesslRule=view.findViewById(R.id.Mess_rule);
         btnGirlsMega=view.findViewById(R.id.btnMegaGirls);
         btnStudentList=view.findViewById(R.id.btnStudentList);
         etStudentName=view.findViewById(R.id.etStudentName);
@@ -81,31 +81,31 @@ public class AdminHomeFragment extends Fragment {
         handler.postDelayed(runnable, 2000);
 
 
+////
+//        btnGetStudentList.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "Student List....", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+//        btnhostelPolicy.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), Hostel_Rules_Activity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
 //
-        btnGetStudentList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "Student List....", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        btnhostelPolicy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Hostel_Rules_Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
-
-        btnMesslRule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Mess_Rules.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
+//        btnMesslRule.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), Mess_Rules.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
 
 
         floatingActionButton_call.setOnClickListener(new View.OnClickListener() {

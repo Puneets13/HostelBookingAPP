@@ -53,14 +53,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         login.setOnClickListener(this);
         sharedPrefManager = new SharedPrefManager(this.getApplicationContext());  //pass the context of the application to sharedprefmanager
 
-        inEmail = email.getText().toString();
-        if(inEmail.equals("mbh.B@nitj.ac.in") || inEmail.equals("mbh.A@nitj.ac.in") ||inEmail.equals("mbh.F@nitj.ac.in")||inEmail.equals("mgh.@nitj.ac.in")){
-            userType = "Admin";
-        }
-        else{
-            userType = "Student";
-        }
-
     }
 
     @Override
@@ -91,6 +83,15 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         progressDialog.setCancelable(false);
         String useremail = email.getText().toString();
         String userpassword = password.getText().toString();
+
+        inEmail = email.getText().toString();
+        if(inEmail.equals("mbh.B@nitj.ac.in") || inEmail.equals("mbh.A@nitj.ac.in") ||inEmail.equals("mbh.F@nitj.ac.in")||inEmail.equals("mgh.@nitj.ac.in")){
+            userType = "Admin";
+        }
+        else{
+            userType = "Student";
+        }
+
         if (useremail.isEmpty()) {
             email.requestFocus();
             email.setError("Please enter your email");
