@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,8 +32,10 @@ import retrofit2.Response;
 
 public class MBHA_AdminActivity extends AppCompatActivity {
 EditText etRoomNumber , etStudentName;
-AppCompatButton btnProccedRollNumber,btnProccedStudentName;
+AppCompatButton btnProccedRoomNumber,btnProccedStudentName;
 CardView hostelList , hostelPlan;
+    ProgressDialog progressDialog ;
+
     private CharSequence[] hostelFloors ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +43,14 @@ CardView hostelList , hostelPlan;
         setContentView(R.layout.activity_mbha_admin);
         etRoomNumber = findViewById(R.id.editRoom);
         etStudentName = findViewById(R.id.etStudentName);
-        btnProccedRollNumber=findViewById(R.id.btnproceedRoom);
+        btnProccedRoomNumber=findViewById(R.id.btnproceedRoom);
         btnProccedStudentName=findViewById(R.id.btnproceedStudent);
         hostelList=findViewById(R.id.hostelList);
         hostelPlan=findViewById(R.id.HostelRoomPlan);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading...");
+        progressDialog.setMessage("Wait for a while...");
 
 
         hostelFloors = new CharSequence[]{
@@ -109,7 +116,7 @@ CardView hostelList , hostelPlan;
             }
         });
 
-        btnProccedRollNumber.setOnClickListener(new View.OnClickListener() {
+        btnProccedRoomNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String roomNumber = etRoomNumber.getText().toString();
@@ -119,17 +126,21 @@ CardView hostelList , hostelPlan;
                     return;
                 }
                 else{
-
+                    etRoomNumber.setText("");
+                    progressDialog.show();
+                    progressDialog.setCancelable(false);
                  String hostelName =   "Mega Boys Hostel A";
                  studentListModel studentListModel = new studentListModel(roomNumber,hostelName);
 
-                    Call<studentListModel> call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
+                Call<studentListModel>call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
+
                     call.enqueue(new Callback<com.example.hostelappnitj.ModelResponse.studentListModel>() {
                         @Override
                         public void onResponse(Call<com.example.hostelappnitj.ModelResponse.studentListModel> call, Response<com.example.hostelappnitj.ModelResponse.studentListModel> response) {
                           studentListModel responseFromAPI = response.body();
                             if(response.isSuccessful()){
                                 if(responseFromAPI.getMessage().equals("no user found")){
+                                    progressDialog.dismiss();
                                     Toast.makeText(MBHA_AdminActivity.this, "Room is Empty", Toast.LENGTH_SHORT).show();
                                 }
                                 if (responseFromAPI.getMessage().equals("single user found")){
@@ -156,6 +167,9 @@ CardView hostelList , hostelPlan;
                                     intent.putExtra("fatherName",fatherName);
                                     intent.putExtra("fatherPhone",fatherPhone);
                                     intent.putExtra("avatar",avatar);
+                                    intent.putExtra("roomNumber",roomNumber);
+                                    progressDialog.dismiss();
+
                                     startActivity(intent);
 
                                 }
@@ -184,6 +198,8 @@ CardView hostelList , hostelPlan;
                                     intent.putExtra("fatherName1",fatherName);
                                     intent.putExtra("fatherPhone1",fatherPhone);
                                     intent.putExtra("avatar1",avatar);
+                                    intent.putExtra("roomNumber",roomNumber);
+
 
                                     intent.putExtra("userName2",p2.getUsername());
                                     intent.putExtra("email2",p2.getEmail());
@@ -194,6 +210,7 @@ CardView hostelList , hostelPlan;
                                     intent.putExtra("fatherName2",p2.getFatherName());
                                     intent.putExtra("fatherPhone2",p2.getFatherPhone());
                                     intent.putExtra("avatar2",p2.getAvatar());
+                                    progressDialog.dismiss();
 
                                     startActivity(intent);
 
@@ -205,6 +222,8 @@ CardView hostelList , hostelPlan;
                         @Override
                         public void onFailure(Call<com.example.hostelappnitj.ModelResponse.studentListModel> call, Throwable t) {
                             Toast.makeText(MBHA_AdminActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+
                         }
                     });
 

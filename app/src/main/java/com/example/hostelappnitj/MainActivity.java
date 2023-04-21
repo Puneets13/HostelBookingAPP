@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.SignInActivity;
+import com.example.hostelappnitj.AdminActivity.AdminHomeFragment;
 import com.example.hostelappnitj.Fragments.AboutFragment;
 import com.example.hostelappnitj.Fragments.AccountSettings_Fragment;
 import com.example.hostelappnitj.Fragments.ProfileFragment;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     Toolbar toolbar;
     SharedPrefManager sharedPrefManager;
+    String userType ;
     private final static String TAG_FRAGMENT = "TAG_FRAGMENT";
     private DialogInterface.OnClickListener dialogClickListener;
 
@@ -50,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         sharedPrefManager=new SharedPrefManager(MainActivity.this);
         setSupportActionBar(toolbar );
 
+        Intent intent = getIntent();
+        userType=intent.getStringExtra("userType");
+
         ActionBarDrawerToggle actionBarDrawerToggle=new ActionBarDrawerToggle(
                 this,
                 drawerLayout,
@@ -61,7 +66,13 @@ public class MainActivity extends AppCompatActivity {
         actionBarDrawerToggle.syncState();
         actionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
         toolbar.setTitleTextColor(Color.WHITE);
-        loadFragment(new homeFragment());  //for loading the default fragment
+
+        if(userType.equals("Admin")){
+            loadFragment(new AdminHomeFragment());
+        }else{
+            loadFragment(new homeFragment());  //for loading the default fragment
+        }
+
 //        for handling the clickListners on navigationBar
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

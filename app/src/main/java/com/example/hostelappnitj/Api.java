@@ -9,6 +9,7 @@ import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.OTP_model;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
+import com.example.hostelappnitj.ModelResponse.UpdateUserResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
 import com.example.hostelappnitj.ModelResponse.studentListModel;
@@ -53,6 +54,14 @@ public interface Api {
             @Part MultipartBody.Part photo
     );
 
+
+    //    to update the password from user USE PUT
+    @PUT("password/{id}")
+    Call<UpdateUserResponse>updatePassword(
+            @Path("id")String user_id,
+            @Body UpdateUserResponse updateUserResponse
+    );
+
     //    //      FOR FETCHING ALL THE HOSTELS
     @GET("hostelbook/getHostels")
     Call<HostelRegisterationResponse>fetchAllHostels();
@@ -84,7 +93,7 @@ public interface Api {
             @Body PreRegisterResponse preRegisterResponse
     );
 
-    @GET("hostelbook/searchbyRoom")
+    @POST("hostelbook/searchbyRoom")
     Call<studentListModel> studentListResponse(
       @Body studentListModel studentListModel
     );

@@ -30,7 +30,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     Button login;
     ProgressDialog progressDialog ;
     SharedPrefManager sharedPrefManager ; //to maintain the login-logout session
-
+    String userType , inEmail ;
     public int getAttempts() {
         return attempts;
     }
@@ -52,6 +52,14 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         registerlink.setOnClickListener(SignInActivity.this);
         login.setOnClickListener(this);
         sharedPrefManager = new SharedPrefManager(this.getApplicationContext());  //pass the context of the application to sharedprefmanager
+
+        inEmail = email.getText().toString();
+        if(inEmail.equals("mbh.B@nitj.ac.in") || inEmail.equals("mbh.A@nitj.ac.in") ||inEmail.equals("mbh.F@nitj.ac.in")||inEmail.equals("mgh.@nitj.ac.in")){
+            userType = "Admin";
+        }
+        else{
+            userType = "Student";
+        }
 
     }
 
@@ -144,7 +152,11 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         sharedPrefManager.SaveHostelUser(responseFromAPi.getHostel());
 
                         Toast.makeText(SignInActivity.this, user.getEmail()+" Login successfully", Toast.LENGTH_SHORT).show();
+
+//                       define type
+
                         Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                        intent.putExtra("userType",userType);
 //this is used to clear the previous stack of activities so when back button pressed then previous activites
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);

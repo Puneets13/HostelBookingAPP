@@ -3,6 +3,7 @@ package com.example.hostelappnitj.AdminActivity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,14 +15,18 @@ import com.squareup.picasso.Picasso;
 
 public class SearchStudent_AdminActivity extends AppCompatActivity {
 TextView  txtemail,txtphone,txtaddress,txtbranch,txtrollNumber,txtfatherName,txtfatherPhone,txtusername;
-    TextView  txtemail2,txtphone2,txtaddress2,txtbranch2,txtrollNumber2,txtfatherName2,txtfatherPhone2,txtusername2;
+    TextView  txtemail2,txtphone2,txtaddress2,txtbranch2,txtrollNumber2,txtfatherName2,txtfatherPhone2,txtusername2,txtroom;
 ImageView imgavatar1 , imgavatar2 ;
-String occupied ;
+String occupied ,roomNum;
 CardView cardView2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_student_admin);
+
+        txtroom=findViewById(R.id.txtroom);
+
         txtemail=findViewById(R.id.txtStudentemail1);
         txtemail2=findViewById(R.id.txtStudentemail2);
         txtphone=findViewById(R.id.txtStudentphone1);
@@ -47,8 +52,13 @@ CardView cardView2;
 
         cardView2 = findViewById(R.id.cardView4);
 
+
+
         Intent intent = getIntent();
+
         occupied= intent.getStringExtra("occupied");
+        roomNum=intent.getStringExtra("roomNumber");
+
 
         if(occupied.equals("1")){
             cardView2.setVisibility(View.INVISIBLE);
@@ -63,6 +73,8 @@ CardView cardView2;
         txtrollNumber.setText(intent.getStringExtra("rollNumber"));
         txtfatherName.setText(intent.getStringExtra("fatherName"));
         String avatar1 = intent.getStringExtra("avatar");
+        txtroom.setText(roomNum);
+
 
         Picasso.get().load(avatar1).resize(550,550).centerCrop().into(imgavatar1);
 
@@ -77,6 +89,7 @@ CardView cardView2;
             txtrollNumber.setText(intent.getStringExtra("rollNumber1"));
             txtfatherName.setText(intent.getStringExtra("fatherName1"));
             String avatar = intent.getStringExtra("avatar1");
+            txtroom.setText(roomNum);
 
             Picasso.get().load(avatar).resize(550,550).centerCrop().into(imgavatar1);
 

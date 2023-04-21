@@ -9,10 +9,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         >
 
 
+        <!--    this edit text is used imported from material desgin so used in this manner-->
+
+
+
+        <!--progress bar for loading -->
         <ImageView
             android:id="@+id/bg"
             android:layout_width="match_parent"
@@ -21,11 +25,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--    this edit text is used imported from material desgin so used in this manner-->
-
-
-
-        <!--progress bar for loading -->
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/logo"
             android:layout_width="@dimen/_90sdp"
@@ -57,14 +56,34 @@
             app:layout_constraintStart_toEndOf="@+id/logo"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/txtroom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:fontFamily="monospace"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/btn_bg_2"
+            android:text="Room Number "
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/txtUsername1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bg" />
 
         <TextView
             android:id="@+id/txtUsername1"
             android:layout_width="@dimen/_240sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="-30dp"
-            android:layout_marginTop="@dimen/_110sdp"
+            android:layout_marginBottom="-40dp"
+            android:layout_marginTop="@dimen/_60sdp"
             android:background="@drawable/btn_bg1"
             android:elevation="@dimen/_90sdp"
             android:padding="@dimen/_10sdp"
@@ -85,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_110sdp"
+            android:layout_marginTop="@dimen/_100sdp"
             android:layout_marginRight="@dimen/_20sdp"
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardElevation="@dimen/_20sdp"
@@ -114,6 +133,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/imgStudnetImg1"
                         android:layout_width="100dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_height="120dp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:scaleType="centerCrop"
@@ -138,7 +158,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Email :"
                                 android:textAlignment="center"
@@ -149,9 +169,10 @@
                                 android:id="@+id/txtStudentemail1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_5sdp"
+                                android:layout_marginLeft="@dimen/_2sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="abc.it.20@nitj.ac.in"
+                                android:layout_marginRight="@dimen/_5sdp"
                                 android:textAlignment="center"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp" />
@@ -166,7 +187,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Roll Number :"
                                 android:textAlignment="center"
@@ -177,10 +198,10 @@
                                 android:id="@+id/txtStudentRollNumber1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text=""
-                                android:textAlignment="center"
+                                android:textAlignment="textStart"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp" />
 
@@ -193,7 +214,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Branch :"
                                 android:textAlignment="center"
@@ -204,10 +225,11 @@
                                 android:id="@+id/txtStudentbranch1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:textAlignment="textStart"
                                 android:text=""
-                                android:textAlignment="center"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp" />
 
@@ -221,7 +243,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Phone :"
                                 android:textAlignment="center"
@@ -232,10 +254,11 @@
                                 android:id="@+id/txtStudentphone1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text=""
-                                android:textAlignment="center"
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:textAlignment="textStart"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp" />
 
@@ -249,7 +272,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Father Name :"
                                 android:textAlignment="center"
@@ -260,10 +283,11 @@
                                 android:id="@+id/txtStudentFather1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text=""
-                                android:textAlignment="center"
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:textAlignment="textStart"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp"
 
@@ -279,7 +303,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Address :"
                                 android:textAlignment="center"
@@ -290,10 +314,11 @@
                                 android:id="@+id/txtStudentAddress1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:textAlignment="textStart"
                                 android:text=""
-                                android:textAlignment="center"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp"
 
@@ -367,6 +392,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/imgStudnetImg2"
                         android:layout_width="100dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_height="120dp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:scaleType="centerCrop"
@@ -391,7 +417,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Email :"
                                 android:textAlignment="center"
@@ -405,7 +431,8 @@
                                 android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="abc@gmail.com"
-                                android:textAlignment="center"
+                                android:textAlignment="textStart"
+                                android:layout_marginRight="@dimen/_5sdp"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp" />
 
@@ -419,7 +446,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Roll Number :"
                                 android:textAlignment="center"
@@ -430,10 +457,12 @@
                                 android:id="@+id/txtStudentRollNumber2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text=""
-                                android:textAlignment="center"
+
+                                android:textAlignment="textStart"
+                                android:layout_marginRight="@dimen/_5sdp"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp" />
 
@@ -447,10 +476,10 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Branch :"
-                                android:textAlignment="center"
+                                android:textAlignment="textStart"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_11sdp" />
 
@@ -458,10 +487,10 @@
                                 android:id="@+id/txtStudentbranch2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text=""
-                                android:textAlignment="center"
+                                android:textAlignment="textStart"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp" />
 
@@ -475,7 +504,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Phone :"
                                 android:textAlignment="center"
@@ -486,10 +515,11 @@
                                 android:id="@+id/txtStudentphone2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text=""
-                                android:textAlignment="center"
+                                android:textAlignment="textStart"
+                                android:layout_marginRight="@dimen/_5sdp"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp" />
 
@@ -503,7 +533,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Father Name :"
                                 android:textAlignment="center"
@@ -514,10 +544,12 @@
                                 android:id="@+id/txtStudentFather2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text=""
-                                android:textAlignment="center"
+                                android:textAlignment="textStart"
+                                android:layout_marginRight="@dimen/_5sdp"
+
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp"
 
@@ -532,7 +564,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Address :"
                                 android:textAlignment="center"
@@ -543,10 +575,11 @@
                                 android:id="@+id/txtStudentAddress2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
                                 android:text=""
-                                android:textAlignment="center"
+                                android:textAlignment="textStart"
+                                android:layout_marginRight="@dimen/_5sdp"
                                 android:textColor="#4E4D4D"
                                 android:textSize="@dimen/_11sdp"
 
