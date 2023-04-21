@@ -103,7 +103,10 @@ public interface Api {
     Call<fetchStudentList>fetchStudentList(
             @Body fetchStudentList fetchStudentList
     );
-
+    @POST("hostelbook/searchOnlybyName")
+    Call<fetchStudentList>fetchStudentListHome(
+            @Body fetchStudentList fetchStudentList
+    );
 //    @Multipart
 //    @POST("XXXX")
 //    Call<HostelRegisterationResponse> update(@Part(SyncStateContract.Constants.ACTION_ID) RequestBody actionId, @Part(Constants.OFFER_CODE) RequestBody offerCode);

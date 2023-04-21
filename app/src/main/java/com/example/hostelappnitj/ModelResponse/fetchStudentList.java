@@ -19,6 +19,10 @@ public class fetchStudentList {
         this.message = message;
     }
 
+    public fetchStudentList(String userName) {
+        this.userName = userName;
+    }
+
     public String getUserName() {
         return userName;
     }

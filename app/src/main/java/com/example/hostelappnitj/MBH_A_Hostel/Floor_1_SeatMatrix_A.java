@@ -49,6 +49,8 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity {
     List<hostel> hostelList;
     List<statusModel>hostelStatusList;
     ProgressDialog progressDialog ;
+    String userType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +63,13 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity {
         email = sharedPrefManager.getUser().getEmail();
         rollNumber = sharedPrefManager.getUser().getRollNumber();
         branch = sharedPrefManager.getUser().getBranch();
+
+        userType = sharedPrefManager.getAdmin();
+
+        if(userType.equals("Admin")){
+            binding.btnRoomBook3.setVisibility(View.INVISIBLE);
+        }
+
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading...");

@@ -243,7 +243,6 @@ CardView hostelList , hostelPlan;
                     Intent intent = new Intent(MBHA_AdminActivity.this,StudentList_AdminActivity.class);
                     intent.putExtra("studentName",studentName);
                     intent.putExtra("hostelName","Mega Boys Hostel A");
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }
             }

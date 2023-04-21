@@ -65,6 +65,12 @@ public class Floor_5_SeatMatrix_A extends AppCompatActivity {
         progressDialog.show();
         progressDialog.setCancelable(false);
 
+        String userType = sharedPrefManager.getAdmin();
+
+        if(userType.equals("Admin")){
+            binding.btnRoomBook3.setVisibility(View.INVISIBLE);
+        }
+
 //        intent from MegaBoysB_activity
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
