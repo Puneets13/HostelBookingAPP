@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.MBH_B_Hostel;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
@@ -51,6 +52,7 @@ public class Floor_1_SeatMatrix extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         binding = ActivityFloor1SeatMatrixBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -59,6 +61,7 @@ public class Floor_1_SeatMatrix extends AppCompatActivity {
         email = sharedPrefManager.getUser().getEmail();
         rollNumber = sharedPrefManager.getUser().getRollNumber();
         branch = sharedPrefManager.getUser().getBranch();
+
 
 
         progressDialog = new ProgressDialog(this);

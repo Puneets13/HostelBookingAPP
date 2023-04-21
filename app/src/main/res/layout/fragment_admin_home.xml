@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AdminActivity.AdminHomeFragment"
+    android:background="@drawable/bg_gradient1"
+    android:orientation="vertical"
+    >
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="@dimen/_45sdp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dashboard_bg"
+                android:orientation="horizontal">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/logo"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_alignLeft="@+id/logo"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:src="@drawable/nitjlogo"
+                    app:civ_circle_background_color="@color/white"
+                    app:layout_constraintStart_toStartOf="@+id/bg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="NotSibling" />
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="Welcome To Nitj\n       Hostels"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_30sdp"
+                    android:fontFamily="cursive"
+                    android:textAlignment="textStart"
+                    android:padding="@dimen/_15sdp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:cardMaxElevation="@dimen/_20sdp"
+                    app:cardElevation="10dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_180sdp"
+                        android:id="@+id/imageView_hostels"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/img_5"
+                        android:maxHeight="@dimen/_200sdp"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        />
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_bg_2"
+                android:elevation="@dimen/_90sdp"
+                android:padding="@dimen/_10sdp"
+                android:stateListAnimator="@null"
+                android:text="Mega BOYS HostelS"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:layout_marginBottom="-60dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_20sdp"
+                android:padding="@dimen/_13sdp"
+                android:elevation="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:background="@drawable/btn_bg1"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    >
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_220sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:padding="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="MEGA BOYS HOSTEL A"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnMghA"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_220sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:padding="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="MEGA BOYS HOSTEL B"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnMghB"
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_220sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:padding="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="MEGA BOYS HOSTEL F"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnMghF"
+                        />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_bg_2"
+                android:elevation="@dimen/_90sdp"
+                android:padding="@dimen/_10sdp"
+                android:stateListAnimator="@null"
+                android:text="Mega Girls HostelS"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                android:layout_marginBottom="-60dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                />
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_20sdp"
+                android:padding="@dimen/_13sdp"
+                android:elevation="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:background="@drawable/btn_bg1"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    >
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_220sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:padding="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="MEGA GIRLS HOSTEL "
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnMegaGirls"
+                        />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                >
+
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_20sdp"
+                android:padding="@dimen/_13sdp"
+                android:elevation="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_7sdp"
+                android:layout_marginRight="@dimen/_7sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@drawable/btn_bg1"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:weightSum="2"
+                    >
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_300sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginRight="@dimen/_25sdp"
+                        android:layout_weight="1"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:padding="@dimen/_15sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="HOSTEL POLICY"
+                        android:textSize="@dimen/_12sdp"
+                        android:id="@+id/HostelPolicy"
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_300sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:padding="@dimen/_15sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:text="MESS RULE"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawablePadding="@dimen/_2sdp"
+                        android:id="@+id/Mess_rule"
+                        />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!--    <com.google.android.material.bottomappbar.BottomAppBar-->
+    <!--            android:id="@+id/bottom_app_bar"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="bottom"-->
+    <!--        app:backgroundTint="@color/black"-->
+    <!--            app:fabAlignmentMode="end"-->
+    <!--            app:fabAnimationMode="slide"-->
+    <!--            app:fabCradleVerticalOffset="@dimen/_2sdp"-->
+    <!--            >-->
+
+    <!--        </com.google.android.material.bottomappbar.BottomAppBar>-->
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="#666668"
+        app:fabAlignmentMode="end"
+        app:fabAnimationMode="slide"
+        app:fabCradleMargin="@dimen/_5sdp"
+        app:fabCradleRoundedCornerRadius="@dimen/_42sdp"
+        app:fabCradleVerticalOffset="@dimen/_2sdp"
+        >
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton_Call"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_322sdp"
+        android:backgroundTint="#DBDBDB"
+        android:clickable="true"
+        app:layout_anchor="@id/bottom_app_bar"
+        app:srcCompat="@drawable/ic_phone_white"
+
+        />
+
+    <!--    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+
+    <!--        android:id="@+id/registerBtn"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@drawable/btn_bg_2"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:padding="@dimen/_15sdp"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:text="NITJ Hostel App "-->
+    <!--        app:layout_anchor="@id/bottom_app_bar"-->
+
+    <!--        app:icon="@drawable/ic_registration"-->
+    <!--        />-->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
