@@ -41,11 +41,11 @@
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Welcome To Nitj\n       Hostels"
+                    android:text="Welcome To Nitj Hostels"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_30sdp"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_22sdp"
                     android:fontFamily="cursive"
-                    android:textAlignment="textStart"
                     android:padding="@dimen/_15sdp"
                     />
 

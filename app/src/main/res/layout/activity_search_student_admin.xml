@@ -58,8 +58,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/textRoom"
+        <TextView
+            android:id="@+id/txtUsername1"
             android:layout_width="@dimen/_240sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -70,6 +70,7 @@
             android:padding="@dimen/_10sdp"
             android:stateListAnimator="@null"
             android:text="username"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="@dimen/_14sdp"
             android:textStyle="bold"
@@ -89,7 +90,7 @@
             app:cardCornerRadius="@dimen/_20sdp"
             app:cardElevation="@dimen/_20sdp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/textRoom2"
+            app:layout_constraintBottom_toTopOf="@id/txtUsername2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bg"
@@ -111,6 +112,7 @@
                     >
 
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgStudnetImg1"
                         android:layout_width="100dp"
                         android:layout_height="120dp"
                         android:layout_marginLeft="@dimen/_10sdp"
@@ -183,6 +185,33 @@
                                 android:textSize="@dimen/_11sdp" />
 
                         </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:text="Branch :"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:id="@+id/txtStudentbranch1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:text=""
+                                android:textAlignment="center"
+                                android:textColor="#4E4D4D"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -241,14 +270,48 @@
                                 />
 
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:text="Address :"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:id="@+id/txtStudentAddress1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:text=""
+                                android:textAlignment="center"
+                                android:textColor="#4E4D4D"
+                                android:textSize="@dimen/_11sdp"
+
+                                />
+
+                        </LinearLayout>
+
+
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/textRoom2"
+
+
+        <TextView
+            android:id="@+id/txtUsername2"
             android:layout_width="@dimen/_240sdp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -259,6 +322,7 @@
             android:padding="@dimen/_10sdp"
             android:stateListAnimator="@null"
             android:text="User Name"
+            android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="@dimen/_14sdp"
             android:textStyle="bold"
@@ -301,6 +365,7 @@
                     android:orientation="horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgStudnetImg2"
                         android:layout_width="100dp"
                         android:layout_height="120dp"
                         android:layout_marginLeft="@dimen/_10sdp"
@@ -384,6 +449,34 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_10sdp"
                                 android:layout_marginTop="@dimen/_12sdp"
+                                android:text="Branch :"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:id="@+id/txtStudentbranch2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:text=""
+                                android:textAlignment="center"
+                                android:textColor="#4E4D4D"
+                                android:textSize="@dimen/_11sdp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
                                 android:text="Phone :"
                                 android:textAlignment="center"
                                 android:textColor="@color/black"
@@ -431,6 +524,36 @@
                                 />
 
                         </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:text="Address :"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_11sdp" />
+
+                            <TextView
+                                android:id="@+id/txtStudentAddress2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:text=""
+                                android:textAlignment="center"
+                                android:textColor="#4E4D4D"
+                                android:textSize="@dimen/_11sdp"
+
+                                />
+
+                        </LinearLayout>
+
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

@@ -48,6 +48,7 @@ public class homeFragment extends Fragment {
    FloatingActionButton floatingActionButton_call;
     private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
+
     public homeFragment() {
         // Required empty public constructor
     }
@@ -177,43 +178,7 @@ public class homeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-//        btnBoysH4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "H4 BOYS", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), BoysH4Activity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//            }
-//        });
-//        btnBoysH5.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "H5 BOYS", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), BoysH5Activity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//            }
-//        });
-//        btnBoysH6.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "H6 BOYS", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), BoysH6Activity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        btnBoysH7.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "H7 BOYS", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), BoysH7Activity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//            }
-//        });
+
         btnGirlsMega.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -223,26 +188,6 @@ public class homeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-//        btnGirlsH1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "H1 GIRLS", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), GirlsH1Activity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        btnGirlsH2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "H2 GIRLS", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(getActivity(), GirlsH2Activity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//            }
-//        });
 
 
         return view;

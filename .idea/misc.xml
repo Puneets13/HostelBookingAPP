@@ -24,6 +24,7 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/hostel_bg.xml" value="0.2315" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/ic_password.xml" value="0.2475" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/ic_registration.xml" value="0.2515" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/ic_search.xml" value="0.2025" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/ic_toilet.xml" value="0.2475" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/nav_header_bg.xml" value="0.2545" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/office_gradient.xml" value="0.2075" />
@@ -102,11 +103,13 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_setting_user_profile.xml" value="0.2" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_sign_in.xml" value="0.152" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_sign_up.xml" value="0.152" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_student_list_admin.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/admin_student_item.xml" value="0.264" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/custom_dialog_box.xml" value="0.16597222222222222" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_about.xml" value="0.264" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_account_settings_.xml" value="0.2359375" />
-        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_admin_home.xml" value="0.1936725096194955" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_admin_home.xml" value="0.264" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_complaint.xml" value="0.25" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_help.xml" value="0.2" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_home.xml" value="0.176" />

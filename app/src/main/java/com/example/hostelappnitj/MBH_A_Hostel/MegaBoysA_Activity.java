@@ -92,37 +92,37 @@ public class MegaBoysA_Activity extends AppCompatActivity {
                         switch (which){
                             case 0 : // Ground floor
                                 Intent intent0 = new Intent(MegaBoysA_Activity.this, Floor_Ground_SeatMatrix_A.class);
-                                intent0.putExtra("hostelName","Mega Boys Hostel B");
+                                intent0.putExtra("hostelName","Mega Boys Hostel A");
                                 startActivity(intent0);
                                 break;
                             case 1 : //floor 1
                                 Intent intent = new Intent(MegaBoysA_Activity.this, Floor_1_SeatMatrix_A.class);
-                                intent.putExtra("hostelName","Mega Boys Hostel B");
+                                intent.putExtra("hostelName","Mega Boys Hostel A");
                                 startActivity(intent);
                                 break;
                             case 2 : //floor 2
                                 Intent intent2 = new Intent(MegaBoysA_Activity.this, Floor_2_SeatMatrix_A.class);
-                                intent2.putExtra("hostelName","Mega Boys Hostel B");
+                                intent2.putExtra("hostelName","Mega Boys Hostel A");
                                 startActivity(intent2);
                                 break;
                             case 3 : //floor 3
                                 Intent intent3 = new Intent(MegaBoysA_Activity.this, Floor_3_SeatMatrix_A.class);
-                                intent3.putExtra("hostelName","Mega Boys Hostel B");
+                                intent3.putExtra("hostelName","Mega Boys Hostel A");
                                 startActivity(intent3);
                                 break;
                             case 4 : //floor 1
                                 Intent intent4 = new Intent(MegaBoysA_Activity.this, Floor_4_SeatMatrix_A.class);
-                                intent4.putExtra("hostelName","Mega Boys Hostel B");
+                                intent4.putExtra("hostelName","Mega Boys Hostel A");
                                 startActivity(intent4);
                                 break;
                             case 5 : //floor 2
                                 Intent intent5 = new Intent(MegaBoysA_Activity.this, Floor_5_SeatMatrix_A.class);
-                                intent5.putExtra("hostelName","Mega Boys Hostel B");
+                                intent5.putExtra("hostelName","Mega Boys Hostel A");
                                 startActivity(intent5);
                                 break;
                             case 6 : //floor 3
                                 Intent intent6 = new Intent(MegaBoysA_Activity.this, Floor_6_SeatMatrix_A.class);
-                                intent6.putExtra("hostelName","Mega Boys Hostel B");
+                                intent6.putExtra("hostelName","Mega Boys Hostel A");
                                 startActivity(intent6);
                                 break;
                         }

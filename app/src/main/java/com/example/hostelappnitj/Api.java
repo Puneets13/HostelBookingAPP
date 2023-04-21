@@ -11,6 +11,7 @@ import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
+import com.example.hostelappnitj.ModelResponse.studentListModel;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -81,6 +82,11 @@ public interface Api {
     @POST("hostelbook/expire")
     Call<PreRegisterResponse> PreRegisterExpireResponse(
             @Body PreRegisterResponse preRegisterResponse
+    );
+
+    @GET("hostelbook/searchbyRoom")
+    Call<studentListModel> studentListResponse(
+      @Body studentListModel studentListModel
     );
 
 
