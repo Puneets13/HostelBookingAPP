@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="mainColor">#56A3E6</color>
     <color name="button">#7E7E7E</color>
+    <color name ="mail">#455561</color>
 <!--    <color name="button">#2C1850</color>    #7E7E7E app bar  #B5B5B5 screen bg    -->
     <!--    #56A3E6 mainColor-->
 </resources>

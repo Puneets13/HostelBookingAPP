@@ -4,23 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EDECEC"
+
+    android:background="#DEDEE1"
+
     tools:context=".Acitvity.OTPActivity">
+    <ImageView
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@drawable/signin_bg1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    this edit text is used imported from material desgin so used in this manner-->
+
+
+
+    <!--progress bar for loading -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_alignLeft="@+id/logo"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/nitjlogo"
+        app:civ_circle_background_color="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/bg"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="NotSibling" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/bg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Verify OTP!!     "
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="@dimen/_25sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/otp_inbox"
-        />
+        app:layout_constraintTop_toBottomOf="@id/bg"
+        app:srcCompat="@drawable/otp_inbox" />
 
     <TextView
         android:id="@+id/phoneLabel1"
@@ -123,7 +166,7 @@
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
-                android:itemBackground="@color/black"
+                android:itemBackground="@color/mail"
                 android:maxLength="1"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"
@@ -144,7 +187,7 @@
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
-                android:itemBackground="@color/black"
+                android:itemBackground="@color/mail"
                 android:maxLength="1"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"
@@ -215,21 +258,20 @@
             android:padding="10dp"
             >
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/SubmitButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="15dp"
-                android:background="@drawable/rectangle"
+                android:background="@drawable/btn_bg_2"
                 android:paddingLeft="55dp"
                 android:paddingRight="55dp"
                 android:text="SUBMIT"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:visibility="visible"
-                app:backgroundTint="@color/black" />
+                android:visibility="visible" />
 
             <ProgressBar
                 android:layout_width="35dp"
