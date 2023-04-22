@@ -77,6 +77,7 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
                                     // on below line we are setting a click listener
                                     // for our positive button
                                     case DialogInterface.BUTTON_POSITIVE:
+                                        dialog.dismiss();
                                         finish();
                                         break;
 
@@ -86,9 +87,9 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(StudentList_Admin_HomeActivity.this);
                         // on below line we are setting message for our dialog box.
-                        builder.setMessage("No User Found..")
+                        builder.setMessage("User Not Found\nCheck the spellings again")
                                 .setTitle("NITJ HOSTELS")
-                                .setPositiveButton("Yes", dialogClickListener)
+                                .setPositiveButton("OK", dialogClickListener)
                                 .show();
                     }
                 }

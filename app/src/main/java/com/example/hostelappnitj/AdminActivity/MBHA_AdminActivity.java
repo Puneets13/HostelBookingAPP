@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.AdminActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.cardview.widget.CardView;
 
@@ -42,6 +43,7 @@ CardView hostelList , hostelPlan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(R.layout.activity_mbha_admin);
         etRoomNumber = findViewById(R.id.editRoom);
         etStudentName = findViewById(R.id.etStudentName);

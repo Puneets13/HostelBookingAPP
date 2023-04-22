@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.MGH_Girls;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
@@ -27,6 +28,7 @@ public class MegaGirlsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(R.layout.activity_mega_girls);
         hostelRegisteration=findViewById(R.id.hostelRegisteration);
         hostelStaff=findViewById(R.id.hostelStaff);

@@ -7,6 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -78,12 +79,14 @@ public class RegisterationActivity extends AppCompatActivity {
     RadioGroup radioGroup, radioGroupGender;
     Spinner spinnerBranch;
 SharedPrefManager sharedPrefManager;
+    private DialogInterface.OnClickListener dialogClickListener;
 
     List<hostel> hostelList;
     List<statusModel>hostelStatusList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(R.layout.activity_registeration);
 
         txtHostelname = findViewById(R.id.txtHostelname);
@@ -101,6 +104,9 @@ SharedPrefManager sharedPrefManager;
 
         radioGroup = findViewById(R.id.radioGroup);
         radioGroupGender = findViewById(R.id.radioGroupGender);
+
+        etRoomNumber.setFocusable(false);
+        etRoomNumber.setClickable(false);
         //        intent from SeatMatrixMBH B activity
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
@@ -312,7 +318,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
                 builder.setCancelable(false);
                 builder.create();
-                builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
                     expireSession();
 //                    handler.removeCallbacksAndMessages(null);
                 });
@@ -326,7 +332,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
             }
         };
-        handler.postDelayed(x, 60000);
+        handler.postDelayed(x, 300000);
 
     }
 
@@ -367,10 +373,8 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
                 if(response.isSuccessful()){
                     if(responseFromAPI.getMessage().equals("session expire")){
-                        Toast.makeText(RegisterationActivity.this, "Room Not Registered..", Toast.LENGTH_SHORT).show();
-                        // When the user click yes button then app will close
+                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
                         finish();
-
                     }
                 }
             }

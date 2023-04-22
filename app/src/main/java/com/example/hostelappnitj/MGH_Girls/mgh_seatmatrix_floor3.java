@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.MGH_Girls;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
@@ -52,6 +53,7 @@ public class mgh_seatmatrix_floor3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMghSeatmatrixFloor3Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(view);
 
         sharedPrefManager = new SharedPrefManager(mgh_seatmatrix_floor3.this);

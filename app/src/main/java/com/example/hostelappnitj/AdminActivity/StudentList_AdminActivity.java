@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.AdminActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,6 +39,7 @@ String studentName , hostelname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(R.layout.activity_student_list_admin);
 
         Intent intent = getIntent();
@@ -75,6 +77,7 @@ fetchStudentList model = new fetchStudentList(studentName,hostelname);
                                     // on below line we are setting a click listener
                                     // for our positive button
                                     case DialogInterface.BUTTON_POSITIVE:
+                                        dialog.dismiss();
                                         finish();
                                         break;
 
@@ -86,7 +89,7 @@ fetchStudentList model = new fetchStudentList(studentName,hostelname);
                         // on below line we are setting message for our dialog box.
                         builder.setMessage("No User Found..")
                                 .setTitle("NITJ HOSTELS")
-                                .setPositiveButton("Yes", dialogClickListener)
+                                .setPositiveButton("OK", dialogClickListener)
                                 .show();
                     }
                 }

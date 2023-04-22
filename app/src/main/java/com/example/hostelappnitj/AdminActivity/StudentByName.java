@@ -72,6 +72,7 @@ public class StudentByName extends AppCompatActivity {
                                         // for our positive button
                                         case DialogInterface.BUTTON_POSITIVE:
                                             finish();
+                                            dialog.dismiss();
                                             break;
                                     }
                                 }

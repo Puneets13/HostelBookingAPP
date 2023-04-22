@@ -1,8 +1,12 @@
 package com.example.hostelappnitj.Acitvity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -14,6 +18,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.AdminActivity.StudentList_Admin_HomeActivity;
 import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
 import com.example.hostelappnitj.MBH_A_Hostel.Floor_6_SeatMatrix_A;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
@@ -31,9 +36,14 @@ TextView txtHostelPolicy;
     String hostelName, username, rollNumber, email, branch,roomNumber ;
     String allow="0";
     Switch switchAgree ;
+    ProgressDialog progressDialog;
+    private DialogInterface.OnClickListener dialogClickListener;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(R.layout.activity_room_confirmer);
         etroomNumber = findViewById(R.id.editRoom);
         proceed= findViewById(R.id.proceed);
@@ -74,6 +84,8 @@ TextView txtHostelPolicy;
             @Override
             public void onClick(View v) {
 
+
+
 //                    if switch is true then only check other things
                 roomNumber = etroomNumber.getText().toString();
                 if(roomNumber.isEmpty()){
@@ -86,7 +98,7 @@ TextView txtHostelPolicy;
                 int room_int = Integer.parseInt(room_substring);
                 if (etroomNumber.getText().toString().isEmpty()) {
                     etroomNumber.requestFocus();
-                    etroomNumber.setError("Enter Room Number");
+                    etroomNumber.setError("Please Enter Room Number");
                     return;
                 }
                 if (room_int > 47 || room_int < 0) {
@@ -95,10 +107,39 @@ TextView txtHostelPolicy;
                     return;
                 }
                 if (allow.equals("0")){
-                    Toast.makeText(RoomConfirmer.this, "Please agree with Hostel Policies", Toast.LENGTH_SHORT).show();
+
+                    dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                // on below line we are setting a click listener
+                                // for our positive button
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dialog.dismiss();
+                                    break;
+
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RoomConfirmer.this);
+                    // on below line we are setting message for our dialog box.
+                    builder.setMessage("Please agree with Hostel Policies..")
+                            .setTitle("NITJ HOSTELS")
+                            .setPositiveButton("OK", dialogClickListener)
+                            .show();
+
+
+
                 return ;
                 }
                 else {
+
+                    progressDialog = new ProgressDialog(RoomConfirmer.this);
+                    progressDialog.setTitle("Hostel Booking");
+                    progressDialog.setMessage("Opening Registration Form..");
+                    progressDialog.show();
+                    progressDialog.setCancelable(false);
 
                     PreRegisterResponse preRegisterResponse = new PreRegisterResponse(roomNumber, rollNumber, email, hostelName);
                     Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterResponse(preRegisterResponse);
@@ -106,12 +147,13 @@ TextView txtHostelPolicy;
                         @Override
                         public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
                             PreRegisterResponse responseFromAPI = response.body();
+                            progressDialog.dismiss();
 //                            Toast.makeText(RoomConfirmer.this, "response received", Toast.LENGTH_SHORT).show();
                             if (response.isSuccessful()) {
+
 //                                Toast.makeText(RoomConfirmer.this, "response succesful", Toast.LENGTH_SHORT).show();
                                 if (responseFromAPI.getMessage().equals("go")) {
 //                                    show the intent for Register room
-                                    Toast.makeText(RoomConfirmer.this, "Gooo", Toast.LENGTH_SHORT).show();
 
                                     Intent intent = new Intent(RoomConfirmer.this, RegisterationActivity.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -124,12 +166,77 @@ TextView txtHostelPolicy;
                                     startActivity(intent);
                                     finish();
                                 } else if (responseFromAPI.getMessage().equals("fully filled")) {
-                                    Toast.makeText(RoomConfirmer.this, "Room Fully Occupied", Toast.LENGTH_SHORT).show();
+
+                                    progressDialog.dismiss();
+//                        show the dialog box
+                                    dialogClickListener = new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            switch (which) {
+                                                // on below line we are setting a click listener
+                                                // for our positive button
+                                                case DialogInterface.BUTTON_POSITIVE:
+                                                    dialog.dismiss();
+                                                    break;
+
+                                            }
+                                        }
+                                    };
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(RoomConfirmer.this);
+                                    // on below line we are setting message for our dialog box.
+                                    builder.setMessage("Room Fully Occupied\nTry Another Room Number")
+                                            .setTitle("NITJ HOSTELS")
+                                            .setPositiveButton("OK", dialogClickListener)
+                                            .show();
+
                                 } else if (responseFromAPI.getMessage().equals("booking in process")) {
-                                    Toast.makeText(RoomConfirmer.this, "Can't Book..Wait for While", Toast.LENGTH_SHORT).show();
+
+                                    dialogClickListener = new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            switch (which) {
+                                                // on below line we are setting a click listener
+                                                // for our positive button
+                                                case DialogInterface.BUTTON_POSITIVE:
+                                                    dialog.dismiss();
+                                                    break;
+
+                                            }
+                                        }
+                                    };
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(RoomConfirmer.this);
+                                    // on below line we are setting message for our dialog box.
+                                    builder.setMessage("This room is under Booking Process\nTry again Later..")
+                                            .setTitle("NITJ HOSTELS")
+                                            .setPositiveButton("OK", dialogClickListener)
+                                            .show();
+
+
                                 } else if (responseFromAPI.getMessage().equals("user already registered")) {
-                                    Toast.makeText(RoomConfirmer.this, "You Have Already Registered", Toast.LENGTH_SHORT).show();
+
+
+                                    dialogClickListener = new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            switch (which) {
+                                                // on below line we are setting a click listener
+                                                // for our positive button
+                                                case DialogInterface.BUTTON_POSITIVE:
+                                                    dialog.dismiss();
+                                                    break;
+
+                                            }
+                                        }
+                                    };
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(RoomConfirmer.this);
+                                    // on below line we are setting message for our dialog box.
+                                    builder.setMessage("You Have Already Registered\nOne Person can Book one room only..")
+                                            .setTitle("NITJ HOSTELS")
+                                            .setPositiveButton("OK", dialogClickListener)
+                                            .show();
+
                                 } else {
+
                                     Toast.makeText(RoomConfirmer.this, "Something went wrong..", Toast.LENGTH_SHORT).show();
                                 }
 

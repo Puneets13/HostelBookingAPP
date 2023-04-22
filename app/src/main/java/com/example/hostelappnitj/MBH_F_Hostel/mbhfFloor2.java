@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.MBH_F_Hostel;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
@@ -53,6 +54,7 @@ public class mbhfFloor2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityMbhfFloor2Binding.inflate(getLayoutInflater());
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(binding.getRoot());
 
         sharedPrefManager = new SharedPrefManager(mbhfFloor2.this);

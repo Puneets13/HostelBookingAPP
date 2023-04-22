@@ -54,6 +54,7 @@ public class Floor_1_SeatMatrix extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         binding = ActivityFloor1SeatMatrixBinding.inflate(getLayoutInflater());
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(binding.getRoot());
 
         sharedPrefManager = new SharedPrefManager(Floor_1_SeatMatrix.this);

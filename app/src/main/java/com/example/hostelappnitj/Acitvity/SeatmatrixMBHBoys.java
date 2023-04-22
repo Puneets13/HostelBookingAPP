@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.Acitvity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
@@ -44,6 +45,7 @@ public class SeatmatrixMBHBoys extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         binding = ActivitySeatmatrixMbhboysBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
