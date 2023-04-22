@@ -89,8 +89,6 @@ SharedPrefManager sharedPrefManager;
         branch.setText(sharedPrefManager.getUser().getAddress());
 
         if(sharedPrefManager.getAdmin().equals("Admin")){
-            rollNumber.setVisibility(View.GONE);
-            branch.setVisibility(View.GONE);
             phone.setVisibility(View.INVISIBLE);
             btnChangeProfile.setVisibility(View.GONE);
         }
@@ -234,8 +232,6 @@ SharedPrefManager sharedPrefManager;
     private void uploadImage(){
         File file = new File(picturePath);
         id = sharedPrefManager.getUser().get_id();
-        Toast.makeText(getActivity(),"id: "+id,Toast.LENGTH_LONG).show();
-
         //        uploading the data using Multipart-Form
         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"),file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("photo", file.getName(),requestFile);

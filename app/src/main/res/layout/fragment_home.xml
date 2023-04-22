@@ -27,7 +27,7 @@
                 android:orientation="horizontal">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/logo"
-                    android:layout_width="@dimen/_90sdp"
+                    android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_100sdp"
                     android:layout_alignLeft="@+id/logo"
                     android:layout_marginTop="10dp"
@@ -42,6 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:text="Welcome To Nitj Hostels"
+                    android:layout_marginLeft="-8dp"
                     android:textColor="@color/white"
                     android:layout_gravity="center"
                     android:textSize="@dimen/_22sdp"
@@ -204,33 +205,33 @@
                 android:layout_marginRight="@dimen/_25sdp"
                 android:background="@drawable/btn_bg1"
                 >
+
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="325dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
                     android:layout_marginLeft="@dimen/_5sdp"
-                    android:layout_marginRight="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_20sdp"
-                    >
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp">
+
                     <androidx.appcompat.widget.AppCompatButton
 
+                        android:id="@+id/btnMegaGirls"
                         android:layout_width="@dimen/_220sdp"
                         android:layout_height="@dimen/_50sdp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:paddingLeft="@dimen/_15sdp"
-                        android:padding="@dimen/_15sdp"
                         android:layout_marginLeft="@dimen/_3sdp"
-                        android:background="@drawable/btn_bg_home"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:text="MEGA GIRLS HOSTEL "
-                        android:textSize="@dimen/_12sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/btn_bg_home"
                         android:drawableStart="@drawable/hostel2"
-                        android:id="@+id/btnMegaGirls"
-                        />
+                        android:padding="@dimen/_15sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:text="MEGA GIRLS HOSTEL "
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
@@ -259,7 +260,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_7sdp"
                 android:layout_marginRight="@dimen/_7sdp"
-                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
                 android:background="@drawable/btn_bg1"
                 >
             <LinearLayout
@@ -330,7 +331,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:backgroundTint="#666668"
-        app:fabAlignmentMode="end"
+        app:fabAlignmentMode="center"
         app:fabAnimationMode="slide"
         app:fabCradleMargin="@dimen/_5sdp"
         app:fabCradleRoundedCornerRadius="@dimen/_42sdp"
@@ -338,14 +339,16 @@
         >
     </com.google.android.material.bottomappbar.BottomAppBar>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/floatingActionButton_Call"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/_322sdp"
+        android:layout_height="wrap_content"
         android:backgroundTint="#DBDBDB"
         android:clickable="true"
+        android:text="Emergency Call"
+        app:icon="@drawable/phone"
+        app:iconTint="@color/black"
         app:layout_anchor="@id/bottom_app_bar"
-        app:srcCompat="@drawable/ic_phone_white"
 
         />
 

@@ -112,7 +112,8 @@
                     android:layout_height="120dp"
                     android:scaleType="centerCrop"
                     android:layout_marginLeft="@dimen/_10sdp"
-                    android:src="@drawable/kj_profile"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/kjj"
                     app:civ_border_width="1dp">
 
                 </de.hdodenhof.circleimageview.CircleImageView>
@@ -145,10 +146,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_5sdp"
                             android:layout_marginTop="@dimen/_12sdp"
-                            android:text="heykiranthakur@gmail.com"
+                            android:text="heykiranthak@gmail.com"
                             android:textAlignment="center"
                             android:textColor="#4E4D4D"
-                            android:textSize="@dimen/_11sdp" />
+                            android:textSize="@dimen/_10sdp" />
 
                     </LinearLayout>
 
@@ -201,13 +202,30 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_10sdp"
                             android:layout_marginTop="@dimen/_12sdp"
-                            android:text="+91 8360699022"
+                            android:text="+91 8360699789"
                             android:textAlignment="center"
                             android:textColor="#4E4D4D"
                             android:textSize="@dimen/_11sdp" />
 
+
                     </LinearLayout>
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/emailKiran"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Support"
+                        app:icon="@drawable/email"
+                        android:textColor="@color/white"
+                        app:iconTint="@color/white"
+                        android:layout_marginLeft="-45dp"
+                        app:backgroundTint="@color/black"
+                        app:elevation="@dimen/_90sdp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        />
                 </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
 
@@ -264,6 +282,7 @@
                 android:layout_height="120dp"
                 android:scaleType="centerCrop"
                 android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/puneet_singh"
                 app:civ_border_width="1dp">
 
@@ -284,7 +303,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:text="Email :"
                         android:textAlignment="center"
@@ -299,7 +318,7 @@
                         android:text="sidhupuneet115@gmail.com"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
 
@@ -311,7 +330,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:text="Roll Number :"
                         android:textAlignment="center"
@@ -321,7 +340,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:text="20102059"
                         android:textAlignment="center"
@@ -338,7 +357,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:text="Phone :"
                         android:textAlignment="center"
@@ -348,7 +367,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:text="+91 6283021307"
                         android:textAlignment="center"
@@ -356,6 +375,21 @@
                         android:textSize="@dimen/_11sdp" />
 
                 </LinearLayout>
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                   android:id="@+id/emailPuneet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Support"
+                    app:icon="@drawable/email"
+                    android:textColor="@color/white"
+                    app:iconTint="@color/white"
+                    android:layout_marginLeft="-45dp"
+                    app:backgroundTint="@color/black"
+                    app:elevation="@dimen/_90sdp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    />
             </LinearLayout>
 
         </LinearLayout>
@@ -410,6 +444,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/avneet"
                 android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
                 app:civ_border_width="1dp">
 
             </de.hdodenhof.circleimageview.CircleImageView>
@@ -445,7 +480,7 @@
                         android:text="avneet.ee.20@nitj.ac.in"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_10sdp" />
 
                 </LinearLayout>
 

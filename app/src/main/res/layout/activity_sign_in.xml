@@ -11,11 +11,11 @@
         android:layout_height="match_parent"
         >
 
-    <ImageView
-        android:id="@+id/bg_img"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_250sdp"
-        android:src="@drawable/signin_bg1" />
+        <ImageView
+            android:id="@+id/bg_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_250sdp"
+            android:src="@drawable/signin_bg1" />
 
     <TextView
         android:id="@+id/text1"
@@ -43,20 +43,20 @@
         android:src="@drawable/nitjlogo"
         app:civ_circle_background_color="@color/white" />
 
-    <TextView
-        android:id="@+id/txtsignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/bg_img"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_marginBottom="30dp"
-        android:fontFamily="@font/audiowide"
-        android:padding="@dimen/_8sdp"
-        android:text="Sign In"
-        android:textColor="#2C1850"
-        android:textSize="@dimen/_25sdp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txtsignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bg_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/audiowide"
+            android:padding="@dimen/_8sdp"
+            android:text="Sign In"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_25sdp"
+            android:textStyle="bold" />
 
 
         <androidx.cardview.widget.CardView
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/email"
                     android:drawablePadding="@dimen/_7sdp"
-                    android:drawableTint="#2C1850"
+                    android:drawableTint="@color/black"
                     android:hint="Email" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_password"
                     android:drawablePadding="@dimen/_5sdp"
-                    android:drawableTint="#2C1850"
+                    android:drawableTint="@color/black"
                     android:hint="Password"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -157,20 +157,20 @@
         android:text="Don't have Account? "
         android:textSize="@dimen/_12sdp" />
 
-    <TextView
-        android:id="@+id/registerlink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnlogin"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="@dimen/_215sdp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="@dimen/_15sdp"
-        android:layout_toRightOf="@+id/loginlink1"
-        android:gravity="center_horizontal"
-        android:text="Register"
-        android:textColor="#2C1850"
-        android:textSize="@dimen/_12sdp" />
+        <TextView
+            android:id="@+id/registerlink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnlogin"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="@dimen/_215sdp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_toRightOf="@+id/loginlink1"
+            android:gravity="center_horizontal"
+            android:text="Register"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp" />
 
 
 

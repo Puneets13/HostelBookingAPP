@@ -97,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_user"
                     android:drawablePadding="@dimen/_7sdp"
-                    android:drawableTint="#2C1850"
+                    android:drawableTint="@color/black"
                     android:hint="UserName" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/department"
                     android:drawablePadding="@dimen/_5sdp"
-                    android:drawableTint="#2C1850"
+                    android:drawableTint="@color/black"
                     android:hint="branch"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/phone"
                     android:drawablePadding="@dimen/_5sdp"
-                    android:drawableTint="#2C1850"
+                    android:drawableTint="@color/black"
                     android:hint="Phone"
                     android:inputType="phone" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -178,7 +178,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/location"
                     android:drawablePadding="@dimen/_5sdp"
-                    android:drawableTint="#2C1850"
+                    android:drawableTint="@color/black"
                     android:hint="Address"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>

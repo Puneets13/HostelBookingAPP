@@ -37,6 +37,7 @@ import com.example.hostelappnitj.MBH_F_Hostel.MegaBoysF_Activity;
 import com.example.hostelappnitj.MGH_Girls.MegaGirlsActivity;
 import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.R;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -45,7 +46,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class homeFragment extends Fragment {
     ImageView imageViewHostels ;
     AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH5,btnBoysH6,btnBoysH7,btnGirlsMega , btnhostelPolicy, btnMesslRule ;
-   FloatingActionButton floatingActionButton_call;
+   ExtendedFloatingActionButton floatingActionButton_call;
     private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
 

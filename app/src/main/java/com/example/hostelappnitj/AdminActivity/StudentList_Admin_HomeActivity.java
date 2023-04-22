@@ -1,10 +1,13 @@
 package com.example.hostelappnitj.AdminActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -28,9 +31,12 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<person> userList;
     ProgressDialog progressDialog ;
+    private DialogInterface.OnClickListener dialogClickListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_student_list_admin_home);
 
 
@@ -61,9 +67,29 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
                         recyclerView.setAdapter(new UserAdapter1(StudentList_Admin_HomeActivity.this, userList));
                     }
                     else if (response.body().getMessage().equals("no user found")){
-                        Toast.makeText(StudentList_Admin_HomeActivity.this, "No Such User Exist..", Toast.LENGTH_SHORT).show();
+
                         progressDialog.dismiss();
-                        finish();
+//                        show the dialog box
+                        dialogClickListener = new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                switch (which) {
+                                    // on below line we are setting a click listener
+                                    // for our positive button
+                                    case DialogInterface.BUTTON_POSITIVE:
+                                        finish();
+                                        break;
+
+                                }
+                            }
+                        };
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(StudentList_Admin_HomeActivity.this);
+                        // on below line we are setting message for our dialog box.
+                        builder.setMessage("No User Found..")
+                                .setTitle("NITJ HOSTELS")
+                                .setPositiveButton("Yes", dialogClickListener)
+                                .show();
                     }
                 }
                 else {

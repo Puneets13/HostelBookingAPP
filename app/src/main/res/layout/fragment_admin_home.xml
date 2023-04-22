@@ -332,7 +332,7 @@
                 android:stateListAnimator="@null"
                 android:text="Proceed"
                 android:textColor="@color/white"
-                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
                 />
 
         </LinearLayout>
@@ -345,22 +345,25 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:backgroundTint="#666668"
-        app:fabAlignmentMode="end"
+        app:fabAlignmentMode="center"
         app:fabAnimationMode="slide"
+        app:fabAlignmentModeEndMargin="@dimen/_20sdp"
         app:fabCradleMargin="@dimen/_5sdp"
         app:fabCradleRoundedCornerRadius="@dimen/_42sdp"
         app:fabCradleVerticalOffset="@dimen/_2sdp"
         >
     </com.google.android.material.bottomappbar.BottomAppBar>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/floatingActionButton_Call"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/_322sdp"
+        android:layout_height="wrap_content"
         android:backgroundTint="#DBDBDB"
         android:clickable="true"
+        android:text="Emergency Call"
+        app:icon="@drawable/phone"
+        app:iconTint="@color/black"
         app:layout_anchor="@id/bottom_app_bar"
-        app:srcCompat="@drawable/ic_phone_white"
 
         />
 

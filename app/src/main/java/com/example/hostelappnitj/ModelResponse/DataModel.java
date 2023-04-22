@@ -31,10 +31,11 @@ public class DataModel {
 
 
     // For Register
-    public DataModel(String rollNumber, String email, String password) {
+    public DataModel(String rollNumber, String email, String password,String username) {
         this.rollNumber = rollNumber;
         this.email = email;
         this.password = password;
+        this.username=username;
     }
 
     //    For Login

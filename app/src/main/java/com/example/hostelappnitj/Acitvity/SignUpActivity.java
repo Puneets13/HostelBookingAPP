@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.Acitvity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -31,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_sign_up);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -38,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         email = findViewById(R.id.etemail);
         password = findViewById(R.id.etpassword);
         rollNumber=findViewById(R.id.etRollno);
+        name=findViewById(R.id.etuserNameS);
         register = findViewById(R.id.btnSignUp);
         loginlink = findViewById(R.id.loginlink);
 
@@ -72,6 +75,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String rollno = rollNumber.getText().toString();
         String useremail = email.getText().toString();
         String userpassword = password.getText().toString();
+        String username = name.getText().toString();
 
         if (rollno.isEmpty()) {
             rollNumber.requestFocus();
@@ -82,6 +86,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         if (useremail.isEmpty()) {
             email.requestFocus();
             email.setError("Please enter your email");
+            progressDialog.dismiss();
+
+            return;
+        }
+        if (username.isEmpty()) {
+            name.requestFocus();
+            name.setError("Please enter your userName");
             progressDialog.dismiss();
 
             return;
@@ -145,7 +156,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 //
 //        CREATE THE INSTANCE OF THE DATA-MODAL
 //        DATA MODAL WILL CONTAIN THE INFORMATION TO BE SEND FROM THE CLIENT SIDE IN THE POST REQUEST
-        DataModel modal = new DataModel(rollno, useremail, userpassword);
+        DataModel modal = new DataModel(rollno, useremail, userpassword,username);
         Call<DataModel> call = RetrofitClient
                 .getInstance()
                 .getApi()

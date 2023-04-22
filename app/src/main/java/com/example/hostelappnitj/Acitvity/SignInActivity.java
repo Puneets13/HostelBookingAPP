@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.Acitvity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -42,6 +43,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         setContentView(R.layout.activity_sign_in);
         //        to lock the orientations of the screen
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -78,7 +80,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private void Loginuser() {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("LogIn");
-        progressDialog.setMessage("Logging in User");
+        progressDialog.setMessage("Signing in User..");
         progressDialog.show();
         progressDialog.setCancelable(false);
         String useremail = email.getText().toString();

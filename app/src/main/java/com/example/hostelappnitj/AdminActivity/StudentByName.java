@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -27,6 +29,8 @@ public class StudentByName extends AppCompatActivity {
     RecyclerView recyclerView;
     List<person> userList;
     ProgressDialog progressDialog ;
+    private DialogInterface.OnClickListener dialogClickListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +62,27 @@ public class StudentByName extends AppCompatActivity {
                     }
 
                         if (response.body().getMessage().equals("no user found")){
-                            Toast.makeText(StudentByName.this, "Rooms are Vacant..", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
-                            finish();
+//                        show the dialog box
+                            dialogClickListener = new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    switch (which) {
+                                        // on below line we are setting a click listener
+                                        // for our positive button
+                                        case DialogInterface.BUTTON_POSITIVE:
+                                            finish();
+                                            break;
+                                    }
+                                }
+                            };
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(StudentByName.this);
+                            // on below line we are setting message for our dialog box.
+                            builder.setMessage("Rooms are Vacant..")
+                                    .setTitle("NITJ HOSTELS")
+                                    .setPositiveButton("Yes", dialogClickListener)
+                                    .show();
                         }
                 }
                 else {

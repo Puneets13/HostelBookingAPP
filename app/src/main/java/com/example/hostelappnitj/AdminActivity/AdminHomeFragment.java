@@ -28,6 +28,7 @@ import com.example.hostelappnitj.MBH_B_Hostel.MegaBoysB_Activity;
 import com.example.hostelappnitj.MBH_F_Hostel.MegaBoysF_Activity;
 import com.example.hostelappnitj.MGH_Girls.MegaGirlsActivity;
 import com.example.hostelappnitj.R;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
@@ -35,7 +36,7 @@ public class AdminHomeFragment extends Fragment {
 
     ImageView imageViewHostels ;
     AppCompatButton btnmghB,btnmghA,btnmghF,btnGirlsMega , btnhostelPolicy, btnMesslRule,btnGetStudentList,btnStudentList ;
-    FloatingActionButton floatingActionButton_call;
+    ExtendedFloatingActionButton floatingActionButton_call;
     EditText etStudentName ;
     private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
