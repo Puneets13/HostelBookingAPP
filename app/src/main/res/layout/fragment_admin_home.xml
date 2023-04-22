@@ -37,17 +37,34 @@
                     app:layout_constraintStart_toStartOf="@+id/bg"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="NotSibling" />
-                <TextView
-                    android:layout_width="300dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Welcome To Nitj Hostels"
-                    android:textColor="@color/white"
-                    android:layout_gravity="center"
-                    android:textSize="@dimen/_22sdp"
-                    android:fontFamily="cursive"
-                    android:padding="@dimen/_15sdp"
-                    />
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Welcome To Nitj Hostels"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        android:textSize="@dimen/_22sdp"
+                        android:fontFamily="cursive"
+                        android:padding="@dimen/_15sdp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Admin Panel"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_25sdp"
+                        android:fontFamily="cursive"
+                        android:textAlignment="center"
+                        android:padding="@dimen/_15sdp"
+                        />
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -55,17 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Admin Panel"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_30sdp"
-                    android:fontFamily="cursive"
-                    android:textAlignment="center"
-                    android:padding="@dimen/_15sdp"
-                    />
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

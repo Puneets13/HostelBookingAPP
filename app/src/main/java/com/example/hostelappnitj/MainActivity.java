@@ -140,11 +140,18 @@ public class MainActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
+            toolbar.setTitle("NITJ HOSTELS");
+            toolbar.setTitleTextColor(Color.WHITE);
             loadFragment(new homeFragment());
+
             if( sharedPrefManager.getAdmin().equals("Admin")){
+                toolbar.setTitle("NITJ HOSTELS");
+                toolbar.setTitleTextColor(Color.WHITE);
                 loadFragment(new AdminHomeFragment());
 
             }else{
+                toolbar.setTitle("NITJ HOSTELS");
+                toolbar.setTitleTextColor(Color.WHITE);
                 loadFragment(new homeFragment());
             }
         }
