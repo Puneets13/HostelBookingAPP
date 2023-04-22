@@ -1,9 +1,9 @@
 package com.example.hostelappnitj.ModelResponse;
 
 public class person {
-    String email,phone,address,branch,rollNumber,fatherName,fatherPhone,avatar,userName,roomNumber;
+    String email,phone,address,branch,rollNumber,fatherName,fatherPhone,avatar,userName,roomNumber,hostelName;
 
-    public person(String email, String phone, String address, String branch, String rollNumber, String fatherName, String fatherPhone, String avatar,String username,String roomNumber) {
+    public person(String email, String phone, String address, String branch, String rollNumber, String fatherName, String fatherPhone, String avatar,String username,String roomNumber,String hostelName) {
         this.email = email;
         this.phone = phone;
         this.address = address;
@@ -14,6 +14,15 @@ public class person {
         this.avatar = avatar;
         this.userName=username;
         this.roomNumber=roomNumber;
+        this.hostelName=hostelName;
+    }
+
+    public String getHostelName() {
+        return hostelName;
+    }
+
+    public void setHostelName(String hostelName) {
+        this.hostelName = hostelName;
     }
 
     public String getUserName() {

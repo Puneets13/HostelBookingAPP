@@ -89,23 +89,23 @@ public class AdminHomeFragment extends Fragment {
 //            }
 //        });
 
-//        btnhostelPolicy.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), Hostel_Rules_Activity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        btnMesslRule.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getActivity(), Mess_Rules.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(intent);
-//            }
-//        });
+
+            btnStudentList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   String studentName = etStudentName.getText().toString();
+                   if(studentName.isEmpty()){
+                       etStudentName.requestFocus();
+                       etStudentName.setError("Please enter Name");
+                       return;
+                   }else{
+                       Intent intent = new Intent(getActivity(),StudentList_Admin_HomeActivity.class);
+                       intent.putExtra("studentName",studentName);
+                       etStudentName.setText("");
+                       startActivity(intent);
+                   }
+                }
+            });
 
 
         floatingActionButton_call.setOnClickListener(new View.OnClickListener() {
@@ -156,7 +156,7 @@ public class AdminHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "MBH B", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MegaBoysB_Activity.class);
+                Intent intent = new Intent(getActivity(), MBHB_AdminActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -174,7 +174,7 @@ public class AdminHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "MBH F", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MegaBoysF_Activity.class);
+                Intent intent = new Intent(getActivity(), MBHF_AdminActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -184,7 +184,7 @@ public class AdminHomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "MEGA GIRLS", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MegaGirlsActivity.class);
+                Intent intent = new Intent(getActivity(), MGH_AdminActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

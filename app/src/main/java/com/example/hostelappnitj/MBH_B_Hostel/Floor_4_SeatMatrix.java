@@ -70,7 +70,11 @@ public class Floor_4_SeatMatrix extends AppCompatActivity {
 //        intent from MegaBoysB_activity
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
+        String userType = sharedPrefManager.getAdmin();
 
+        if(userType.equals("Admin")){
+            binding.btnRoomBook3.setVisibility(View.INVISIBLE);
+        }
 
         gestureView = findViewById(R.id.gestureview);
         gestureView.getController().getSettings()

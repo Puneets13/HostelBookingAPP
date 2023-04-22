@@ -19,9 +19,13 @@ import com.example.hostelappnitj.MBH_A_Hostel.Floor_4_SeatMatrix_A;
 import com.example.hostelappnitj.MBH_A_Hostel.Floor_5_SeatMatrix_A;
 import com.example.hostelappnitj.MBH_A_Hostel.Floor_6_SeatMatrix_A;
 import com.example.hostelappnitj.MBH_A_Hostel.Floor_Ground_SeatMatrix_A;
-import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
-import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
-import com.example.hostelappnitj.ModelResponse.fetchStudentList;
+import com.example.hostelappnitj.MBH_F_Hostel.mbhfFloor1;
+import com.example.hostelappnitj.MBH_F_Hostel.mbhfFloor2;
+import com.example.hostelappnitj.MBH_F_Hostel.mbhfFloor3;
+import com.example.hostelappnitj.MBH_F_Hostel.mbhfFloor4;
+import com.example.hostelappnitj.MBH_F_Hostel.mbhfFloor5;
+import com.example.hostelappnitj.MBH_F_Hostel.mbhfFloor6;
+import com.example.hostelappnitj.MBH_F_Hostel.mbhfFloorGround;
 import com.example.hostelappnitj.ModelResponse.person;
 import com.example.hostelappnitj.ModelResponse.studentListModel;
 import com.example.hostelappnitj.R;
@@ -32,17 +36,18 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MBHA_AdminActivity extends AppCompatActivity {
-EditText etRoomNumber , etStudentName;
-AppCompatButton btnProccedRoomNumber,btnProccedStudentName;
-CardView hostelList , hostelPlan;
+public class MBHF_AdminActivity extends AppCompatActivity {
+    EditText etRoomNumber , etStudentName;
+    AppCompatButton btnProccedRoomNumber,btnProccedStudentName;
+    CardView hostelList , hostelPlan;
     ProgressDialog progressDialog ;
 
     private CharSequence[] hostelFloors ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mbha_admin);
+        setContentView(R.layout.activity_mbhf_admin);
+
         etRoomNumber = findViewById(R.id.editRoom);
         etStudentName = findViewById(R.id.etStudentName);
         btnProccedRoomNumber=findViewById(R.id.btnproceedRoom);
@@ -59,18 +64,16 @@ CardView hostelList , hostelPlan;
                 "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
         };
 
-
         hostelList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String hosteName = "Mega Boys Hostel A";
+                String hosteName = "Mega Boys Hostel F";
 
-                Intent intent = new Intent(MBHA_AdminActivity.this,StudentByName.class);
+                Intent intent = new Intent(MBHF_AdminActivity.this,StudentByName.class);
                 intent.putExtra("hostelName",hosteName);
                 startActivity(intent);
             }
         });
-
 
         hostelPlan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +81,7 @@ CardView hostelList , hostelPlan;
 
 
 //                dialog box to select floors
-                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MBHA_AdminActivity.this);
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MBHF_AdminActivity.this);
                 builder.setTitle("Select Floor");
                 builder.setIcon(R.drawable.ic_registration);
                 builder.setSingleChoiceItems(hostelFloors, 0, new DialogInterface.OnClickListener() {
@@ -87,38 +90,38 @@ CardView hostelList , hostelPlan;
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case 0 : // Ground floor
-                                Intent intent0 = new Intent(MBHA_AdminActivity.this, Floor_Ground_SeatMatrix_A.class);
-                                intent0.putExtra("hostelName","Mega Boys Hostel A");
+                                Intent intent0 = new Intent(MBHF_AdminActivity.this, mbhfFloorGround.class);
+                                intent0.putExtra("hostelName","Mega Boys Hostel F");
                                 startActivity(intent0);
                                 break;
                             case 1 : //floor 1
-                                Intent intent = new Intent(MBHA_AdminActivity.this, Floor_1_SeatMatrix_A.class);
-                                intent.putExtra("hostelName","Mega Boys Hostel A");
+                                Intent intent = new Intent(MBHF_AdminActivity.this, mbhfFloor1.class);
+                                intent.putExtra("hostelName","Mega Boys Hostel F");
                                 startActivity(intent);
                                 break;
                             case 2 : //floor 2
-                                Intent intent2 = new Intent(MBHA_AdminActivity.this, Floor_2_SeatMatrix_A.class);
-                                intent2.putExtra("hostelName","Mega Boys Hostel A");
+                                Intent intent2 = new Intent(MBHF_AdminActivity.this, mbhfFloor2.class);
+                                intent2.putExtra("hostelName","Mega Boys Hostel F");
                                 startActivity(intent2);
                                 break;
                             case 3 : //floor 3
-                                Intent intent3 = new Intent(MBHA_AdminActivity.this, Floor_3_SeatMatrix_A.class);
-                                intent3.putExtra("hostelName","Mega Boys Hostel A");
+                                Intent intent3 = new Intent(MBHF_AdminActivity.this, mbhfFloor3.class);
+                                intent3.putExtra("hostelName","Mega Boys Hostel F");
                                 startActivity(intent3);
                                 break;
                             case 4 : //floor 1
-                                Intent intent4 = new Intent(MBHA_AdminActivity.this, Floor_4_SeatMatrix_A.class);
-                                intent4.putExtra("hostelName","Mega Boys Hostel A");
+                                Intent intent4 = new Intent(MBHF_AdminActivity.this,  mbhfFloor4.class);
+                                intent4.putExtra("hostelName","Mega Boys Hostel F");
                                 startActivity(intent4);
                                 break;
                             case 5 : //floor 2
-                                Intent intent5 = new Intent(MBHA_AdminActivity.this, Floor_5_SeatMatrix_A.class);
-                                intent5.putExtra("hostelName","Mega Boys Hostel A");
+                                Intent intent5 = new Intent(MBHF_AdminActivity.this, mbhfFloor5.class);
+                                intent5.putExtra("hostelName","Mega Boys Hostel F");
                                 startActivity(intent5);
                                 break;
                             case 6 : //floor 3
-                                Intent intent6 = new Intent(MBHA_AdminActivity.this, Floor_6_SeatMatrix_A.class);
-                                intent6.putExtra("hostelName","Mega Boys Hostel A");
+                                Intent intent6 = new Intent(MBHF_AdminActivity.this, mbhfFloor6.class);
+                                intent6.putExtra("hostelName","Mega Boys Hostel F");
                                 startActivity(intent6);
                                 break;
                         }
@@ -143,22 +146,22 @@ CardView hostelList , hostelPlan;
                     etRoomNumber.setText("");
                     progressDialog.show();
                     progressDialog.setCancelable(false);
-                 String hostelName =   "Mega Boys Hostel A";
-                 studentListModel studentListModel = new studentListModel(roomNumber,hostelName);
+                    String hostelName =   "Mega Boys Hostel F";
+                    studentListModel studentListModel = new studentListModel(roomNumber,hostelName);
 
-                Call<studentListModel>call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
+                    Call<studentListModel> call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
 
                     call.enqueue(new Callback<com.example.hostelappnitj.ModelResponse.studentListModel>() {
                         @Override
                         public void onResponse(Call<com.example.hostelappnitj.ModelResponse.studentListModel> call, Response<com.example.hostelappnitj.ModelResponse.studentListModel> response) {
-                          studentListModel responseFromAPI = response.body();
+                            studentListModel responseFromAPI = response.body();
                             if(response.isSuccessful()){
                                 if(responseFromAPI.getMessage().equals("no user found")){
                                     progressDialog.dismiss();
-                                    Toast.makeText(MBHA_AdminActivity.this, "Room is Empty", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MBHF_AdminActivity.this, "Room is Empty", Toast.LENGTH_SHORT).show();
                                 }
                                 if (responseFromAPI.getMessage().equals("single user found")){
-                                    Toast.makeText(MBHA_AdminActivity.this, "single user exist", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MBHF_AdminActivity.this, "single user exist", Toast.LENGTH_SHORT).show();
                                     person p1 = responseFromAPI.getPerson1();
                                     String email,phone,address,branch,rollNumber,fatherName,fatherPhone,avatar,userName;
                                     email = p1.getEmail();
@@ -170,7 +173,7 @@ CardView hostelList , hostelPlan;
                                     fatherPhone=p1.getFatherPhone();
                                     avatar= p1.getAvatar();
                                     userName=p1.getUsername();
-                                    Intent intent = new Intent(MBHA_AdminActivity.this,SearchStudent_AdminActivity.class);
+                                    Intent intent = new Intent(MBHF_AdminActivity.this,SearchStudent_AdminActivity.class);
                                     intent.putExtra("occupied","1");
                                     intent.putExtra("userName",userName);
                                     intent.putExtra("email",email);
@@ -188,7 +191,7 @@ CardView hostelList , hostelPlan;
 
                                 }
                                 if (responseFromAPI.getMessage().equals("two user found")){
-                                    Toast.makeText(MBHA_AdminActivity.this, "both user exist", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MBHF_AdminActivity.this, "both user exist", Toast.LENGTH_SHORT).show();
                                     person p1 = responseFromAPI.getPerson1();
                                     person p2 = responseFromAPI.getPerson2();
                                     String email,phone,address,branch,rollNumber,fatherName,fatherPhone,avatar,userName;
@@ -201,7 +204,7 @@ CardView hostelList , hostelPlan;
                                     fatherPhone=p1.getFatherPhone();
                                     avatar= p1.getAvatar();
                                     userName=p1.getUsername();
-                                    Intent intent = new Intent(MBHA_AdminActivity.this,SearchStudent_AdminActivity.class);
+                                    Intent intent = new Intent(MBHF_AdminActivity.this,SearchStudent_AdminActivity.class);
                                     intent.putExtra("occupied","2");
                                     intent.putExtra("userName1",userName);
                                     intent.putExtra("email1",email);
@@ -235,7 +238,7 @@ CardView hostelList , hostelPlan;
 
                         @Override
                         public void onFailure(Call<com.example.hostelappnitj.ModelResponse.studentListModel> call, Throwable t) {
-                            Toast.makeText(MBHA_AdminActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MBHF_AdminActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
 
                         }
@@ -254,14 +257,15 @@ CardView hostelList , hostelPlan;
                     return;
                 }else{
                     etStudentName.setText("");
-                    Intent intent = new Intent(MBHA_AdminActivity.this,StudentList_AdminActivity.class);
+                    Intent intent = new Intent(MBHF_AdminActivity.this,StudentList_AdminActivity.class);
                     intent.putExtra("studentName",studentName);
-                    intent.putExtra("hostelName","Mega Boys Hostel A");
+                    intent.putExtra("hostelName","Mega Boys Hostel F");
                     etStudentName.setText("");
                     startActivity(intent);
                 }
             }
         });
+
 
 
     }

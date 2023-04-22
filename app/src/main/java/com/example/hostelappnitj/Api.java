@@ -10,6 +10,7 @@ import com.example.hostelappnitj.ModelResponse.OTP_model;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.UpdateUserResponse;
+import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
@@ -103,6 +104,16 @@ public interface Api {
     Call<fetchStudentList>fetchStudentList(
             @Body fetchStudentList fetchStudentList
     );
+    @POST("hostelbook/searchOnlybyName")
+    Call<fetchStudentList>fetchStudentListHome(
+            @Body fetchStudentList fetchStudentList
+    );
+
+    @POST("hostelbook//searchAllOnehostel")
+    Call<fetchAllStudentList>fetchAllStudents(
+            @Body fetchAllStudentList fetchAllStudentList
+    );
+
 
 //    @Multipart
 //    @POST("XXXX")

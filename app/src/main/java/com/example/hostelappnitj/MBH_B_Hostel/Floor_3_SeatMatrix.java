@@ -62,6 +62,7 @@ public class Floor_3_SeatMatrix extends AppCompatActivity {
         rollNumber = sharedPrefManager.getUser().getRollNumber();
         branch = sharedPrefManager.getUser().getBranch();
 
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Updating Seat Matrix..");
@@ -70,7 +71,11 @@ public class Floor_3_SeatMatrix extends AppCompatActivity {
 //        intent from MegaBoysB_activity
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
+        String userType = sharedPrefManager.getAdmin();
 
+        if(userType.equals("Admin")){
+            binding.btnRoomBook3.setVisibility(View.INVISIBLE);
+        }
 
         gestureView = findViewById(R.id.gestureview);
         gestureView.getController().getSettings()

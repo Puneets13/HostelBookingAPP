@@ -12,11 +12,14 @@ import com.example.hostelappnitj.Acitvity.SeatmatrixMBHBoys;
 import com.example.hostelappnitj.Hostels.ExpulsionFromHostelRules;
 import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
 import com.example.hostelappnitj.Hostels.Mess_Rules;
+import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
 import com.example.hostelappnitj.R;
+import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MegaBoysB_Activity extends AppCompatActivity {
     CardView hostelRegisteration,hostelRules,messRules,expulsionFromHostel,hostelStaff;
+    SharedPrefManager sharedPrefManager;
 
      private CharSequence[] hostelFloors ;
     @Override
@@ -25,11 +28,12 @@ public class MegaBoysB_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_mbhb_activity);
 
         hostelRegisteration=findViewById(R.id.hostelRegisteration);
-hostelRules=findViewById(R.id.hostelrules);
-messRules=findViewById(R.id.messRules);
+    hostelRules=findViewById(R.id.hostelrules);
+    messRules=findViewById(R.id.messRules);
         expulsionFromHostel=findViewById(R.id.expulsionFromHostel);
         hostelStaff=findViewById(R.id.hostelStaff);
 
+        sharedPrefManager=new SharedPrefManager(MegaBoysB_Activity.this);
 
         hostelFloors = new CharSequence[]{
                 "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"

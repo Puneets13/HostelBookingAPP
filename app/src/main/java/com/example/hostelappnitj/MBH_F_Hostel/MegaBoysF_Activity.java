@@ -21,10 +21,12 @@ import com.example.hostelappnitj.MBH_B_Hostel.Floor_Ground_SeatMatrix;
 import com.example.hostelappnitj.MBH_B_Hostel.MBH_Hostel_Staff;
 import com.example.hostelappnitj.MBH_B_Hostel.MegaBoysB_Activity;
 import com.example.hostelappnitj.R;
+import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class MegaBoysF_Activity extends AppCompatActivity {
     CardView hostelRegisteration,hostelRules,messRules,expulsionFromHostel,hostelStaff;
+    SharedPrefManager sharedPrefManager;
 
     private CharSequence[] hostelFloors ;
     @Override
@@ -37,6 +39,7 @@ public class MegaBoysF_Activity extends AppCompatActivity {
         messRules=findViewById(R.id.messRules);
         expulsionFromHostel=findViewById(R.id.expulsionFromHostel);
         hostelStaff=findViewById(R.id.hostelStaff);
+        sharedPrefManager=new SharedPrefManager(MegaBoysF_Activity.this);
 
 
         hostelFloors = new CharSequence[]{

@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.Fragments;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
@@ -13,6 +14,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.Acitvity.settingUserProfile;
+import com.example.hostelappnitj.AdminActivity.MBHA_AdminActivity;
+import com.example.hostelappnitj.AdminActivity.StudentByName;
 import com.example.hostelappnitj.ModelResponse.UpdateUserResponse;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
@@ -49,6 +53,14 @@ public class AccountSettings_Fragment extends Fragment {
 
         sharedPrefManager = new SharedPrefManager(getActivity());
         id = sharedPrefManager.getUser().get_id();
+
+        txtEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), settingUserProfile.class);
+                startActivity(intent);
+            }
+        });
 
         btnChangePassword.setOnClickListener(new View.OnClickListener() {
 
