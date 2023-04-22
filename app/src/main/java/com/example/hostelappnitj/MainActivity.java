@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -140,19 +141,25 @@ public class MainActivity extends AppCompatActivity {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
-            toolbar.setTitle("NITJ HOSTELS");
-            toolbar.setTitleTextColor(Color.WHITE);
-            loadFragment(new homeFragment());
 
+         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.home_container);
+
+            if (currentFragment instanceof homeFragment) {
+                super.onBackPressed();
+            }
+            else if(currentFragment instanceof AdminHomeFragment){
+                super.onBackPressed();
+            }
+            else {
             if( sharedPrefManager.getAdmin().equals("Admin")){
                 toolbar.setTitle("NITJ HOSTELS");
                 toolbar.setTitleTextColor(Color.WHITE);
                 loadFragment(new AdminHomeFragment());
-
             }else{
                 toolbar.setTitle("NITJ HOSTELS");
                 toolbar.setTitleTextColor(Color.WHITE);
                 loadFragment(new homeFragment());
+            }
             }
         }
 

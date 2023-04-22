@@ -138,6 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableTint="@color/black"
+                android:inputType="text"
                 android:drawableStart="@drawable/ic_user"
                 android:drawablePadding="@dimen/_7sdp"
                 android:hint="Student Name" />

@@ -141,6 +141,7 @@
                         android:drawablePadding="@dimen/_8sdp"
                         android:drawableTint="@color/black"
                         android:hint="Room Number"
+                        android:inputType="number"
                         android:singleLine="true"
                         app:layout_constraintBottom_toTopOf="@+id/RoomNolayout"
                         app:layout_constraintEnd_toEndOf="parent"

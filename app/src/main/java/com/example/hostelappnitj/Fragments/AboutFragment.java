@@ -31,4 +31,5 @@ public class AboutFragment extends Fragment {
 ////        cardView.setMinimumHeight((int)(0.5)*mHeightScreen);
         return view;
     }
+
 }

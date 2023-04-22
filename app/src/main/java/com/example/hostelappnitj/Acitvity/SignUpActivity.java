@@ -200,7 +200,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             public void onFailure(Call<DataModel> call, Throwable t) {
                 progressDialog.dismiss();
                 Toast.makeText(SignUpActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                rollNumber.setText(t.getMessage());
+
             }
         });
 
