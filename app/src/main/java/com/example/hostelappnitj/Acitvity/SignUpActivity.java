@@ -121,6 +121,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             progressDialog.dismiss();
         }
 
+
         else if(userpassword.length() < 8){
             Toast.makeText(this, "Minimum length Required is 8 ", Toast.LENGTH_LONG).show();
             progressDialog.dismiss();
