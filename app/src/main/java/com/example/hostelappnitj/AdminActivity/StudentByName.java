@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.AdminActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,8 +10,10 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.ModelResponse.DataModel;
 import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
 import com.example.hostelappnitj.ModelResponse.person;
 import com.example.hostelappnitj.R;
@@ -29,6 +32,7 @@ public class StudentByName extends AppCompatActivity {
     RecyclerView recyclerView;
     List<person> userList;
     ProgressDialog progressDialog ;
+    AppCompatButton btndeleteUsers;
     private DialogInterface.OnClickListener dialogClickListener;
 
 
@@ -44,7 +48,7 @@ public class StudentByName extends AppCompatActivity {
         progressDialog.setMessage("Wait for a while...");
         progressDialog.show();
         progressDialog.setCancelable(false);
-
+        btndeleteUsers = findViewById(R.id.btndelete);
         recyclerView=findViewById(R.id.recyleview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(StudentByName.this));
@@ -99,6 +103,47 @@ public class StudentByName extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        btndeleteUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog = new ProgressDialog(StudentByName.this);
+                progressDialog.setTitle("Deleting Database...");
+                progressDialog.setMessage("Wait for a while...");
+                progressDialog.show();
+                progressDialog.setCancelable(false);
+
+                DataModel model = new DataModel(hostelname);
+                Call<DataModel> call = RetrofitClient.getInstance().getApi().deleteUsers(model);
+                call.enqueue(new Callback<DataModel>() {
+                    @Override
+                    public void onResponse(Call<DataModel> call, Response<DataModel> response) {
+                        Toast.makeText(StudentByName.this, "received", Toast.LENGTH_SHORT).show();
+                        if(response.isSuccessful()){
+                            if(response.body().getMessage().equals("success")){
+                                progressDialog.dismiss();
+                                Toast.makeText(StudentByName.this, "Students List deleted", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }else{
+                                progressDialog.dismiss();
+                                Toast.makeText(StudentByName.this, "Something went wrong..", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<DataModel> call, Throwable t) {
+                        progressDialog.dismiss();
+                        Toast.makeText(StudentByName.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+            }
+        });
+
 
     }
 }

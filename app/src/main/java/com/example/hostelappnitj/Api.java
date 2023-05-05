@@ -116,6 +116,11 @@ public interface Api {
             @Body fetchAllStudentList fetchAllStudentList
     );
 
+    @POST("hostelbook/deleteHostelList")
+    Call<DataModel>deleteUsers(
+            @Body DataModel dataModel
+    );
+
     @POST("forgetPass")
     Call<ForgetpassModel>forgetpassword(
             @Body ForgetpassModel forgetpassModel

@@ -406,19 +406,6 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
         finish();
         super.onBackPressed();
     }
-
-//    public void roomRegisterSpeak(){
-//        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-//            @Override
-//            public void onInit(int status) {
-//                if(status!= TextToSpeech.ERROR){
-//                    textToSpeech.setLanguage(Locale.ENGLISH);
-//                }
-//            }
-//        });
-//    }
-
-
 }
 //
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {

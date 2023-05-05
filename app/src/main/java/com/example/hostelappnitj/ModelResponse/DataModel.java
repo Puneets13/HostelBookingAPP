@@ -2,7 +2,7 @@ package com.example.hostelappnitj.ModelResponse;
 
 public class DataModel {
     private String username;
-    private String email;
+    private String email , hostelName;
     private String rollNumber;
     private String password ;
     private String message="" ;
@@ -44,7 +44,9 @@ public class DataModel {
         this.password = password;
     }
 
-
+    public DataModel(String hostelName) {
+        this.hostelName = hostelName;
+    }
 
     public String getToken() {
         return token;
