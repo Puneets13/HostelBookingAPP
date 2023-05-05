@@ -249,7 +249,9 @@ CardView hostelList , hostelPlan;
         btnProccedStudentName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String studentName = etStudentName.getText().toString();
+                String studentName1 = etStudentName.getText().toString();
+                String studentName = studentName1.toUpperCase();
+
                 if(studentName.isEmpty()){
                     etStudentName.requestFocus();
                     etStudentName.setError("Enter Student Name");

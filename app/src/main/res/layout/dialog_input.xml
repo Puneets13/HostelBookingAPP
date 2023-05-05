@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/textRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient1"
+        android:layout_gravity="center_horizontal"
+            android:elevation="@dimen/_90sdp"
+            android:padding="@dimen/_10sdp"
+            android:stateListAnimator="@null"
+            android:text="Enter Your Email"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+
+            />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:cardElevation="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bg"
+            app:layout_constraintVertical_bias="0.417">
+
+
+
+                <EditText
+                    android:id="@+id/editTextDialogUserInput"
+                    android:layout_width="@dimen/_270sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:drawableStart="@drawable/email"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_60sdp"
+                    android:layout_marginBottom="@dimen/_60sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/_15sdp"
+                    android:drawableTint="@color/black"
+                    android:hint="Email"
+                    android:singleLine="true"
+                    >
+                </EditText>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnprocced"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient1"
+            android:elevation="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:padding="@dimen/_10sdp"
+            android:textSize="@dimen/_15sdp"
+            android:stateListAnimator="@null"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginLeft="-90dp"
+            android:text="OK"
+            android:textColor="@color/white"
+
+            />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient1"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginRight="-80dp"
+            android:elevation="@dimen/_10sdp"
+            android:padding="@dimen/_10sdp"
+            android:stateListAnimator="@null"
+            android:textSize="@dimen/_15sdp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+    </androidx.cardview.widget.CardView>

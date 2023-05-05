@@ -98,8 +98,9 @@ Button btncreateprofile ;
     btncreateprofile.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            String username , phone , address , branch ;
-            username=etUsername.getText().toString();
+            String username , phone , address , branch ,username1;
+            username1=etUsername.getText().toString();
+            username=username1.toUpperCase();
             phone=etPhone.getText().toString();
             address=etAddress.getText().toString();
             branch=etBranch.getText().toString();

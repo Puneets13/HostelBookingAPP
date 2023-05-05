@@ -66,7 +66,7 @@
             android:layout_below="@+id/txtsignup"
             android:layout_centerHorizontal="true"
             app:cardCornerRadius="@dimen/_20sdp"
-            app:cardElevation="@dimen/_10sdp">
+            app:cardElevation="@dimen/_8sdp">
 
 
             <!--    this edit text is used imported from material desgin so used in this manner-->
@@ -124,6 +124,16 @@
                     android:hint="Password"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txtforgetPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_140sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:text="Forgot Password ?" />
 
 
         </androidx.cardview.widget.CardView>

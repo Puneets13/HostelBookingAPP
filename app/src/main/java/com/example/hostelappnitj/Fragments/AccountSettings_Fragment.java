@@ -76,20 +76,17 @@ public class AccountSettings_Fragment extends Fragment {
                 String newPassword = etnewpassword.getText().toString();
 
                 if (oldPassword.isEmpty()) {
-                    etoldpassword.requestFocus();
-                    etoldpassword.setError("Please enter your password");
                     progressDialog.dismiss();
+                    Toast.makeText(getActivity(), "Please enter your password", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (newPassword.isEmpty()) {
-                    etnewpassword.requestFocus();
-                    etnewpassword.setError("Please enter your password");
+                    Toast.makeText(getActivity(), "Please enter your password", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                     return;
                 }
                 if(newPassword.length()<8){
-                    etnewpassword.requestFocus();
-                    etnewpassword.setError("Minimum length Required is 8");
+                    Toast.makeText(getActivity(), "Minimum length Required is 8", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                     return;
                 }

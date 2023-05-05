@@ -249,7 +249,7 @@
                 android:layout_marginRight="-40dp"
                 android:padding="@dimen/_1sdp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_5"
+                android:src="@drawable/ic_9"
                 app:civ_border_color="#F44336"
                 app:civ_border_width="@dimen/_3sdp"
                 app:civ_circle_background_color="@color/white"

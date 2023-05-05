@@ -94,8 +94,9 @@ public class AdminHomeFragment extends Fragment {
             btnStudentList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   String studentName = etStudentName.getText().toString();
-                   if(studentName.isEmpty()){
+                   String studentName1 = etStudentName.getText().toString();
+                    String studentName = studentName1.toUpperCase();
+                    if(studentName.isEmpty()){
                        etStudentName.requestFocus();
                        etStudentName.setError("Please enter Name");
                        return;

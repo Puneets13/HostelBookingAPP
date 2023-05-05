@@ -190,7 +190,7 @@
                 android:elevation="@dimen/_90sdp"
                 android:padding="@dimen/_10sdp"
                 android:stateListAnimator="@null"
-                android:text="SEARCH BY ROLL NUMBER"
+                android:text="SEARCH BY STUDENT NAME"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"

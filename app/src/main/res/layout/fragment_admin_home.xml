@@ -58,6 +58,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:text="Admin Panel"
+                        android:layout_marginRight="@dimen/_25sdp"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_25sdp"
                         android:fontFamily="cursive"
@@ -313,7 +314,7 @@
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/ic_user"
                             android:drawablePadding="@dimen/_8sdp"
-                            android:drawableTint="#2C1850"
+                            android:drawableTint="@color/black"
                             android:hint="Student Name"
                             android:singleLine="true"
                             />

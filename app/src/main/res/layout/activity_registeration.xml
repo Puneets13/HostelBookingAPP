@@ -125,25 +125,25 @@
                     android:textSize="@dimen/_16sdp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/branchlayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="@dimen/_270sdp"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="95dp"
-                android:layout_marginRight="30dp">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/branchlayout"-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="@dimen/_270sdp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_marginLeft="30dp"-->
+<!--                android:layout_marginTop="95dp"-->
+<!--                android:layout_marginRight="30dp">-->
 
-                <TextView
-                    android:id="@+id/txtBranch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/department"
-                    android:drawablePadding="@dimen/_8sdp"
-                    android:hint=""
-                    android:textSize="@dimen/_16sdp" />
-            </com.google.android.material.textfield.TextInputLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/txtBranch"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:drawableStart="@drawable/department"-->
+<!--                    android:drawablePadding="@dimen/_8sdp"-->
+<!--                    android:hint=""-->
+<!--                    android:textSize="@dimen/_16sdp" />-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/namelayout"
@@ -153,7 +153,7 @@
                 android:layout_below="@+id/emaillayout"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="130dp"
+                android:layout_marginTop="95dp"
                 android:layout_marginRight="30dp">
 
                 <TextView
@@ -173,7 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="170dp"
+                android:layout_marginTop="135dp"
                 android:layout_marginBottom="@dimen/_20sdp"
                 android:layout_marginRight="30dp">
 

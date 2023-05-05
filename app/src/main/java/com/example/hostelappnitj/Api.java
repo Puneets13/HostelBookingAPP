@@ -5,6 +5,7 @@ import android.provider.SyncStateContract;
 import com.example.hostelappnitj.Acitvity.OTPActivity;
 import com.example.hostelappnitj.ModelResponse.CreateProfileResponse;
 import com.example.hostelappnitj.ModelResponse.DataModel;
+import com.example.hostelappnitj.ModelResponse.ForgetpassModel;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.OTP_model;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
@@ -14,6 +15,7 @@ import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
+import com.example.hostelappnitj.ModelResponse.resetPasswordModel;
 import com.example.hostelappnitj.ModelResponse.studentListModel;
 
 import okhttp3.MultipartBody;
@@ -109,14 +111,26 @@ public interface Api {
             @Body fetchStudentList fetchStudentList
     );
 
-    @POST("hostelbook//searchAllOnehostel")
+    @POST("hostelbook/searchAllOnehostel")
     Call<fetchAllStudentList>fetchAllStudents(
             @Body fetchAllStudentList fetchAllStudentList
     );
 
+    @POST("forgetPass")
+    Call<ForgetpassModel>forgetpassword(
+            @Body ForgetpassModel forgetpassModel
+    );
+    //    FOR VERIFICATION OTP
+    @POST("submitForgetPassOTP")
+    Call<OTP_model> veriftyOTPForgetPass(
+            @Body OTP_model otp_model);
+
+    @POST("resetPassword")
+    Call<resetPasswordModel> resetpassword(
+            @Body resetPasswordModel resetPasswordModel);
 
 //    @Multipart
-//    @POST("XXXX")
+//    @POST("XXXX") resetPassword
 //    Call<HostelRegisterationResponse> update(@Part(SyncStateContract.Constants.ACTION_ID) RequestBody actionId, @Part(Constants.OFFER_CODE) RequestBody offerCode);
 
 

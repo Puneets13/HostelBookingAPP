@@ -71,7 +71,7 @@ import retrofit2.Response;
 
 public class RegisterationActivity extends AppCompatActivity {
     String hostelName, username, rollNumber, email, branch, hostel_id, year, gender,roomNum;
-    TextView txtUsername, txtRollNumber, txtEmail, txtHostelname, txtBranch;
+    TextView txtUsername, txtRollNumber, txtEmail, txtHostelname;
     EditText etRoomNumber, etFatherName, etFatherPhone, etStdPhone, etAddress;
     AppCompatButton btnBook_room, btnPayment;
     ProgressDialog progressDialog;
@@ -93,7 +93,7 @@ SharedPrefManager sharedPrefManager;
         txtEmail = findViewById(R.id.txtEmail);
         txtUsername = findViewById(R.id.txtUsername);
         txtRollNumber = findViewById(R.id.txtRollno);
-        txtBranch = findViewById(R.id.txtBranch);
+//        txtBranch = findViewById(R.id.txtBranch);
         etRoomNumber = findViewById(R.id.etRoomNumber);
         etFatherName = findViewById(R.id.etFathername);
         etFatherPhone = findViewById(R.id.etFatherPhone);
@@ -120,8 +120,8 @@ SharedPrefManager sharedPrefManager;
         txtEmail.setText(email);
         txtHostelname.setText(hostelName);
         txtUsername.setText(username);
-        txtBranch.setText(branch);
-        Toast.makeText(this, roomNum, Toast.LENGTH_SHORT).show();
+//        txtBranch.setText(branch);
+//        Toast.makeText(this, roomNum, Toast.LENGTH_SHORT).show();
         etRoomNumber.setText(roomNum);
 sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
@@ -217,7 +217,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                     progressDialog.dismiss();
                     return;
                 }
-                if(room_int>=46 || room_int<=01){
+                if(room_int>47 || room_int < 0){
                     etRoomNumber.requestFocus();
                     etRoomNumber.setError("Please enter Valid Room Number");
                     progressDialog.dismiss();

@@ -21,24 +21,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.hostelappnitj.Acitvity.RegisterationActivity;
-import com.example.hostelappnitj.Acitvity.SignInActivity;
-import com.example.hostelappnitj.Hostels.BoysH4Activity;
-import com.example.hostelappnitj.Hostels.BoysH5Activity;
-import com.example.hostelappnitj.Hostels.BoysH6Activity;
-import com.example.hostelappnitj.Hostels.BoysH7Activity;
-import com.example.hostelappnitj.Hostels.GirlsH1Activity;
-import com.example.hostelappnitj.Hostels.GirlsH2Activity;
 import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
 import com.example.hostelappnitj.Hostels.Mess_Rules;
 import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
 import com.example.hostelappnitj.MBH_B_Hostel.MegaBoysB_Activity;
 import com.example.hostelappnitj.MBH_F_Hostel.MegaBoysF_Activity;
 import com.example.hostelappnitj.MGH_Girls.MegaGirlsActivity;
-import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -70,7 +60,7 @@ public class homeFragment extends Fragment {
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
 
 //        for showing the images autoMatically
-        int[] imageArray = { R.drawable.img_2, R.drawable.img_4, R.drawable.img_5};
+        int[] imageArray = { R.drawable.img_2, R.drawable.ic_9,R.drawable.ic_8,R.drawable.ic_6,R.drawable.img_4, R.drawable.img_5};
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             int i = 0;

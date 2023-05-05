@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,12 +86,25 @@ SharedPrefManager sharedPrefManager;
         email.setText(sharedPrefManager.getUser().getEmail());
         username.setText(sharedPrefManager.getUser().getUsername());
         rollNumber.setText(sharedPrefManager.getUser().getRollNumber());
-        phone.setText(sharedPrefManager.getUser().getPhone());
-        branch.setText(sharedPrefManager.getUser().getAddress());
+
+        if(sharedPrefManager.getUser().getPhone()==null){
+            phone.setText("Update Profile");
+        }else{
+            phone.setText(sharedPrefManager.getUser().getPhone());
+        }
+
+        if(sharedPrefManager.getUser().getAddress()==null){
+            phone.setText("Update Profile");
+        }else{
+            branch.setText(sharedPrefManager.getUser().getAddress());
+        }
 
         if(sharedPrefManager.getAdmin().equals("Admin")){
             phone.setVisibility(View.INVISIBLE);
             btnChangeProfile.setVisibility(View.GONE);
+            branch.setVisibility(View.GONE);
+            rollNumber.setVisibility(View.GONE);
+            email.setGravity(Gravity.CENTER);
         }
 
         if(sharedPrefManager.getHostelUser().getRoomNumber()==null){

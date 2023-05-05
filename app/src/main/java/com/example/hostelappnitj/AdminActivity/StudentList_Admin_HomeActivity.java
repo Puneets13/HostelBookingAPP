@@ -87,7 +87,7 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(StudentList_Admin_HomeActivity.this);
                         // on below line we are setting message for our dialog box.
-                        builder.setMessage("User Not Found\nCheck the spellings again")
+                        builder.setMessage("User Not Found\nCheck the spellings again or\nCheck if space is added at last..")
                                 .setTitle("NITJ HOSTELS")
                                 .setPositiveButton("OK", dialogClickListener)
                                 .show();

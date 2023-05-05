@@ -87,7 +87,7 @@ fetchStudentList model = new fetchStudentList(studentName,hostelname);
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(StudentList_AdminActivity.this);
                         // on below line we are setting message for our dialog box.
-                        builder.setMessage("No User Found..")
+                        builder.setMessage("No User Found..\nRemove space from last if present..")
                                 .setTitle("NITJ HOSTELS")
                                 .setPositiveButton("OK", dialogClickListener)
                                 .show();

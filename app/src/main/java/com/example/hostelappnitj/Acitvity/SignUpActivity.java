@@ -20,6 +20,8 @@ import com.example.hostelappnitj.ModelResponse.User;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 
+import java.util.Locale;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -69,13 +71,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private void CreateUser() {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Registering user");
-        progressDialog.setMessage("Sending OTP to entered Email..");
+        progressDialog.setMessage("Sending OTP\nCheck your Email..");
         progressDialog.show();
         progressDialog.setCancelable(false);
         String rollno = rollNumber.getText().toString();
         String useremail = email.getText().toString();
         String userpassword = password.getText().toString();
-        String username = name.getText().toString();
+        String username1 = name.getText().toString();
+        String username = username1.toUpperCase();
 
         if (rollno.isEmpty()) {
             rollNumber.requestFocus();
