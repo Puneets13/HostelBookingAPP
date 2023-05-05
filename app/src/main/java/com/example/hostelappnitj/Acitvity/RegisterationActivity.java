@@ -29,6 +29,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.speech.tts.TextToSpeech;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
@@ -61,6 +62,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -79,6 +81,7 @@ public class RegisterationActivity extends AppCompatActivity {
     RadioGroup radioGroup, radioGroupGender;
     Spinner spinnerBranch;
 SharedPrefManager sharedPrefManager;
+TextToSpeech textToSpeech ;
     private DialogInterface.OnClickListener dialogClickListener;
 
     List<hostel> hostelList;
@@ -107,6 +110,17 @@ SharedPrefManager sharedPrefManager;
 
         etRoomNumber.setFocusable(false);
         etRoomNumber.setClickable(false);
+
+//        text To speech
+        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status!= TextToSpeech.ERROR){
+                    textToSpeech.setLanguage(Locale.ENGLISH);
+                }
+            }
+        });
+
         //        intent from SeatMatrixMBH B activity
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
@@ -270,12 +284,19 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                                 etFatherPhone.setText("");
                                 etRoomNumber.setText("");
                                 etStdPhone.setText("");
-
+                                String roomspeak = responseFromApi.getHostel().getRoomNumber();
+//                                String speak = roomspeak+" has been registered";
+                                String speak = "Bhenchod tenu room milgya"+roomspeak;
+                                textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
                                 //this is used to save the user properties in the sharePrefManager
                                 Toast.makeText(RegisterationActivity.this,"Room "+ responseFromApi.getHostel().getRoomNumber()+" Registered", Toast.LENGTH_SHORT).show();
+//                                roomRegisterSpeak();
+
                                 finish(); //to remove the current activity
                             } else if(responseFromApi.getMessage().equals("Room Not Available")){
                                 progressDialog.dismiss();
+                                String speak ="Sorry Room not available";
+                                textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
                                 Toast.makeText(RegisterationActivity.this, "Room Not Available..", Toast.LENGTH_SHORT).show();
                                 etAddress.setText("");
                                 etFatherName.setText("");
@@ -387,6 +408,17 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
         finish();
         super.onBackPressed();
     }
+
+//    public void roomRegisterSpeak(){
+//        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+//            @Override
+//            public void onInit(int status) {
+//                if(status!= TextToSpeech.ERROR){
+//                    textToSpeech.setLanguage(Locale.ENGLISH);
+//                }
+//            }
+//        });
+//    }
 
 
 }
