@@ -284,9 +284,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                                 etFatherPhone.setText("");
                                 etRoomNumber.setText("");
                                 etStdPhone.setText("");
-                                String roomspeak = responseFromApi.getHostel().getRoomNumber();
-//                                String speak = roomspeak+" has been registered";
-                                String speak = "Bhenchod tenu room milgya"+roomspeak;
+                                String speak =  "Room has been registered";
                                 textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
                                 //this is used to save the user properties in the sharePrefManager
                                 Toast.makeText(RegisterationActivity.this,"Room "+ responseFromApi.getHostel().getRoomNumber()+" Registered", Toast.LENGTH_SHORT).show();
