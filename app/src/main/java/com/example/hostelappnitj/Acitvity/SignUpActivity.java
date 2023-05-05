@@ -78,8 +78,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String useremail = email.getText().toString();
         String userpassword = password.getText().toString();
         String username1 = name.getText().toString();
-        String username = username1.toUpperCase();
-        username.trim(); //to reomve extra space at front and back if present
+        String username2 = username1.toUpperCase();
+        String username = username2.trim(); //to reomve extra space at front and back if present
 
         if (rollno.isEmpty()) {
             rollNumber.requestFocus();

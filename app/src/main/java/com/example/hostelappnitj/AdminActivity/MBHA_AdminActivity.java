@@ -249,9 +249,10 @@ CardView hostelList , hostelPlan;
         btnProccedStudentName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String studentName1 = etStudentName.getText().toString();
-                String studentName = studentName1.toUpperCase();
-                studentName.trim(); //to reomve extra space at front and back if present
+                String studentName2 = studentName1.toUpperCase();
+                String studentName =  studentName2.trim(); //to reomve extra space at front and back if present
 
                 if(studentName.isEmpty()){
                     etStudentName.requestFocus();
