@@ -101,6 +101,8 @@ Button btncreateprofile ;
             String username , phone , address , branch ,username1;
             username1=etUsername.getText().toString();
             username=username1.toUpperCase();
+            username.trim(); //to reomve extra space at front and back if present
+
             phone=etPhone.getText().toString();
             address=etAddress.getText().toString();
             branch=etBranch.getText().toString();
