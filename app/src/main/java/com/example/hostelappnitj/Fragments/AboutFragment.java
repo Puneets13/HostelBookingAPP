@@ -89,14 +89,14 @@ public AppCompatButton textRoom;
 
                         if(x==0){
                             x++;
-                            textRoom.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.unmute), null);
+                            textRoom.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.mute), null);
                             textToSpeech.speak(speak, TextToSpeech.QUEUE_FLUSH, null);
                             return true;
                         }
                          else if(x==1){
                              x--;
                              textToSpeech.stop();
-                            textRoom.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.mute), null);
+                            textRoom.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.unmute), null);
                             return true;
                         }
                        }
