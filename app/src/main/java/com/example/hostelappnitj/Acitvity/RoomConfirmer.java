@@ -93,15 +93,18 @@ TextView txtHostelPolicy;
                     etroomNumber.requestFocus();
                     return;
                 }
-
+                int room_num_size=roomNumber.length();
+                String room_frontstring=roomNumber.substring(0,1);
+                int room_frontint=Integer.parseInt(room_frontstring);
                 String room_substring = roomNumber.substring(Math.max(roomNumber.length() - 2, 0));
                 int room_int = Integer.parseInt(room_substring);
+
                 if (etroomNumber.getText().toString().isEmpty()) {
                     etroomNumber.requestFocus();
                     etroomNumber.setError("Please Enter Room Number");
                     return;
                 }
-                if (room_int > 47 || room_int < 0) {
+                if (room_int > 47 || room_int < 1||room_frontint<1||room_frontint>7||!(room_num_size==3)) {
                     etroomNumber.requestFocus();
                     etroomNumber.setError("Please enter Valid Room Number");
                     return;
