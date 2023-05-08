@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -91,7 +92,7 @@ public class mbhfFloor4 extends AppCompatActivity {
                 .setFitMethod(Settings.Fit.INSIDE)
                 .setGravity(Gravity.CENTER);
 
-        loadRooms(); //to load the color of rooms in matrix
+        loadStatus(); //to load the color of rooms in matrix
 
 //        TO PASS THE INTENT TO NEXT REGISTER ACTIVITY
         binding.btnRoomBook3.setOnClickListener(new View.OnClickListener() {
@@ -108,9 +109,19 @@ public class mbhfFloor4 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Handler handler= new Handler();
+        Runnable runnable=new Runnable() {
+            @Override
+            public void run() {
+                loadStatus();
+                handler.postDelayed(this, 2000);
+            }
+        };
+        handler.postDelayed(runnable,2000);
     }
 
-    private void loadRooms() {
+    private void loadStatus() {
         //        API call for Status verification
         Call<PreRegisterResponse>call1 = RetrofitClient.getInstance().getApi().fetchAllHostelsStatus();
         call1.enqueue(new Callback<PreRegisterResponse>() {
@@ -201,10 +212,11 @@ public class mbhfFloor4 extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
-        loadRooms();
+        loadStatus(); //to load the color of rooms in matrix
     }
     @Override
     public void onRestart()
