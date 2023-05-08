@@ -134,6 +134,12 @@ public interface Api {
     Call<resetPasswordModel> resetpassword(
             @Body resetPasswordModel resetPasswordModel);
 
+    @POST("hostelbook/sendEmail")
+    Call<studentListModel> snedEmail(
+            @Body studentListModel studentListModel
+    );
+
+
 //    @Multipart
 //    @POST("XXXX") resetPassword
 //    Call<HostelRegisterationResponse> update(@Part(SyncStateContract.Constants.ACTION_ID) RequestBody actionId, @Part(Constants.OFFER_CODE) RequestBody offerCode);

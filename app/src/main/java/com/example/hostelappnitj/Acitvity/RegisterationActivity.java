@@ -52,6 +52,7 @@ import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
 import com.example.hostelappnitj.ModelResponse.statusModel;
+import com.example.hostelappnitj.ModelResponse.studentListModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
@@ -284,8 +285,10 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                                 etFatherPhone.setText("");
                                 etRoomNumber.setText("");
                                 etStdPhone.setText("");
-                                String speak =  "Room has been registered";
+                                String speak =  "Room has been registered Successfully";
                                 textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
+                                sendEmail();
+
                                 //this is used to save the user properties in the sharePrefManager
                                 Toast.makeText(RegisterationActivity.this,"Room "+ responseFromApi.getHostel().getRoomNumber()+" Registered", Toast.LENGTH_SHORT).show();
 //                                roomRegisterSpeak();
@@ -353,6 +356,26 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
         };
         handler.postDelayed(x, 300000);
 
+    }
+
+    private void sendEmail() {
+        studentListModel model1 = new studentListModel(roomNum,hostelName,email,username);
+        Call<studentListModel> call = RetrofitClient.getInstance().getApi().snedEmail(model1);
+        call.enqueue(new Callback<studentListModel>() {
+            @Override
+            public void onResponse(Call<studentListModel> call, Response<studentListModel> response) {
+                if(response.isSuccessful()){
+                    if(response.body().getMessage().equals("successfull")){
+
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<studentListModel> call, Throwable t) {
+                Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void expireSession() {

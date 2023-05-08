@@ -119,7 +119,6 @@ public class StudentByName extends AppCompatActivity {
                 call.enqueue(new Callback<DataModel>() {
                     @Override
                     public void onResponse(Call<DataModel> call, Response<DataModel> response) {
-                        Toast.makeText(StudentByName.this, "received", Toast.LENGTH_SHORT).show();
                         if(response.isSuccessful()){
                             if(response.body().getMessage().equals("success")){
                                 progressDialog.dismiss();
