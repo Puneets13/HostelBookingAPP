@@ -12,7 +12,7 @@ public class SharedPrefManager {
     Context context;
     private SharedPreferences.Editor editor ;
 
-    public SharedPrefManager(Context context){   //the constructor to get the context of the application
+    public  SharedPrefManager(Context context){   //the constructor to get the context of the application
         this.context=context;
     }
 

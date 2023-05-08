@@ -69,7 +69,13 @@
         android:layout_marginBottom="-30dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:drawableRight="@drawable/mute"
+
+
+        />
+
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
@@ -85,7 +91,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg"
         app:layout_constraintVertical_bias="0.186">
-<ScrollView
+
+        <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/_30sdp" >
