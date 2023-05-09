@@ -31,6 +31,18 @@ public class HostelRegisterationResponse {
         this.year=year;
     }
 
+    public HostelRegisterationResponse(String email) {
+        this.email = email;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
+
     public List<hostel> getHostelList() {
         return hostelList;
     }

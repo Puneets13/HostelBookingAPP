@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
 import com.example.hostelappnitj.Acitvity.settingUserProfile;
+import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
@@ -52,6 +53,7 @@ ImageView imgProfile ;
 FloatingActionButton btnChangeProfileImg ;
 FloatingActionButton btnChangeProfile ;
 LinearLayout roomLayout;
+String stringEmail;
 SharedPrefManager sharedPrefManager;
     String picturePath , id;
     RegisterResponse responseFromApi;
@@ -87,6 +89,8 @@ SharedPrefManager sharedPrefManager;
         username.setText(sharedPrefManager.getUser().getUsername());
         rollNumber.setText(sharedPrefManager.getUser().getRollNumber());
 
+        stringEmail = sharedPrefManager.getUser().getEmail();
+
         if(sharedPrefManager.getUser().getPhone()==null){
             phone.setText("Update Profile");
         }else{
@@ -107,21 +111,9 @@ SharedPrefManager sharedPrefManager;
             email.setGravity(Gravity.CENTER);
         }
 
-        if(sharedPrefManager.getHostelUser().getRoomNumber()==null){
-//            make view of roomNaumber in profile invisible
-            roomLayout.setVisibility(View.INVISIBLE);
+        roomLayout.setVisibility(View.INVISIBLE);
 
-        }else{
-            roomNumber.setText(sharedPrefManager.getHostelUser().getRoomNumber());
-//            Also set the other information here
-        }
 
-        if(sharedPrefManager.getHostelUser().getHostelName()==null){
-//            make view of roomNaumber in profile invisible
-            roomLayout.setVisibility(View.INVISIBLE);
-        }else{
-            hostelName.setText(sharedPrefManager.getHostelUser().getHostelName());
-        }
 
         this.pd = ProgressDialog.show(getActivity(), "Downloading", "Loading...\nPlease wait...", true, false);
         // Start a new thread that will download all the data
@@ -160,10 +152,52 @@ SharedPrefManager sharedPrefManager;
             }
         });
 
+
+        loadDataRooms();
+
         return view ;
     }
 
-//    TO show the dialog box before creating the activity
+    private void loadDataRooms() {
+        HostelRegisterationResponse model = new HostelRegisterationResponse(stringEmail);
+        Call<HostelRegisterationResponse> call = RetrofitClient.getInstance().getApi().getRoomsRuntime(model);
+        call.enqueue(new Callback<HostelRegisterationResponse>() {
+            @Override
+            public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
+                if(response.isSuccessful()){
+                    if(response.body().getMessage().equals("user 1 found")){
+                        roomLayout.setVisibility(View.VISIBLE);
+                        roomNumber.setText( response.body().getHostel().getRoomNumber());
+                        hostelName.setText( response.body().getHostel().getHostelName());
+                        phone.setText(response.body().getPhone());
+                        Toast.makeText(getActivity(), response.body().getPhone(), Toast.LENGTH_SHORT).show();
+                        branch.setText(response.body().getBranch());
+
+
+                    }
+                    else if(response.body().getMessage().equals("user 2 found")){
+                        roomLayout.setVisibility(View.VISIBLE);
+                        roomNumber.setText( response.body().getHostel().getRoomNumber());
+                        hostelName.setText( response.body().getHostel().getHostelName());
+                        phone.setText(response.body().getPhone());
+                        branch.setText(response.body().getBranch());
+
+                    }else{
+                        roomLayout.setVisibility(View.INVISIBLE);
+                        phone.setText(response.body().getPhone());
+                        branch.setText(response.body().getBranch());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<HostelRegisterationResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //    TO show the dialog box before creating the activity
     class IAmABackgroundTask extends AsyncTask<String, Integer, Boolean> {
         @Override
         protected void onPreExecute() {
@@ -206,6 +240,8 @@ SharedPrefManager sharedPrefManager;
         rollNumber.setText(sharedPrefManager.getUser().getRollNumber());
         phone.setText(sharedPrefManager.getUser().getPhone());
         branch.setText(sharedPrefManager.getUser().getBranch());
+
+        loadDataRooms();  // to load the rooms
     }
 
 

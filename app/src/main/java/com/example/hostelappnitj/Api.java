@@ -139,6 +139,10 @@ public interface Api {
             @Body studentListModel studentListModel
     );
 
+    @POST("hostelbook/searchbyEmailProfile")
+    Call<HostelRegisterationResponse>getRoomsRuntime(
+      @Body HostelRegisterationResponse hostelRegisterationResponse
+    );
 
 //    @Multipart
 //    @POST("XXXX") resetPassword

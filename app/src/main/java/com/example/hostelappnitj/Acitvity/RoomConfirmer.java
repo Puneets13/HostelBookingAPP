@@ -33,7 +33,7 @@ public class RoomConfirmer extends AppCompatActivity {
 EditText etroomNumber;
 AppCompatButton proceed;
 TextView txtHostelPolicy;
-    String hostelName, username, rollNumber, email, branch,roomNumber ;
+    String hostelName, username, rollNumber, email, branch,roomNumber,floor ;
     String allow="0";
     Switch switchAgree ;
     ProgressDialog progressDialog;
@@ -55,6 +55,9 @@ TextView txtHostelPolicy;
         rollNumber = intent.getStringExtra("rollNumber");
         email = intent.getStringExtra("email");
         branch = intent.getStringExtra("branch");
+
+        floor = intent.getStringExtra("floor");
+
 
 //here we need to add proced
 
@@ -99,6 +102,12 @@ TextView txtHostelPolicy;
                 String room_substring = roomNumber.substring(Math.max(roomNumber.length() - 2, 0));
                 int room_int = Integer.parseInt(room_substring);
 
+                String room_substring1 = roomNumber.substring(Math.max(roomNumber.length() - 3, 0));
+                if (floor == room_substring1) {
+                    etroomNumber.requestFocus();
+                    etroomNumber.setError("Please Enter Room Number");
+                    return;
+                }
                 if (etroomNumber.getText().toString().isEmpty()) {
                     etroomNumber.requestFocus();
                     etroomNumber.setError("Please Enter Room Number");
