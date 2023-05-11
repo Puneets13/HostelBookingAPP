@@ -111,7 +111,7 @@ public class homeFragment extends Fragment {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"8360699022"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
                                 if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
                                 }
