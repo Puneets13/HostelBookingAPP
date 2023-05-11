@@ -1,6 +1,7 @@
 package com.example.hostelappnitj.Fragments;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -31,24 +32,25 @@ ExtendedFloatingActionButton btnKiran , btnPuneet;
        btnKiran.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Intent email = new Intent(Intent.ACTION_SEND);
+               Intent email = new Intent(Intent.ACTION_SENDTO);
+               email.setData(Uri.parse("mailto:"));
                email.putExtra(Intent.EXTRA_EMAIL, new String[]{ "heykiranthakur@gmail.com"});
                email.putExtra(Intent.EXTRA_SUBJECT, "Email support for your query");
 //need this to prompts email client only
-               email.setType("message/rfc822");
-
                startActivity(Intent.createChooser(email, "Choose an Email client :"));
+
            }
        });
 
         btnPuneet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent email = new Intent(Intent.ACTION_SEND);
+                Intent email = new Intent(Intent.ACTION_SENDTO);
+                email.setData(Uri.parse("mailto:"));
                 email.putExtra(Intent.EXTRA_EMAIL, new String[]{ "sidhupuneet115@gmail.com"});
                 email.putExtra(Intent.EXTRA_SUBJECT, "Email support for your query");
 //need this to prompts email client only
-                email.setType("message/rfc822");
+//                email.setType("message/rfc822");
 
                 startActivity(Intent.createChooser(email, "Choose an Email client :"));
             }

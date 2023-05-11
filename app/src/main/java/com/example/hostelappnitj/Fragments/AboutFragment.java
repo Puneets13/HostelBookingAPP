@@ -1,8 +1,10 @@
 package com.example.hostelappnitj.Fragments;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
@@ -36,6 +38,8 @@ public AppCompatButton textRoom;
         // Inflate the layout for this fragment
 
         View view= inflater.inflate(R.layout.fragment_about, container, false);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
+
         textRoom=view.findViewById(R.id.textRoom);
         textToSpeech = new TextToSpeech(getContext(), new TextToSpeech.OnInitListener() {
             @Override

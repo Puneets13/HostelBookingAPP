@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +46,8 @@ TextView txtHostelPolicy;
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(R.layout.activity_room_confirmer);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         etroomNumber = findViewById(R.id.editRoom);
         proceed= findViewById(R.id.proceed);
     switchAgree = findViewById(R.id.switchAgree);

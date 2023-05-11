@@ -226,24 +226,25 @@
                 app:layout_constraintVertical_bias="0.434" />
 
 
-
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="@dimen/_250sdp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_13sdp"
-                android:background="@drawable/text_bg"
-                android:justificationMode="inter_word"
-                android:paddingRight="@dimen/_10sdp"
-                android:paddingTop="@dimen/_13sdp"
-                android:paddingLeft="@dimen/_50sdp"
                 android:paddingBottom="@dimen/_15sdp"
+
+                android:background="@drawable/text_bg"
                 android:fontFamily="@font/baskervville"
+                android:justificationMode="inter_word"
+                android:paddingLeft="@dimen/_50sdp"
+                android:paddingTop="@dimen/_13sdp"
+                android:paddingRight="@dimen/_10sdp"
 
                 android:text="Wastage of food is strictly prohibited; the same may be liable to charging of fine as decided by the competent authority."
                 android:textColor="@color/white"
 
                 android:textSize="@dimen/_11sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"

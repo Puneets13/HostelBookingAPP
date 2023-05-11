@@ -7,6 +7,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -58,6 +59,7 @@ public class mghSeatmarixFloor4 extends AppCompatActivity {
         View view = binding.getRoot();
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(view);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         sharedPrefManager = new SharedPrefManager(mghSeatmarixFloor4.this);
         username = sharedPrefManager.getUser().getUsername();

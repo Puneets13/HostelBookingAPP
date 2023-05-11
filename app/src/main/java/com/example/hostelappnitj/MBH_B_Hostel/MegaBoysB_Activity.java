@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 
@@ -28,6 +29,7 @@ public class MegaBoysB_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(R.layout.activity_mbhb_activity);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         hostelRegisteration=findViewById(R.id.hostelRegisteration);
     hostelRules=findViewById(R.id.hostelrules);

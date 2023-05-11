@@ -7,6 +7,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -55,6 +56,7 @@ public class mbhfFloorGround extends AppCompatActivity {
         binding = ActivityMbhfFloorGroundBinding.inflate(getLayoutInflater());
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(binding.getRoot());
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         sharedPrefManager = new SharedPrefManager(mbhfFloorGround.this);
         username = sharedPrefManager.getUser().getUsername();

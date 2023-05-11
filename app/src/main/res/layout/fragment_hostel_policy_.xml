@@ -175,6 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_13sdp"
                 android:background="@drawable/text_bg"
+                android:fontFamily="@font/baskervville"
                 android:justificationMode="inter_word"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_13sdp"
@@ -182,9 +183,9 @@
                 android:paddingBottom="@dimen/_15sdp"
                 android:text="No anti social, gender-based, caste-based, religion-based and region-based comments/statements are acceptable from the students/hostel residents. This will be liable to strict disciplinary action as mentioned in 2"
                 android:textColor="@color/white"
-                android:fontFamily="@font/baskervville"
                 android:textSize="@dimen/_11sdp"
 
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"

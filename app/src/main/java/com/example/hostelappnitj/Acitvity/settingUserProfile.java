@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -60,6 +61,7 @@ Button btncreateprofile ;
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(R.layout.activity_setting_user_profile);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         etUsername=findViewById(R.id.etusername);
         etPhone=findViewById(R.id.etPhone);
         etAddress=findViewById(R.id.etAddress);
@@ -90,9 +92,9 @@ Button btncreateprofile ;
         name=intent.getStringExtra("name");
         branch=intent.getStringExtra("branch");
         phone=intent.getStringExtra("phone");
-        etBranch.setText(branch);
-        etPhone.setText(phone);
-        etUsername.setText(name);
+//        etBranch.setText(branch);
+//        etPhone.setText(phone);
+//        etUsername.setText(name);
 
 
     btncreateprofile.setOnClickListener(new View.OnClickListener() {

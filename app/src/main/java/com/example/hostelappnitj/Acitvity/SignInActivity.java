@@ -223,8 +223,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             public void onResponse(Call<DataModel> call, Response<DataModel> response) {
                 DataModel responseFromAPi = response.body();
                 progressDialog.dismiss();
-                User user = responseFromAPi.getUser(); //we have assigned the user here
+//                User user = responseFromAPi.getUser(); //we have assigned the user here
                 if(response.isSuccessful()){
+                    User user = responseFromAPi.getUser(); //we have assigned the user here
+
                     if(responseFromAPi.getMessage().equals("false") && responseFromAPi.getError().equals("Incorrect Password")){
                         password.setText("");
                         setAttempts(getAttempts()+1);

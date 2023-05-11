@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -49,6 +50,7 @@ public class SeatmatrixMBHBoys extends AppCompatActivity {
         binding = ActivitySeatmatrixMbhboysBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         sharedPrefManager = new SharedPrefManager(SeatmatrixMBHBoys.this);
         username = sharedPrefManager.getUser().getUsername();
