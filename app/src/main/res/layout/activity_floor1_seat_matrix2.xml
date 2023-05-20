@@ -990,12 +990,13 @@
     </ScrollView>
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btnRoomBook3"
-        android:layout_marginBottom="@dimen/_40sdp"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
@@ -1006,10 +1007,9 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
-                android:layout_margin="@dimen/_1sdp"
-                android:background="@drawable/room_occupied_full"
                 android:layout_gravity="center"
-                />
+                android:layout_margin="@dimen/_1sdp"
+                android:background="@drawable/room_occupied_full" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -1018,8 +1018,7 @@
                 android:padding="@dimen/_2sdp"
                 android:text="   Fully Occupied"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"
-                />
+                android:textSize="@dimen/_15sdp" />
         </LinearLayout>
 
         <LinearLayout
@@ -1043,6 +1042,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -1074,8 +1074,7 @@
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:layout_margin="@dimen/_1sdp"
-                android:background="@drawable/room_gradient"
-                />
+                android:background="@drawable/room_gradient" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -1086,6 +1085,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -1107,6 +1107,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -1141,13 +1142,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/display"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="hloooo"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/btnRoomBook3"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
+    <ImageView
+        android:id="@+id/compassImg"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
+        android:src="@drawable/compass_image"
+        app:layout_constraintBottom_toTopOf="@+id/btnRoomBook3"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout5"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

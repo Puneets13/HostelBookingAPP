@@ -8,11 +8,18 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,7 +46,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Floor_1_SeatMatrix_A extends AppCompatActivity {
+public class Floor_1_SeatMatrix_A extends AppCompatActivity implements SensorEventListener {
 
 
     private ActivityFloor1SeatMatrix2Binding binding;
@@ -54,6 +61,13 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity {
     ProgressDialog progressDialog ;
     String userType;
 
+    // device sensor manager
+    private SensorManager SensorManage;
+    // define the compass picture that will be use
+    private ImageView compassImage;
+    // record the angle turned of the compass picture
+    private float DegreeStart = 0f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +76,12 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disable
         setContentView(binding.getRoot());
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+
+        compassImage = (ImageView) findViewById(R.id.compassImg);
+        // TextView that will display the degree
+        // initialize your android device sensor capabilities
+        SensorManage = (SensorManager) getSystemService(SENSOR_SERVICE);
 
         sharedPrefManager = new SharedPrefManager(Floor_1_SeatMatrix_A.this);
         username = sharedPrefManager.getUser().getUsername();
@@ -226,6 +246,10 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadStatus();
+
+        // code for system's orientation sensor registered listeners
+        SensorManage.registerListener((SensorEventListener) this, SensorManage.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+                SensorManager.SENSOR_DELAY_GAME);
     }
     @Override
     public void onRestart()
@@ -233,5 +257,37 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity {
         super.onRestart();
         this.recreate();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // to stop the listener and save battery
+        SensorManage.unregisterListener((SensorEventListener) Floor_1_SeatMatrix_A.this);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        // get angle around the z-axis rotated
+        float degree = Math.round(event.values[0]);
+        // rotation animation - reverse turn degree degrees
+        RotateAnimation ra = new RotateAnimation(
+                DegreeStart,
+                -degree,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+        // set the compass animation after the end of the reservation status
+        ra.setFillAfter(true);
+        // set how long the animation for the compass image will take place
+        ra.setDuration(210);
+        // Start animation of compass image
+        compassImage.startAnimation(ra);
+        DegreeStart = -degree;
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
 
 }
