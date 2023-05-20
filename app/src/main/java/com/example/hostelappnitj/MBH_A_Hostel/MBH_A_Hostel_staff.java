@@ -25,8 +25,13 @@ import com.example.hostelappnitj.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MBH_A_Hostel_staff extends AppCompatActivity {
-TextView textView1 ;
-public Drawable drawableRight;
+    FloatingActionButton call1;
+    FloatingActionButton call2;
+    FloatingActionButton call3;
+    FloatingActionButton call4;
+    FloatingActionButton call5;
+
+
 private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
     @SuppressLint("ClickableViewAccessibility")
@@ -35,64 +40,198 @@ private DialogInterface.OnClickListener dialogClickListener;
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(R.layout.activity_mbh_ahostel_staff);
+        call3= findViewById(R.id.call3);
+        call2=findViewById(R.id.call2);
+        call4=findViewById(R.id.call4);
+        call1=findViewById(R.id.call1);
+
+        call5=findViewById(R.id.call5);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        textView1 = findViewById(R.id.textView1);
-
-        textView1.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                final int DRAWABLE_LEFT = 0;
-                final int DRAWABLE_TOP = 1;
-                final int DRAWABLE_RIGHT = 2;
-                final int DRAWABLE_BOTTOM = 3;
-
-
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    if(event.getRawX() >= (textView1.getRight() - textView1.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-                        ////
-
-                        if (ContextCompat.checkSelfPermission(MBH_A_Hostel_staff.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                            ActivityCompat.requestPermissions(MBH_A_Hostel_staff.this, new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
-                        }
-                        dialogClickListener = new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                switch (which) {
-                                    // on below line we are setting a click listener
-                                    // for our positive button
-                                    case DialogInterface.BUTTON_POSITIVE:
+       call1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               dialogClickListener = new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                       switch (which) {
+                           // on below line we are setting a click listener
+                           // for our positive button
+                           case DialogInterface.BUTTON_POSITIVE:
 //                        Make the Call Action
 //ask for runtime permisson
-                                        Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                        callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
-                                     startActivity(callIntent);
+                               Intent callIntent=new Intent(Intent.ACTION_CALL);
+                               callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                               startActivity(callIntent);
 
-                                        break;
-                                    // on below line we are setting click listener
-                                    // for our negative button.
-                                    case DialogInterface.BUTTON_NEGATIVE:
-                                        // on below line we are dismissing our dialog box.
-                                        dialog.dismiss();
-                                }
-                            }
-                        };
+                               break;
+                           // on below line we are setting click listener
+                           // for our negative button.
+                           case DialogInterface.BUTTON_NEGATIVE:
+                               // on below line we are dismissing our dialog box.
+                               dialog.dismiss();
+                       }
+                   }
+               };
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
-                        // on below line we are setting message for our dialog box.
-                        builder.setTitle("EMERGENCY CALL");
-                        builder.setMessage("Make a call to the Clerk?")
-                                .setPositiveButton("Yes", dialogClickListener)
-                                .setNegativeButton("No", dialogClickListener)
-                                .show();
-                        ///////
-                        return true;
+               AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
+               // on below line we are setting message for our dialog box.
+               builder.setTitle("EMERGENCY CALL");
+               builder.setMessage("Make a call to the Clerk?")
+                       .setPositiveButton("Yes", dialogClickListener)
+                       .setNegativeButton("No", dialogClickListener)
+                       .show();
+               ///////
+
+           }
+       });
+
+        call2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            // on below line we are setting a click listener
+                            // for our positive button
+                            case DialogInterface.BUTTON_POSITIVE:
+//                        Make the Call Action
+//ask for runtime permisson
+                                Intent callIntent=new Intent(Intent.ACTION_CALL);
+                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                startActivity(callIntent);
+
+                                break;
+                            // on below line we are setting click listener
+                            // for our negative button.
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                // on below line we are dismissing our dialog box.
+                                dialog.dismiss();
+                        }
                     }
-                }
+                };
 
-                return false;
+                AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
+                // on below line we are setting message for our dialog box.
+                builder.setTitle("EMERGENCY CALL");
+                builder.setMessage("Are you sure you want to make a call?")
+                        .setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener)
+                        .show();
+                ///////
+
+            }
+        });
+        call3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            // on below line we are setting a click listener
+                            // for our positive button
+                            case DialogInterface.BUTTON_POSITIVE:
+//                        Make the Call Action
+//ask for runtime permisson
+                                Intent callIntent=new Intent(Intent.ACTION_CALL);
+                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                startActivity(callIntent);
+
+                                break;
+                            // on below line we are setting click listener
+                            // for our negative button.
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                // on below line we are dismissing our dialog box.
+                                dialog.dismiss();
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
+                // on below line we are setting message for our dialog box.
+                builder.setTitle("EMERGENCY CALL");
+                builder.setMessage("Are you sure you want to make a call?")
+                        .setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener)
+                        .show();
+                ///////
+
+            }
+        });
+        call4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            // on below line we are setting a click listener
+                            // for our positive button
+                            case DialogInterface.BUTTON_POSITIVE:
+//                        Make the Call Action
+//ask for runtime permisson
+                                Intent callIntent=new Intent(Intent.ACTION_CALL);
+                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                startActivity(callIntent);
+
+                                break;
+                            // on below line we are setting click listener
+                            // for our negative button.
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                // on below line we are dismissing our dialog box.
+                                dialog.dismiss();
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
+                // on below line we are setting message for our dialog box.
+                builder.setTitle("EMERGENCY CALL");
+                builder.setMessage("Are you sure you want to make a call?")
+                        .setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener)
+                        .show();
+                ///////
+
+            }
+        });
+        call5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            // on below line we are setting a click listener
+                            // for our positive button
+                            case DialogInterface.BUTTON_POSITIVE:
+//                        Make the Call Action
+//ask for runtime permisson
+                                Intent callIntent=new Intent(Intent.ACTION_CALL);
+                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                startActivity(callIntent);
+
+                                break;
+                            // on below line we are setting click listener
+                            // for our negative button.
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                // on below line we are dismissing our dialog box.
+                                dialog.dismiss();
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
+                // on below line we are setting message for our dialog box.
+                builder.setTitle("EMERGENCY CALL");
+                builder.setMessage("Are you sure you want to make a call?")
+                        .setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener)
+                        .show();
+                ///////
+
             }
         });
 
