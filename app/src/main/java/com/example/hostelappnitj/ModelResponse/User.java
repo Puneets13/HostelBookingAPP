@@ -5,7 +5,7 @@ public class User {
     private String email;
     private String _id;
     private String avatar;
-    private String rollNumber , phone , roomNumber , branch ,hostelName,address;
+    private String rollNumber , phone , roomNumber , branch ,hostelName,address,gender;
 
 //    NOTE NOTE NOTE
     //make sure make the constrcutor according to the fields in the RESPONE User...otherwise they will be assigned in wrong manner in user properties
@@ -26,7 +26,7 @@ public class User {
         this.branch = branch;
     }
 
-    public User(String id, String username, String avatar, String email, String rollNumber, String branch, String address, String phone) {
+    public User(String id, String username, String avatar, String email, String rollNumber, String branch, String address, String phone,String gender) {
         this.username = username;
         this.email = email;
         this._id = id;
@@ -35,6 +35,15 @@ public class User {
         this.branch = branch;
         this.address = address;
         this.phone=phone;
+        this.gender=gender;
+    }
+
+    public String getGender1() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getAddress() {

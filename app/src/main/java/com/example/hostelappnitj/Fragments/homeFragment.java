@@ -27,7 +27,9 @@ import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
 import com.example.hostelappnitj.MBH_B_Hostel.MegaBoysB_Activity;
 import com.example.hostelappnitj.MBH_F_Hostel.MegaBoysF_Activity;
 import com.example.hostelappnitj.MGH_Girls.MegaGirlsActivity;
+import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.R;
+import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -39,7 +41,8 @@ public class homeFragment extends Fragment {
    ExtendedFloatingActionButton floatingActionButton_call;
     private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
-
+    SharedPrefManager sharedPrefManager;
+    String genderRestriction;
     public homeFragment() {
         // Required empty public constructor
     }
@@ -58,6 +61,10 @@ public class homeFragment extends Fragment {
         btnMesslRule=view.findViewById(R.id.Mess_rule);
         btnGirlsMega=view.findViewById(R.id.btnMegaGirls);
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
+
+
+        sharedPrefManager=new SharedPrefManager(getActivity());
+        genderRestriction=sharedPrefManager.getGender();
 
 //        for showing the images autoMatically
 //        int[] imageArray = { R.drawable.img_2, R.drawable.ic_9,R.drawable.ic_6,R.drawable.img_4, R.drawable.img_5};
@@ -152,38 +159,60 @@ public class homeFragment extends Fragment {
         btnmghB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "MBH B", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MegaBoysB_Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+
+                if(genderRestriction.equals("female")){
+                    Toast.makeText(getActivity(), "You are not a boy", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(getActivity(), "MBH B", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), MegaBoysB_Activity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+
             }
         });
         btnmghA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "MBH A", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MegaBoysA_Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                if(genderRestriction.equals("female")){
+                    Toast.makeText(getActivity(), "You are not a boy", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getActivity(), "MBH A", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), MegaBoysA_Activity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
             }
         });
         btnmghF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "MBH F", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MegaBoysF_Activity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                if(genderRestriction.equals("female")){
+                    Toast.makeText(getActivity(), "You are not a boy", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getActivity(), "MBH F", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), MegaBoysF_Activity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
             }
         });
 
         btnGirlsMega.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "MEGA GIRLS", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getActivity(), MegaGirlsActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+                if(genderRestriction.equals("male")){
+                    Toast.makeText(getActivity(), "You are not a girl", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getActivity(), "MEGA GIRLS", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), MegaGirlsActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
             }
         });
 

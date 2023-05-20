@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         toolbar.setTitle("NITJ HOSTELS");
                         toolbar.setTitleTextColor(Color.WHITE);
                         if( sharedPrefManager.getAdmin().equals("Admin")){
+
                             fragment = new AdminHomeFragment();
                         }else{
                             fragment = new homeFragment();    //passing the new fragment that we have created

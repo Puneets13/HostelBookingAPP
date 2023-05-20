@@ -28,6 +28,7 @@ public class SharedPrefManager {
         editor.putString("branch", user.getBranch());
         editor.putString("address", user.getAddress());
         editor.putString("phone", user.getPhone());
+        editor.putString("gender",user.getGender1());
         editor.putBoolean("logged",true);   //to check wheater the user is logged in or not
         editor.apply();
     }
@@ -60,9 +61,15 @@ public class SharedPrefManager {
                 sharedPreferences.getString("rollNumber",null),
                 sharedPreferences.getString("branch",null),
                 sharedPreferences.getString("address",null),
-                sharedPreferences.getString("phone",null)
+                sharedPreferences.getString("phone",null),
+                sharedPreferences.getString("gender",null)
                 );
 
+    }
+
+    public String getGender(){
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("gender",null);
     }
 
     public void logout(){
