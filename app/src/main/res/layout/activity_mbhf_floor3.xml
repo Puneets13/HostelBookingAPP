@@ -311,10 +311,10 @@ tools:context=".MBH_F_Hostel.mbhfFloor3">
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient3"
                         android:textSize="@dimen/_6sdp"
-                        android:text="320" />
+                        android:text="420" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room322"
+                        android:id="@+id/room422"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_margin="@dimen/_1sdp"
@@ -794,19 +794,19 @@ tools:context=".MBH_F_Hostel.mbhfFloor3">
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient2"
                         android:textSize="@dimen/_6sdp"
-                        android:text="335" />
+                        android:text="435" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room337"
+                        android:id="@+id/room437"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient2"
                         android:textSize="@dimen/_6sdp"
-                        android:text="337" />
+                        android:text="437" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/room339"
+                        android:id="@+id/room439"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_margin="@dimen/_1sdp"
