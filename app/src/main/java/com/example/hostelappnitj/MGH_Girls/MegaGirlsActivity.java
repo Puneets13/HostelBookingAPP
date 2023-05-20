@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.hostelappnitj.Acitvity.SeatmatrixMBHBoys;
 import com.example.hostelappnitj.Hostels.ExpulsionFromHostelRules;
@@ -25,6 +26,7 @@ public class MegaGirlsActivity extends AppCompatActivity {
     CardView hostelRules;
     CardView messRules;
     CardView expulsionRules;
+    ImageButton backbutton;
     private CharSequence[] hostelFloors ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class MegaGirlsActivity extends AppCompatActivity {
         hostelRules=findViewById(R.id.hostelrules);
         messRules=findViewById(R.id.messRules);
         expulsionRules=findViewById(R.id.expulsionFromHostel);
+        backbutton=findViewById(R.id.backButton);
 
         hostelFloors = new CharSequence[]{
                 "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
@@ -128,6 +131,12 @@ public class MegaGirlsActivity extends AppCompatActivity {
                 builder.setBackground(getResources().getDrawable(R.drawable.alert_dialog,null));
                 builder.show();
 
+            }
+        });
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

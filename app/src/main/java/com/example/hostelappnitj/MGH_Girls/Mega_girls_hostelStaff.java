@@ -10,6 +10,7 @@ import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.hostelappnitj.MBH_B_Hostel.MBH_Hostel_Staff;
 import com.example.hostelappnitj.R;
@@ -21,6 +22,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
     FloatingActionButton call3;
     FloatingActionButton call4;
     FloatingActionButton call5;
+    ImageButton backbutton;
     private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
     @Override
@@ -33,6 +35,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
         call4=findViewById(R.id.call4);
         call1=findViewById(R.id.call1);
         call5=findViewById(R.id.call5);
+        backbutton=findViewById(R.id.backButton);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         call1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -220,6 +223,11 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 
             }
         });
-
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
