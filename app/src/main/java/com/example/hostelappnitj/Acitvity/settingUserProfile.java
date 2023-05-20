@@ -129,7 +129,11 @@ Button btncreateprofile ;
                 etAddress.setError("Please enter your Address");
                 return;
             }
-
+            progressDialog = new ProgressDialog(settingUserProfile.this);
+            progressDialog.setTitle("UPLOADING...");
+            progressDialog.setMessage("New Profile...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
 //                    Creting the request for POST
             String _id = "id";
                   _id=sharedPrefManager.getUser().get_id();
@@ -143,6 +147,7 @@ Button btncreateprofile ;
                 @Override
                 public void onResponse(Call<CreateProfileResponse> call, Response<CreateProfileResponse> response) {
                     CreateProfileResponse responseFromApi = response.body();
+                    progressDialog.dismiss();
                     User user = responseFromApi.getUser();
                     if(response.isSuccessful()){
 
@@ -150,14 +155,17 @@ Button btncreateprofile ;
                         etPhone.setText("");
                         etAddress.setText("");
                         etBranch.setText("");
-    //    when it is successfull then
-    sharedPrefManager.SaveUser(responseFromApi.getUser());  //this is used to save the user properties in the sharePrefManager
+                        progressDialog.dismiss();
+
+                        //    when it is successfull then
+     sharedPrefManager.SaveUser(responseFromApi.getUser());  //this is used to save the user properties in the sharePrefManager
     Toast.makeText(settingUserProfile.this, "Profile updated", Toast.LENGTH_SHORT).show();
                         onBackPressed(); //to close the activity
                     }
                 }
                 @Override
                 public void onFailure(Call<CreateProfileResponse> call, Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(settingUserProfile.this, "SomeThing went wrong..", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -165,77 +173,4 @@ Button btncreateprofile ;
     });
 
     }
-
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        // In fragment class callback
-//        super.onActivityResult(requestCode, resultCode, data);
-//        try {
-//            // When an Image is picked
-//            if (requestCode == RESULT_LOAD_IMAGE && null!=data) {
-//                progressDialog = new ProgressDialog(getApplicationContext());
-//                progressDialog.setTitle("UPLOADING...");
-//                progressDialog.setMessage("New Profile...");
-//                progressDialog.setCancelable(false);
-//                progressDialog.show();
-////                METHOD 2 OF UPLOADING AND DISPLAYING IMAGE IN IMAGE VIEW Here Cursor are used
-//                selectedImage = data.getData();
-//                String[] filePathColumn = { MediaStore.Images.Media.DATA };
-//                Cursor cursor = getApplicationContext().getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-//                cursor.moveToFirst();
-//                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-//                picturePath = cursor.getString(columnIndex);
-//                cursor.close();
-//                //donot set the image here..set the image when it is stored in sharedPreference to avoid double reloading of image
-////                profileImage.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-//
-//                uploadImage();
-//
-//            }
-//        } catch (Exception e) {
-//            progressDialog.dismiss();
-//            Toast.makeText(this, "Something went wrong", Toast.LENGTH_LONG).show();
-//        }
-//    }
-
-//    private void uploadImage(){
-//        File file = new File(picturePath);
-//        id = sharedPrefManager.getUser().get_id();
-//        Toast.makeText(this,"id: "+id,Toast.LENGTH_LONG).show();
-//
-//        //        uploading the data using Multipart-Form
-//        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"),file);
-//        MultipartBody.Part body = MultipartBody.Part.createFormData("photo", file.getName(),requestFile);
-//
-//        Call<RegisterResponse> call = RetrofitClient.getInstance().getApi()
-//                .UploadProfile(id,body);
-//
-//        call.enqueue(new Callback<RegisterResponse>() {
-//            @Override
-//            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-//                responseFromApi= response.body();
-//                if(response.isSuccessful()){
-//                    Toast.makeText(settingUserProfile.this,"Image Uploaded Successfully",Toast.LENGTH_LONG).show();
-//                    //the image got deleted when we change the fragment so we will keep it permanent bu adding it into sharedPreference
-//                    //                      Update the avatar in the Shared Preference also
-//                    sharedPrefManager.SaveUser(responseFromApi.getUser());
-//                    String imageFromDatabase= sharedPrefManager.getUser().getAvatar();
-//                    Picasso.get().load(imageFromDatabase).resize(650,650).centerCrop().into(profileImage);
-//                    progressDialog.dismiss();
-//                }else{
-//                    progressDialog.dismiss();
-//                    Toast.makeText(settingUserProfile.this,"Connection Lost",Toast.LENGTH_LONG).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<RegisterResponse> call, Throwable t) {
-//                progressDialog.dismiss();
-//                Toast.makeText(settingUserProfile.this,t.getMessage(),Toast.LENGTH_LONG).show();
-//
-//            }
-//        });
-//
-//    }
-
-
 }

@@ -70,6 +70,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                     // one of the radio buttons is checked
                     gender = radioButton.getText().toString();
+                    if(gender.equals("Male")){
+                        gender = "male";
+                    }else{
+                        gender="female";
+                    }
                     Toast.makeText(SignUpActivity.this, radioButton.getText(), Toast.LENGTH_SHORT).show();
 
             }

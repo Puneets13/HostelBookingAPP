@@ -171,8 +171,6 @@ SharedPrefManager sharedPrefManager;
                         roomLayout.setVisibility(View.VISIBLE);
                         roomNumber.setText( response.body().getHostel().getRoomNumber());
                         hostelName.setText( response.body().getHostel().getHostelName());
-                        phone.setText(response.body().getPhone());
-                        branch.setText(response.body().getBranch());
 
 
                     }
@@ -180,15 +178,13 @@ SharedPrefManager sharedPrefManager;
                         roomLayout.setVisibility(View.VISIBLE);
                         roomNumber.setText( response.body().getHostel().getRoomNumber());
                         hostelName.setText( response.body().getHostel().getHostelName());
-                        phone.setText(response.body().getPhone());
-                        branch.setText(response.body().getBranch());
+
                         progressDialog.dismiss();
 
 
                     }else{
                         roomLayout.setVisibility(View.INVISIBLE);
-                        phone.setText(response.body().getPhone());
-                        branch.setText(response.body().getBranch());
+
                         progressDialog.dismiss();
                     }
                 }
@@ -206,6 +202,7 @@ SharedPrefManager sharedPrefManager;
     @Override
     public void onResume() {
         super.onResume();
+        sharedPrefManager= new SharedPrefManager(getActivity());
         String imageFromDatabase= sharedPrefManager.getUser().getAvatar();
 ////center crop is use to not the image to be streched when resized
         Picasso.get().load(imageFromDatabase).resize(550,550).centerCrop().into(imgProfile);
