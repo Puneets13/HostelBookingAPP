@@ -19,7 +19,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <!--    this edit text is used imported from material desgin so used in this manner-->
-
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_14sdp"
+            android:src="@drawable/ic_back1"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:elevation="@dimen/_50sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
 
         <!--progress bar for loading -->

@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class MBH_A_Hostel_staff extends AppCompatActivity {
     FloatingActionButton call3;
     FloatingActionButton call4;
     FloatingActionButton call5;
+    ImageButton backbutton;
 
 
 private DialogInterface.OnClickListener dialogClickListener;
@@ -44,8 +46,8 @@ private DialogInterface.OnClickListener dialogClickListener;
         call2=findViewById(R.id.call2);
         call4=findViewById(R.id.call4);
         call1=findViewById(R.id.call1);
-
         call5=findViewById(R.id.call5);
+        backbutton=findViewById(R.id.backButton);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
        call1.setOnClickListener(new View.OnClickListener() {
@@ -232,6 +234,13 @@ private DialogInterface.OnClickListener dialogClickListener;
                         .show();
                 ///////
 
+            }
+        });
+
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

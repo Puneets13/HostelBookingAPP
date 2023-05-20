@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.example.hostelappnitj.Hostels.ExpulsionFromHostelRules;
 import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
@@ -29,7 +30,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 public class MegaBoysF_Activity extends AppCompatActivity {
     CardView hostelRegisteration,hostelRules,messRules,expulsionFromHostel,hostelStaff;
     SharedPrefManager sharedPrefManager;
-
+    ImageButton backbutton;
     private CharSequence[] hostelFloors ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class MegaBoysF_Activity extends AppCompatActivity {
         messRules=findViewById(R.id.messRules);
         expulsionFromHostel=findViewById(R.id.expulsionFromHostel);
         hostelStaff=findViewById(R.id.hostelStaff);
+        backbutton=findViewById(R.id.backButton);
         sharedPrefManager=new SharedPrefManager(MegaBoysF_Activity.this);
 
 
@@ -138,6 +140,12 @@ public class MegaBoysF_Activity extends AppCompatActivity {
                 builder.setBackground(getResources().getDrawable(R.drawable.alert_dialog,null));
                 builder.show();
 
+            }
+        });
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
