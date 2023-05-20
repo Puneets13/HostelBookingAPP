@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -27,6 +28,7 @@ TextView textView1 ;
 public Drawable drawableRight;
 private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,10 @@ private DialogInterface.OnClickListener dialogClickListener;
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     if(event.getRawX() >= (textView1.getRight() - textView1.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                         ////
+
+                        if (ContextCompat.checkSelfPermission(MBH_A_Hostel_staff.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                            ActivityCompat.requestPermissions(MBH_A_Hostel_staff.this, new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
+                        }
                         dialogClickListener = new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -61,14 +67,7 @@ private DialogInterface.OnClickListener dialogClickListener;
 //ask for runtime permisson
                                         Intent callIntent=new Intent(Intent.ACTION_CALL);
                                         callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
-                                        if (ContextCompat.checkSelfPermission(MBH_A_Hostel_staff.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                                            ActivityCompat.requestPermissions(MBH_A_Hostel_staff.this, new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
-                                        }
-                                        else
-                                        {
-                                            startActivity(callIntent);
-
-                                        }
+                                     startActivity(callIntent);
 
                                         break;
                                     // on below line we are setting click listener

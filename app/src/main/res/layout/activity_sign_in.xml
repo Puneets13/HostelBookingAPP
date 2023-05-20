@@ -17,17 +17,17 @@
             android:layout_height="@dimen/_250sdp"
             android:src="@drawable/signin_bg1" />
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_50sdp"
-        android:fontFamily="@font/kavivanar"
-        android:text="National Institute of\n Technology , \n Jalandhar"
-        android:textColor="#fff"
-        android:textSize="@dimen/_25sdp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:fontFamily="@font/kavivanar"
+            android:text="National Institute of\n Technology , \n Jalandhar"
+            android:textColor="#fff"
+            android:textSize="@dimen/_25sdp"
+            android:textStyle="bold" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/logo"

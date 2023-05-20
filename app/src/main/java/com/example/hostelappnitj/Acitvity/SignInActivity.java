@@ -278,7 +278,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                     email.setText("");
                     progressDialog.dismiss();
                     setAttempts(getAttempts()+1);
-                    Toast.makeText(SignInActivity.this, "Incorrect Password or Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignInActivity.this, "Something went wrong..", Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
