@@ -29,6 +29,8 @@ CardView cardView2;
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(R.layout.activity_search_student_admin);
 
+        backbutton=findViewById(R.id.backButton);
+
         txtroom=findViewById(R.id.txtroom);
 
         txtemail=findViewById(R.id.txtStudentemail1);
@@ -97,6 +99,13 @@ CardView cardView2;
 
             Picasso.get().load(avatar).resize(550,550).centerCrop().into(imgavatar1);
 
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
             txtusername2.setText(intent.getStringExtra("userName2"));
             txtemail2.setText(intent.getStringExtra("email2"));
@@ -118,4 +127,5 @@ CardView cardView2;
         });
 
     }
+
 }

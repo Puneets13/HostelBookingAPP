@@ -65,8 +65,8 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(Mega_girls_hostelStaff.this);
                 // on below line we are setting message for our dialog box.
-                builder.setTitle("EMERGENCY CALL");
-                builder.setMessage("Make a call to the Clerk?")
+                builder.setTitle("CALL TO STAFF");
+                builder.setMessage("Are you sure you want to make a call?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -103,7 +103,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(Mega_girls_hostelStaff.this);
                 // on below line we are setting message for our dialog box.
-                builder.setTitle("EMERGENCY CALL");
+                builder.setTitle("CALL TO STAFF");
                 builder.setMessage("Are you sure you want to make a call?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
@@ -140,7 +140,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(Mega_girls_hostelStaff.this);
                 // on below line we are setting message for our dialog box.
-                builder.setTitle("EMERGENCY CALL");
+                builder.setTitle("CALL TO STAFF");
                 builder.setMessage("Are you sure you want to make a call?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
@@ -177,7 +177,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(Mega_girls_hostelStaff.this);
                 // on below line we are setting message for our dialog box.
-                builder.setTitle("EMERGENCY CALL");
+                builder.setTitle("CALL TO STAFF");
                 builder.setMessage("Are you sure you want to make a call?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
@@ -214,7 +214,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(Mega_girls_hostelStaff.this);
                 // on below line we are setting message for our dialog box.
-                builder.setTitle("EMERGENCY CALL");
+                builder.setTitle("CALL TO STAFF");
                 builder.setMessage("Are you sure you want to make a call?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)

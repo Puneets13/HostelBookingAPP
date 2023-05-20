@@ -11,6 +11,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +31,9 @@ import retrofit2.Response;
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     TextView loginlink ;
     EditText name, email, password,rollNumber;
+    String gender ;
     Button register;
+    RadioGroup radioGroupGender;
     ProgressDialog progressDialog ;   //this will give the background box also
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +50,31 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         register = findViewById(R.id.btnSignUp);
         loginlink = findViewById(R.id.loginlink);
 
+        radioGroupGender = findViewById(R.id.radioGroupGender);
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CreateUser();
             }
         });
+
+        radioGroupGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                // on below line we are getting radio button from our group.
+                RadioButton radioButton = findViewById(checkedId);
+
+                // on below line we are displaying a toast message.
+//                Toast.makeText(RegisterationActivity.this, radioButton.getText()+" Gender", Toast.LENGTH_SHORT).show();
+                gender = radioButton.getText().toString();
+
+            }
+        });
+
+
+
         loginlink.setOnClickListener(this);
     }
 

@@ -78,8 +78,8 @@ private DialogInterface.OnClickListener dialogClickListener;
 
                AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
                // on below line we are setting message for our dialog box.
-               builder.setTitle("EMERGENCY CALL");
-               builder.setMessage("Make a call to the Clerk?")
+               builder.setTitle("CALL TO STAFF");
+               builder.setMessage("Are you sure you want to make a call?")
                        .setPositiveButton("Yes", dialogClickListener)
                        .setNegativeButton("No", dialogClickListener)
                        .show();
@@ -116,7 +116,7 @@ private DialogInterface.OnClickListener dialogClickListener;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
                 // on below line we are setting message for our dialog box.
-                builder.setTitle("EMERGENCY CALL");
+                builder.setTitle("CALL TO STAFF");
                 builder.setMessage("Are you sure you want to make a call?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
@@ -153,12 +153,12 @@ private DialogInterface.OnClickListener dialogClickListener;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
                 // on below line we are setting message for our dialog box.
-                builder.setTitle("EMERGENCY CALL");
+
+                builder.setTitle("CALL TO STAFF");
                 builder.setMessage("Are you sure you want to make a call?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
-                ///////
 
             }
         });
@@ -190,7 +190,7 @@ private DialogInterface.OnClickListener dialogClickListener;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
                 // on below line we are setting message for our dialog box.
-                builder.setTitle("EMERGENCY CALL");
+                builder.setTitle("CALL TO STAFF");
                 builder.setMessage("Are you sure you want to make a call?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
@@ -227,7 +227,7 @@ private DialogInterface.OnClickListener dialogClickListener;
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
                 // on below line we are setting message for our dialog box.
-                builder.setTitle("EMERGENCY CALL");
+                builder.setTitle("CALL TO STAFF");
                 builder.setMessage("Are you sure you want to make a call?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
