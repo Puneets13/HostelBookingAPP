@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NITJ Hostel APP</string>
+    <string name="app_name">Book My Hostel</string>
     <string name="openNavDrawer">Navigation Drawer Open</string>
     <string name="closeNavDrawer">Navigation Drawer Close</string>
     <!-- TODO: Remove or change this placeholder text -->

@@ -126,15 +126,7 @@ public class homeFragment extends Fragment {
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
                                 callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
                                 startActivity(callIntent);
-//                                if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-//                                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CALL_PHONE},REQUEST_PHONE_CALL);
-//                                }
-//                                else
-//                                {
-//                                    startActivity(callIntent);
 //
-//                                }
-
                                 break;
                             // on below line we are setting click listener
                             // for our negative button.
@@ -161,7 +153,26 @@ public class homeFragment extends Fragment {
             public void onClick(View v) {
 
                 if(genderRestriction.equals("female")){
-                    Toast.makeText(getActivity(), "You are not a boy", Toast.LENGTH_SHORT).show();
+                    dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                // on below line we are setting a click listener
+                                // for our positive button
+                                case DialogInterface.BUTTON_POSITIVE:
+                        dialog.dismiss();
+                         break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    // on below line we are setting message for our dialog box.
+                    builder.setTitle("ALERT..");
+                    builder.setMessage("You can't access it..")
+                            .setPositiveButton("Okay", dialogClickListener)
+                            .show();
+
                 }
                 else{
                     Toast.makeText(getActivity(), "MBH B", Toast.LENGTH_SHORT).show();
@@ -176,7 +187,26 @@ public class homeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(genderRestriction.equals("female")){
-                    Toast.makeText(getActivity(), "You are not a boy", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "You are not a boy", Toast.LENGTH_SHORT).show();
+                    dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                // on below line we are setting a click listener
+                                // for our positive button
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dialog.dismiss();
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    // on below line we are setting message for our dialog box.
+                    builder.setTitle("ALERT..");
+                    builder.setMessage("You can't access it..")
+                            .setPositiveButton("Okay", dialogClickListener)
+                            .show();
                 }
                 else {
                     Toast.makeText(getActivity(), "MBH A", Toast.LENGTH_SHORT).show();
@@ -190,7 +220,26 @@ public class homeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(genderRestriction.equals("female")){
-                    Toast.makeText(getActivity(), "You are not a boy", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "You are not a boy", Toast.LENGTH_SHORT).show();
+                    dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                // on below line we are setting a click listener
+                                // for our positive button
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dialog.dismiss();
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    // on below line we are setting message for our dialog box.
+                    builder.setTitle("ALERT..");
+                    builder.setMessage("You can't access it..")
+                            .setPositiveButton("Okay", dialogClickListener)
+                            .show();
                 }
                 else {
                     Toast.makeText(getActivity(), "MBH F", Toast.LENGTH_SHORT).show();
@@ -205,7 +254,26 @@ public class homeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(genderRestriction.equals("male")){
-                    Toast.makeText(getActivity(), "You are not a girl", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "You are not a girl", Toast.LENGTH_SHORT).show();
+                    dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                // on below line we are setting a click listener
+                                // for our positive button
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dialog.dismiss();
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    // on below line we are setting message for our dialog box.
+                    builder.setTitle("ALERT..");
+                    builder.setMessage("You can't access it..")
+                            .setPositiveButton("Okay", dialogClickListener)
+                            .show();
                 }
                 else {
                     Toast.makeText(getActivity(), "MEGA GIRLS", Toast.LENGTH_SHORT).show();
