@@ -59,7 +59,8 @@ SharedPrefManager sharedPrefManager;
     RegisterResponse responseFromApi;
     ProgressDialog progressDialog;
     Uri selectedImage ;
-    private ProgressDialog pd = null;
+
+
 
     private static int RESULT_LOAD_IMAGE = 1;
     public static final String TAG = "Test";
@@ -91,6 +92,12 @@ SharedPrefManager sharedPrefManager;
 
         stringEmail = sharedPrefManager.getUser().getEmail();
 
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setTitle("Downloading...");
+        progressDialog.setMessage("Loading Profile...");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+
         if(sharedPrefManager.getUser().getPhone()==null){
             phone.setText("Update Profile");
         }else{
@@ -112,12 +119,6 @@ SharedPrefManager sharedPrefManager;
         }
 
         roomLayout.setVisibility(View.INVISIBLE);
-
-
-
-        this.pd = ProgressDialog.show(getActivity(), "Downloading", "Loading...\nPlease wait...", true, false);
-        // Start a new thread that will download all the data
-        new IAmABackgroundTask().execute(); //to show the dialog box before creating the activtiy
 
 
         String imageFromDatabase= sharedPrefManager.getUser().getAvatar();
@@ -164,13 +165,13 @@ SharedPrefManager sharedPrefManager;
         call.enqueue(new Callback<HostelRegisterationResponse>() {
             @Override
             public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
+                progressDialog.dismiss();
                 if(response.isSuccessful()){
                     if(response.body().getMessage().equals("user 1 found")){
                         roomLayout.setVisibility(View.VISIBLE);
                         roomNumber.setText( response.body().getHostel().getRoomNumber());
                         hostelName.setText( response.body().getHostel().getHostelName());
                         phone.setText(response.body().getPhone());
-                        Toast.makeText(getActivity(), response.body().getPhone(), Toast.LENGTH_SHORT).show();
                         branch.setText(response.body().getBranch());
 
 
@@ -181,54 +182,26 @@ SharedPrefManager sharedPrefManager;
                         hostelName.setText( response.body().getHostel().getHostelName());
                         phone.setText(response.body().getPhone());
                         branch.setText(response.body().getBranch());
+                        progressDialog.dismiss();
+
 
                     }else{
                         roomLayout.setVisibility(View.INVISIBLE);
                         phone.setText(response.body().getPhone());
                         branch.setText(response.body().getBranch());
+                        progressDialog.dismiss();
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<HostelRegisterationResponse> call, Throwable t) {
+                progressDialog.dismiss();
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    //    TO show the dialog box before creating the activity
-    class IAmABackgroundTask extends AsyncTask<String, Integer, Boolean> {
-        @Override
-        protected void onPreExecute() {
-            // showDialog(AUTHORIZING_DIALOG);
-        }
-
-        @Override
-        protected void onPostExecute(Boolean result) {
-
-            // Pass the result data back to the main activity
-            Handler handler = new Handler();
-            Runnable runnable = new Runnable() {
-                public void run() {
-                    if (ProfileFragment.this.pd != null) {
-                        ProfileFragment.this.pd.dismiss();
-                    }
-                    handler.postDelayed(this, 2000);
-                }
-            };
-            handler.postDelayed(runnable, 2000);
-
-        }
-
-        @Override
-        protected Boolean doInBackground(String... params) {
-            //Do all your slow tasks here but dont set anything on UI
-            //ALL ui activities on the main thread
-            return true;
-        }
-
-    }
     //    The onResume() get called always before the fragment is displayed. Even when the fragment is created for the first time .
     @Override
     public void onResume() {
