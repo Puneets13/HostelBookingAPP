@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MBH_A_Hostel_staff extends AppCompatActivity {
 TextView textView1 ;

@@ -110,13 +110,14 @@
                         android:layout_width="100dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
+                        android:padding="@dimen/_10sdp"
                         android:src="@drawable/ic_user"
                         app:civ_border_width="1dp">
 
                     </de.hdodenhof.circleimageview.CircleImageView>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="@dimen/_150sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="@dimen/_2sdp"
@@ -150,6 +151,17 @@
                             android:textSize="@dimen/_12sdp"></TextView>
 
                     </LinearLayout>
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/call1"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:src="@drawable/phone"
+                        app:tint="@android:color/white"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        app:backgroundTint="@color/black"
+                        android:layout_gravity="center_vertical"
+                        />
 
                 </LinearLayout>
             </LinearLayout>
@@ -206,13 +218,14 @@
                     android:layout_width="100dp"
                     android:layout_height="120dp"
                     android:scaleType="centerCrop"
+                    android:padding="@dimen/_10sdp"
                     android:src="@drawable/ic_user"
                     app:civ_border_width="1dp">
 
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/_2sdp"
@@ -246,6 +259,18 @@
                         android:textSize="@dimen/_12sdp"></TextView>
 
                 </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/call2"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/phone"
+                    app:tint="@android:color/white"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    app:backgroundTint="@color/black"
+                    android:layout_gravity="center_vertical"
+                    />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -297,6 +322,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="100dp"
                     android:layout_height="120dp"
+                    android:padding="@dimen/_10sdp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_user"
                     app:civ_border_width="1dp">
@@ -304,7 +330,7 @@
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/_2sdp"
@@ -338,6 +364,18 @@
                         android:textSize="@dimen/_12sdp"></TextView>
 
                 </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/call3"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/phone"
+                    app:tint="@android:color/white"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    app:backgroundTint="@color/black"
+                    android:layout_gravity="center_vertical"
+                    />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -388,13 +426,14 @@
                     android:layout_width="100dp"
                     android:layout_height="120dp"
                     android:scaleType="centerCrop"
+                    android:padding="@dimen/_10sdp"
                     android:src="@drawable/ic_user"
                     app:civ_border_width="1dp">
 
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/_2sdp"
@@ -428,6 +467,18 @@
                         android:textSize="@dimen/_12sdp"></TextView>
 
                 </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/call4"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/phone"
+                    app:tint="@android:color/white"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    app:backgroundTint="@color/black"
+                    android:layout_gravity="center_vertical"
+                    />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -480,12 +531,13 @@
                     android:layout_height="120dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_user"
+                    android:padding="@dimen/_10sdp"
                     app:civ_border_width="1dp">
 
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/_2sdp"
@@ -519,6 +571,18 @@
                         android:textSize="@dimen/_12sdp"></TextView>
 
                 </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/call5"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/phone"
+                    app:tint="@android:color/white"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    app:backgroundTint="@color/black"
+                    android:layout_gravity="center_vertical"
+                    />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
