@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.ModelResponse.DataModel;
@@ -33,6 +34,7 @@ public class StudentByName extends AppCompatActivity {
     List<person> userList;
     ProgressDialog progressDialog ;
     AppCompatButton btndeleteUsers;
+    ImageButton backbutton;
     private DialogInterface.OnClickListener dialogClickListener;
 
 
@@ -50,6 +52,7 @@ public class StudentByName extends AppCompatActivity {
         progressDialog.setCancelable(false);
         btndeleteUsers = findViewById(R.id.btndelete);
         recyclerView=findViewById(R.id.recyleview);
+        backbutton=findViewById(R.id.backButton);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(StudentByName.this));
 
@@ -140,6 +143,13 @@ public class StudentByName extends AppCompatActivity {
 
 
 
+            }
+        });
+
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 

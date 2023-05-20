@@ -65,11 +65,9 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity  {
     TextView display;
     List<hostel> hostelList;
     List<statusModel>hostelStatusList;
-    ProgressDialog progressDialog ,  progressDialog1 ;
     String userType;
-String floor ;
     AppCompatButton buttons[] = new AppCompatButton[48];
-    
+    ProgressDialog progressDialog ,  progressDialog1 ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +77,6 @@ String floor ;
         setContentView(binding.getRoot());
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        floor = "1" ;
         
         
         sharedPrefManager = new SharedPrefManager(Floor_1_SeatMatrix_A.this);

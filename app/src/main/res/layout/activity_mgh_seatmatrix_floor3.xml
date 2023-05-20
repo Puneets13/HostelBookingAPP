@@ -871,7 +871,8 @@ tools:context=".MGH_Girls.mgh_seatmatrix_floor3">
             android:layout_height="@dimen/_15sdp"
             android:layout_margin="@dimen/_1sdp"
             android:background="@drawable/room_temporarily_blocked"
-            android:textSize="@dimen/_6sdp" />
+            android:textSize="@dimen/_6sdp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:layout_width="wrap_content"

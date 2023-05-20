@@ -20,10 +20,13 @@ import com.alexvasilkov.gestures.Settings;
 import com.alexvasilkov.gestures.views.interfaces.GestureView;
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
 import com.example.hostelappnitj.Acitvity.RoomConfirmer;
+import com.example.hostelappnitj.AdminActivity.SearchStudent_AdminActivity;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
+import com.example.hostelappnitj.ModelResponse.person;
 import com.example.hostelappnitj.ModelResponse.statusModel;
+import com.example.hostelappnitj.ModelResponse.studentListModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
@@ -49,8 +52,8 @@ public class MghSeatmatrixFloor5 extends AppCompatActivity {
     TextView display;
     List<hostel> hostelList;
     List<statusModel>hostelStatusList;
-    ProgressDialog progressDialog ;
-//    final Resources res = getResources();
+    AppCompatButton buttons[] = new AppCompatButton[21];
+    ProgressDialog progressDialog ,  progressDialog1 ;//    final Resources res = getResources();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +126,139 @@ public class MghSeatmatrixFloor5 extends AppCompatActivity {
             }
         };
         handler.postDelayed(runnable,2000);
+
+        //To implement click listener on every button
+
+        for (int i = 1; i < 21; i++) {
+
+            String buttonID;
+            String roomNumber;
+            if (i > 0 && i < 10) {
+                buttonID = "room6" + "0" + i;
+                roomNumber = "60" + i;
+            } else {
+                buttonID = "room6" + i;
+                roomNumber = "6" + i;
+
+            }
+
+            int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+            buttons[i] = (AppCompatButton) findViewById(resID);
+
+            int finalI = i;
+            buttons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    Toast.makeText(Floor_1_SeatMatrix_A.this, buttonID, Toast.LENGTH_SHORT).show();
+
+                    progressDialog1 = new ProgressDialog(MghSeatmatrixFloor5.this);
+                    progressDialog1.setTitle("Loading...");
+                    progressDialog1.setMessage("Checking the occupancy...");
+                    progressDialog1.show();
+                    progressDialog1.setCancelable(false);
+
+                    String hostelName = "Mega Girls Hostel";
+                    studentListModel studentListModel = new studentListModel(roomNumber, hostelName);
+
+                    Call<studentListModel> call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
+
+                    call.enqueue(new Callback<com.example.hostelappnitj.ModelResponse.studentListModel>() {
+                        @Override
+                        public void onResponse(Call<com.example.hostelappnitj.ModelResponse.studentListModel> call, Response<com.example.hostelappnitj.ModelResponse.studentListModel> response) {
+                            studentListModel responseFromAPI = response.body();
+                            if (response.isSuccessful()) {
+                                if (responseFromAPI.getMessage().equals("no user found")) {
+                                    progressDialog1.dismiss();
+                                    Toast.makeText(MghSeatmatrixFloor5.this, "Room is Empty", Toast.LENGTH_SHORT).show();
+                                }
+                                if (responseFromAPI.getMessage().equals("single user found")) {
+                                    Toast.makeText(MghSeatmatrixFloor5.this, "single user exist", Toast.LENGTH_SHORT).show();
+                                    person p1 = responseFromAPI.getPerson1();
+                                    String email, phone, address, branch, rollNumber, fatherName, fatherPhone, avatar, userName;
+                                    email = p1.getEmail();
+                                    phone = p1.getPhone();
+                                    address = p1.getAddress();
+                                    branch = p1.getBranch();
+                                    rollNumber = p1.getRollNumber();
+                                    fatherName = p1.getFatherName();
+                                    fatherPhone = p1.getFatherPhone();
+                                    avatar = p1.getAvatar();
+                                    userName = p1.getUsername();
+                                    Intent intent = new Intent(MghSeatmatrixFloor5.this, SearchStudent_AdminActivity.class);
+                                    intent.putExtra("occupied", "1");
+                                    intent.putExtra("userName", userName);
+                                    intent.putExtra("email", email);
+                                    intent.putExtra("phone", phone);
+                                    intent.putExtra("address", address);
+                                    intent.putExtra("branch", branch);
+                                    intent.putExtra("rollNumber", rollNumber);
+                                    intent.putExtra("fatherName", fatherName);
+                                    intent.putExtra("fatherPhone", fatherPhone);
+                                    intent.putExtra("avatar", avatar);
+                                    intent.putExtra("roomNumber", roomNumber);
+                                    progressDialog1.dismiss();
+
+                                    startActivity(intent);
+
+                                }
+                                if (responseFromAPI.getMessage().equals("two user found")) {
+                                    Toast.makeText(MghSeatmatrixFloor5.this, "both user exist", Toast.LENGTH_SHORT).show();
+                                    person p1 = responseFromAPI.getPerson1();
+                                    person p2 = responseFromAPI.getPerson2();
+                                    String email, phone, address, branch, rollNumber, fatherName, fatherPhone, avatar, userName;
+                                    email = p1.getEmail();
+                                    phone = p1.getPhone();
+                                    address = p1.getAddress();
+                                    branch = p1.getBranch();
+                                    rollNumber = p1.getRollNumber();
+                                    fatherName = p1.getFatherName();
+                                    fatherPhone = p1.getFatherPhone();
+                                    avatar = p1.getAvatar();
+                                    userName = p1.getUsername();
+                                    Intent intent = new Intent(MghSeatmatrixFloor5.this, SearchStudent_AdminActivity.class);
+                                    intent.putExtra("occupied", "2");
+                                    intent.putExtra("userName1", userName);
+                                    intent.putExtra("email1", email);
+                                    intent.putExtra("phone1", phone);
+                                    intent.putExtra("address1", address);
+                                    intent.putExtra("branch1", branch);
+                                    intent.putExtra("rollNumber1", rollNumber);
+                                    intent.putExtra("fatherName1", fatherName);
+                                    intent.putExtra("fatherPhone1", fatherPhone);
+                                    intent.putExtra("avatar1", avatar);
+                                    intent.putExtra("roomNumber", roomNumber);
+
+
+                                    intent.putExtra("userName2", p2.getUsername());
+                                    intent.putExtra("email2", p2.getEmail());
+                                    intent.putExtra("phone2", p2.getPhone());
+                                    intent.putExtra("address2", p2.getAddress());
+                                    intent.putExtra("branch2", p2.getBranch());
+                                    intent.putExtra("rollNumber2", p2.getRollNumber());
+                                    intent.putExtra("fatherName2", p2.getFatherName());
+                                    intent.putExtra("fatherPhone2", p2.getFatherPhone());
+                                    intent.putExtra("avatar2", p2.getAvatar());
+                                    progressDialog1.dismiss();
+
+                                    startActivity(intent);
+
+                                }
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<com.example.hostelappnitj.ModelResponse.studentListModel> call, Throwable t) {
+                            Toast.makeText(MghSeatmatrixFloor5.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressDialog1.dismiss();
+
+                        }
+                    });
+
+
+                }
+            });
+        }
     }
 
     private void loadStatus() {

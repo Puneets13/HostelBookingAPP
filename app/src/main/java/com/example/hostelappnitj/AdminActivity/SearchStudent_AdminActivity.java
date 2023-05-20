@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ TextView  txtemail,txtphone,txtaddress,txtbranch,txtrollNumber,txtfatherName,txt
     TextView  txtemail2,txtphone2,txtaddress2,txtbranch2,txtrollNumber2,txtfatherName2,txtfatherPhone2,txtusername2,txtroom;
 ImageView imgavatar1 , imgavatar2 ;
 String occupied ,roomNum;
+ImageButton backbutton;
 CardView cardView2;
 
     @Override
@@ -53,7 +55,7 @@ CardView cardView2;
         imgavatar2=findViewById(R.id.imgStudnetImg2);
 
         cardView2 = findViewById(R.id.cardView4);
-
+        backbutton=findViewById(R.id.backButton);
 
 
         Intent intent = getIntent();
@@ -108,7 +110,12 @@ CardView cardView2;
             Picasso.get().load(avatar2).resize(550,550).centerCrop().into(imgavatar2);
 
         }
-
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 }
