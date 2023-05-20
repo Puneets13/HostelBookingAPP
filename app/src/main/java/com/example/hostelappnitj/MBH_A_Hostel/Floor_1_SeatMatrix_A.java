@@ -65,10 +65,11 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity  {
     TextView display;
     List<hostel> hostelList;
     List<statusModel>hostelStatusList;
-    ProgressDialog progressDialog ,  progressDialog1 ;
+    ProgressDialog progressDialog  ;
     String userType;
 String floor ;
     AppCompatButton buttons[] = new AppCompatButton[48];
+    ProgressDialog progressDialog1 ;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -288,12 +289,6 @@ String floor ;
                 }
             });
         }
-
-
-
-
-
-
 
     }
     private void loadStatus() {
