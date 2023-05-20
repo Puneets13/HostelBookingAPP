@@ -1,7 +1,7 @@
 package com.example.hostelappnitj.ModelResponse;
 
 public class DataModel {
-    private String username;
+    private String username,gender;
     private String email , hostelName;
     private String rollNumber;
     private String password ;
@@ -31,17 +31,42 @@ public class DataModel {
 
 
     // For Register
-    public DataModel(String rollNumber, String email, String password,String username) {
+    public DataModel(String rollNumber, String email, String password,String username,String gender) {
         this.rollNumber = rollNumber;
         this.email = email;
         this.password = password;
         this.username=username;
+        this.gender=gender;
     }
 
     //    For Login
     public DataModel(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getHostelName() {
+        return hostelName;
+    }
+
+    public void setHostelName(String hostelName) {
+        this.hostelName = hostelName;
+    }
+
+    public String getRollNumber() {
+        return rollNumber;
+    }
+
+    public void setRollNumber(String rollNumber) {
+        this.rollNumber = rollNumber;
     }
 
     public DataModel(String hostelName) {

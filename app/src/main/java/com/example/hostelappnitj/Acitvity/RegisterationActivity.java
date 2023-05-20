@@ -215,11 +215,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
         btnBook_room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog = new ProgressDialog(RegisterationActivity.this);
-                progressDialog.setTitle("Hostel Booking");
-                progressDialog.setMessage("Registering Room..");
-                progressDialog.show();
-                progressDialog.setCancelable(false);
+
                 String roomNo, fatherName, fatherPhone, address, phone;
                 roomNo = etRoomNumber.getText().toString();
                 fatherName = etFatherName.getText().toString();
@@ -231,39 +227,38 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                 if (roomNo.isEmpty()) {
                     etRoomNumber.requestFocus();
                     etRoomNumber.setError("Please enter required Room Number");
-                    progressDialog.dismiss();
                     return;
                 }
                 if(room_int>47 || room_int < 0){
                     etRoomNumber.requestFocus();
                     etRoomNumber.setError("Please enter Valid Room Number");
-                    progressDialog.dismiss();
                     return;
                 }
                 if (fatherName.isEmpty()) {
                     etFatherName.requestFocus();
                     etFatherName.setError("Please enter your Father's Name");
-                    progressDialog.dismiss();
                     return;
                 }
                 if (fatherPhone.isEmpty()) {
                     etFatherPhone.requestFocus();
                     etFatherPhone.setError("Please enter your Father's Phone");
-                    progressDialog.dismiss();
                     return;
                 }
                 if (phone.isEmpty()) {
                     etStdPhone.requestFocus();
                     etStdPhone.setError("Please enter Student's Phone");
-                    progressDialog.dismiss();
                     return;
                 }
                 if (address.isEmpty()) {
                     etAddress.requestFocus();
                     etAddress.setError("Please enter Address");
-                    progressDialog.dismiss();
                     return;
                 }
+                progressDialog = new ProgressDialog(RegisterationActivity.this);
+                progressDialog.setTitle("Hostel Booking");
+                progressDialog.setMessage("Registering Room..");
+                progressDialog.show();
+                progressDialog.setCancelable(false);
 //
                 //        uploading the data using Multipart-Form
 //                                                File file = new File(picturePath);

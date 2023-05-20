@@ -178,11 +178,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void Loginuser() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("LogIn");
-        progressDialog.setMessage("Signing in User..");
-        progressDialog.show();
-        progressDialog.setCancelable(false);
+
         String useremail = email.getText().toString();
         String userpassword = password.getText().toString();
 
@@ -197,20 +193,23 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         if (useremail.isEmpty()) {
             email.requestFocus();
             email.setError("Please enter your email");
-            progressDialog.dismiss();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(useremail).matches()) {
             email.requestFocus();
             email.setError("Please enter email correctly");
-            progressDialog.dismiss();
             return;
         }
         if (userpassword.isEmpty()) {
             Toast.makeText(this, "Please enter your password ", Toast.LENGTH_LONG).show();
-            progressDialog.dismiss();
             return;
         }
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("LogIn");
+        progressDialog.setMessage("Signing in User..");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
 //        Creting the request for POST
         DataModel model = new DataModel(useremail,userpassword);
         Call<DataModel> call= RetrofitClient

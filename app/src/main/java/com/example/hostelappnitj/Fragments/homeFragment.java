@@ -60,7 +60,9 @@ public class homeFragment extends Fragment {
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
 
 //        for showing the images autoMatically
-        int[] imageArray = { R.drawable.img_2, R.drawable.ic_9,R.drawable.ic_6,R.drawable.img_4, R.drawable.img_5};
+//        int[] imageArray = { R.drawable.img_2, R.drawable.ic_9,R.drawable.ic_6,R.drawable.img_4, R.drawable.img_5};
+        int[] imageArray = { R.drawable.img_h1,R.drawable.img_h3,R.drawable.img_h4, R.drawable.img_h5,R.drawable.img_h6,R.drawable.img_h7 };
+
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             int i = 0;

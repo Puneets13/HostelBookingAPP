@@ -67,8 +67,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 RadioButton radioButton = findViewById(checkedId);
 
                 // on below line we are displaying a toast message.
-//                Toast.makeText(RegisterationActivity.this, radioButton.getText()+" Gender", Toast.LENGTH_SHORT).show();
-                gender = radioButton.getText().toString();
+
+                    // one of the radio buttons is checked
+                    gender = radioButton.getText().toString();
+                    Toast.makeText(SignUpActivity.this, radioButton.getText(), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -92,11 +94,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void CreateUser() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Registering user");
-        progressDialog.setMessage("Sending OTP\nCheck your Email..");
-        progressDialog.show();
-        progressDialog.setCancelable(false);
+
         String rollno = rollNumber.getText().toString();
         String useremail = email.getText().toString();
         String userpassword = password.getText().toString();
@@ -104,54 +102,51 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String username2 = username1.toUpperCase();
         String username = username2.trim(); //to reomve extra space at front and back if present
 
+
         if (rollno.isEmpty()) {
             rollNumber.requestFocus();
             rollNumber.setError("Please enter your Roll Number");
-            progressDialog.dismiss();  //if any error occurs then it need to be returned
             return;
         }
         if (useremail.isEmpty()) {
             email.requestFocus();
             email.setError("Please enter your email");
-            progressDialog.dismiss();
 
             return;
         }
         if (username.isEmpty()) {
             name.requestFocus();
             name.setError("Please enter your userName");
-            progressDialog.dismiss();
 
             return;
         }
         if (!useremail.contains("@nitj.ac.in")) {
             email.requestFocus();
             email.setError("Please enter your College email");
-            progressDialog.dismiss();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(useremail).matches()) {
             email.requestFocus();
             email.setError("Please enter email correctly");
-            progressDialog.dismiss();
 
             return;
         }
         if (userpassword.isEmpty()) {
             Toast.makeText(this, "Please enter your password ", Toast.LENGTH_LONG).show();
-            progressDialog.dismiss();
 
             return;
         }
         else if(!containsNumbers(userpassword)) {
             Toast.makeText(this, "Password must contain numbers", Toast.LENGTH_LONG).show();
-            progressDialog.dismiss();
         }
 
 
         else if(userpassword.length() < 8){
             Toast.makeText(this, "Minimum length Required is 8 ", Toast.LENGTH_LONG).show();
-            progressDialog.dismiss();
+            return;
+        }
+        else if(radioGroupGender.getCheckedRadioButtonId()==-1){
+            Toast.makeText(SignUpActivity.this, "Please Select Gender.", Toast.LENGTH_SHORT).show();
             return;
         }
         else {
@@ -171,10 +166,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             // When there is no special character encountered
             if (count == 0){
                 Toast.makeText(this, "Password must contain special characters", Toast.LENGTH_SHORT).show();
-                progressDialog.dismiss();
                 return ;
             }
         }
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Registering user");
+        progressDialog.setMessage("Sending OTP\nCheck your Email..");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
 //    HERE THE OBJECT OF RETROFIT IS BEING MADE (that was made seprately in the video)
 //    connect laptop wwith the Hostpot of the phone  and on wifi clicking change it to private discoverable mode
 //    MAKE SURE TO CHANGE THE DISCOVERABLE DEVICE (PRIVATE MODE) IN WIFI SETTING OF PARTICULAR NETWORK
@@ -184,7 +183,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 //
 //        CREATE THE INSTANCE OF THE DATA-MODAL
 //        DATA MODAL WILL CONTAIN THE INFORMATION TO BE SEND FROM THE CLIENT SIDE IN THE POST REQUEST
-        DataModel modal = new DataModel(rollno, useremail, userpassword,username);
+        DataModel modal = new DataModel(rollno, useremail, userpassword,username,gender);
         Call<DataModel> call = RetrofitClient
                 .getInstance()
                 .getApi()
