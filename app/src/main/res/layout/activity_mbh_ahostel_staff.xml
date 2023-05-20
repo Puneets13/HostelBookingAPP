@@ -110,6 +110,7 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="100dp"
                         android:layout_height="120dp"
+                        android:padding="@dimen/_10sdp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/ic_user"
                         app:civ_border_width="1dp">
@@ -117,7 +118,7 @@
                     </de.hdodenhof.circleimageview.CircleImageView>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="@dimen/_150sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginLeft="@dimen/_2sdp"
@@ -129,33 +130,44 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_15sdp"
                             android:text="Mr. Ashish Kumar"
-                            android:textAlignment="center"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/_15sdp"></TextView>
+                            android:textSize="@dimen/_15sdp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_2sdp"
                             android:text="mbha@nitj.ac.in"
-                            android:textAlignment="center"
                             android:textColor="#4E4D4D"
-                            android:textSize="@dimen/_11sdp"></TextView>
+                            android:textSize="@dimen/_11sdp"/>
 
                         <TextView
                             android:id="@+id/textView1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="+91 9023131664"
-                            android:textAlignment="center"
                             android:textColor="#4E4D4D"
-                            android:drawableRight="@drawable/phone"
                             android:drawablePadding="@dimen/_15sdp"
-                            android:textSize="@dimen/_12sdp"></TextView>
+                            android:textSize="@dimen/_12sdp"/>
 
                     </LinearLayout>
 
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/call1"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:src="@drawable/phone"
+                        app:tint="@android:color/white"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        app:backgroundTint="@color/black"
+                        android:layout_gravity="center_vertical"
+                        />
+
+
                 </LinearLayout>
+
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -210,13 +222,14 @@
                     android:layout_width="100dp"
                     android:layout_height="120dp"
                     android:scaleType="centerCrop"
+                    android:padding="@dimen/_10sdp"
                     android:src="@drawable/ic_user"
                     app:civ_border_width="1dp">
 
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/_2sdp"
@@ -230,7 +243,7 @@
                         android:text="Mr. Joga singh"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_15sdp"></TextView>
+                        android:textSize="@dimen/_15sdp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -239,7 +252,7 @@
                         android:text="mbha@nitj.ac.in"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
-                        android:textSize="@dimen/_12sdp"></TextView>
+                        android:textSize="@dimen/_12sdp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -247,9 +260,20 @@
                         android:text="(+91 7087946940)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
-                        android:textSize="@dimen/_12sdp"></TextView>
+                        android:textSize="@dimen/_12sdp"/>
 
                 </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/call2"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/phone"
+                    app:tint="@android:color/white"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    app:backgroundTint="@color/black"
+                    android:layout_gravity="center_vertical"
+                    />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -302,13 +326,14 @@
                     android:layout_width="100dp"
                     android:layout_height="120dp"
                     android:scaleType="centerCrop"
+                    android:padding="@dimen/_10sdp"
                     android:src="@drawable/ic_user"
                     app:civ_border_width="1dp">
 
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/_2sdp"
@@ -342,6 +367,17 @@
                         android:textSize="@dimen/_12sdp"></TextView>
 
                 </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/call3"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/phone"
+                    app:tint="@android:color/white"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    app:backgroundTint="@color/black"
+                    android:layout_gravity="center_vertical"
+                    />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -391,6 +427,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="100dp"
                     android:layout_height="120dp"
+                    android:padding="@dimen/_10sdp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_user"
                     app:civ_border_width="1dp">
@@ -398,7 +435,7 @@
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/_2sdp"
@@ -432,6 +469,17 @@
                         android:textSize="@dimen/_12sdp"></TextView>
 
                 </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/call4"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/phone"
+                    app:tint="@android:color/white"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    app:backgroundTint="@color/black"
+                    android:layout_gravity="center_vertical"
+                    />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -483,13 +531,14 @@
                     android:layout_width="100dp"
                     android:layout_height="120dp"
                     android:scaleType="centerCrop"
+                    android:padding="@dimen/_10sdp"
                     android:src="@drawable/ic_user"
                     app:civ_border_width="1dp">
 
                 </de.hdodenhof.circleimageview.CircleImageView>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="@dimen/_150sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/_2sdp"
@@ -523,6 +572,17 @@
                         android:textSize="@dimen/_12sdp"></TextView>
 
                 </LinearLayout>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/call5"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/phone"
+                    app:tint="@android:color/white"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    app:backgroundTint="@color/black"
+                    android:layout_gravity="center_vertical"
+                    />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
