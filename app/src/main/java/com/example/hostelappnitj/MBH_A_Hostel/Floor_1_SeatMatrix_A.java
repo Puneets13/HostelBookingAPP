@@ -8,6 +8,8 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -20,6 +22,7 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,12 +30,16 @@ import com.alexvasilkov.gestures.Settings;
 import com.alexvasilkov.gestures.views.interfaces.GestureView;
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
 import com.example.hostelappnitj.Acitvity.RoomConfirmer;
+import com.example.hostelappnitj.AdminActivity.MBHA_AdminActivity;
+import com.example.hostelappnitj.AdminActivity.SearchStudent_AdminActivity;
 import com.example.hostelappnitj.MBH_B_Hostel.Floor_1_SeatMatrix;
 import com.example.hostelappnitj.MBH_B_Hostel.Floor_6_SeatMatrix;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
+import com.example.hostelappnitj.ModelResponse.person;
 import com.example.hostelappnitj.ModelResponse.statusModel;
+import com.example.hostelappnitj.ModelResponse.studentListModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
@@ -46,7 +53,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Floor_1_SeatMatrix_A extends AppCompatActivity implements SensorEventListener {
+public class Floor_1_SeatMatrix_A extends AppCompatActivity  {
 
 
     private ActivityFloor1SeatMatrix2Binding binding;
@@ -58,16 +65,11 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity implements SensorEve
     TextView display;
     List<hostel> hostelList;
     List<statusModel>hostelStatusList;
-    ProgressDialog progressDialog ;
+    ProgressDialog progressDialog ,  progressDialog1 ;
     String userType;
-
-    // device sensor manager
-    private SensorManager SensorManage;
-    // define the compass picture that will be use
-    private ImageView compassImage;
-    // record the angle turned of the compass picture
-    private float DegreeStart = 0f;
-
+String floor ;
+    AppCompatButton buttons[] = new AppCompatButton[48];
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,12 +79,9 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity implements SensorEve
         setContentView(binding.getRoot());
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-
-        compassImage = (ImageView) findViewById(R.id.compassImg);
-        // TextView that will display the degree
-        // initialize your android device sensor capabilities
-        SensorManage = (SensorManager) getSystemService(SENSOR_SERVICE);
-
+        floor = "1" ;
+        
+        
         sharedPrefManager = new SharedPrefManager(Floor_1_SeatMatrix_A.this);
         username = sharedPrefManager.getUser().getUsername();
         email = sharedPrefManager.getUser().getEmail();
@@ -97,10 +96,14 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity implements SensorEve
 
 
         progressDialog = new ProgressDialog(this);
+        progressDialog1 = new ProgressDialog(this);
+
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Updating Seat Matrix..");
         progressDialog.show();
         progressDialog.setCancelable(false);
+
+
 
 //        intent from MegaBoysB_activity
         Intent intent = getIntent();
@@ -121,6 +124,8 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity implements SensorEve
                 .setFillViewport(false)
                 .setFitMethod(Settings.Fit.INSIDE)
                 .setGravity(Gravity.CENTER);
+
+
 
         loadStatus(); //to load the color of rooms in matrix
 
@@ -148,6 +153,148 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity implements SensorEve
             }
         };
         handler.postDelayed(runnable,2000);
+
+
+//To implement click listener on every button
+
+        for (int i = 1; i < 47; i++) {
+
+            String buttonID ;
+            String roomNumber ;
+            if(i>0 && i<10){
+                 buttonID = "room2" + "0"+i;
+                 roomNumber="20"+i;
+            }else{
+                buttonID= "room2" + i;
+                roomNumber="2"+i;
+
+            }
+
+            int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+            buttons[i] = (AppCompatButton) findViewById(resID);
+
+            int finalI = i;
+            buttons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    Toast.makeText(Floor_1_SeatMatrix_A.this, buttonID, Toast.LENGTH_SHORT).show();
+
+                    progressDialog1 = new ProgressDialog(Floor_1_SeatMatrix_A.this);
+                    progressDialog1.setTitle("Loading...");
+                    progressDialog1.setMessage("Checking the occupancy...");
+                    progressDialog1.show();
+                    progressDialog1.setCancelable(false);
+
+                    String hostelName =   "Mega Boys Hostel A";
+                    studentListModel studentListModel = new studentListModel(roomNumber,hostelName);
+
+                    Call<studentListModel>call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
+
+                    call.enqueue(new Callback<com.example.hostelappnitj.ModelResponse.studentListModel>() {
+                        @Override
+                        public void onResponse(Call<com.example.hostelappnitj.ModelResponse.studentListModel> call, Response<com.example.hostelappnitj.ModelResponse.studentListModel> response) {
+                            studentListModel responseFromAPI = response.body();
+                            if(response.isSuccessful()){
+                                if(responseFromAPI.getMessage().equals("no user found")){
+                                    progressDialog1.dismiss();
+                                    Toast.makeText(Floor_1_SeatMatrix_A.this, "Room is Empty", Toast.LENGTH_SHORT).show();
+                                }
+                                if (responseFromAPI.getMessage().equals("single user found")){
+                                    Toast.makeText(Floor_1_SeatMatrix_A.this, "single user exist", Toast.LENGTH_SHORT).show();
+                                    person p1 = responseFromAPI.getPerson1();
+                                    String email,phone,address,branch,rollNumber,fatherName,fatherPhone,avatar,userName;
+                                    email = p1.getEmail();
+                                    phone= p1.getPhone();
+                                    address= p1.getAddress();
+                                    branch=p1.getBranch();
+                                    rollNumber= p1.getRollNumber();
+                                    fatherName= p1.getFatherName();
+                                    fatherPhone=p1.getFatherPhone();
+                                    avatar= p1.getAvatar();
+                                    userName=p1.getUsername();
+                                    Intent intent = new Intent(Floor_1_SeatMatrix_A.this, SearchStudent_AdminActivity.class);
+                                    intent.putExtra("occupied","1");
+                                    intent.putExtra("userName",userName);
+                                    intent.putExtra("email",email);
+                                    intent.putExtra("phone",phone);
+                                    intent.putExtra("address",address);
+                                    intent.putExtra("branch",branch);
+                                    intent.putExtra("rollNumber",rollNumber);
+                                    intent.putExtra("fatherName",fatherName);
+                                    intent.putExtra("fatherPhone",fatherPhone);
+                                    intent.putExtra("avatar",avatar);
+                                    intent.putExtra("roomNumber",roomNumber);
+                                    progressDialog1.dismiss();
+
+                                    startActivity(intent);
+
+                                }
+                                if (responseFromAPI.getMessage().equals("two user found")){
+                                    Toast.makeText(Floor_1_SeatMatrix_A.this, "both user exist", Toast.LENGTH_SHORT).show();
+                                    person p1 = responseFromAPI.getPerson1();
+                                    person p2 = responseFromAPI.getPerson2();
+                                    String email,phone,address,branch,rollNumber,fatherName,fatherPhone,avatar,userName;
+                                    email = p1.getEmail();
+                                    phone= p1.getPhone();
+                                    address= p1.getAddress();
+                                    branch=p1.getBranch();
+                                    rollNumber= p1.getRollNumber();
+                                    fatherName= p1.getFatherName();
+                                    fatherPhone=p1.getFatherPhone();
+                                    avatar= p1.getAvatar();
+                                    userName=p1.getUsername();
+                                    Intent intent = new Intent(Floor_1_SeatMatrix_A.this,SearchStudent_AdminActivity.class);
+                                    intent.putExtra("occupied","2");
+                                    intent.putExtra("userName1",userName);
+                                    intent.putExtra("email1",email);
+                                    intent.putExtra("phone1",phone);
+                                    intent.putExtra("address1",address);
+                                    intent.putExtra("branch1",branch);
+                                    intent.putExtra("rollNumber1",rollNumber);
+                                    intent.putExtra("fatherName1",fatherName);
+                                    intent.putExtra("fatherPhone1",fatherPhone);
+                                    intent.putExtra("avatar1",avatar);
+                                    intent.putExtra("roomNumber",roomNumber);
+
+
+                                    intent.putExtra("userName2",p2.getUsername());
+                                    intent.putExtra("email2",p2.getEmail());
+                                    intent.putExtra("phone2",p2.getPhone());
+                                    intent.putExtra("address2",p2.getAddress());
+                                    intent.putExtra("branch2",p2.getBranch());
+                                    intent.putExtra("rollNumber2",p2.getRollNumber());
+                                    intent.putExtra("fatherName2",p2.getFatherName());
+                                    intent.putExtra("fatherPhone2",p2.getFatherPhone());
+                                    intent.putExtra("avatar2",p2.getAvatar());
+                                    progressDialog1.dismiss();
+
+                                    startActivity(intent);
+
+                                }
+
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<com.example.hostelappnitj.ModelResponse.studentListModel> call, Throwable t) {
+                            Toast.makeText(Floor_1_SeatMatrix_A.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressDialog1.dismiss();
+
+                        }
+                    });
+
+
+
+                }
+            });
+        }
+
+
+
+
+
+
+
     }
     private void loadStatus() {
         //        API call for Status verification
@@ -247,9 +394,6 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity implements SensorEve
         super.onResume();
         loadStatus();
 
-        // code for system's orientation sensor registered listeners
-        SensorManage.registerListener((SensorEventListener) this, SensorManage.getDefaultSensor(Sensor.TYPE_ORIENTATION),
-                SensorManager.SENSOR_DELAY_GAME);
     }
     @Override
     public void onRestart()
@@ -258,36 +402,13 @@ public class Floor_1_SeatMatrix_A extends AppCompatActivity implements SensorEve
         this.recreate();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // to stop the listener and save battery
-        SensorManage.unregisterListener((SensorEventListener) Floor_1_SeatMatrix_A.this);
-    }
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        // get angle around the z-axis rotated
-        float degree = Math.round(event.values[0]);
-        // rotation animation - reverse turn degree degrees
-        RotateAnimation ra = new RotateAnimation(
-                DegreeStart,
-                -degree,
-                Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f);
-        // set the compass animation after the end of the reservation status
-        ra.setFillAfter(true);
-        // set how long the animation for the compass image will take place
-        ra.setDuration(210);
-        // Start animation of compass image
-        compassImage.startAnimation(ra);
-        DegreeStart = -degree;
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
-
-
+//
+//    @Override
+//    public void onClick(View v) {
+//        Switch(v.getId()){
+//            case R.id.oneButton:
+//                // do your code
+//                break;
+//        }
+//    }
 }

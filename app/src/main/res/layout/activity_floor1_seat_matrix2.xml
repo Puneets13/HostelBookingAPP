@@ -1142,17 +1142,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/compassImg"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_marginBottom="@dimen/_50sdp"
-        android:src="@drawable/compass_image"
-        app:layout_constraintBottom_toTopOf="@+id/btnRoomBook3"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout5"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout5" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
