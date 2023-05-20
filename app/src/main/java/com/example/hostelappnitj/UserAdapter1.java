@@ -42,6 +42,7 @@ public class UserAdapter1 extends RecyclerView.Adapter<UserAdapter1.ViewHolder>{
         holder.branch.setText(userList.get(position).getBranch());
         holder.address.setText(userList.get(position).getAddress());
         holder.hostelName.setText(userList.get(position).getHostelName());
+        holder.roomNumber.setText(userList.get(position).getRoomNumber());
 
         String image = userList.get(position).getAvatar();
         Picasso.get().load(image).resize(550,550).centerCrop().into(holder.userImage);
@@ -54,7 +55,7 @@ public class UserAdapter1 extends RecyclerView.Adapter<UserAdapter1.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView username,useremail,userPhone,userRollNumber,userFather,branch,address,hostelName;
+        TextView username,useremail,userPhone,userRollNumber,userFather,branch,address,hostelName,roomNumber;
         ImageView userImage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +68,7 @@ public class UserAdapter1 extends RecyclerView.Adapter<UserAdapter1.ViewHolder>{
             address=itemView.findViewById(R.id.txtStudentAddress);
             branch=itemView.findViewById(R.id.txtStudentbranch);
             hostelName=itemView.findViewById(R.id.txtStudentHostelName);
+            roomNumber=itemView.findViewById(R.id.txtStudentRoomNumber);
 
         }
     }

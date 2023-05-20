@@ -40,7 +40,6 @@ TextView txtHostelPolicy;
     ProgressDialog progressDialog;
     private DialogInterface.OnClickListener dialogClickListener;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
