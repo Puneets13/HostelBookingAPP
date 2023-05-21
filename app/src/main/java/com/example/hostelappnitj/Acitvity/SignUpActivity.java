@@ -176,7 +176,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Registering user");
-        progressDialog.setMessage("Sending OTP\nCheck your Email..");
+        progressDialog.setMessage("OTP sent to your Email..");
         progressDialog.show();
         progressDialog.setCancelable(false);
 //    HERE THE OBJECT OF RETROFIT IS BEING MADE (that was made seprately in the video)
