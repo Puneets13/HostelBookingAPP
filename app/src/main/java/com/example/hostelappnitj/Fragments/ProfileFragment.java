@@ -62,7 +62,7 @@ String stringEmail;
 SharedPrefManager sharedPrefManager;
     String picturePath , id;
     RegisterResponse responseFromApi;
-    ProgressDialog progressDialog;
+    ProgressDialog progressDialog,progressDialog1;
     Uri selectedImage ;
 
     private DialogInterface.OnClickListener dialogClickListener;
@@ -103,6 +103,13 @@ SharedPrefManager sharedPrefManager;
         progressDialog.setMessage("Loading Profile...");
         progressDialog.show();
         progressDialog.setCancelable(false);
+
+
+
+        progressDialog1 = new ProgressDialog(getActivity());
+        progressDialog1.setTitle("UPLOADING...");
+        progressDialog1.setMessage("New Profile...");
+        progressDialog1.setCancelable(false);
 
         if(sharedPrefManager.getUser().getPhone()==null){
             phone.setText("Update Profile");
@@ -229,11 +236,7 @@ SharedPrefManager sharedPrefManager;
         try {
             // When an Image is picked
             if (requestCode == RESULT_LOAD_IMAGE && null!=data) {
-                progressDialog = new ProgressDialog(getActivity());
-                progressDialog.setTitle("UPLOADING...");
-                progressDialog.setMessage("New Profile...");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
+                progressDialog1.show();
 //                METHOD 2 OF UPLOADING AND DISPLAYING IMAGE IN IMAGE VIEW Here Cursor are used
                 selectedImage = data.getData();
                 String[] filePathColumn = { MediaStore.Images.Media.DATA };
@@ -249,7 +252,7 @@ SharedPrefManager sharedPrefManager;
 
             }
         } catch (Exception e) {
-            progressDialog.dismiss();
+            progressDialog1.dismiss();
             Toast.makeText(getActivity(), "Something went wrong..", Toast.LENGTH_LONG).show();
         }
     }
@@ -270,22 +273,23 @@ SharedPrefManager sharedPrefManager;
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                 responseFromApi= response.body();
                 if(response.isSuccessful()){
-                    progressDialog.dismiss();
+
                     Toast.makeText(getActivity(),"Image Uploaded Successfully",Toast.LENGTH_LONG).show();
                     //the image got deleted when we change the fragment so we will keep it permanent bu adding it into sharedPreference
                     //                      Update the avatar in the Shared Preference also
                     sharedPrefManager.SaveUser(responseFromApi.getUser());
                     String imageFromDatabase= sharedPrefManager.getUser().getAvatar();
                     Picasso.get().load(imageFromDatabase).resize(650,650).centerCrop().into(imgProfile);
+                    progressDialog1.dismiss();
                 }else{
-                    progressDialog.dismiss();
+                    progressDialog1.dismiss();
                     Toast.makeText(getActivity(),"Connection Lost",Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                progressDialog.dismiss();
+                progressDialog1.dismiss();
 //                Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_LONG).show();
                 dialogClickListener = new DialogInterface.OnClickListener() {
                     @Override

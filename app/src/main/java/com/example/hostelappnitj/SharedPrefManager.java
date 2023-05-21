@@ -71,6 +71,10 @@ public class SharedPrefManager {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString("gender",null);
     }
+//    public String getAvatar(){
+//        sharedPreferences= context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+//        return sharedPreferences.getString("avatar",null);
+//    }
 
     public void logout(){
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
