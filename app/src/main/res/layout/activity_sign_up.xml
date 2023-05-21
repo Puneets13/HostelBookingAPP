@@ -37,8 +37,8 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="-71dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginRight="@dimen/_5sdp"
 
+        android:layout_marginRight="@dimen/_5sdp"
         android:elevation="@dimen/_550sdp"
         android:src="@drawable/nitjlogo"
         app:civ_circle_background_color="@color/white" />
@@ -176,6 +176,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
+            android:id="@+id/genderLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

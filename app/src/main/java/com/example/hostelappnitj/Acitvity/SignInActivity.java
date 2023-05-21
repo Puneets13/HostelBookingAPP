@@ -3,6 +3,7 @@ package com.example.hostelappnitj.Acitvity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.cardview.widget.CardView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -13,6 +14,8 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,18 +28,27 @@ import com.example.hostelappnitj.ModelResponse.User;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
+import com.google.android.material.textfield.TextInputLayout;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
     Integer attempts=0;
-    TextView registerlink , forgetpass;
+    TextView registerlink , forgetpass,textSignUp;
     EditText password,email;
     Button login;
     ProgressDialog progressDialog ;
     SharedPrefManager sharedPrefManager ; //to maintain the login-logout session
     String userType , inEmail ;
+    TextInputLayout txtemail,txtpassword;
+    Animation topDownAnim , bottomUp,fadeAnim,zoom_out;
+    CircleImageView logo;
+    CardView cardView1;
+
+
+
     public int getAttempts() {
         return attempts;
     }
@@ -57,6 +69,35 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         login=findViewById(R.id.btnlogin);
         registerlink=findViewById(R.id.registerlink);
         forgetpass=findViewById(R.id.txtforgetPass);
+        logo=findViewById(R.id.logo);
+
+
+        txtemail=findViewById(R.id.emaillayout);
+        txtpassword=findViewById(R.id.passwordlayout);
+        cardView1=findViewById(R.id.cardView1);
+        textSignUp=findViewById(R.id.txtsignup);
+
+
+
+        topDownAnim= AnimationUtils.loadAnimation(this, R.anim.top_down_anim);
+        bottomUp=AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        fadeAnim=AnimationUtils.loadAnimation(this,R.anim.middle_anim);
+        zoom_out=AnimationUtils.loadAnimation(this,R.anim.zoom_out_anim);
+
+
+        logo.setAnimation(zoom_out);
+        txtemail.setAnimation(topDownAnim);
+        email.setAnimation(topDownAnim);
+        txtpassword.setAnimation(bottomUp);
+        password.setAnimation(bottomUp);
+        login.setAnimation(fadeAnim);
+        cardView1.setAnimation(fadeAnim);
+        textSignUp.setAnimation(topDownAnim);
+
+
+
+
+
         registerlink.setOnClickListener(SignInActivity.this);
         login.setOnClickListener(this);
         forgetpass.setOnClickListener(this);

@@ -2,6 +2,7 @@ package com.example.hostelappnitj.Acitvity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,8 +10,11 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -21,20 +25,27 @@ import com.example.hostelappnitj.ModelResponse.DataModel;
 import com.example.hostelappnitj.ModelResponse.User;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Locale;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView loginlink ;
+    TextView loginlink , textSignUp;
     EditText name, email, password,rollNumber;
     String gender ;
     Button register;
     RadioGroup radioGroupGender;
     ProgressDialog progressDialog ;   //this will give the background box also
+    Animation topDownAnim , bottomUp,fadeAnim,zoom_out;
+    TextInputLayout txtetRoll,txtemail,txtname,txtpassword;
+    LinearLayout genderLayout;
+    CircleImageView logo;
+    CardView cardView1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +60,36 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         name=findViewById(R.id.etuserNameS);
         register = findViewById(R.id.btnSignUp);
         loginlink = findViewById(R.id.loginlink);
+        logo=findViewById(R.id.logo);
+        cardView1=findViewById(R.id.cardView1);
+
+        textSignUp=findViewById(R.id.txtsignup);
+        txtetRoll=findViewById(R.id.rollNolayout);
+        txtemail=findViewById(R.id.emaillayout);
+        txtname=findViewById(R.id.emaillayout1);
+        txtpassword=findViewById(R.id.passwordlayout);
+        genderLayout=findViewById(R.id.genderLayout);
+        topDownAnim=AnimationUtils.loadAnimation(this, R.anim.top_down_anim);
+        bottomUp=AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        fadeAnim=AnimationUtils.loadAnimation(this,R.anim.middle_anim);
+        zoom_out=AnimationUtils.loadAnimation(this,R.anim.zoom_out_anim);
+
+        txtetRoll.setAnimation(topDownAnim);
+        rollNumber.setAnimation(topDownAnim);
+        txtemail.setAnimation(topDownAnim);
+        email.setAnimation(topDownAnim);
+        txtname.setAnimation(bottomUp);
+        name.setAnimation(bottomUp);
+        txtpassword.setAnimation(bottomUp);
+        password.setAnimation(bottomUp);
+        register.setAnimation(fadeAnim);
+        genderLayout.setAnimation(bottomUp);
+        logo.setAnimation(zoom_out);
+        cardView1.setAnimation(fadeAnim);
+        textSignUp.setAnimation(topDownAnim);
 
         radioGroupGender = findViewById(R.id.radioGroupGender);
+
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override

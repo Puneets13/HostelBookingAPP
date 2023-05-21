@@ -22,7 +22,11 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
@@ -36,6 +40,8 @@ import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -49,6 +55,11 @@ public class homeFragment extends Fragment {
     SharedPrefManager sharedPrefManager;
     String genderRestriction;
     CoordinatorLayout coordinatorLayout;
+    TextView txtClgName;
+    CircleImageView logo;
+    LinearLayout linearLayoutImg;
+    Animation topDownAnim , bottomUp,fadeAnim,left_to_right,right_to_left,zoom_out;
+
     public homeFragment() {
         // Required empty public constructor
     }
@@ -68,10 +79,29 @@ public class homeFragment extends Fragment {
         btnGirlsMega=view.findViewById(R.id.btnMegaGirls);
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
         coordinatorLayout=view.findViewById(R.id.homeFragmentLayout);
+        linearLayoutImg=view.findViewById(R.id.linearLayoutImg);
+        logo=view.findViewById(R.id.logo);
+        txtClgName=view.findViewById(R.id.txtClgName);
 
 
         sharedPrefManager=new SharedPrefManager(getActivity());
         genderRestriction=sharedPrefManager.getGender();
+
+
+        topDownAnim= AnimationUtils.loadAnimation(getActivity(), R.anim.top_down_anim);
+        bottomUp=AnimationUtils.loadAnimation(getActivity(),R.anim.bottom_animation);
+        fadeAnim=AnimationUtils.loadAnimation(getActivity(),R.anim.middle_anim);
+        left_to_right=AnimationUtils.loadAnimation(getActivity(),R.anim.side_slide);
+        right_to_left=AnimationUtils.loadAnimation(getActivity(),R.anim.right_to_left_anim);
+        zoom_out=AnimationUtils.loadAnimation(getActivity(),R.anim.zoom_out_anim);
+
+
+//        logo.setAnimation(left_to_right);
+//        txtClgName.setAnimation(right_to_left);
+//        linearLayoutImg.setAnimation(zoom_out);
+
+
+
 
 //        for showing the images autoMatically
 //        int[] imageArray = { R.drawable.img_2, R.drawable.ic_9,R.drawable.ic_6,R.drawable.img_4, R.drawable.img_5};

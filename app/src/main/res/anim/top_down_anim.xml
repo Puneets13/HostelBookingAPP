@@ -4,7 +4,7 @@
         android:duration="800"
         android:fromXDelta="0%"
         android:interpolator="@android:anim/linear_interpolator"
-        android:fromYDelta="100%" />
+        android:fromYDelta="-400%" />
     <alpha
         android:duration="800"
         android:fromAlpha="0.1"
