@@ -1,7 +1,11 @@
 package com.example.hostelappnitj.Fragments;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -11,6 +15,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -60,6 +65,7 @@ SharedPrefManager sharedPrefManager;
     ProgressDialog progressDialog;
     Uri selectedImage ;
 
+    private DialogInterface.OnClickListener dialogClickListener;
 
 
     private static int RESULT_LOAD_IMAGE = 1;
@@ -264,13 +270,13 @@ SharedPrefManager sharedPrefManager;
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
                 responseFromApi= response.body();
                 if(response.isSuccessful()){
+                    progressDialog.dismiss();
                     Toast.makeText(getActivity(),"Image Uploaded Successfully",Toast.LENGTH_LONG).show();
                     //the image got deleted when we change the fragment so we will keep it permanent bu adding it into sharedPreference
                     //                      Update the avatar in the Shared Preference also
                     sharedPrefManager.SaveUser(responseFromApi.getUser());
                     String imageFromDatabase= sharedPrefManager.getUser().getAvatar();
                     Picasso.get().load(imageFromDatabase).resize(650,650).centerCrop().into(imgProfile);
-                    progressDialog.dismiss();
                 }else{
                     progressDialog.dismiss();
                     Toast.makeText(getActivity(),"Connection Lost",Toast.LENGTH_LONG).show();
@@ -280,12 +286,29 @@ SharedPrefManager sharedPrefManager;
             @Override
             public void onFailure(Call<RegisterResponse> call, Throwable t) {
                 progressDialog.dismiss();
-                Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_LONG).show();
+                dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            // on below line we are setting a click listener
+                            // for our positive button
+                            case DialogInterface.BUTTON_POSITIVE:
+                                dialog.dismiss();
+                                break;
+                        }
+                    }
+                };
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                // on below line we are setting message for our dialog box.
+                builder.setTitle("UPLOAD FAILED");
+                builder.setMessage("Make sure image size do not exceeds 150Kb")
+                        .setPositiveButton("Okay", dialogClickListener)
+                        .show();
             }
         });
 
     }
-
 
 }

@@ -186,11 +186,11 @@ public class MainActivity extends AppCompatActivity {
             }
             else {
             if( sharedPrefManager.getAdmin().equals("Admin")){
-                toolbar.setTitle("NITJ HOSTELS");
+                toolbar.setTitle("BOOK MY HOSTEL");
                 toolbar.setTitleTextColor(Color.WHITE);
                 loadFragment(new AdminHomeFragment());
             }else{
-                toolbar.setTitle("NITJ HOSTELS");
+                toolbar.setTitle("BOOK MY HOSTEL");
                 toolbar.setTitleTextColor(Color.WHITE);
                 loadFragment(new homeFragment());
             }
