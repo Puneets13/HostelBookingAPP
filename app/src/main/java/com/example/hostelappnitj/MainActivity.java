@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -13,13 +14,18 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.SignInActivity;
@@ -31,6 +37,7 @@ import com.example.hostelappnitj.Fragments.HelpFragment;
 import com.example.hostelappnitj.Fragments.HostelPolicy_Fragment;
 import com.example.hostelappnitj.Fragments.homeFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -79,6 +86,30 @@ public class MainActivity extends AppCompatActivity {
         }else{
             loadFragment(new homeFragment());  //for loading the default fragment
         }
+
+
+
+//        checking internet
+        if( ! isNetworkAvailable()){
+            // Create a snackbar
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.drawerLayout), "Internet Not Available..", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("OKAY",
+
+                            // If the Undo button
+                            // is pressed, show
+                            // the message using Toast
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view)
+                                {
+                                    Toast.makeText(MainActivity.this, "Please turn on the Internet..!!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+            Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout)snackbar.getView();
+            layout.setMinimumHeight(120);//your custom height.
+        }
+
+
 
 //        for handling the clickListners on navigationBar
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -210,6 +241,16 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("No", dialogClickListener)
                 .show();
     }
+
+
+    //        checking internet connectivity
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 
 }
 

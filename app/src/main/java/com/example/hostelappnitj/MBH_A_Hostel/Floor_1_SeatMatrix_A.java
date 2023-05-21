@@ -133,29 +133,7 @@ String floor ;
 
         loadStatus(); //to load the color of rooms in matrix
 //
-////        TO PASS THE INTENT TO NEXT REGISTER ACTIVITY
-//        if(genderRestriction.equals("male")){
-//            binding.btnRoomBook3.setEnabled(false);
-//            dialogClickListener = new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                    switch (which) {
-//                        // on below line we are setting a click listener
-//                        // for our positive button
-//                        case DialogInterface.BUTTON_POSITIVE:
-//                            dialog.dismiss();
-//                            break;
-//                    }
-//                }
-//            };
-//
-//            AlertDialog.Builder builder = new AlertDialog.Builder(Floor_1_SeatMatrix_A.this);
-//            // on below line we are setting message for our dialog box.
-//            builder.setTitle("ALERT..");
-//            builder.setMessage("You can't access it..")
-//                    .setPositiveButton("Okay", dialogClickListener)
-//                    .show();
-//        }
+
 
         binding.btnRoomBook3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,31 +158,6 @@ String floor ;
             }
         };
         handler.postDelayed(runnable, 2000);
-
-
-//To implement click listener on every button
-//
-//        if (genderRestriction.equals("male")) {
-//            dialogClickListener = new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                    switch (which) {
-//                        // on below line we are setting a click listener
-//                        // for our positive button
-//                        case DialogInterface.BUTTON_POSITIVE:
-//                            dialog.dismiss();
-//                            break;
-//                    }
-//                }
-//            };
-//
-//            AlertDialog.Builder builder = new AlertDialog.Builder(Floor_1_SeatMatrix_A.this);
-//            // on below line we are setting message for our dialog box.
-//            builder.setTitle("ALERT..");
-//            builder.setMessage("You can't access it..")
-//                    .setPositiveButton("Okay", dialogClickListener)
-//                    .show();
-//        } else {
 
             for (int i = 1; i < 47; i++) {
 

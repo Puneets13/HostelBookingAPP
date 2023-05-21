@@ -2,14 +2,18 @@ package com.example.hostelappnitj.Fragments;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -31,6 +35,7 @@ import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
@@ -43,6 +48,7 @@ public class homeFragment extends Fragment {
     private static final int REQUEST_PHONE_CALL = 1;
     SharedPrefManager sharedPrefManager;
     String genderRestriction;
+    CoordinatorLayout coordinatorLayout;
     public homeFragment() {
         // Required empty public constructor
     }
@@ -61,6 +67,7 @@ public class homeFragment extends Fragment {
         btnMesslRule=view.findViewById(R.id.Mess_rule);
         btnGirlsMega=view.findViewById(R.id.btnMegaGirls);
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
+        coordinatorLayout=view.findViewById(R.id.homeFragmentLayout);
 
 
         sharedPrefManager=new SharedPrefManager(getActivity());
@@ -152,7 +159,7 @@ public class homeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if(genderRestriction.equals("female")){
+                if( !isNetworkAvailable()){
                     dialogClickListener = new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -160,16 +167,16 @@ public class homeFragment extends Fragment {
                                 // on below line we are setting a click listener
                                 // for our positive button
                                 case DialogInterface.BUTTON_POSITIVE:
-                        dialog.dismiss();
-                         break;
+                                    dialog.dismiss();
+                                    break;
                             }
                         }
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     // on below line we are setting message for our dialog box.
-                    builder.setTitle("ALERT..");
-                    builder.setMessage("You can't access it..")
+                    builder.setTitle("NETWORK REQUIRED");
+                    builder.setMessage("Make sure you have an active Internet connection..")
                             .setPositiveButton("Okay", dialogClickListener)
                             .show();
 
@@ -186,8 +193,7 @@ public class homeFragment extends Fragment {
         btnmghA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(genderRestriction.equals("female")){
-//                    Toast.makeText(getActivity(), "You are not a boy", Toast.LENGTH_SHORT).show();
+                if( !isNetworkAvailable()){
                     dialogClickListener = new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -203,10 +209,11 @@ public class homeFragment extends Fragment {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     // on below line we are setting message for our dialog box.
-                    builder.setTitle("ALERT..");
-                    builder.setMessage("You can't access it..")
+                    builder.setTitle("NETWORK REQUIRED");
+                    builder.setMessage("Make sure you have an active Internet connection")
                             .setPositiveButton("Okay", dialogClickListener)
                             .show();
+
                 }
                 else {
                     Toast.makeText(getActivity(), "MBH A", Toast.LENGTH_SHORT).show();
@@ -219,8 +226,7 @@ public class homeFragment extends Fragment {
         btnmghF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(genderRestriction.equals("female")){
-//                    Toast.makeText(getActivity(), "You are not a boy", Toast.LENGTH_SHORT).show();
+                if( !isNetworkAvailable()){
                     dialogClickListener = new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -236,10 +242,11 @@ public class homeFragment extends Fragment {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     // on below line we are setting message for our dialog box.
-                    builder.setTitle("ALERT..");
-                    builder.setMessage("You can't access it..")
+                    builder.setTitle("NETWORK REQUIRED");
+                    builder.setMessage("Make sure you have an active Internet connection")
                             .setPositiveButton("Okay", dialogClickListener)
                             .show();
+
                 }
                 else {
                     Toast.makeText(getActivity(), "MBH F", Toast.LENGTH_SHORT).show();
@@ -253,8 +260,7 @@ public class homeFragment extends Fragment {
         btnGirlsMega.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(genderRestriction.equals("male")){
-//                    Toast.makeText(getActivity(), "You are not a girl", Toast.LENGTH_SHORT).show();
+                if( !isNetworkAvailable()){
                     dialogClickListener = new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -270,10 +276,11 @@ public class homeFragment extends Fragment {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     // on below line we are setting message for our dialog box.
-                    builder.setTitle("ALERT..");
-                    builder.setMessage("You can't access it..")
+                    builder.setTitle("NETWORK REQUIRED");
+                    builder.setMessage("Make sure you have active Internet connection")
                             .setPositiveButton("Okay", dialogClickListener)
                             .show();
+
                 }
                 else {
                     Toast.makeText(getActivity(), "MEGA GIRLS", Toast.LENGTH_SHORT).show();
@@ -286,6 +293,12 @@ public class homeFragment extends Fragment {
 
 
         return view;
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 

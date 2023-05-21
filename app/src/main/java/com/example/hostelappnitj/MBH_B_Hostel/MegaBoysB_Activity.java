@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -25,6 +26,9 @@ public class MegaBoysB_Activity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     ImageButton backbutton;
      private CharSequence[] hostelFloors ;
+    String genderRestriction;
+    private DialogInterface.OnClickListener dialogClickListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +44,12 @@ public class MegaBoysB_Activity extends AppCompatActivity {
         backbutton=findViewById(R.id.backButton);
 
         sharedPrefManager=new SharedPrefManager(MegaBoysB_Activity.this);
+        genderRestriction=sharedPrefManager.getGender();
 
         hostelFloors = new CharSequence[]{
                 "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6"
         };
+
 
         hostelStaff.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +89,30 @@ public class MegaBoysB_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (genderRestriction.equals("female")) {
+
+                    dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                // on below line we are setting a click listener
+                                // for our positive button
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dialog.dismiss();
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MegaBoysB_Activity.this);
+                    // on below line we are setting message for our dialog box.
+                    builder.setTitle("ACCESS DENIED");
+                    builder.setMessage("Sorry\nYou can't access this")
+                            .setPositiveButton("Okay", dialogClickListener)
+                            .show();
+
+                } else {
+
 //                dialog box to select floors
                 MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MegaBoysB_Activity.this);
                 builder.setTitle("Select Floor");
@@ -91,48 +121,48 @@ public class MegaBoysB_Activity extends AppCompatActivity {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        switch (which){
-                            case 0 : // Ground floor
+                        switch (which) {
+                            case 0: // Ground floor
                                 Intent intent0 = new Intent(MegaBoysB_Activity.this, Floor_Ground_SeatMatrix.class);
-                                intent0.putExtra("hostelName","Mega Boys Hostel B");
+                                intent0.putExtra("hostelName", "Mega Boys Hostel B");
                                 startActivity(intent0);
                                 break;
-                            case 1 : //floor 1
+                            case 1: //floor 1
                                 Intent intent = new Intent(MegaBoysB_Activity.this, Floor_1_SeatMatrix.class);
-                                intent.putExtra("hostelName","Mega Boys Hostel B");
+                                intent.putExtra("hostelName", "Mega Boys Hostel B");
                                 startActivity(intent);
                                 break;
-                            case 2 : //floor 2
+                            case 2: //floor 2
                                 Intent intent2 = new Intent(MegaBoysB_Activity.this, Floor_2_SeatMatrix.class);
-                                intent2.putExtra("hostelName","Mega Boys Hostel B");
+                                intent2.putExtra("hostelName", "Mega Boys Hostel B");
                                 startActivity(intent2);
                                 break;
-                            case 3 : //floor 3
+                            case 3: //floor 3
                                 Intent intent3 = new Intent(MegaBoysB_Activity.this, Floor_3_SeatMatrix.class);
-                                intent3.putExtra("hostelName","Mega Boys Hostel B");
+                                intent3.putExtra("hostelName", "Mega Boys Hostel B");
                                 startActivity(intent3);
                                 break;
-                            case 4 : //floor 1
+                            case 4: //floor 1
                                 Intent intent4 = new Intent(MegaBoysB_Activity.this, Floor_4_SeatMatrix.class);
-                                intent4.putExtra("hostelName","Mega Boys Hostel B");
+                                intent4.putExtra("hostelName", "Mega Boys Hostel B");
                                 startActivity(intent4);
                                 break;
-                            case 5 : //floor 2
+                            case 5: //floor 2
                                 Intent intent5 = new Intent(MegaBoysB_Activity.this, Floor_5_SeatMatrix.class);
-                                intent5.putExtra("hostelName","Mega Boys Hostel B");
+                                intent5.putExtra("hostelName", "Mega Boys Hostel B");
                                 startActivity(intent5);
                                 break;
-                            case 6 : //floor 3
-                                Intent intent6 = new Intent(MegaBoysB_Activity.this,Floor_6_SeatMatrix.class);
-                                intent6.putExtra("hostelName","Mega Boys Hostel B");
+                            case 6: //floor 3
+                                Intent intent6 = new Intent(MegaBoysB_Activity.this, Floor_6_SeatMatrix.class);
+                                intent6.putExtra("hostelName", "Mega Boys Hostel B");
                                 startActivity(intent6);
                                 break;
                         }
                     }
                 });
-                builder.setBackground(getResources().getDrawable(R.drawable.alert_dialog,null));
-            builder.show();
-
+                builder.setBackground(getResources().getDrawable(R.drawable.alert_dialog, null));
+                builder.show();
+            }
             }
         });
         backbutton.setOnClickListener(new View.OnClickListener() {

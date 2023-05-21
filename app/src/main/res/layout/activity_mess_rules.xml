@@ -1,288 +1,291 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Hostels.Mess_Rules">
-
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_14sdp"
-        android:src="@drawable/ic_back1"
-        android:adjustViewBounds="true"
-        android:background="@null"
-        android:elevation="@dimen/_50sdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_80sdp"
-        android:background="@drawable/profile_bg"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:padding="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:text="NITJ HOSTELS"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_15sdp"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_60sdp"
-        android:background="@drawable/rectangle"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:src="@drawable/nitjlogo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_15sdp"
-            android:fontFamily="@font/calistoga"
-            android:text="MESS RULES"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_20sdp" />
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="@dimen/_110sdp"
-        android:fillViewport="true"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
-        android:id="@+id/scroll">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteY="169dp">
-
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="@dimen/_250sdp"
+            >
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_9sdp"
-                android:background="@drawable/text_bg"
-                android:fontFamily="@font/baskervville"
-                android:justificationMode="inter_word"
-                android:paddingLeft="@dimen/_40sdp"
-                android:paddingTop="@dimen/_13sdp"
-                android:paddingRight="@dimen/_15sdp"
-                android:paddingBottom="@dimen/_15sdp"
-                android:text="The messes of all hostels operate on cooperative basis. A committee of the students from every hostel manages the affairs of the mess under the supervision of wardens."
-                android:textColor="@color/white"
-                android:textSize="@dimen/_11sdp"
-                app:layout_constraintBottom_toTopOf="@id/textView5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                android:layout_margin="@dimen/_14sdp"
+                android:src="@drawable/ic_back1"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:elevation="@dimen/_50sdp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageView8"
-                android:layout_width="@dimen/_60sdp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="-30dp"
-                android:src="@drawable/ic_1"
-                app:civ_border_color="@color/mainColor"
-                app:civ_border_width="@dimen/_3sdp"
-                app:civ_circle_background_color="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/textView4"
-                app:layout_constraintStart_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toTopOf="@+id/textView4" />
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:background="@drawable/profile_bg"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="NITJ HOSTELS"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp"
+                    android:textStyle="bold" />
 
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="@dimen/_250sdp"
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_9sdp"
-                android:background="@drawable/text_bg"
-                android:justificationMode="inter_word"
-                android:paddingLeft="@dimen/_10sdp"
-                android:paddingTop="@dimen/_13sdp"
-                android:paddingRight="@dimen/_45sdp"
-                android:paddingBottom="@dimen/_15sdp"
-                android:text="While visiting the dining hall, the common room and canteen, the students should be in their proper dress."
-                android:textColor="@color/white"
-                android:fontFamily="@font/baskervville"
-
-                android:textSize="@dimen/_11sdp"
-                app:layout_constraintBottom_toTopOf="@+id/textView6"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:background="@drawable/rectangle"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageView9"
-                android:layout_width="@dimen/_60sdp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_2"
-                android:layout_marginRight="-22dp"
-                app:civ_border_color="#D856E6"
-                app:civ_border_width="@dimen/_3sdp"
-                app:civ_circle_background_color="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/textView5"
-                app:layout_constraintEnd_toEndOf="@+id/textView5"
-                app:layout_constraintTop_toTopOf="@+id/textView5"
-                app:layout_constraintVertical_bias="0.434" />
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/nitjlogo" />
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_9sdp"
-                android:background="@drawable/text_bg"
-                android:justificationMode="inter_word"
-                android:paddingLeft="@dimen/_50sdp"
-                android:fontFamily="@font/baskervville"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:fontFamily="@font/calistoga"
+                    android:text="MESS RULES"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20sdp" />
+            </LinearLayout>
 
-                android:paddingTop="@dimen/_13sdp"
-                android:paddingRight="@dimen/_10sdp"
-                android:paddingBottom="@dimen/_15sdp"
-                android:text="All hostel inmates are required to follow the norms of the hostel/mess and required to deposit the mess advance (mess charges, maintenance charges, extra meal charges, service charges etc) as decided from time to time in each semester by the hostel authorities for availing mess facility."
-                android:textColor="@color/white"
-
-                android:textSize="@dimen/_11sdp"
-                app:layout_constraintBottom_toTopOf="@+id/textView7"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageView10"
-                android:layout_width="@dimen/_60sdp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_3"
-                android:layout_marginLeft="-25dp"
-                app:civ_border_color="#E6CE56"
-                app:civ_border_width="@dimen/_3sdp"
-                app:civ_circle_background_color="@color/white"
-                app:layout_constraintBottom_toTopOf="@id/textView7"
-                app:layout_constraintStart_toStartOf="@+id/textView6"
-                app:layout_constraintTop_toTopOf="@+id/textView6"
-                app:layout_constraintVertical_bias="0.434" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_13sdp"
-                android:background="@drawable/text_bg"
-                android:justificationMode="inter_word"
-                android:fontFamily="@font/baskervville"
-
-                android:paddingLeft="@dimen/_10sdp"
-                android:paddingTop="@dimen/_13sdp"
-                android:paddingRight="@dimen/_50sdp"
-                android:paddingBottom="@dimen/_15sdp"
-                android:text="Minimum 55 diets are mandatory for every hostel resident. The remaining balance of mess advance (if any) will be refunded after one year or the student leaves hostel whichever is earlier."
-                android:textColor="@color/white"
-
-                android:textSize="@dimen/_11sdp"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageView11"
-                android:layout_width="@dimen/_60sdp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_4"
-                app:civ_border_color="#3F51B5"
-                android:padding="@dimen/_1sdp"
-                android:scaleType="centerCrop"
-                android:layout_marginRight="-10dp"
-                app:civ_border_width="@dimen/_3sdp"
-                app:civ_circle_background_color="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/textView7"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView7"
-                app:layout_constraintVertical_bias="0.434" />
-
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="@dimen/_250sdp"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_13sdp"
-                android:paddingBottom="@dimen/_15sdp"
-
-                android:background="@drawable/text_bg"
-                android:fontFamily="@font/baskervville"
-                android:justificationMode="inter_word"
-                android:paddingLeft="@dimen/_50sdp"
-                android:paddingTop="@dimen/_13sdp"
-                android:paddingRight="@dimen/_10sdp"
-
-                android:text="Wastage of food is strictly prohibited; the same may be liable to charging of fine as decided by the competent authority."
-                android:textColor="@color/white"
-
-                android:textSize="@dimen/_11sdp"
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                android:layout_marginTop="@dimen/_110sdp"
+                android:fillViewport="true"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout3"
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imageView12"
-                android:layout_width="@dimen/_60sdp"
-                android:layout_height="60dp"
-                android:layout_marginRight="-40dp"
-                android:padding="@dimen/_1sdp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_5"
-                app:civ_border_color="#F44336"
-                app:civ_border_width="@dimen/_3sdp"
-                app:civ_circle_background_color="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView8"
-                app:layout_constraintTop_toTopOf="@+id/textView8"
-                app:layout_constraintVertical_bias="0.434" />
+                android:requiresFadingEdge="vertical"
+                android:fadingEdgeLength="100dp"
+                android:id="@+id/scrollanim"
+                >
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_9sdp"
+                        android:background="@drawable/text_bg"
+                        android:fontFamily="@font/baskervville"
+                        android:justificationMode="inter_word"
+                        android:paddingLeft="@dimen/_40sdp"
+                        android:paddingTop="@dimen/_13sdp"
+                        android:paddingRight="@dimen/_15sdp"
+                        android:paddingBottom="@dimen/_15sdp"
+                        android:text="The messes of all hostels operate on cooperative basis. A committee of the students from every hostel manages the affairs of the mess under the supervision of wardens."
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toTopOf="@id/textView5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="-30dp"
+                        android:src="@drawable/ic_1"
+                        app:civ_border_color="@color/mainColor"
+                        app:civ_border_width="@dimen/_3sdp"
+                        app:civ_circle_background_color="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                        app:layout_constraintStart_toStartOf="@+id/textView4"
+                        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_9sdp"
+                        android:background="@drawable/text_bg"
+                        android:justificationMode="inter_word"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_13sdp"
+                        android:paddingRight="@dimen/_45sdp"
+                        android:paddingBottom="@dimen/_15sdp"
+                        android:text="While visiting the dining hall, the common room and canteen, the students should be in their proper dress."
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/baskervville"
+
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toTopOf="@+id/textView6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView9"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_2"
+                        android:layout_marginRight="-22dp"
+                        app:civ_border_color="#D856E6"
+                        app:civ_border_width="@dimen/_3sdp"
+                        app:civ_circle_background_color="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                        app:layout_constraintEnd_toEndOf="@+id/textView5"
+                        app:layout_constraintTop_toTopOf="@+id/textView5"
+                        app:layout_constraintVertical_bias="0.434" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_9sdp"
+                        android:background="@drawable/text_bg"
+                        android:justificationMode="inter_word"
+                        android:paddingLeft="@dimen/_50sdp"
+                        android:fontFamily="@font/baskervville"
+
+                        android:paddingTop="@dimen/_13sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_15sdp"
+                        android:text="All hostel inmates are required to follow the norms of the hostel/mess and required to deposit the mess advance (mess charges, maintenance charges, extra meal charges, service charges etc) as decided from time to time in each semester by the hostel authorities for availing mess facility."
+                        android:textColor="@color/white"
+
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toTopOf="@+id/textView7"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView10"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_3"
+                        android:layout_marginLeft="-25dp"
+                        app:civ_border_color="#E6CE56"
+                        app:civ_border_width="@dimen/_3sdp"
+                        app:civ_circle_background_color="@color/white"
+                        app:layout_constraintBottom_toTopOf="@id/textView7"
+                        app:layout_constraintStart_toStartOf="@+id/textView6"
+                        app:layout_constraintTop_toTopOf="@+id/textView6"
+                        app:layout_constraintVertical_bias="0.434" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_13sdp"
+                        android:background="@drawable/text_bg"
+                        android:justificationMode="inter_word"
+                        android:fontFamily="@font/baskervville"
+
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingTop="@dimen/_13sdp"
+                        android:paddingRight="@dimen/_50sdp"
+                        android:paddingBottom="@dimen/_15sdp"
+                        android:text="Minimum 55 diets are mandatory for every hostel resident. The remaining balance of mess advance (if any) will be refunded after one year or the student leaves hostel whichever is earlier."
+                        android:textColor="@color/white"
+
+                        android:textSize="@dimen/_11sdp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView11"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ic_4"
+                        app:civ_border_color="#3F51B5"
+                        android:padding="@dimen/_1sdp"
+                        android:scaleType="centerCrop"
+                        android:layout_marginRight="-10dp"
+                        app:civ_border_width="@dimen/_3sdp"
+                        app:civ_circle_background_color="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView7"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textView7"
+                        app:layout_constraintVertical_bias="0.434" />
+
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_13sdp"
+                        android:paddingBottom="@dimen/_15sdp"
+
+                        android:background="@drawable/text_bg"
+                        android:fontFamily="@font/baskervville"
+                        android:justificationMode="inter_word"
+                        android:paddingLeft="@dimen/_50sdp"
+                        android:paddingTop="@dimen/_13sdp"
+                        android:paddingRight="@dimen/_10sdp"
+
+                        android:text="Wastage of food is strictly prohibited; the same may be liable to charging of fine as decided by the competent authority."
+                        android:textColor="@color/white"
+
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imageView12"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="60dp"
+                        android:layout_marginRight="-40dp"
+                        android:padding="@dimen/_1sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_5"
+                        app:civ_border_color="#F44336"
+                        app:civ_border_width="@dimen/_3sdp"
+                        app:civ_circle_background_color="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/textView8"
+                        app:layout_constraintTop_toTopOf="@+id/textView8"
+                        app:layout_constraintVertical_bias="0.434" />
 
 
 
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
