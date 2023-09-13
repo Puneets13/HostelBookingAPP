@@ -637,12 +637,12 @@
 
                             <androidx.appcompat.widget.AppCompatButton
                                 android:id="@+id/room303"
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:layout_width="19dp"
+                                android:layout_height="19dp"
+                                android:layout_gravity="center_horizontal"
                                 android:layout_margin="@dimen/_1sdp"
                                 android:background="@drawable/room_gradient"
                                 android:rotation="340"
-                                android:layout_gravity="center_horizontal"
                                 android:text="303"
                                 android:textSize="@dimen/_6sdp" />
 
