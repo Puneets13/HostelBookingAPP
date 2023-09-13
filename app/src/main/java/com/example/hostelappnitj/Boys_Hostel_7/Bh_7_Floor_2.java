@@ -1,4 +1,4 @@
-package com.example.hostelappnitj.MBH_B_Hostel;
+package com.example.hostelappnitj.Boys_Hostel_7;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -31,6 +31,7 @@ import com.example.hostelappnitj.ModelResponse.studentListModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
+import com.example.hostelappnitj.databinding.ActivityBh7Floor2Binding;
 import com.example.hostelappnitj.databinding.ActivityFloor2SeatMatrixBinding;
 
 import java.util.ArrayList;
@@ -40,9 +41,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Floor_2_SeatMatrix extends AppCompatActivity {
+public class Bh_7_Floor_2 extends AppCompatActivity {
 
-    private ActivityFloor2SeatMatrixBinding binding;
+    private ActivityBh7Floor2Binding binding;
     AppCompatButton room301;
     AppCompatButton btnBook3;
     GestureView gestureView;
@@ -51,19 +52,19 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
     TextView display;
     List<hostel> hostelList;
     List<statusModel>hostelStatusList;
-    AppCompatButton buttons[] = new AppCompatButton[48];
+    AppCompatButton buttons[] = new AppCompatButton[53];
     ProgressDialog progressDialog ,  progressDialog1 ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding=ActivityFloor2SeatMatrixBinding.inflate(getLayoutInflater());
+        binding= ActivityBh7Floor2Binding.inflate(getLayoutInflater());
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(binding.getRoot());
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        sharedPrefManager = new SharedPrefManager(Floor_2_SeatMatrix.this);
+        sharedPrefManager = new SharedPrefManager(Bh_7_Floor_2.this);
         username = sharedPrefManager.getUser().getUsername();
         email = sharedPrefManager.getUser().getEmail();
         rollNumber = sharedPrefManager.getUser().getRollNumber();
@@ -74,7 +75,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
         progressDialog.setMessage("Updating Seat Matrix..");
         progressDialog.show();
         progressDialog.setCancelable(false);
-//        intent from Bh7BoysHostel_Activity
+//        intent from MegaBoysB_activity
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
 
@@ -107,7 +108,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(Floor_2_SeatMatrix.this, "Register here", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Floor_2_SeatMatrix.this, RoomConfirmer.class);
+                Intent intent = new Intent(Bh_7_Floor_2.this, RoomConfirmer.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 
                 intent.putExtra("hostelName", hostelName);
@@ -132,7 +133,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
 
         //To implement click listener on every button
 
-        for (int i = 1; i < 47; i++) {
+        for (int i = 1; i < 53; i++) {
 
             String buttonID;
             String roomNumber;
@@ -154,13 +155,13 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                 public void onClick(View v) {
 //                    Toast.makeText(Floor_1_SeatMatrix_A.this, buttonID, Toast.LENGTH_SHORT).show();
 
-                    progressDialog1 = new ProgressDialog(Floor_2_SeatMatrix.this);
+                    progressDialog1 = new ProgressDialog(Bh_7_Floor_2.this);
                     progressDialog1.setTitle("Loading...");
                     progressDialog1.setMessage("Checking the occupancy...");
                     progressDialog1.show();
                     progressDialog1.setCancelable(false);
 
-                    String hostelName = "Mega Boys Hostel B";
+                    String hostelName = "Boys Hostel 7";
                     studentListModel studentListModel = new studentListModel(roomNumber, hostelName);
 
                     Call<studentListModel> call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
@@ -172,10 +173,10 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                             if (response.isSuccessful()) {
                                 if (responseFromAPI.getMessage().equals("no user found")) {
                                     progressDialog1.dismiss();
-                                    Toast.makeText(Floor_2_SeatMatrix.this, "Room is Empty", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Bh_7_Floor_2.this, "Room is Empty", Toast.LENGTH_SHORT).show();
                                 }
                                 if (responseFromAPI.getMessage().equals("single user found")) {
-                                    Toast.makeText(Floor_2_SeatMatrix.this, "single user exist", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Bh_7_Floor_2.this, "single user exist", Toast.LENGTH_SHORT).show();
                                     person p1 = responseFromAPI.getPerson1();
                                     String email, phone, address, branch, rollNumber, fatherName, fatherPhone, avatar, userName;
                                     email = p1.getEmail();
@@ -187,7 +188,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                                     fatherPhone = p1.getFatherPhone();
                                     avatar = p1.getAvatar();
                                     userName = p1.getUsername();
-                                    Intent intent = new Intent(Floor_2_SeatMatrix.this, SearchStudent_AdminActivity.class);
+                                    Intent intent = new Intent(Bh_7_Floor_2.this, SearchStudent_AdminActivity.class);
                                     intent.putExtra("occupied", "1");
                                     intent.putExtra("userName", userName);
                                     intent.putExtra("email", email);
@@ -205,7 +206,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
 
                                 }
                                 if (responseFromAPI.getMessage().equals("two user found")) {
-                                    Toast.makeText(Floor_2_SeatMatrix.this, "both user exist", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Bh_7_Floor_2.this, "both user exist", Toast.LENGTH_SHORT).show();
                                     person p1 = responseFromAPI.getPerson1();
                                     person p2 = responseFromAPI.getPerson2();
                                     String email, phone, address, branch, rollNumber, fatherName, fatherPhone, avatar, userName;
@@ -218,7 +219,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                                     fatherPhone = p1.getFatherPhone();
                                     avatar = p1.getAvatar();
                                     userName = p1.getUsername();
-                                    Intent intent = new Intent(Floor_2_SeatMatrix.this, SearchStudent_AdminActivity.class);
+                                    Intent intent = new Intent(Bh_7_Floor_2.this, SearchStudent_AdminActivity.class);
                                     intent.putExtra("occupied", "2");
                                     intent.putExtra("userName1", userName);
                                     intent.putExtra("email1", email);
@@ -252,7 +253,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<com.example.hostelappnitj.ModelResponse.studentListModel> call, Throwable t) {
-                            Toast.makeText(Floor_2_SeatMatrix.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Bh_7_Floor_2.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                             progressDialog1.dismiss();
 
                         }
@@ -296,7 +297,7 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
 //                           0        1       red
 //                           1        1       red
 //                           2        1       red
-                        if(hostel_name.equals("Mega Boys Hostel B")){
+                        if(hostel_name.equals("Boys Hostel 7")){
                             if(room!=null) {
                                 if (status_received.equals("1")) {   //temporary blocked
                                     try{
@@ -314,23 +315,23 @@ public class Floor_2_SeatMatrix extends AppCompatActivity {
                                         String btnid = "room" + room;
                                         int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
                                         Button b = (Button) findViewById(resId);
-                                        b.setBackgroundResource(R.drawable.room_occupied_partially);
-                                    }catch (NullPointerException e){
-                                        progressDialog.dismiss();  //if any error occurs then it need to be returned
-                                        e.printStackTrace();
-                                    }
-                                }
-                                if (status_received.equals("0")&& nums.equals("2")) {   //unBlock room  , num people 2
-                                    try{
-                                        String btnid = "room" + room;
-                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
-                                        Button b = (Button) findViewById(resId);
                                         b.setBackgroundResource(R.drawable.room_occupied_full);
                                     }catch (NullPointerException e){
                                         progressDialog.dismiss();  //if any error occurs then it need to be returned
                                         e.printStackTrace();
                                     }
                                 }
+//                                if (status_received.equals("0")&& nums.equals("2")) {   //unBlock room  , num people 2
+//                                    try{
+//                                        String btnid = "room" + room;
+//                                        int resId = getResources().getIdentifier(btnid, "id", getPackageName());  //to get the ID of resource at runtime
+//                                        Button b = (Button) findViewById(resId);
+//                                        b.setBackgroundResource(R.drawable.room_occupied_full);
+//                                    }catch (NullPointerException e){
+//                                        progressDialog.dismiss();  //if any error occurs then it need to be returned
+//                                        e.printStackTrace();
+//                                    }
+//                                }
                                 if (status_received.equals("0")&& nums.equals("0")) {   //unBlock room  , num people 2
                                     try{
                                         String btnid = "room" + room;

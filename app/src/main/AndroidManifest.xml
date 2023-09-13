@@ -20,18 +20,92 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Acitvity.changePasswordActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            />
-        <activity
-            android:name=".Acitvity.ForgetOTPActivity"
-            android:screenOrientation="portrait"
+            android:name=".Girls_Hostel_1.G1_floor_Ground"
             android:exported="false" />
         <activity
+            android:name=".Girls_Hostel_1.G1_floor_3"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_1.G1_floor_2"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_1.G1_floor_1"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_1.GirlsHostel_G1_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_3.Bh_3_Floor_Ground"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_3.Bh_3_Floor_3"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_3.Bh_3_Floor_2"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_3.Bh_3_Floor_1"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_3.Bh3BoysHostel_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_4.Bh_4_Floor_Ground"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_4.Bh_4_Floor_3"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_4.Bh_4_Floor_2"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_4.Bh_4_Floor_1"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_4.Bh4BoysHostel_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_6.Bh_6_Floor_Ground"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_6.Bh_6_Floor_3"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_6.Bh_6_Floor_2"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_6.Bh_6_Floor_1"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_6.Bh6BoysHostel_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_7.Bh_7_Floor_Ground"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_7.Bh_7_Floor_3"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_7.Bh_7_Floor_1"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_7.Bh7BoysHostel_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_7.Bh_7_Floor_2"
+            android:exported="false" />
+        <activity
+            android:name=".Acitvity.changePasswordActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Acitvity.ForgetOTPActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Acitvity.SplashScreenActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,8 +114,8 @@
         </activity>
         <activity
             android:name=".AdminActivity.StudentByName"
-            android:screenOrientation="fullSensor"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="fullSensor" />
         <activity
             android:name=".AdminActivity.MGH_AdminActivity"
             android:exported="false" />

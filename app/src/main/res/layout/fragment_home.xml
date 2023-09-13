@@ -94,7 +94,7 @@
                 android:elevation="@dimen/_90sdp"
                 android:padding="@dimen/_10sdp"
                 android:stateListAnimator="@null"
-                android:text="Mega BOYS HostelS"
+                android:text="BOYS HostelS"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
@@ -109,28 +109,24 @@
                 android:padding="@dimen/_13sdp"
                 android:elevation="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_30sdp"
-                android:layout_marginLeft="@dimen/_25sdp"
-                android:layout_marginRight="@dimen/_25sdp"
+                android:layout_marginLeft="@dimen/_9sdp"
+                android:layout_marginRight="@dimen/_9sdp"
                 android:background="@drawable/btn_bg1"
                 >
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <GridLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_5sdp"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:layout_marginRight="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:rowCount="6"
+                    android:columnCount="2"
                     >
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_220sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:paddingLeft="@dimen/_15sdp"
-                        android:padding="@dimen/_15sdp"
-                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -142,13 +138,10 @@
 
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_220sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:paddingLeft="@dimen/_15sdp"
-                        android:padding="@dimen/_15sdp"
-                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -159,14 +152,11 @@
                         />
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_220sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:paddingLeft="@dimen/_15sdp"
-                        android:padding="@dimen/_15sdp"
-                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -176,7 +166,156 @@
                         android:id="@+id/btnMghF"
                         />
 
-                </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="  BOYS HOSTEL 3   \nBh3"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnBh3"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="  BOYS HOSTEL 4   \nBh4"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnBh4"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="BOYS HOSTEL 6\nBh6"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnBh6"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_columnSpan="2"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="BOYS HOSTEL 7\nBh7"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnBh7"
+                        />
+
+                </GridLayout>
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:padding="@dimen/_5sdp"-->
+<!--                    android:layout_marginLeft="@dimen/_5sdp"-->
+<!--                    android:layout_marginRight="@dimen/_5sdp"-->
+<!--                    android:layout_marginTop="@dimen/_20sdp"-->
+<!--                    >-->
+<!--                    <androidx.appcompat.widget.AppCompatButton-->
+
+<!--                        android:layout_width="@dimen/_220sdp"-->
+<!--                        android:layout_height="@dimen/_50sdp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:paddingLeft="@dimen/_15sdp"-->
+<!--                        android:padding="@dimen/_15sdp"-->
+<!--                        android:layout_marginLeft="@dimen/_3sdp"-->
+<!--                        android:background="@drawable/btn_bg_home"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:text="MEGA BOYS HOSTEL A"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        android:drawableStart="@drawable/hostel2"-->
+<!--                        android:id="@+id/btnMghA"-->
+<!--                        />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatButton-->
+
+<!--                        android:layout_width="@dimen/_220sdp"-->
+<!--                        android:layout_height="@dimen/_50sdp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:paddingLeft="@dimen/_15sdp"-->
+<!--                        android:padding="@dimen/_15sdp"-->
+<!--                        android:layout_marginLeft="@dimen/_3sdp"-->
+<!--                        android:background="@drawable/btn_bg_home"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:text="MEGA BOYS HOSTEL B"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        android:drawableStart="@drawable/hostel2"-->
+<!--                        android:id="@+id/btnMghB"-->
+<!--                        />-->
+<!--                    <androidx.appcompat.widget.AppCompatButton-->
+
+<!--                        android:layout_width="@dimen/_220sdp"-->
+<!--                        android:layout_height="@dimen/_50sdp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:layout_marginBottom="@dimen/_10sdp"-->
+<!--                        android:paddingLeft="@dimen/_15sdp"-->
+<!--                        android:padding="@dimen/_15sdp"-->
+<!--                        android:layout_marginLeft="@dimen/_3sdp"-->
+<!--                        android:background="@drawable/btn_bg_home"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:text="MEGA BOYS HOSTEL F"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        android:drawableStart="@drawable/hostel2"-->
+<!--                        android:id="@+id/btnMghF"-->
+<!--                        />-->
+
+<!--                    <androidx.appcompat.widget.AppCompatButton-->
+
+<!--                        android:layout_width="@dimen/_220sdp"-->
+<!--                        android:layout_height="@dimen/_50sdp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginTop="@dimen/_10sdp"-->
+<!--                        android:layout_marginBottom="@dimen/_10sdp"-->
+<!--                        android:paddingLeft="@dimen/_15sdp"-->
+<!--                        android:padding="@dimen/_15sdp"-->
+<!--                        android:layout_marginLeft="@dimen/_3sdp"-->
+<!--                        android:background="@drawable/btn_bg_home"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:text="BOYS HOSTEL 7"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        android:drawableStart="@drawable/hostel2"-->
+<!--                        android:id="@+id/btnBh7"-->
+<!--                        />-->
+
+
+<!--                </LinearLayout>-->
 
             </androidx.cardview.widget.CardView>
 
@@ -188,7 +327,7 @@
                 android:elevation="@dimen/_90sdp"
                 android:padding="@dimen/_10sdp"
                 android:stateListAnimator="@null"
-                android:text="Mega Girls HostelS"
+                android:text="Girls HostelS"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
@@ -204,40 +343,117 @@
                 android:padding="@dimen/_13sdp"
                 android:elevation="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_30sdp"
-                android:layout_marginLeft="@dimen/_25sdp"
-                android:layout_marginRight="@dimen/_25sdp"
+                android:layout_marginLeft="@dimen/_9sdp"
+                android:layout_marginRight="@dimen/_9sdp"
                 android:background="@drawable/btn_bg1"
                 >
 
-                <LinearLayout
-                    android:layout_width="325dp"
+
+                <GridLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_5sdp"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_5sdp">
+                    android:layout_gravity="center_horizontal"
+                    android:rowCount="6"
+                    android:columnCount="2"
+                    >
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnMegaGirls"
+                        android:text="MEGA GIRLS HOSTEL "
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="GIRLS HOSTEL 1\n G1"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnGh1"
+                        />
 
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:id="@+id/btnMegaGirls"
-                        android:layout_width="@dimen/_220sdp"
-                        android:layout_height="@dimen/_50sdp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/_3sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
-                        android:drawableStart="@drawable/hostel2"
-                        android:padding="@dimen/_15sdp"
-                        android:paddingLeft="@dimen/_15sdp"
-                        android:text="MEGA GIRLS HOSTEL "
                         android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnGh2"
+                        android:text="GIRLS HOSTEL 2\n G2"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="GIRLS HOSTEL 3\n G3"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnNewGirls"
+                        />
 
 
-                </LinearLayout>
+
+                </GridLayout>
+
+
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="325dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/_5sdp"-->
+<!--                    android:layout_marginTop="@dimen/_20sdp"-->
+<!--                    android:layout_marginRight="@dimen/_5sdp"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:padding="@dimen/_5sdp">-->
+
+<!--                    <androidx.appcompat.widget.AppCompatButton-->
+
+<!--                        android:id="@+id/btnMegaGirls"-->
+<!--                        android:layout_width="@dimen/_220sdp"-->
+<!--                        android:layout_height="@dimen/_50sdp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_marginLeft="@dimen/_3sdp"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:layout_marginBottom="@dimen/_10sdp"-->
+<!--                        android:background="@drawable/btn_bg_home"-->
+<!--                        android:drawableStart="@drawable/hostel2"-->
+<!--                        android:padding="@dimen/_15sdp"-->
+<!--                        android:paddingLeft="@dimen/_15sdp"-->
+<!--                        android:text="MEGA GIRLS HOSTEL "-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_12sdp"-->
+<!--                        android:textStyle="bold" />-->
+
+
+<!--                </LinearLayout>-->
 
             </androidx.cardview.widget.CardView>
 
