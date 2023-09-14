@@ -147,6 +147,125 @@ TextView txtHostelPolicy;
 
                 return ;
                 }
+                else if( hostelName.equals("Boys Hostel 7") || hostelName.equals("Boys Hostel 6") || hostelName.equals("Boys Hostel 3") || hostelName.equals("Boys Hostel 4") || hostelName.equals("Boys Hostel 7E")){
+
+
+                        progressDialog = new ProgressDialog(RoomConfirmer.this);
+                        progressDialog.setTitle("Hostel Booking");
+                        progressDialog.setMessage("Opening Registration Form..");
+                        progressDialog.show();
+                        progressDialog.setCancelable(false);
+
+                        PreRegisterResponse preRegisterResponse = new PreRegisterResponse(roomNumber, rollNumber, email, hostelName);
+                        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterResponse_single(preRegisterResponse);
+                        call.enqueue(new Callback<PreRegisterResponse>() {
+                            @Override
+                            public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
+                                PreRegisterResponse responseFromAPI = response.body();
+                                progressDialog.dismiss();
+//                            Toast.makeText(RoomConfirmer.this, "response received", Toast.LENGTH_SHORT).show();
+                                if (response.isSuccessful()) {
+
+//                                Toast.makeText(RoomConfirmer.this, "response succesful", Toast.LENGTH_SHORT).show();
+                                    if (responseFromAPI.getMessage().equals("go")) {
+//                                    show the intent for Register room
+
+                                        Intent intent = new Intent(RoomConfirmer.this, RegisterationActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        intent.putExtra("hostelName", hostelName);
+                                        intent.putExtra("username", username);
+                                        intent.putExtra("rollNumber", rollNumber);
+                                        intent.putExtra("email", email);
+                                        intent.putExtra("branch", branch);
+                                        intent.putExtra("roomNum", roomNumber);
+                                        startActivity(intent);
+                                        finish();
+                                    } else if (responseFromAPI.getMessage().equals("fully filled")) {
+
+                                        progressDialog.dismiss();
+//                        show the dialog box
+                                        dialogClickListener = new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                switch (which) {
+                                                    // on below line we are setting a click listener
+                                                    // for our positive button
+                                                    case DialogInterface.BUTTON_POSITIVE:
+                                                        dialog.dismiss();
+                                                        break;
+
+                                                }
+                                            }
+                                        };
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(RoomConfirmer.this);
+                                        // on below line we are setting message for our dialog box.
+                                        builder.setMessage("Room Fully Occupied\nTry Another Room Number")
+                                                .setTitle("NITJ HOSTELS")
+                                                .setPositiveButton("OK", dialogClickListener)
+                                                .show();
+
+                                    } else if (responseFromAPI.getMessage().equals("booking in process")) {
+
+                                        dialogClickListener = new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                switch (which) {
+                                                    // on below line we are setting a click listener
+                                                    // for our positive button
+                                                    case DialogInterface.BUTTON_POSITIVE:
+                                                        dialog.dismiss();
+                                                        break;
+
+                                                }
+                                            }
+                                        };
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(RoomConfirmer.this);
+                                        // on below line we are setting message for our dialog box.
+                                        builder.setMessage("This room is under Booking Process\nTry again Later..")
+                                                .setTitle("NITJ HOSTELS")
+                                                .setPositiveButton("OK", dialogClickListener)
+                                                .show();
+
+
+                                    } else if (responseFromAPI.getMessage().equals("user already registered")) {
+
+
+                                        dialogClickListener = new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                switch (which) {
+                                                    // on below line we are setting a click listener
+                                                    // for our positive button
+                                                    case DialogInterface.BUTTON_POSITIVE:
+                                                        dialog.dismiss();
+                                                        break;
+
+                                                }
+                                            }
+                                        };
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(RoomConfirmer.this);
+                                        // on below line we are setting message for our dialog box.
+                                        builder.setMessage("You Have Already Registered\nOne Person can Book one room only..")
+                                                .setTitle("NITJ HOSTELS")
+                                                .setPositiveButton("OK", dialogClickListener)
+                                                .show();
+
+                                    } else {
+
+                                        Toast.makeText(RoomConfirmer.this, "Something went wrong..", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
+                                Toast.makeText(RoomConfirmer.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                    }
+
                 else {
 
                     progressDialog = new ProgressDialog(RoomConfirmer.this);
