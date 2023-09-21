@@ -148,7 +148,7 @@ public class Bh7BoysHostel_Activity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int which) {
                             switch (which) {
                                 case 0: // Ground floor
-                                    Intent intent0 = new Intent(Bh7BoysHostel_Activity.this, Floor_Ground_SeatMatrix.class);
+                                    Intent intent0 = new Intent(Bh7BoysHostel_Activity.this, Bh_7_Floor_Ground.class);
                                     intent0.putExtra("hostelName", "Boys Hostel 7");
                                     startActivity(intent0);
                                     break;

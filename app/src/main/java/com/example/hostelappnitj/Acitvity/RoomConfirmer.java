@@ -58,7 +58,7 @@ TextView txtHostelPolicy;
         email = intent.getStringExtra("email");
         branch = intent.getStringExtra("branch");
 
-        floor = intent.getStringExtra("floor");
+        floor = intent.getStringExtra("floor");  // intent from differet activity floor 1 , floor 2 like that
 
 
 //here we need to add proced
@@ -100,14 +100,15 @@ TextView txtHostelPolicy;
                 }
                 int room_num_size=roomNumber.length();
                 String room_frontstring=roomNumber.substring(0,1);
+
                 int room_frontint=Integer.parseInt(room_frontstring);
                 String room_substring = roomNumber.substring(Math.max(roomNumber.length() - 2, 0));
                 int room_int = Integer.parseInt(room_substring);
 
                 String room_substring1 = roomNumber.substring(Math.max(roomNumber.length() - 3, 0));
-                if (floor == room_substring1) {
+                if (!floor.equals(room_frontstring)) {
                     etroomNumber.requestFocus();
-                    etroomNumber.setError("Please Enter Room Number");
+                    etroomNumber.setError("Enter number according floor");
                     return;
                 }
                 if (etroomNumber.getText().toString().isEmpty()) {
@@ -115,11 +116,21 @@ TextView txtHostelPolicy;
                     etroomNumber.setError("Please Enter Room Number");
                     return;
                 }
-                if (room_int > 47 || room_int < 1||room_frontint<1||room_frontint>7||!(room_num_size==3)) {
-                    etroomNumber.requestFocus();
-                    etroomNumber.setError("Please enter Valid Room Number");
-                    return;
-                }
+//                set room number according to the hostels
+               if ( hostelName.equals("Boys Hostel 7") || hostelName.equals("Boys Hostel 6") || hostelName.equals("Boys Hostel 3") || hostelName.equals("Boys Hostel 4") || hostelName.equals("Boys Hostel 7E")){
+                   if (room_int > 52 || room_int < 1||room_frontint<1||room_frontint>4||!(room_num_size==3)) {
+                       etroomNumber.requestFocus();
+                       etroomNumber.setError("Room number Out of box");
+                       return;
+                   }
+                }else{
+                   if (room_int > 46 || room_int < 1||room_frontint<1||room_frontint>7||!(room_num_size==3)) {
+                       etroomNumber.requestFocus();
+                       etroomNumber.setError("Room number Out of box");
+                       return;
+                   }
+               }
+
                 if (allow.equals("0")){
 
                     dialogClickListener = new DialogInterface.OnClickListener() {

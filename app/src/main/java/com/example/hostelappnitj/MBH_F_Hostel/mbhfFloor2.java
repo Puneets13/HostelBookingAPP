@@ -115,6 +115,8 @@ public class mbhfFloor2 extends AppCompatActivity {
                 intent.putExtra("rollNumber", rollNumber);
                 intent.putExtra("email", email);
                 intent.putExtra("branch", branch);
+                intent.putExtra("floor", "3");
+
                 startActivity(intent);
             }
         });

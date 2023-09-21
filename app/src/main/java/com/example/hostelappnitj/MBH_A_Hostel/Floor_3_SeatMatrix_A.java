@@ -117,6 +117,7 @@ public class Floor_3_SeatMatrix_A extends AppCompatActivity {
                 intent.putExtra("rollNumber", rollNumber);
                 intent.putExtra("email", email);
                 intent.putExtra("branch", branch);
+                intent.putExtra("floor", "4");
                 startActivity(intent);
             }
         });

@@ -433,12 +433,12 @@
                     android:textSize="@dimen/_10sdp"
                     android:text="3"
                     />
-<!--                <RadioButton-->
-<!--                    android:id="@+id/btnYear4"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="4"-->
-<!--                    />-->
+                <RadioButton
+                    android:id="@+id/btnYear4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    />
                 </RadioGroup>
             </LinearLayout>
 
