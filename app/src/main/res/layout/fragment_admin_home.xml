@@ -190,6 +190,78 @@
                         android:drawableStart="@drawable/hostel2"
                         android:id="@+id/btnMghF"
                         />
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_220sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:padding="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="BOYS HOSTEL 3"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnBh3"
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_220sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:padding="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="BOYS HOSTEL 4"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnBh4"
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_220sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:padding="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="BOYS HOSTEL 6"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnBh6"
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_220sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:paddingLeft="@dimen/_15sdp"
+                        android:padding="@dimen/_15sdp"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="BOYS HOSTEL 7"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnBh7"
+                        />
 
                 </LinearLayout>
 

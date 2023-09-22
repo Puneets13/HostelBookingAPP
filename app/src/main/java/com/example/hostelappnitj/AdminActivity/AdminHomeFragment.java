@@ -37,6 +37,7 @@ public class AdminHomeFragment extends Fragment {
 
     ImageView imageViewHostels ;
     AppCompatButton btnmghB,btnmghA,btnmghF,btnGirlsMega , btnhostelPolicy, btnMesslRule,btnGetStudentList,btnStudentList ;
+    AppCompatButton btnBh7 , btnBh6 , btnBh4 , btnBh3 ;
     ExtendedFloatingActionButton floatingActionButton_call;
     EditText etStudentName ;
     private DialogInterface.OnClickListener dialogClickListener;
@@ -58,6 +59,11 @@ public class AdminHomeFragment extends Fragment {
         btnmghB=view.findViewById(R.id.btnMghB);
         btnmghA=view.findViewById(R.id.btnMghA);
         btnmghF=view.findViewById(R.id.btnMghF);
+        btnBh3=view.findViewById(R.id.btnBh3);
+        btnBh4=view.findViewById(R.id.btnBh4);
+        btnBh6=view.findViewById(R.id.btnBh6);
+        btnBh7=view.findViewById(R.id.btnBh7);
+
 //        btnhostelPolicy=view.findViewById(R.id.HostelPolicy);
 //        btnMesslRule=view.findViewById(R.id.Mess_rule);
         btnGirlsMega=view.findViewById(R.id.btnMegaGirls);
@@ -187,6 +193,47 @@ public class AdminHomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        btnBh3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "BH 3", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), Bh3_AdminActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        btnBh4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "BH 4", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), Bh4_AdminActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        btnBh6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "BH 6", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), Bh6_AdminActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        btnBh7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "BH 7", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), Bh7_AdminActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
 
         btnGirlsMega.setOnClickListener(new View.OnClickListener() {
             @Override
