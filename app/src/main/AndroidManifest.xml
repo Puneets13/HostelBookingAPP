@@ -20,16 +20,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Bh4_AdminActivity"
+            android:name=".AdminActivity.Bh4_AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".Bh3_AdminActivity"
+            android:name=".AdminActivity.Bh3_AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".Bh6_AdminActivity"
+            android:name=".AdminActivity.Bh6_AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".Bh7_AdminActivity"
+            android:name=".AdminActivity.Bh7_AdminActivity"
             android:exported="false" />
         <activity
             android:name=".Girls_Hostel_1.G1_floor_Ground"

@@ -42,7 +42,7 @@ public class Bh6_AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
-        setContentView(R.layout.activity_bh7_admin);
+        setContentView(R.layout.activity_bh6_admin);
 
         etRoomNumber = findViewById(R.id.editRoom);
         etStudentName = findViewById(R.id.etStudentName);

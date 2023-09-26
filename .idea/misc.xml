@@ -53,6 +53,7 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/font/audiowide.xml" value="0.23001282599401454" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/font/font1.xml" value="0.2291577597263788" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_admin_dashboard.xml" value="0.20521590423257802" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_bh3_admin.xml" value="0.1" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_bh3_boys_hostel.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_bh3_floor1.xml" value="0.4" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_bh3_floor2.xml" value="0.264" />
@@ -151,7 +152,7 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_admin_home.xml" value="0.176" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_complaint.xml" value="0.25" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_help.xml" value="0.264" />
-        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_home.xml" value="0.176" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_hostel_policy_.xml" value="0.2" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_profile.xml" value="0.176" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/header_layout.xml" value="0.176" />

@@ -210,7 +210,7 @@
             android:paddingTop="@dimen/_13sdp"
             android:paddingRight="@dimen/_50sdp"
             android:paddingBottom="@dimen/_15sdp"
-            android:text="No anti social, gender-based, caste-based, religion-based and region-based comments/statements are acceptable from the students/hostel residents. This will be liable to strict disciplinary action as mentioned in 2"
+            android:text="Any type of students gathering/campaign/agitation/protest and threatening the faculty/staff/student is not permitted in the premises of hostel/Institute. However, any campaign for the social awareness or well being or social concern may be organized with the prior permission of competent authority."
             android:textColor="@color/white"
             android:textSize="@dimen/_11sdp"
 
