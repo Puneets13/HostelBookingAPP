@@ -99,13 +99,18 @@ TextView txtHostelPolicy;
                     return;
                 }
                 int room_num_size=roomNumber.length();
-                String room_frontstring=roomNumber.substring(0,1);
+                String room_frontstring="";
+                if(room_num_size==3){
+                    room_frontstring=roomNumber.substring(0,1);
+                }else if(room_num_size==4){
+                    room_frontstring=roomNumber.substring(0,2);
+                }
+
 
                 int room_frontint=Integer.parseInt(room_frontstring);
                 String room_substring = roomNumber.substring(Math.max(roomNumber.length() - 2, 0));
                 int room_int = Integer.parseInt(room_substring);
 
-                String room_substring1 = roomNumber.substring(Math.max(roomNumber.length() - 3, 0));
                 if (!floor.equals(room_frontstring)) {
                     etroomNumber.requestFocus();
                     etroomNumber.setError("Enter number according floor");
@@ -139,7 +144,7 @@ TextView txtHostelPolicy;
                    }
                }
                else if(hostelName.equals("Girls Hostel A") ){
-                   if (room_int > 19 || room_int < 1||room_frontint<1||room_frontint>4||!(room_num_size==3)) {
+                   if (room_int > 19 || room_int < 1||room_frontint<1||room_frontint>4||!(room_num_size==3||room_num_size==4)) {
                        etroomNumber.requestFocus();
                        etroomNumber.setError("Room number Out of box");
                        return;

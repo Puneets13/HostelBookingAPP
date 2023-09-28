@@ -706,7 +706,7 @@ tools:context=".MGH_Girls.mgh_seatmatrix_floor3">
                         android:layout_height="19dp"
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/room_gradient4"
-                        android:text="=402"
+                        android:text="402"
                         android:textSize="@dimen/_6sdp"
                         tools:ignore="TouchTargetSizeCheck" />
 
