@@ -34,18 +34,16 @@ import com.example.hostelappnitj.Boys_Hostel_4.Bh4BoysHostel_Activity;
 import com.example.hostelappnitj.Boys_Hostel_6.Bh6BoysHostel_Activity;
 import com.example.hostelappnitj.Boys_Hostel_7.Bh7BoysHostel_Activity;
 import com.example.hostelappnitj.Boys_Hostel_7E.Bh7EBoysHostelActivity;
-import com.example.hostelappnitj.Girls_Hostel_1.GirlsHostel_G1_Activity;
+import com.example.hostelappnitj.Girls_Hostel_A.GirlsHostel_mgh_A_Activity;
 import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
 import com.example.hostelappnitj.Hostels.Mess_Rules;
 import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
 import com.example.hostelappnitj.MBH_B_Hostel.MegaBoysB_Activity;
 import com.example.hostelappnitj.MBH_F_Hostel.MegaBoysF_Activity;
 import com.example.hostelappnitj.MGH_Girls.MegaGirlsActivity;
-import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 //import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -54,7 +52,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class homeFragment extends Fragment {
     ImageView imageViewHostels ;
-    AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH3,btnBoysH6,btnBoysH7,btnBoysH7E,btnGirlsMega , btnGirlsG1, btnGirlsG2,btnGirlsNewGirls,  btnhostelPolicy, btnMesslRule ;
+    AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH3,btnBoysH6,btnBoysH7,btnBoysH7E,btnGirlsMega , btnGirls_A, btnGirls_B,btnGirlsNewGirls,  btnhostelPolicy, btnMesslRule ;
    ExtendedFloatingActionButton floatingActionButton_call;
     private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
@@ -87,8 +85,8 @@ public class homeFragment extends Fragment {
         btnBoysH4=view.findViewById(R.id.btnBh4);
         btnBoysH3=view.findViewById(R.id.btnBh3);
 
-        btnGirlsG1=view.findViewById(R.id.btnGh1);
-        btnGirlsG2=view.findViewById(R.id.btnGh2);
+        btnGirls_A=view.findViewById(R.id.btnGirlsA);
+        btnGirls_B=view.findViewById(R.id.btnGirlsB);
         btnGirlsNewGirls=view.findViewById(R.id.btnNewGirls);
 
 
@@ -514,7 +512,7 @@ public class homeFragment extends Fragment {
             }
         });
 
-        btnGirlsG1.setOnClickListener(new View.OnClickListener() {
+        btnGirls_A.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if( !isNetworkAvailable()){
@@ -540,8 +538,8 @@ public class homeFragment extends Fragment {
 
                 }
                 else {
-                    Toast.makeText(getActivity(), "GH1", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getActivity(), GirlsHostel_G1_Activity.class);
+                    Toast.makeText(getActivity(), "MGH A", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), GirlsHostel_mgh_A_Activity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }
@@ -555,10 +553,37 @@ public class homeFragment extends Fragment {
             }
         });
 
-        btnGirlsG2.setOnClickListener(new View.OnClickListener() {
+        btnGirls_B.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Girls hostel G2", Toast.LENGTH_SHORT).show();
+                if( !isNetworkAvailable()){
+                    dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                // on below line we are setting a click listener
+                                // for our positive button
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dialog.dismiss();
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    // on below line we are setting message for our dialog box.
+                    builder.setTitle("NETWORK REQUIRED");
+                    builder.setMessage("Make sure you have active Internet connection")
+                            .setPositiveButton("Okay", dialogClickListener)
+                            .show();
+
+                }
+                else {
+                    Toast.makeText(getActivity(), "MGH B", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), GirlsHostel_mgh_A_Activity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
             }
         });
 

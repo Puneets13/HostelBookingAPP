@@ -397,10 +397,10 @@
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:text="GIRLS HOSTEL 1\n G1"
+                        android:text="GIRLS HOSTEL A\n MGH A"
                         android:textSize="@dimen/_12sdp"
                         android:drawableStart="@drawable/hostel2"
-                        android:id="@+id/btnGh1"
+                        android:id="@+id/btnGirlsA"
                         />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -416,8 +416,8 @@
                         android:textStyle="bold"
                         android:textSize="@dimen/_12sdp"
                         android:drawableStart="@drawable/hostel2"
-                        android:id="@+id/btnGh2"
-                        android:text="GIRLS HOSTEL 2\n G2"
+                        android:id="@+id/btnGirlsB"
+                        android:text="GIRLS HOSTEL B\n MGH B"
                         />
 
                     <androidx.appcompat.widget.AppCompatButton

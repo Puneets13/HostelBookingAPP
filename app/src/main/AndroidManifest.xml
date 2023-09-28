@@ -20,6 +20,33 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Girls_Hostel_A.mgh_A_floor_11"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_A.mgh_A_floor_10"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_A.mgh_A_floor_9"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_A.mgh_A_floor_8"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_A.mgh_A_floor_7"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_A.mgh_A_floor_6"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_A.mgh_A_floor_5"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_A.mgh_A_floor_4"
+            android:exported="false" />
+        <activity
+            android:name=".Girls_Hostel_A.mgh_A_floor_2"
+            android:exported="false" />
+        <activity
             android:name=".Boys_Hostel_7E.Bh7EBoysHostelActivity"
             android:exported="false" />
         <activity
@@ -47,19 +74,16 @@
             android:name=".AdminActivity.Bh7_AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".Girls_Hostel_1.G1_floor_Ground"
+            android:name=".Girls_Hostel_A.mgh_A_floor_Ground"
             android:exported="false" />
         <activity
-            android:name=".Girls_Hostel_1.G1_floor_3"
+            android:name=".Girls_Hostel_A.mgh_A_floor_3"
             android:exported="false" />
         <activity
-            android:name=".Girls_Hostel_1.G1_floor_2"
+            android:name=".Girls_Hostel_A.mgh_A_floor_1"
             android:exported="false" />
         <activity
-            android:name=".Girls_Hostel_1.G1_floor_1"
-            android:exported="false" />
-        <activity
-            android:name=".Girls_Hostel_1.GirlsHostel_G1_Activity"
+            android:name=".Girls_Hostel_A.GirlsHostel_mgh_A_Activity"
             android:exported="false" />
         <activity
             android:name=".Boys_Hostel_3.Bh_3_Floor_Ground"
