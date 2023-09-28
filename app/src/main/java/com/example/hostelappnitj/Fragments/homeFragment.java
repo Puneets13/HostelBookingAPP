@@ -35,6 +35,7 @@ import com.example.hostelappnitj.Boys_Hostel_6.Bh6BoysHostel_Activity;
 import com.example.hostelappnitj.Boys_Hostel_7.Bh7BoysHostel_Activity;
 import com.example.hostelappnitj.Boys_Hostel_7E.Bh7EBoysHostelActivity;
 import com.example.hostelappnitj.Girls_Hostel_A.GirlsHostel_mgh_A_Activity;
+import com.example.hostelappnitj.Girls_Hostel_B.GirlsHostel_mgh_B_Activity;
 import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
 import com.example.hostelappnitj.Hostels.Mess_Rules;
 import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
@@ -580,7 +581,7 @@ public class homeFragment extends Fragment {
                 }
                 else {
                     Toast.makeText(getActivity(), "MGH B", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getActivity(), GirlsHostel_mgh_A_Activity.class);
+                    Intent intent = new Intent(getActivity(), GirlsHostel_mgh_B_Activity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }
