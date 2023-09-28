@@ -547,12 +547,12 @@ public class homeFragment extends Fragment {
             }
         });
 
-        btnGirlsNewGirls.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "Girls New hostel", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        btnGirlsNewGirls.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getActivity(), "Girls New hostel", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         btnGirls_B.setOnClickListener(new View.OnClickListener() {
             @Override
