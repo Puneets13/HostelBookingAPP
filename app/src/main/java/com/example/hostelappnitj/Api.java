@@ -89,6 +89,11 @@ public interface Api {
             @Body PreRegisterResponse preRegisterResponse
     );
 
+    @POST("hostelbook/destroy")
+    Call<PreRegisterResponse> destroy(
+            @Body PreRegisterResponse preRegisterResponse
+    );
+
     @POST("hostelbook/proceed_single")
     Call<PreRegisterResponse> PreRegisterResponse_single(
             @Body PreRegisterResponse preRegisterResponse

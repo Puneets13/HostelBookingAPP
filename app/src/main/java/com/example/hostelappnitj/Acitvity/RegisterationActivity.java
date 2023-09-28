@@ -430,15 +430,15 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
     @Override
     protected void onDestroy() {
         PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
-        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
+        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().destroy(preRegisterModel);
         call.enqueue(new Callback<PreRegisterResponse>() {
             @Override
             public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
                 PreRegisterResponse responseFromAPI = response.body();
 
                 if(response.isSuccessful()){
-                    if(responseFromAPI.getMessage().equals("session expire")){
-//                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
+                    if(responseFromAPI.getMessage().equals("back before")){
+                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
 //                        finish();
                     }
                 }
