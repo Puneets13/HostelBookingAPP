@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MGH_Girls.mgh_seatmatrix_floor2">
+    tools:context=".MGH_Girls.mgh_seatmatrix_floor1">
 
     <ImageView
         android:id="@+id/imageView4"
