@@ -63,7 +63,7 @@ public class GirlsHostel_mgh_B_Activity extends AppCompatActivity {
         genderRestriction=sharedPrefManager.getGender();
 
         hostelFloors = new CharSequence[]{
-                "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6","FLOOR 7","FLOOR 8","FLOOR 9","FLOOR 10","FLOOR 11"
+                "FLOOR 1", "FLOOR 2","FLOOR 3","FLOOR 4","FLOOR 5","FLOOR 6","FLOOR 7","FLOOR 8","FLOOR 9","FLOOR 10","FLOOR 11"
         };
         hostelRules.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,62 +135,62 @@ public class GirlsHostel_mgh_B_Activity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             switch (which) {
-                                case 0: // Ground floor
-                                    Intent intent0 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_A_floor_Ground.class);
-                                    intent0.putExtra("hostelName", "Girls Hostel B");
-                                    startActivity(intent0);
-                                    break;
-                                case 1: //floor 1
+//                                case 0: // Ground floor
+//                                    Intent intent0 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_A_floor_Ground.class);
+//                                    intent0.putExtra("hostelName", "Girls Hostel B");
+//                                    startActivity(intent0);
+//                                    break;
+                                case 0: //floor 1
                                     Intent intent1 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_1.class);
                                     intent1.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent1);
                                     break;
-                                case 2: //floor 2
+                                case 1: //floor 2
                                     Intent intent2 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_2.class);
                                     intent2.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent2);
                                     break;
-                                case 3: //floor 3
+                                case 2: //floor 3
                                     Intent intent3 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_3.class);
                                     intent3.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent3);
                                     break;
-                                case 4: //floor 1
+                                case 3: //floor 1
                                     Intent intent4 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_4.class);
                                     intent4.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent4);
                                     break;
-                                case 5: //floor 2
+                                case 4: //floor 2
                                     Intent intent5 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_5.class);
                                     intent5.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent5);
                                     break;
-                                case 6: //floor 3
+                                case 5: //floor 3
                                     Intent intent6 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_6.class);
                                     intent6.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent6);
                                     break;
-                                case 7: //floor 3
+                                case 6: //floor 3
                                     Intent intent7 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_7.class);
                                     intent7.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent7);
                                     break;
-                                case 8: //floor 3
+                                case 7: //floor 3
                                     Intent intent8 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_8.class);
                                     intent8.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent8);
                                     break;
-                                case 9: //floor 3
+                                case 8: //floor 3
                                     Intent intent9 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_9.class);
                                     intent9.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent9);
                                     break;
-                                case 10: //floor 3
+                                case 9: //floor 3
                                     Intent intent10 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_10.class);
                                     intent10.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent10);
                                     break;
-                                case 11: //floor 3
+                                case 10: //floor 3
                                     Intent intent11 = new Intent(GirlsHostel_mgh_B_Activity.this, mgh_B_floor_11.class);
                                     intent11.putExtra("hostelName", "Girls Hostel B");
                                     startActivity(intent11);
