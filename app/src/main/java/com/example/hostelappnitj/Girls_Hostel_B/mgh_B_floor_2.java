@@ -153,7 +153,7 @@ public class mgh_B_floor_2 extends AppCompatActivity {
                     progressDialog1.show();
                     progressDialog1.setCancelable(false);
 
-                    String hostelName = "Girls Hostel A";
+                    String hostelName = "Girls Hostel B";
                     studentListModel studentListModel = new studentListModel(roomNumber, hostelName);
 
                     Call<studentListModel> call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
@@ -289,7 +289,7 @@ public class mgh_B_floor_2 extends AppCompatActivity {
 //                           0        1       red
 //                           1        1       red
 //                           2        1       red
-                        if(hostel_name.equals("Girls Hostel A")){
+                        if(hostel_name.equals("Girls Hostel B")){
                             if(room!=null) {
                                 if (status_received.equals("1")) {   //temporary blocked
                                     try{

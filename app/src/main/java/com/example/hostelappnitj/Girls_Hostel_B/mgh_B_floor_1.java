@@ -324,10 +324,10 @@ public class mgh_B_floor_1  extends AppCompatActivity {
 //                           0        0         no
 //                           1        0         light blue
 //                           2        0         blue
-//                           0        1       red
-//                           1        1       red
-//                           2        1       red
-                        if(hostel_name.equals("Girls Hostel A")){
+//                           0        1         red
+//                           1        1         red
+//                           2        1         red
+                        if(hostel_name.equals("Girls Hostel B")){
                             if(room!=null) {
                                 if (status_received.equals("1")) {   //temporary blocked
                                     try{
