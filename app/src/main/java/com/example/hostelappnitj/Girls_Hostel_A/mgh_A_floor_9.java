@@ -108,7 +108,7 @@ public class mgh_A_floor_9 extends AppCompatActivity {
                 intent.putExtra("rollNumber", rollNumber);
                 intent.putExtra("email", email);
                 intent.putExtra("branch", branch);
-                intent.putExtra("floor", "4");  // change this floor number also
+                intent.putExtra("floor", "9");  // change this floor number also
                 startActivity(intent);
             }
         });
