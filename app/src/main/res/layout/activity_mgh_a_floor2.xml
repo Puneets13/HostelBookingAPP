@@ -90,7 +90,7 @@
 
                         <ImageView
                             android:layout_width="19dp"
-                            android:layout_height="38dp"
+                            android:layout_height="30dp"
                             android:layout_margin="@dimen/_1sdp"
                             android:src="@drawable/ic_toilet"/>
                         <androidx.appcompat.widget.AppCompatButton
@@ -208,7 +208,7 @@
                             android:src="@drawable/room_bg"/>
                         <ImageView
                             android:layout_width="19dp"
-                            android:layout_height="38dp"
+                            android:layout_height="30dp"
                             android:layout_margin="@dimen/_1sdp"
                             android:src="@drawable/ic_toilet"/>
 
@@ -242,7 +242,7 @@
 
                         <ImageView
                             android:layout_width="19dp"
-                            android:layout_height="19dp"
+                            android:layout_height="270dp"
                             android:layout_margin="@dimen/_1sdp"
                             android:src="@drawable/blank_room" />
 
@@ -341,7 +341,7 @@
                             />
                         <ImageView
                             android:layout_width="19dp"
-                            android:layout_height="38dp"
+                            android:layout_height="19dp"
                             android:layout_gravity="center_horizontal"
                             android:layout_margin="@dimen/_1sdp"
                             android:background="@drawable/background"
