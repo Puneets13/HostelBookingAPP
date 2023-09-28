@@ -395,7 +395,6 @@
                         android:layout_width="@dimen/_120sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:layout_marginTop="@dimen/_25sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_5sdp"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:layout_columnSpan="1"

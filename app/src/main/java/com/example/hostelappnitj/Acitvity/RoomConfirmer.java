@@ -450,4 +450,30 @@ TextView txtHostelPolicy;
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNumber,hostelName);
+        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
+        call.enqueue(new Callback<PreRegisterResponse>() {
+            @Override
+            public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
+                PreRegisterResponse responseFromAPI = response.body();
+
+                if(response.isSuccessful()){
+                    if(responseFromAPI.getMessage().equals("session expire")){
+//                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
+//                        finish();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
+                Toast.makeText(RoomConfirmer.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        finish();
+        super.onDestroy();
+
     }
+}

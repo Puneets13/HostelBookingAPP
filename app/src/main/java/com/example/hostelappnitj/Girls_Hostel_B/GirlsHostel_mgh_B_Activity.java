@@ -130,7 +130,7 @@ public class GirlsHostel_mgh_B_Activity extends AppCompatActivity {
                     MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GirlsHostel_mgh_B_Activity.this);
                     builder.setTitle("Select Floor");
                     builder.setIcon(R.drawable.ic_registration);
-                    builder.setSingleChoiceItems(hostelFloors, 0, new DialogInterface.OnClickListener() {
+                    builder.setSingleChoiceItems(hostelFloors, 1, new DialogInterface.OnClickListener() {
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
