@@ -256,7 +256,7 @@ tools:context=".Girls_Hostel_B.mgh_B_floor_4">
                         android:layout_margin="@dimen/_1sdp"
                         android:background="@drawable/office_gradient"
                         android:textSize="@dimen/_4sdp"
-                        android:text="PATH TO BLOCK B"
+                        android:text="PATH TO BLOCK A"
                         />
                     <ImageView
                         android:layout_width="19dp"
