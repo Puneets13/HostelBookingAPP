@@ -33,6 +33,7 @@ import com.example.hostelappnitj.Boys_Hostel_3.Bh3BoysHostel_Activity;
 import com.example.hostelappnitj.Boys_Hostel_4.Bh4BoysHostel_Activity;
 import com.example.hostelappnitj.Boys_Hostel_6.Bh6BoysHostel_Activity;
 import com.example.hostelappnitj.Boys_Hostel_7.Bh7BoysHostel_Activity;
+import com.example.hostelappnitj.Boys_Hostel_7E.Bh7EBoysHostelActivity;
 import com.example.hostelappnitj.Girls_Hostel_1.GirlsHostel_G1_Activity;
 import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
 import com.example.hostelappnitj.Hostels.Mess_Rules;
@@ -53,7 +54,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class homeFragment extends Fragment {
     ImageView imageViewHostels ;
-    AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH3,btnBoysH6,btnBoysH7,btnGirlsMega , btnGirlsG1, btnGirlsG2,btnGirlsNewGirls,  btnhostelPolicy, btnMesslRule ;
+    AppCompatButton btnmghB,btnmghA,btnmghF,btnBoysH4,btnBoysH3,btnBoysH6,btnBoysH7,btnBoysH7E,btnGirlsMega , btnGirlsG1, btnGirlsG2,btnGirlsNewGirls,  btnhostelPolicy, btnMesslRule ;
    ExtendedFloatingActionButton floatingActionButton_call;
     private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
@@ -81,6 +82,7 @@ public class homeFragment extends Fragment {
         btnmghF=view.findViewById(R.id.btnMghF);
 
         btnBoysH7=view.findViewById(R.id.btnBh7);
+        btnBoysH7E=view.findViewById(R.id.btnBh7E);
         btnBoysH6=view.findViewById(R.id.btnBh6);
         btnBoysH4=view.findViewById(R.id.btnBh4);
         btnBoysH3=view.findViewById(R.id.btnBh3);
@@ -333,6 +335,42 @@ public class homeFragment extends Fragment {
                 else {
                     Toast.makeText(getActivity(), "BH 7", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), Bh7BoysHostel_Activity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+            }
+        });
+
+
+
+        btnBoysH7E.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if( !isNetworkAvailable()){
+                    dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which) {
+                                // on below line we are setting a click listener
+                                // for our positive button
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    dialog.dismiss();
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    // on below line we are setting message for our dialog box.
+                    builder.setTitle("NETWORK REQUIRED");
+                    builder.setMessage("Make sure you have an active Internet connection")
+                            .setPositiveButton("Okay", dialogClickListener)
+                            .show();
+
+                }
+                else {
+                    Toast.makeText(getActivity(), "BH 7E", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getActivity(), Bh7EBoysHostelActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }

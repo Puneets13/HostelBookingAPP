@@ -433,15 +433,24 @@ tools:context=".MGH_Girls.mgh_seatmatrix_ground">
                         android:layout_margin="@dimen/_1sdp"
                         android:src="@drawable/blank_room" />
 
-                    <ImageView
+<!--                    <ImageView-->
+<!--                        android:layout_width="40dp"-->
+<!--                        android:layout_height="20dp"-->
+<!--                        android:layout_margin="@dimen/_1sdp"-->
+<!--                        android:src="@drawable/door2"-->
+<!--                        android:background="@color/button"-->
+<!--                        android:textSize="@dimen/_6sdp"-->
+<!--                        tools:ignore="TouchTargetSizeCheck" />
+-->
+
+                    <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="40dp"
                         android:layout_height="20dp"
-                        android:layout_margin="@dimen/_1sdp"
-                        android:src="@drawable/door2"
-                        android:background="@color/button"
-                        android:textSize="@dimen/_6sdp"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        android:layout_margin="@dimen/_1sdp" android:textSize="@dimen/_4sdp"
+                        android:background="@drawable/background"
+                        android:text="Entry Gate"
 
+                        />
                     <ImageView
                         android:layout_width="19dp"
                         android:layout_height="19dp"

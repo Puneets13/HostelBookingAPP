@@ -117,13 +117,28 @@ TextView txtHostelPolicy;
                     return;
                 }
 //                set room number according to the hostels
-               if ( hostelName.equals("Boys Hostel 7") || hostelName.equals("Boys Hostel 6") || hostelName.equals("Boys Hostel 3") || hostelName.equals("Boys Hostel 4") || hostelName.equals("Boys Hostel 7E")){
+               if ( hostelName.equals("Boys Hostel 7") || hostelName.equals("Boys Hostel 6") || hostelName.equals("Boys Hostel 3") || hostelName.equals("Boys Hostel 4") ){
                    if (room_int > 52 || room_int < 1||room_frontint<1||room_frontint>4||!(room_num_size==3)) {
                        etroomNumber.requestFocus();
                        etroomNumber.setError("Room number Out of box");
                        return;
                    }
-                }else{
+                }
+               else if(hostelName.equals("Boys Hostel 7E") && floor.equals("1")  ){
+                   if (room_int > 31 || room_int < 1||room_frontint<1||room_frontint>4||!(room_num_size==3)) {
+                       etroomNumber.requestFocus();
+                       etroomNumber.setError("Room number Out of box");
+                       return;
+                   }
+               }
+               else if(hostelName.equals("Boys Hostel 7E") && !floor.equals("1")  ){
+                   if (room_int > 34 || room_int < 1||room_frontint<1||room_frontint>4||!(room_num_size==3)) {
+                       etroomNumber.requestFocus();
+                       etroomNumber.setError("Room number Out of box");
+                       return;
+                   }
+               }
+               else{
                    if (room_int > 46 || room_int < 1||room_frontint<1||room_frontint>7||!(room_num_size==3)) {
                        etroomNumber.requestFocus();
                        etroomNumber.setError("Room number Out of box");
