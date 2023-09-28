@@ -56,6 +56,9 @@
             android:name=".Girls_Hostel_B.GirlsHostel_mgh_B_Activity"
             android:exported="false" />
         <activity
+        android:name=".Girls_Hostel_B_floor1"
+        android:exported="false" />
+        <activity
             android:name=".Girls_Hostel_A.mgh_A_floor_11"
             android:exported="false" />
         <activity
