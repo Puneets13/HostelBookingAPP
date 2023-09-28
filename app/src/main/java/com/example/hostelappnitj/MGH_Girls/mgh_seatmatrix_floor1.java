@@ -116,6 +116,8 @@ public class mgh_seatmatrix_floor1 extends AppCompatActivity {
                 intent.putExtra("rollNumber", rollNumber);
                 intent.putExtra("email", email);
                 intent.putExtra("branch", branch);
+                intent.putExtra("floor", "2");  // change this floor number also
+
                 startActivity(intent);
             }
         });

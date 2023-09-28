@@ -138,7 +138,15 @@ TextView txtHostelPolicy;
                        return;
                    }
                }
+               else if(hostelName.equals("Girls Hostel A") ){
+                   if (room_int > 19 || room_int < 1||room_frontint<1||room_frontint>4||!(room_num_size==3)) {
+                       etroomNumber.requestFocus();
+                       etroomNumber.setError("Room number Out of box");
+                       return;
+                   }
+               }
                else{
+//                   FOR MEGA BOYS HOSTEL
                    if (room_int > 46 || room_int < 1||room_frontint<1||room_frontint>7||!(room_num_size==3)) {
                        etroomNumber.requestFocus();
                        etroomNumber.setError("Room number Out of box");
