@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Girls_Hostel_A.mgh_A_floor_1">
+    tools:context=".MGH_Girls.mgh_seatmatrix_floor1">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/audiowide"
             android:padding="@dimen/_5sdp"
-            android:text="ROOM PLAN FOR MGH A"
+            android:text="ROOM PLAN FOR MGH"
             android:textColor="@color/black"
             android:textSize="@dimen/_20sdp"
             android:textStyle="bold"
@@ -74,6 +74,236 @@
                     android:layout_marginRight="@dimen/_2sdp">
 
 
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="2"
+                        android:columnOrderPreserved="false"
+                        android:paddingLeft="1.5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="1.5dp"
+                        android:paddingBottom="5dp"
+                        android:rowCount="5">
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/stair" />
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room212"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="212"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room"/>
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/ic_toilet"/>
+
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:layout_gravity="right"
+                            android:src="@drawable/electricityroom"/>
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                    </GridLayout>
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="1"
+                        android:columnOrderPreserved="false"
+
+                        android:paddingLeft="1.5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="1.5dp"
+                        android:paddingBottom="5dp"
+                        android:rowCount="9">
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room211"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="211"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room213"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="213"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+
+                    </GridLayout>
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="1"
+                        android:columnOrderPreserved="false"
+                        android:paddingLeft="1.5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="1.5dp"
+                        android:paddingBottom="5dp"
+                        android:rowCount="3">
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room210"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="210"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room214"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="214"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center_horizontal"-->
+                        <!--                            android:text="B"-->
+                        <!--                            android:textColor="@color/black"-->
+                        <!--                            android:textSize="@dimen/_10sdp" />-->
+                    </GridLayout>
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="1"
+                        android:columnOrderPreserved="false"
+                        android:paddingLeft="1.5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="1.5dp"
+                        android:paddingBottom="5dp"
+                        android:rowCount="3">
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room209"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="209"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room215"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="215"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center_horizontal"-->
+                        <!--                            android:text="A"-->
+                        <!--                            android:textColor="@color/black"-->
+                        <!--                            android:textSize="@dimen/_10sdp" />-->
+
+
+                    </GridLayout>
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -90,88 +320,10 @@
 
                         <ImageView
                             android:layout_width="19dp"
-                            android:layout_height="30dp"
+                            android:layout_height="49dp"
                             android:layout_margin="@dimen/_1sdp"
-                            android:src="@drawable/ic_toilet"/>
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room215"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="215"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
+                            android:src="@drawable/blank_room" />
 
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room214"
-                            android:layout_width="19dp"
-                            android:layout_height="22dp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="214"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room213"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="213"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room212"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="212"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room211"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="211"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room210"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="210"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-
-                        <ImageView
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/background"
-                            android:src="@drawable/water_dispenser"/>
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room209"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="209"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/room208"
                             android:layout_width="19dp"
@@ -182,37 +334,22 @@
                             android:textSize="@dimen/_6sdp"
                             tools:ignore="TouchTargetSizeCheck" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room207"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="207"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room206"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="206"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
                         <ImageView
                             android:layout_width="19dp"
                             android:layout_height="19dp"
                             android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:src="@drawable/washing"/>
+                            android:src="@drawable/blank_room" />
 
-                        <ImageView
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room216"
                             android:layout_width="19dp"
-                            android:layout_height="30dp"
+                            android:layout_height="19dp"
                             android:layout_margin="@dimen/_1sdp"
-                            android:src="@drawable/ic_toilet"/>
+                            android:background="@drawable/room_gradient"
+                            android:text="216"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
 
                         <!--                        <TextView-->
                         <!--                            android:layout_width="match_parent"-->
@@ -238,17 +375,35 @@
                         android:paddingBottom="5dp"
                         android:rowCount="2">
 
-
-
-
-
                         <ImageView
                             android:layout_width="19dp"
-                            android:layout_height="270dp"
+                            android:layout_height="49dp"
                             android:layout_margin="@dimen/_1sdp"
                             android:src="@drawable/blank_room" />
 
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room207"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="207"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
 
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <ImageView
+                            android:id="@+id/lift"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/background"
+                            android:src="@drawable/lift" />
 
                         <!--                        <TextView-->
                         <!--                            android:layout_width="match_parent"-->
@@ -260,7 +415,6 @@
 
 
                     </GridLayout>
-
 
                     <GridLayout
                         android:layout_width="match_parent"
@@ -275,139 +429,373 @@
                         android:paddingBottom="5dp"
                         android:rowCount="2">
 
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room216"
+                        <ImageView
                             android:layout_width="19dp"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:layout_width="40dp"
                             android:layout_height="19dp"
                             android:layout_margin="@dimen/_1sdp"
-                            android:layout_gravity="center_horizontal"
                             android:background="@drawable/room_gradient"
-                            android:text="216"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room217"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="217"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room218"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="218"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room219"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="219"
+                            android:text="Study Room"
                             android:textSize="@dimen/_6sdp"
                             tools:ignore="TouchTargetSizeCheck" />
 
                         <ImageView
                             android:layout_width="19dp"
                             android:layout_height="19dp"
-                            android:layout_gravity="center_horizontal"
                             android:layout_margin="@dimen/_1sdp"
-                            android:src="@drawable/stair" />
+                            android:src="@drawable/blank_room" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/background"
+                            android:src="@drawable/stair"
+
+                            />
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center_horizontal"-->
+                        <!--                            android:text="O"-->
+                        <!--                            android:textColor="@color/black"-->
+                        <!--                            android:textSize="@dimen/_10sdp" />-->
+
+
+                    </GridLayout>
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="1"
+                        android:columnOrderPreserved="false"
+                        android:paddingLeft="1.5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="1.5dp"
+                        android:paddingBottom="5dp"
+                        android:rowCount="2">
 
                         <ImageView
                             android:layout_width="19dp"
-                            android:layout_height="38dp"
-                            android:layout_gravity="center_horizontal"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room206"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="206"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <ImageView
+                            android:id="@+id/lift2"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
                             android:layout_margin="@dimen/_1sdp"
                             android:background="@drawable/background"
                             android:src="@drawable/lift" />
 
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:layout_width="30dp"
-                            android:layout_height="38dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/office_gradient"
-                            android:textSize="@dimen/_4sdp"
-                            android:text="PATH TO BLOCK B"
-                            />
+
+
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center_horizontal"-->
+                        <!--                            android:text="N"-->
+                        <!--                            android:textColor="@color/black"-->
+                        <!--                            android:textSize="@dimen/_10sdp" />-->
+
+
+                    </GridLayout>
+
+                    <GridLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="1"
+                        android:columnOrderPreserved="false"
+                        android:paddingLeft="1.5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="1.5dp"
+                        android:paddingBottom="5dp"
+                        android:rowCount="2">
                         <ImageView
                             android:layout_width="19dp"
-                            android:layout_height="24dp"
-                            android:layout_gravity="center_horizontal"
+                            android:layout_height="49dp"
                             android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/background"
-                            android:src="@drawable/stair" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room201"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="201"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room202"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="202"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room203"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="203"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/room204"
-                            android:layout_width="19dp"
-                            android:layout_height="19dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_margin="@dimen/_1sdp"
-                            android:background="@drawable/room_gradient"
-                            android:text="204"
-                            android:textSize="@dimen/_6sdp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
+                            android:src="@drawable/blank_room" />
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/room205"
                             android:layout_width="19dp"
                             android:layout_height="19dp"
-                            android:layout_gravity="center_horizontal"
                             android:layout_margin="@dimen/_1sdp"
                             android:background="@drawable/room_gradient"
                             android:text="205"
                             android:textSize="@dimen/_6sdp"
                             tools:ignore="TouchTargetSizeCheck" />
 
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room217"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient4"
+                            android:text="217"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <!--                        <TextView-->
+                        <!--                            android:layout_width="match_parent"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:gravity="center_horizontal"-->
+                        <!--                            android:text="Y"-->
+                        <!--                            android:textColor="@color/black"-->
+                        <!--                            android:textSize="@dimen/_10sdp" />-->
+
+
                     </GridLayout>
 
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="1"
+                        android:columnOrderPreserved="false"
+                        android:paddingLeft="1.5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="1.5dp"
+                        android:paddingBottom="5dp"
+                        android:rowCount="2">
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room204"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="204"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room218"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient4"
+                            android:text="218"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+
+                    </GridLayout>
+
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="1"
+                        android:columnOrderPreserved="false"
+
+                        android:paddingLeft="1.5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="1.5dp"
+                        android:paddingBottom="5dp"
+                        android:rowCount="11">
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room203"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient4"
+                            android:text="203"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room219"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient2"
+                            android:text="219"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+
+
+
+                    </GridLayout>
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="1"
+                        android:columnOrderPreserved="false"
+                        android:paddingLeft="1.5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="1.5dp"
+                        android:paddingBottom="5dp"
+                        android:rowCount="2">
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room202"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient4"
+                            android:text="202"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room"
+
+                            />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room220"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient4"
+                            android:text="220"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </GridLayout>
+
+
+                    <GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:alignmentMode="alignMargins"
+                        android:columnCount="2"
+                        android:columnOrderPreserved="false"
+                        android:paddingLeft="1.5dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="1.5dp"
+                        android:paddingBottom="5dp"
+                        android:rowCount="3">
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="49dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/room201"
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/room_gradient"
+                            android:text="201"
+                            android:textSize="@dimen/_6sdp"
+                            tools:ignore="TouchTargetSizeCheck" />
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:background="@drawable/stair" />
+
+
+
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room" />
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/blank_room"/>
+
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:layout_gravity="right"
+                            android:src="@drawable/electricityroom"/>
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:layout_margin="@dimen/_1sdp"
+                            android:src="@drawable/ic_toilet"/>
+                    </GridLayout>
 
                 </LinearLayout>
             </com.alexvasilkov.gestures.views.GestureFrameLayout>
@@ -419,8 +807,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_15sdp"
         android:orientation="vertical"
-        android:layout_marginBottom="@dimen/_10sdp"
         app:layout_constraintBottom_toTopOf="@+id/btnRoomBook3"
+        android:layout_marginBottom="@dimen/_40sdp"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
@@ -440,7 +828,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/_1sdp"
+                android:padding="@dimen/_2sdp"
                 android:text="   Fully Occupied"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp"
@@ -466,7 +854,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/_1sdp"
+                android:padding="@dimen/_2sdp"
                 android:text="   Partially Occupied"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp"
@@ -489,12 +877,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/_1sdp"
+                android:padding="@dimen/_2sdp"
                 android:text="   Under Processing"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -512,7 +899,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/_1sdp"
+                android:padding="@dimen/_2sdp"
                 android:text="   Available"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
@@ -533,7 +920,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/_1sdp"
+                android:padding="@dimen/_2sdp"
                 android:text="   Water Cooler"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
@@ -554,7 +941,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="@dimen/_1sdp"
+                android:padding="@dimen/_2sdp"
                 android:text="   Washroom"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
