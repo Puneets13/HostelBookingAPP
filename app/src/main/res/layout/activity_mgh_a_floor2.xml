@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/audiowide"
             android:padding="@dimen/_5sdp"
-            android:text="ROOM PLAN FOR MGH A"
+            android:text="ROOM PLAN FOR MGH B"
             android:textColor="@color/black"
             android:textSize="@dimen/_20sdp"
             android:textStyle="bold"

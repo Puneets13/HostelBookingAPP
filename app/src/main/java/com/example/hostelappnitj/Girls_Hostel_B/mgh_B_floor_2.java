@@ -29,6 +29,7 @@ package com.example.hostelappnitj.Girls_Hostel_B;
         import com.example.hostelappnitj.RetrofitClient;
         import com.example.hostelappnitj.SharedPrefManager;
         import com.example.hostelappnitj.databinding.ActivityMghAFloor2Binding;
+        import com.example.hostelappnitj.databinding.ActivityMghBFloor2Binding;
         import com.example.hostelappnitj.databinding.ActivityMghSeatmatrixFloor2Binding;
 
         import java.util.List;
@@ -39,7 +40,7 @@ package com.example.hostelappnitj.Girls_Hostel_B;
 
 public class mgh_B_floor_2 extends AppCompatActivity {
 
-    private ActivityMghAFloor2Binding binding;
+    private ActivityMghBFloor2Binding binding;
     AppCompatButton room301;
     AppCompatButton btnBook3;
     GestureView gestureView;
@@ -53,7 +54,7 @@ public class mgh_B_floor_2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding =  ActivityMghAFloor2Binding.inflate(getLayoutInflater());
+        binding =  ActivityMghBFloor2Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
         setContentView(view);
