@@ -241,7 +241,7 @@
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
-                        android:text="BOYS HOSTEL 7E\nBh7E"
+                        android:text="BOYS HOSTEL\nBh7E"
                         android:textSize="@dimen/_12sdp"
                         android:drawableStart="@drawable/hostel2"
                         android:id="@+id/btnBh7E"

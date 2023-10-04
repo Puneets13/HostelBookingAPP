@@ -351,7 +351,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
             }
         };
-        handler.postDelayed(x, 300000);
+        handler.postDelayed(x, 30000);
 
     }
 
@@ -425,6 +425,64 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
         });
         finish();
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onStop() {
+
+
+        Handler handler = new Handler();
+        Runnable x=new Runnable() {
+            @Override
+            public void run() {
+//                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterationActivity.this);
+//
+//                // Set the message show for the Alert time
+//                builder.setMessage("Sorry! Try again");
+//
+//                // Set Alert Title
+//                builder.setTitle("Session Timed Out!");
+//
+//                // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+//                builder.setCancelable(false);
+//                builder.create();
+//                builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+//                    expireSession();
+////                    handler.removeCallbacksAndMessages(null);
+//                });
+//
+//                try {
+//                    builder.show();
+//                }
+//                catch (WindowManager.BadTokenException e) {
+//                    //use a log message
+//                }
+                PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
+                Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().destroy(preRegisterModel);
+                call.enqueue(new Callback<PreRegisterResponse>() {
+                    @Override
+                    public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
+                        PreRegisterResponse responseFromAPI = response.body();
+
+                        if(response.isSuccessful()){
+                            if(responseFromAPI.getMessage().equals("back before")){
+                                Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
+//                        finish();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
+                        Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        };
+        handler.postDelayed(x, 30000);
+
+//        finish();
+        super.onStop();
     }
 
     @Override

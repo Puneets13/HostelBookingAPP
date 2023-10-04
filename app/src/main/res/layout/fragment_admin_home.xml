@@ -104,6 +104,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="@dimen/_240sdp"
                 android:layout_height="wrap_content"
+                android:id="@+id/boysBtn"
                 android:layout_gravity="center"
                 android:background="@drawable/btn_bg_2"
                 android:elevation="@dimen/_90sdp"
@@ -270,6 +271,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/cardViewBoys"
                 app:cardCornerRadius="@dimen/_20sdp"
                 android:padding="@dimen/_13sdp"
                 android:elevation="@dimen/_20sdp"
@@ -278,20 +280,20 @@
                 android:layout_marginRight="@dimen/_9sdp"
                 android:background="@drawable/btn_bg1"
                 >
-                <GridLayout
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical"
                     android:layout_gravity="center_horizontal"
-                    android:rowCount="6"
-                    android:columnCount="2"
                     >
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_120sdp"
+                        android:layout_width="@dimen/_210sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:layout_marginTop="@dimen/_25sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -303,10 +305,12 @@
 
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_120sdp"
+                        android:layout_width="@dimen/_210sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -317,10 +321,11 @@
                         />
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_120sdp"
+                        android:layout_width="@dimen/_210sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:layout_marginTop="@dimen/_25sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
@@ -333,10 +338,12 @@
 
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_120sdp"
+                        android:layout_width="@dimen/_210sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:layout_marginTop="@dimen/_25sdp"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -348,11 +355,12 @@
 
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_120sdp"
+                        android:layout_width="@dimen/_210sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:layout_marginTop="@dimen/_25sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -364,10 +372,12 @@
 
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_120sdp"
+                        android:layout_width="@dimen/_210sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:layout_marginTop="@dimen/_25sdp"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -379,13 +389,14 @@
 
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_120sdp"
+                        android:layout_width="@dimen/_210sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:layout_columnSpan="2"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_25sdp"
                         android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
@@ -395,10 +406,30 @@
                         android:id="@+id/btnBh7"
                         />
 
-                </GridLayout>
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_210sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_columnSpan="2"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="BOYS HOSTEL 7E\nBh7"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnBh7E"
+                        />
+
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/girlsBtn"
                 android:layout_width="@dimen/_240sdp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -416,6 +447,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewGirls"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/_20sdp"
@@ -428,79 +460,69 @@
                 >
 
 
-                <GridLayout
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:rowCount="6"
-                    android:columnCount="2"
+                    android:orientation="vertical"
                     >
                     <androidx.appcompat.widget.AppCompatButton
 
-                        android:layout_width="@dimen/_120sdp"
+                        android:layout_width="@dimen/_210sdp"
                         android:layout_height="@dimen/_60sdp"
                         android:layout_marginTop="@dimen/_25sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:text="MEGA GIRLS\nBLOCK A"
+                        android:textSize="@dimen/_12sdp"
+                        android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnGirlsA"
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_210sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
                         android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_columnSpan="1"
                         android:background="@drawable/btn_bg_home"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="@dimen/_12sdp"
                         android:drawableStart="@drawable/hostel2"
+                        android:id="@+id/btnGirlsB"
+                        android:text="MEGA GIRLS\nBLOCK B"
+
+                        />
+
+                    <androidx.appcompat.widget.AppCompatButton
+
+                        android:layout_width="@dimen/_210sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@drawable/btn_bg_home"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_columnSpan="2"
                         android:id="@+id/btnMegaGirls"
                         android:text="MEGA GIRLS HOSTEL "
-                        />
-                    <androidx.appcompat.widget.AppCompatButton
-
-                        android:layout_width="@dimen/_120sdp"
-                        android:layout_height="@dimen/_60sdp"
-                        android:layout_marginTop="@dimen/_25sdp"
-                        android:layout_marginRight="@dimen/_10sdp"
-                        android:background="@drawable/btn_bg_home"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:text="GIRLS HOSTEL 1\n G1"
-                        android:textSize="@dimen/_12sdp"
                         android:drawableStart="@drawable/hostel2"
-                        android:id="@+id/btnGh1"
-                        />
-
-                    <androidx.appcompat.widget.AppCompatButton
-
-                        android:layout_width="@dimen/_120sdp"
-                        android:layout_height="@dimen/_60sdp"
-                        android:layout_marginTop="@dimen/_25sdp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_marginRight="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:background="@drawable/btn_bg_home"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_12sdp"
-                        android:drawableStart="@drawable/hostel2"
-                        android:id="@+id/btnGh2"
-                        android:text="GIRLS HOSTEL 2\n G2"
-                        />
-
-                    <androidx.appcompat.widget.AppCompatButton
-
-                        android:layout_width="@dimen/_120sdp"
-                        android:layout_height="@dimen/_60sdp"
-                        android:layout_marginTop="@dimen/_25sdp"
-                        android:layout_marginRight="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:background="@drawable/btn_bg_home"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:text="GIRLS HOSTEL 3\n G3"
-                        android:textSize="@dimen/_12sdp"
-                        android:drawableStart="@drawable/hostel2"
-                        android:id="@+id/btnNewGirls"
                         />
 
 
-
-                </GridLayout>
+                </LinearLayout>
 
 
 

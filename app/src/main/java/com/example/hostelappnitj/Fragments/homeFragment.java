@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -24,6 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -88,12 +90,13 @@ public class homeFragment extends Fragment {
 
         btnGirls_A=view.findViewById(R.id.btnGirlsA);
         btnGirls_B=view.findViewById(R.id.btnGirlsB);
-        btnGirlsNewGirls=view.findViewById(R.id.btnNewGirls);
+        btnGirlsMega=view.findViewById(R.id.btnMegaGirls);
+
+//        btnGirlsNewGirls=view.findViewById(R.id.btnNewGirls);
 
 
         btnhostelPolicy=view.findViewById(R.id.HostelPolicy);
         btnMesslRule=view.findViewById(R.id.Mess_rule);
-        btnGirlsMega=view.findViewById(R.id.btnMegaGirls);
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
         coordinatorLayout=view.findViewById(R.id.homeFragmentLayout);
         linearLayoutImg=view.findViewById(R.id.linearLayoutImg);
@@ -140,6 +143,35 @@ public class homeFragment extends Fragment {
         handler.postDelayed(runnable, 2000);
 
 
+        if(genderRestriction.equals("male")){
+            AppCompatButton fragment = (AppCompatButton) view.findViewById(R.id.btnGirlsA);
+            AppCompatButton fragment2 =(AppCompatButton) view.findViewById(R.id.btnGirlsB);
+            AppCompatButton fragment3 = (AppCompatButton) view.findViewById(R.id.btnMegaGirls);
+            fragment.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+            fragment2.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+            fragment3.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+
+        }else{
+            AppCompatButton fragment = (AppCompatButton) view.findViewById(R.id.btnMghA);
+            AppCompatButton fragment2 = (AppCompatButton) view.findViewById(R.id.btnMghB);
+            AppCompatButton fragment3 =(AppCompatButton) view.findViewById(R.id.btnMghF);
+            AppCompatButton fragment4 = (AppCompatButton) view.findViewById(R.id.btnBh7E);
+            AppCompatButton fragment5 = (AppCompatButton) view.findViewById(R.id.btnBh6);
+            AppCompatButton fragment6 = (AppCompatButton) view.findViewById(R.id.btnBh7);
+            AppCompatButton fragment7 = (AppCompatButton) view.findViewById(R.id.btnBh4);
+            AppCompatButton fragment8 = (AppCompatButton) view.findViewById(R.id.btnBh3);
+
+
+            fragment.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+            fragment2.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+            fragment3.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+            fragment4.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+            fragment5.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+            fragment6.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+            fragment7.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+            fragment8.setBackground(getResources().getDrawable(R.drawable.bnt_bg_home_restrict));
+
+        }
         btnhostelPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

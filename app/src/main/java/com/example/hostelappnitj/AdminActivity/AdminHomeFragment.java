@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -22,6 +23,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.Girls_Hostel_A.GirlsHostel_mgh_A_Activity;
+import com.example.hostelappnitj.Girls_Hostel_B.GirlsHostel_mgh_B_Activity;
 import com.example.hostelappnitj.Hostels.Hostel_Rules_Activity;
 import com.example.hostelappnitj.Hostels.Mess_Rules;
 import com.example.hostelappnitj.MBH_A_Hostel.MegaBoysA_Activity;
@@ -29,6 +32,7 @@ import com.example.hostelappnitj.MBH_B_Hostel.MegaBoysB_Activity;
 import com.example.hostelappnitj.MBH_F_Hostel.MegaBoysF_Activity;
 import com.example.hostelappnitj.MGH_Girls.MegaGirlsActivity;
 import com.example.hostelappnitj.R;
+import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -37,9 +41,12 @@ public class AdminHomeFragment extends Fragment {
 
     ImageView imageViewHostels ;
     AppCompatButton btnmghB,btnmghA,btnmghF,btnGirlsMega , btnhostelPolicy, btnMesslRule,btnGetStudentList,btnStudentList ;
-    AppCompatButton btnBh7 , btnBh6 , btnBh4 , btnBh3 ;
+    AppCompatButton btnBh7 , btnBh6 , btnBh4 , btnBh3 , btnBoysH7E ,  boysBtn , girlsBtn  , btngirlsA , btngirlsB;
     ExtendedFloatingActionButton floatingActionButton_call;
+    CardView cardViewGirls , cardViewBoys;
     EditText etStudentName ;
+    SharedPrefManager sharedPrefManager;
+    String email;
     private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
 
@@ -63,6 +70,15 @@ public class AdminHomeFragment extends Fragment {
         btnBh4=view.findViewById(R.id.btnBh4);
         btnBh6=view.findViewById(R.id.btnBh6);
         btnBh7=view.findViewById(R.id.btnBh7);
+        btnBoysH7E=view.findViewById(R.id.btnBh7E);
+
+        btngirlsA = view.findViewById(R.id.btnGirlsA);
+        btngirlsB = view.findViewById(R.id.btnGirlsB);
+
+        cardViewBoys = view.findViewById(R.id.cardViewBoys);
+        cardViewGirls = view.findViewById(R.id.cardViewGirls);
+        boysBtn = view.findViewById(R.id.boysBtn);
+        girlsBtn = view.findViewById(R.id.girlsBtn);
 
 //        btnhostelPolicy=view.findViewById(R.id.HostelPolicy);
 //        btnMesslRule=view.findViewById(R.id.Mess_rule);
@@ -72,9 +88,138 @@ public class AdminHomeFragment extends Fragment {
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
 
 
+        sharedPrefManager=new SharedPrefManager(getActivity());
+        email=sharedPrefManager.getUser().getEmail();
+        if(email.equals("mbh.F@nitj.ac.in")){
+            btnBh3.setVisibility(view.GONE);
+            btnBh4.setVisibility(View.GONE);
+            btnBh6.setVisibility(View.GONE);
+            btnBh7.setVisibility(View.GONE);
+            btnBoysH7E.setVisibility(View.GONE);
+            btnmghA.setVisibility(View.GONE);
+            btnmghB.setVisibility(View.GONE);
+
+            girlsBtn.setVisibility(View.GONE);
+            cardViewGirls.setVisibility(View.GONE);
+
+        }
+        if(email.equals("mbh.B@nitj.ac.in")){
+            btnBh3.setVisibility(view.GONE);
+            btnBh4.setVisibility(View.GONE);
+            btnBh6.setVisibility(View.GONE);
+            btnBh7.setVisibility(View.GONE);
+            btnBoysH7E.setVisibility(View.GONE);
+            btnmghA.setVisibility(View.GONE);
+            btnmghF.setVisibility(View.GONE);
+
+            girlsBtn.setVisibility(View.GONE);
+            cardViewGirls.setVisibility(View.GONE);
+        }
+
+        if(email.equals("mbh.A@nitj.ac.in")){
+            btnBh3.setVisibility(view.GONE);
+            btnBh4.setVisibility(View.GONE);
+            btnBh6.setVisibility(View.GONE);
+            btnBh7.setVisibility(View.GONE);
+            btnBoysH7E.setVisibility(View.GONE);
+            btnmghB.setVisibility(View.GONE);
+            btnmghF.setVisibility(View.GONE);
+
+            girlsBtn.setVisibility(View.GONE);
+            cardViewGirls.setVisibility(View.GONE);
+        }
+        if(email.equals("bh4@nitj.ac.in")){
+            btnBh3.setVisibility(view.GONE);
+            btnBh6.setVisibility(View.GONE);
+            btnBh7.setVisibility(View.GONE);
+            btnBoysH7E.setVisibility(View.GONE);
+            btnmghA.setVisibility(View.GONE);
+            btnmghB.setVisibility(View.GONE);
+            btnmghF.setVisibility(View.GONE);
+
+            girlsBtn.setVisibility(View.GONE);
+            cardViewGirls.setVisibility(View.GONE);
+
+        }
+        if(email.equals("bh3@nitj.ac.in")){
+            btnBh4.setVisibility(view.GONE);
+            btnBh6.setVisibility(View.GONE);
+            btnBh7.setVisibility(View.GONE);
+            btnBoysH7E.setVisibility(View.GONE);
+            btnmghA.setVisibility(View.GONE);
+            btnmghB.setVisibility(View.GONE);
+            btnmghF.setVisibility(View.GONE);
+
+            girlsBtn.setVisibility(View.GONE);
+            cardViewGirls.setVisibility(View.GONE);
+
+        }
+        if(email.equals("bh6@nitj.ac.in")){
+            btnBh3.setVisibility(view.GONE);
+            btnBh4.setVisibility(View.GONE);
+            btnBh7.setVisibility(View.GONE);
+            btnBoysH7E.setVisibility(View.GONE);
+            btnmghA.setVisibility(View.GONE);
+            btnmghB.setVisibility(View.GONE);
+            btnmghF.setVisibility(View.GONE);
+
+            girlsBtn.setVisibility(View.GONE);
+            cardViewGirls.setVisibility(View.GONE);
+
+        }
+        if(email.equals("bh7@nitj.ac.in")){
+            btnBh3.setVisibility(view.GONE);
+            btnBh6.setVisibility(View.GONE);
+            btnBh4.setVisibility(View.GONE);
+            btnBoysH7E.setVisibility(View.GONE);
+            btnmghA.setVisibility(View.GONE);
+            btnmghB.setVisibility(View.GONE);
+            btnmghF.setVisibility(View.GONE);
+
+            girlsBtn.setVisibility(View.GONE);
+            cardViewGirls.setVisibility(View.GONE);
+
+        }
+        if(email.equals("bh7E@nitj.ac.in")){
+            btnBh3.setVisibility(view.GONE);
+            btnBh4.setVisibility(View.GONE);
+            btnBh6.setVisibility(View.GONE);
+            btnBh7.setVisibility(View.GONE);
+            btnmghA.setVisibility(View.GONE);
+            btnmghB.setVisibility(View.GONE);
+            btnmghF.setVisibility(View.GONE);
+
+            girlsBtn.setVisibility(View.GONE);
+            cardViewGirls.setVisibility(View.GONE);
+
+        }
+
+//        girls hostel
+
+        if(email.equals("mgh.A@nitj.ac.in")){
+            btnGirlsMega.setVisibility(view.GONE);
+            btngirlsB.setVisibility(View.GONE);
+
+            boysBtn.setVisibility(View.GONE);
+            cardViewBoys.setVisibility(View.GONE);
+        }
+        if(email.equals("mgh.B@nitj.ac.in")){
+            btnGirlsMega.setVisibility(view.GONE);
+            btngirlsA.setVisibility(View.GONE);
+
+            boysBtn.setVisibility(View.GONE);
+            cardViewBoys.setVisibility(View.GONE);
+        }
+        if(email.equals("mgh@nitj.ac.in")){
+            btngirlsB.setVisibility(view.GONE);
+            btngirlsA.setVisibility(View.GONE);
+
+            boysBtn.setVisibility(View.GONE);
+            cardViewBoys.setVisibility(View.GONE);
+        }
 //        for showing the images autoMatically
 //        int[] imageArray = { R.drawable.img_2, R.drawable.img_4, R.drawable.img_5};
-        int[] imageArray = { R.drawable.img_h1,R.drawable.img_h3,R.drawable.img_h4, R.drawable.img_h5,R.drawable.img_h6,R.drawable.img_h7 };
+        int[] imageArray = { R.drawable.img_h1,R.drawable.img_h4,R.drawable.img_11, R.drawable.img_h5,R.drawable.img_h6,R.drawable.img_h7  };
 
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
@@ -166,6 +311,7 @@ public class AdminHomeFragment extends Fragment {
             }
         });
 
+
         btnmghB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -234,6 +380,15 @@ public class AdminHomeFragment extends Fragment {
             }
         });
 
+        btnBoysH7E.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "BH 7E", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), Bh7E_AdminActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
         btnGirlsMega.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -245,6 +400,25 @@ public class AdminHomeFragment extends Fragment {
             }
         });
 
+        btngirlsA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "MEGA GIRLS BLOCK A", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), girls_A_AdminActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        btngirlsB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "MEGA GIRLS BLOCK B", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), girls_B_AdminActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

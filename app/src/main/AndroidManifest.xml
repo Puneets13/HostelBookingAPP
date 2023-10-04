@@ -20,6 +20,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".AdminActivity.girls_B_AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity.girls_A_AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity.Bh7E_AdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Acitvity.createProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".Girls_Hostel_B.mgh_B_floor_11"
             android:exported="false" />
         <activity
@@ -55,9 +67,7 @@
         <activity
             android:name=".Girls_Hostel_B.GirlsHostel_mgh_B_Activity"
             android:exported="false" />
-        <activity
-        android:name=".Girls_Hostel_B_floor1"
-        android:exported="false" />
+
         <activity
             android:name=".Girls_Hostel_A.mgh_A_floor_11"
             android:exported="false" />

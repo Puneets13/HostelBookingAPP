@@ -224,7 +224,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         String userpassword = password.getText().toString();
 
         inEmail = email.getText().toString();
-        if(inEmail.equals("mbh.B@nitj.ac.in") || inEmail.equals("mbh.A@nitj.ac.in") ||inEmail.equals("mbh.F@nitj.ac.in")||inEmail.equals("mgh.@nitj.ac.in")){
+        if(inEmail.equals("mbh.B@nitj.ac.in") || inEmail.equals("mbh.A@nitj.ac.in") ||inEmail.equals("mbh.F@nitj.ac.in")||inEmail.equals("mgh@nitj.ac.in")
+        || inEmail.equals("mgh.A@nitj.ac.in") || inEmail.equals("mgh.B@nitj.ac.in") || inEmail.equals("bh4@nitj.ac.in") ||  inEmail.equals("bh3@nitj.ac.in")
+                ||  inEmail.equals("bh7@nitj.ac.in") ||  inEmail.equals("bh7E@nitj.ac.in")
+        ){
             userType = "Admin";
         }
         else{
