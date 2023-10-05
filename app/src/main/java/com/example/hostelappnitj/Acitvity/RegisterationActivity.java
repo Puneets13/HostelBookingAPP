@@ -401,73 +401,33 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
         finish();
     }
 
+
     @Override
     public void onBackPressed() {
 
-
-        dialogClickListener = new DialogInterface.OnClickListener() {
+        PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
+        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
+        call.enqueue(new Callback<PreRegisterResponse>() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    // on below line we are setting a click listener
-                    // for our positive button
-                    case DialogInterface.BUTTON_POSITIVE:
+            public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
+                PreRegisterResponse responseFromAPI = response.body();
 
-                        PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
-                        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
-                        call.enqueue(new Callback<PreRegisterResponse>() {
-                            @Override
-                            public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
-                                PreRegisterResponse responseFromAPI = response.body();
-
-                                if(response.isSuccessful()){
-                                    if(responseFromAPI.getMessage().equals("session expire")){
+                if(response.isSuccessful()){
+                    if(responseFromAPI.getMessage().equals("session expire")){
 //                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
-                                        finish();
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
-                                Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-//                        finish();
-                        dialog.dismiss();
-                        break;
-
-                    case DialogInterface.BUTTON_NEGATIVE:
-                        dialog.dismiss();
-
+                        finish();
+                    }
                 }
             }
-        };
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(RegisterationActivity.this);
-        // on below line we are setting message for our dialog box.
-        builder.setTitle("ALERT");
-        builder.setMessage("Are you sure you want to exit.\nOnce exit your session will expire.")
-                .setPositiveButton("Yes", dialogClickListener)
-                .setNegativeButton("No",dialogClickListener)
-                .setCancelable(false)
-                .show();
-
-//        super.onBackPressed();
+            @Override
+            public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
+                Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        finish();
+        super.onBackPressed();
     }
-//
-//    @Override
-//    public void onBackPressed() {
-//        newAlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert)
-//                .setTitle("Closing Activity").setMessage("Are you sure you want to closethis activity?")
-//                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        finish();
-//                        Toast.makeText(MainActivity.this, "Activity closed",Toast.LENGTH_SHORT).show();
-//                    }
-//                }).setNegativeButton("No", null).show();
-//    }
 
     @Override
     protected void onStop() {
@@ -477,28 +437,6 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
         Runnable x=new Runnable() {
             @Override
             public void run() {
-//                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterationActivity.this);
-//
-//                // Set the message show for the Alert time
-//                builder.setMessage("Sorry! Try again");
-//
-//                // Set Alert Title
-//                builder.setTitle("Session Timed Out!");
-//
-//                // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
-//                builder.setCancelable(false);
-//                builder.create();
-//                builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
-//                    expireSession();
-////                    handler.removeCallbacksAndMessages(null);
-//                });
-//
-//                try {
-//                    builder.show();
-//                }
-//                catch (WindowManager.BadTokenException e) {
-//                    //use a log message
-//                }
                 PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
                 Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().destroy(preRegisterModel);
                 call.enqueue(new Callback<PreRegisterResponse>() {
@@ -552,7 +490,19 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
         finish();
         super.onDestroy();
     }
+
+
 }
+
+
+
+
+
+
+
+
+
+
 //
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        // In fragment class callback
