@@ -25,13 +25,15 @@ import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.util.Date;
+
 public class Bh3BoysHostel_Activity extends AppCompatActivity {
 
     CardView hostelRegisteration,hostelRules,messRules,expulsionFromHostel,hostelStaff;
     SharedPrefManager sharedPrefManager;
     ImageButton backbutton;
     private CharSequence[] hostelFloors ;
-    String genderRestriction;
+    String genderRestriction , year;
     private DialogInterface.OnClickListener dialogClickListener;
 
     @Override
@@ -50,6 +52,7 @@ public class Bh3BoysHostel_Activity extends AppCompatActivity {
 
         sharedPrefManager=new SharedPrefManager(Bh3BoysHostel_Activity.this);
         genderRestriction=sharedPrefManager.getGender();
+
 
         hostelFloors = new CharSequence[]{
                 "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3"

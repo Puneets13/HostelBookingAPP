@@ -157,7 +157,7 @@ public class Bh_4_Floor_3 extends AppCompatActivity {
                     progressDialog1.show();
                     progressDialog1.setCancelable(false);
 
-                    String hostelName = "Boys Hostel 6";
+                    String hostelName = "Boys Hostel 4";
                     studentListModel studentListModel = new studentListModel(roomNumber, hostelName);
 
                     Call<studentListModel> call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
