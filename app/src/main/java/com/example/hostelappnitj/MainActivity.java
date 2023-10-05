@@ -36,6 +36,7 @@ import com.example.hostelappnitj.Fragments.ProfileFragment;
 import com.example.hostelappnitj.Fragments.HelpFragment;
 import com.example.hostelappnitj.Fragments.HostelPolicy_Fragment;
 import com.example.hostelappnitj.Fragments.homeFragment;
+import com.example.hostelappnitj.MessFragments.MessHomeFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -152,6 +153,16 @@ public class MainActivity extends AppCompatActivity {
                         toolbar.setTitle("Help");
                         toolbar.setTitleTextColor(Color.WHITE);
                         fragment = new HelpFragment();
+                        break;
+
+                    case R.id.nitj_mess:
+                        toolbar.setTitle("NITJ HOSTELS");
+                        toolbar.setTitleTextColor(Color.WHITE);
+                        if( sharedPrefManager.getAdmin().equals("Admin")){
+                            fragment = new AdminHomeFragment();
+                        }else{
+                            fragment = new MessHomeFragment();    //passing the new fragment that we have created
+                        }
                         break;
                     case R.id.logout:
 //                        on click listener for logging out

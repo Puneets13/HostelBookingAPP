@@ -24,8 +24,39 @@ tools:showIn="navigation_view">
 <!--        android:title="Notifications" />-->
 
 </menu>
+
 </item>
 
+    <item android:title="MESS">
+        <menu>
+            <item
+                android:id="@+id/nitj_mess"
+                android:icon="@drawable/ic_getmenu"
+                android:title="NITJ Mess"
+                />
+            <item
+                android:id="@+id/daily_scanner"
+                android:icon="@drawable/ic_code_scanner"
+                android:title="Daily Scanner"
+                />
+            <item
+                android:id="@+id/extra_scanner"
+                android:icon="@drawable/ic_mess"
+                android:title="Extras Scanner"
+                />
+            <item
+                android:id="@+id/attendance"
+                android:icon="@drawable/ic_attendance"
+                android:title="Attendance"
+                />
+            <item
+                android:id="@+id/mess_bill"
+                android:icon="@drawable/ic_bill_mess"
+                android:title="Invoice"
+                />
+
+        </menu>
+    </item>
     <item android:title="ACCOUNT">
         <menu>
             <item

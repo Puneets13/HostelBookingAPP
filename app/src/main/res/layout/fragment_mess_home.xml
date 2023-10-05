@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MessFragments.MessHomeFragment"
+    android:background="@drawable/bg_gradient1"
+    android:orientation="vertical"
+    android:id="@+id/messHomeFragmentLayout">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="@dimen/_45sdp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dashboard_bg"
+                android:orientation="horizontal">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/logo"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_alignLeft="@+id/logo"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:src="@drawable/nitjlogo"
+                    app:civ_circle_background_color="@color/white"
+                    app:layout_constraintStart_toStartOf="@+id/bg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="NotSibling" />
+                <TextView
+                    android:id="@+id/txtClgName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="Welcome To Nitj Mess"
+                    android:layout_marginLeft="-8dp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/_22sdp"
+                    android:fontFamily="cursive"
+                    android:padding="@dimen/_15sdp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayoutImg"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:cardMaxElevation="@dimen/_20sdp"
+                    app:cardElevation="10dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_180sdp"
+                        android:id="@+id/imageView_hostels"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_5"
+                        android:maxHeight="@dimen/_200sdp"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        />
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_bg_mess">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    >
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:id="@+id/daily_scanner"
+                        android:foreground="@drawable/ic_code_scanner"
+                        android:foregroundTint="@color/white"
+                        android:background="@drawable/btn_bg_white"
+                        android:layout_gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_9sdp"
+                        android:text="Daily \nScanner"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/_7sdp"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:id="@+id/extras_scanner"
+                        android:foreground="@drawable/ic_mess"
+                        android:foregroundTint="@color/white"
+                        android:background="@drawable/btn_bg_white"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_9sdp"
+                        android:text="Extras \nScanner"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:id="@+id/attendance"
+                        android:foreground="@drawable/ic_attendance"
+                        android:foregroundTint="@color/white"
+                        android:background="@drawable/btn_bg_white"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_9sdp"
+                        android:text="Attendance\n"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:id="@+id/invoice"
+                        android:foreground="@drawable/ic_bill_mess"
+                        android:foregroundTint="@color/white"
+                        android:background="@drawable/btn_bg_white"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_9sdp"
+                        android:text="Invoice\n"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_20sdp"
+                android:padding="@dimen/_13sdp"
+                android:elevation="@dimen/_20sdp"
+                android:background="@drawable/btn_bg_white"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_8sdp"
+                    android:text="puneets.ce.20@nitj.ac.in"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_margin="@dimen/_20sdp"
+            android:layout_gravity="center_horizontal"
+            android:columnCount="2"
+            android:rowCount="1"
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:id="@+id/getLeave"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:foregroundTint="@color/black"
+                android:drawablePadding="@dimen/_2sdp"
+                android:drawableStart="@drawable/ic_leave"
+                android:background="@drawable/btn_bg_mess"
+                android:text="GET LEAVE"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:fontFamily="@font/baskervville"
+
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="@dimen/_120sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:id="@+id/getMenu"
+                android:drawableStart="@drawable/ic_getmenu"
+                android:foregroundTint="@color/black"
+                android:background="@drawable/btn_bg_mess"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:text="GET MENU"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"
+                android:fontFamily="@font/baskervville"
+                />
+
+
+        </GridLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!--    <com.google.android.material.bottomappbar.BottomAppBar-->
+    <!--            android:id="@+id/bottom_app_bar"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="bottom"-->
+    <!--        app:backgroundTint="@color/black"-->
+    <!--            app:fabAlignmentMode="end"-->
+    <!--            app:fabAnimationMode="slide"-->
+    <!--            app:fabCradleVerticalOffset="@dimen/_2sdp"-->
+    <!--            >-->
+
+    <!--        </com.google.android.material.bottomappbar.BottomAppBar>-->
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="#000000"
+        app:fabAlignmentMode="center"
+        app:fabAnimationMode="slide"
+        app:fabCradleMargin="@dimen/_5sdp"
+        app:fabCradleRoundedCornerRadius="@dimen/_42sdp"
+        app:fabCradleVerticalOffset="@dimen/_2sdp"
+        >
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/floatingActionButton_Call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#DBDBDB"
+        android:clickable="true"
+        android:text="Emergency Call"
+        app:icon="@drawable/phone"
+        app:iconTint="@color/black"
+        app:layout_anchor="@id/bottom_app_bar"
+
+        />
+
+    <!--    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+
+    <!--        android:id="@+id/registerBtn"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@drawable/btn_bg_2"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:padding="@dimen/_15sdp"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:text="NITJ Hostel App "-->
+    <!--        app:layout_anchor="@id/bottom_app_bar"-->
+
+    <!--        app:icon="@drawable/ic_registration"-->
+    <!--        />-->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
