@@ -7,8 +7,7 @@
     tools:context=".Fragments.homeFragment"
     android:background="@drawable/bg_gradient1"
     android:orientation="vertical"
-    android:id="@+id/homeFragmentLayout"
-    >
+    android:id="@+id/homeFragmentLayout">
 
 
     <ScrollView

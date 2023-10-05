@@ -82,8 +82,8 @@ public class RegisterationActivity extends AppCompatActivity {
     RadioButton btn1, btn2, btn3, btn4;
     RadioGroup radioGroup, radioGroupGender;
     Spinner spinnerBranch;
-SharedPrefManager sharedPrefManager;
-TextToSpeech textToSpeech ;
+    SharedPrefManager sharedPrefManager;
+    TextToSpeech textToSpeech ;
     private DialogInterface.OnClickListener dialogClickListener;
 
     List<hostel> hostelList;
@@ -412,7 +412,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
                 if(response.isSuccessful()){
                     if(responseFromAPI.getMessage().equals("session expire")){
-                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }
@@ -466,7 +466,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
                         if(response.isSuccessful()){
                             if(responseFromAPI.getMessage().equals("back before")){
-                                Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
 //                        finish();
                             }
                         }
@@ -496,7 +496,7 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
                 if(response.isSuccessful()){
                     if(responseFromAPI.getMessage().equals("back before")){
-                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
 //                        finish();
                     }
                 }

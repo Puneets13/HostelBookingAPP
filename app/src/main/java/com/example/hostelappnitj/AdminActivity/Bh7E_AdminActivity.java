@@ -8,6 +8,7 @@ import androidx.cardview.widget.CardView;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -41,6 +42,8 @@ public class Bh7E_AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);  //To make the NIGHT MODE disabled
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         setContentView(R.layout.activity_bh7_e_admin);
 
         etRoomNumber = findViewById(R.id.editRoom);
@@ -141,7 +144,7 @@ public class Bh7E_AdminActivity extends AppCompatActivity {
                                     progressDialog.dismiss();
                                     Toast.makeText(Bh7E_AdminActivity.this, "Room is Empty", Toast.LENGTH_SHORT).show();
                                 }
-                                if (responseFromAPI.getMessage().equals("user found")){
+                                if (responseFromAPI.getMessage().equals("single user found")){
                                     Toast.makeText(Bh7E_AdminActivity.this, "single user exist", Toast.LENGTH_SHORT).show();
                                     person p1 = responseFromAPI.getPerson1();
                                     String email,phone,address,branch,rollNumber,fatherName,fatherPhone,avatar,userName;
@@ -167,7 +170,6 @@ public class Bh7E_AdminActivity extends AppCompatActivity {
                                     intent.putExtra("avatar",avatar);
                                     intent.putExtra("roomNumber",roomNumber);
                                     progressDialog.dismiss();
-
                                     startActivity(intent);
 
                                 }
@@ -227,7 +229,6 @@ public class Bh7E_AdminActivity extends AppCompatActivity {
                 }
             }
         });
-
         btnProccedStudentName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
