@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MessFragments.DailyScannerFragment">
+    tools:context="MessFragments.ExtrasScannerFragment">
 
     <LinearLayout
-        android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/dashboard_bg"
@@ -37,43 +36,14 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:fontFamily="cursive"
             android:padding="@dimen/_18sdp"
-            android:text="Daily Scanner"
-            android:textAlignment="center"
+            android:text="Extra's Scanner"
             android:textColor="@color/white"
-            android:textSize="@dimen/_28sdp" />
+            android:textSize="@dimen/_29sdp" />
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_120sdp"
-        android:src="@drawable/extras_bg"
-        app:layout_constraintBottom_toTopOf="@+id/txtHostelname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/txtHostelname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg_2"
-        android:padding="@dimen/_13sdp"
-        android:text="Daily meal Scanner"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_22sdp"
-        app:layout_constraintBottom_toTopOf="@+id/daily_scanner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-        app:layout_constraintVertical_bias="0.668" />
-
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/daily_scanner"
+        android:id="@+id/extras_scanner"
         android:layout_width="@dimen/_90sdp"
         android:layout_height="@dimen/_90sdp"
         android:layout_gravity="center"
@@ -96,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/daily_scanner"
+        app:layout_constraintTop_toBottomOf="@+id/extras_scanner"
         app:layout_constraintVertical_bias="0.039" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

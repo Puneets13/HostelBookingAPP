@@ -9,45 +9,36 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
-import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
-import com.example.hostelappnitj.Acitvity.RoomConfirmer;
 import com.example.hostelappnitj.Acitvity.successScanActivity;
-import com.example.hostelappnitj.MBH_A_Hostel.Floor_1_SeatMatrix_A;
 import com.example.hostelappnitj.R;
 import com.journeyapps.barcodescanner.CaptureActivity;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
-import java.util.Locale;
-
-
-public class DailyScannerFragment extends Fragment {
-    AppCompatButton btndailyScanner;
-    TextToSpeech textToSpeech ;
-
-
-    public DailyScannerFragment() {
+public class ExtrasScannerFragment extends Fragment {
+    AppCompatButton btnExtrasScanner;
+    public ExtrasScannerFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_daily_scanner, container, false);
-        btndailyScanner = view.findViewById(R.id.daily_scanner);
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_extras_scanner, container, false);
+        btnExtrasScanner = view.findViewById(R.id.extras_scanner);
 
         ScanCode();
 
-        btndailyScanner.setOnClickListener(new View.OnClickListener() {
+        btnExtrasScanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ScanCode();
@@ -61,9 +52,9 @@ public class DailyScannerFragment extends Fragment {
         options.setBeepEnabled(true);
         options.setOrientationLocked(false);
         options.setCaptureActivity(CaptureActivity.class);
-        barLauncher.launch(options);
+        barLauncherExtras.launch(options);
     }
-    ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result->{
+    ActivityResultLauncher<ScanOptions> barLauncherExtras = registerForActivityResult(new ScanContract(), result->{
         if(result.getContents() != null)
         {
 
@@ -75,29 +66,27 @@ public class DailyScannerFragment extends Fragment {
             int hashNumberExtras= ExtraScanner.hashCode();
             String hashCodeExtraNumberString = String.valueOf(hashNumberExtras);
 
-
-            if(hashCodeNumberString.equals(result.getContents())){
-//            Daily scanner
-                Intent intent = new Intent(getActivity(), successScanActivity.class);
-                Toast.makeText(getActivity(), "Daily meal", Toast.LENGTH_SHORT).show();
+            if(hashCodeExtraNumberString.equals(result.getContents())){
+//            Extra scanner
+                Intent intent = new Intent(getActivity(), ExtraSnacksActivity.class);
+                Toast.makeText(getActivity(), "Extra meal", Toast.LENGTH_SHORT).show();
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
 
-            if(hashCodeExtraNumberString.equals(result.getContents())) {
-//            Extra scanner
+            if(hashCodeNumberString.equals(result.getContents())){
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("ALERT");
-                builder.setMessage("Please use Extra's Meal Scanner");
+                builder.setMessage("Please use Daily Meal Scanner");
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
                     }
                 }).show();
-
             }
+
         }
     });
 

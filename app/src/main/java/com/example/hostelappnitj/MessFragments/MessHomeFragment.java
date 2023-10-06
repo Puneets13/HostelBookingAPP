@@ -16,10 +16,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.Acitvity.scannerActivity;
 import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.Hostels.Mess_Rules;
+import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.R;
 import com.journeyapps.barcodescanner.CaptureActivity;
 import com.journeyapps.barcodescanner.ScanContract;
@@ -70,6 +73,12 @@ public class MessHomeFragment extends Fragment {
             }
         });
 
+        btnextrasScanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ScanExtrasCode();
+            }
+        });
         return view;
 
     }
@@ -81,21 +90,85 @@ public class MessHomeFragment extends Fragment {
         options.setCaptureActivity(CaptureActivity.class);
         barLauncher.launch(options);
     }
+    private void ScanExtrasCode() {
+        ScanOptions options = new ScanOptions();
+        options.setPrompt("Volume up to flash on");
+        options.setBeepEnabled(true);
+        options.setOrientationLocked(false);
+        options.setCaptureActivity(CaptureActivity.class);
+        barLauncherExtras.launch(options);
+    }
     ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result->{
         if(result.getContents() != null)
         {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle("Result");
-            builder.setMessage(result.getContents());
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
-                }
-            }).show();
-            Intent intent = new Intent(getActivity(), successScanActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
+
+            String dailyScanner = "@#$%^NIT_MESS_DailyScanner@#$%^";
+            int hashNumberDaily= dailyScanner.hashCode();
+            String hashCodeNumberString = String.valueOf(hashNumberDaily);
+
+            String ExtraScanner = "@#$%^NIT_MESS_ExtraScanner";
+            int hashNumberExtras= ExtraScanner.hashCode();
+            String hashCodeExtraNumberString = String.valueOf(hashNumberExtras);
+
+
+            if(hashCodeNumberString.equals(result.getContents())){
+//            Daily scanner
+                Intent intent = new Intent(getActivity(), successScanActivity.class);
+                Toast.makeText(getActivity(), "Daily meal", Toast.LENGTH_SHORT).show();
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+
+            if(hashCodeExtraNumberString.equals(result.getContents())) {
+//            Extra scanner
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("ALERT");
+                    builder.setMessage("Please use Extra's Meal Scanner");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    }).show();
+
+            }
+        }
+    });
+    ActivityResultLauncher<ScanOptions> barLauncherExtras = registerForActivityResult(new ScanContract(), result->{
+        if(result.getContents() != null)
+        {
+
+
+            String dailyScanner = "@#$%^NIT_MESS_DailyScanner@#$%^";
+            int hashNumberDaily= dailyScanner.hashCode();
+            String hashCodeNumberString = String.valueOf(hashNumberDaily);
+
+            String ExtraScanner = "@#$%^NIT_MESS_ExtraScanner";
+            int hashNumberExtras= ExtraScanner.hashCode();
+            String hashCodeExtraNumberString = String.valueOf(hashNumberExtras);
+
+            if(hashCodeExtraNumberString.equals(result.getContents())){
+//            Extra scanner
+                Intent intent = new Intent(getActivity(), ExtraSnacksActivity.class);
+                Toast.makeText(getActivity(), "Extra meal", Toast.LENGTH_SHORT).show();
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+
+            if(hashCodeNumberString.equals(result.getContents())){
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("ALERT");
+                builder.setMessage("Please use Daily Meal Scanner");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).show();
+            }
+
         }
     });
 

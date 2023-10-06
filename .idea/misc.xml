@@ -17,6 +17,7 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/btn_bg_2.xml" value="0.2025" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/btn_bg_home.xml" value="0.2025" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/btn_bg_mess.xml" value="0.2245" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/btn_bg_otp.xml" value="0.2245" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/btn_bg_white.xml" value="0.2245" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/button_bg.xml" value="0.2545" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/center_path.xml" value="0.2275" />
@@ -25,6 +26,7 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/dashboard_bg.xml" value="0.2025" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/edit.xml" value="0.2395" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/email.xml" value="0.2335" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/extras_bg.xml" value="0.2245" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/gradient.xml" value="0.1895" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/hostel_bg.xml" value="0.2315" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/drawable/ic_back.xml" value="0.167" />
@@ -92,6 +94,7 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_change_password.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_create_profile.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_expulsion_from_hostel_rules.xml" value="0.1638888888888889" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_extra_snacks.xml" value="0.2" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor1_booys_h7.xml" value="0.264" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor1_seat_matrix.xml" value="0.264" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/activity_floor1_seat_matrix2.xml" value="0.264" />
@@ -184,6 +187,7 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_admin_home.xml" value="0.176" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_complaint.xml" value="0.25" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_daily_scanner.xml" value="0.20179563916203505" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_extras_scanner.xml" value="0.20179563916203505" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_help.xml" value="0.264" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_home.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_hostel_policy_.xml" value="0.2" />
@@ -191,7 +195,7 @@
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/fragment_profile.xml" value="0.176" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/header_layout.xml" value="0.176" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/layout/home_container.xml" value="0.10400000000000001" />
-        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/menu/navigation_items.xml" value="0.536" />
+        <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/menu/navigation_items.xml" value="0.2" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2475" />
         <entry key="..\:/Users/HP/HostelAPPNITJ/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2475" />
         <entry key="..\:/Users/thaku/AndroidStudioProjects/HostelBookingAPP/app/src/main/res/drawable/background.xml" value="0.1055" />

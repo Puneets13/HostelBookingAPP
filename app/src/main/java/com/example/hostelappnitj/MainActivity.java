@@ -37,6 +37,7 @@ import com.example.hostelappnitj.Fragments.HelpFragment;
 import com.example.hostelappnitj.Fragments.HostelPolicy_Fragment;
 import com.example.hostelappnitj.Fragments.homeFragment;
 import com.example.hostelappnitj.MessFragments.DailyScannerFragment;
+import com.example.hostelappnitj.MessFragments.ExtrasScannerFragment;
 import com.example.hostelappnitj.MessFragments.MessHomeFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -166,9 +167,14 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
                     case R.id.daily_scanner:
-                        toolbar.setTitle("Scanner");
+                        toolbar.setTitle("Daily Meal Scanner");
                         toolbar.setTitleTextColor(Color.WHITE);
                         fragment = new DailyScannerFragment();
+                        break;
+                    case R.id.extra_scanner:
+                        toolbar.setTitle("Extra's Meal Scanner");
+                        toolbar.setTitleTextColor(Color.WHITE);
+                        fragment = new ExtrasScannerFragment();
                         break;
 
 
