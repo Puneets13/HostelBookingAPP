@@ -6,6 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".Acitvity.successScanActivity">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:src="@drawable/extras_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtHostelname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_bg_2"
+        android:padding="@dimen/_13sdp"
+        android:text="Boys Hostel 2"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_22sdp"
+        app:layout_constraintBottom_toTopOf="@+id/txtStudentName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18" />
+
+    <!--    <TextView-->
+<!--        android:id="@+id/txtHostelname"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Boys Hostel 2"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="@dimen/_22sdp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/txtStudentName"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
     <TextView
         android:id="@+id/txtStudentName"
         android:layout_width="wrap_content"
@@ -14,36 +52,28 @@
         android:textColor="@color/black"
         android:textSize="@dimen/_22sdp"
 
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintBottom_toTopOf="@+id/imgCircle"
         app:layout_constraintEnd_toStartOf="@+id/txtStudentRollNumber"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.202"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.859" />
 
     <TextView
-        android:id="@+id/txtHostelname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Boys Hostel 2"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_22sdp"
-        app:layout_constraintBottom_toTopOf="@+id/txtStudentName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/txtroomNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="324"
-        android:textColor="@color/black"
+        android:text="344"
+        android:textColor="@color/white"
         android:textSize="@dimen/_22sdp"
+        android:background="@drawable/btn_bg_2"
+        android:padding="@dimen/_15sdp"
         app:layout_constraintBottom_toTopOf="@+id/txtStudentName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtHostelname" />
+        app:layout_constraintTop_toBottomOf="@+id/txtHostelname"
+        app:layout_constraintVertical_bias="0.393" />
 
     <TextView
         android:id="@+id/txtStudentRollNumber"
@@ -52,14 +82,14 @@
         android:text="20102059"
         android:textColor="@color/black"
         android:textSize="@dimen/_22sdp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintBottom_toTopOf="@+id/imgCircle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtroomNumber"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.859" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imgCircle"
         android:layout_width="211dp"
         android:layout_height="196dp"
         android:src="@drawable/successful_transaction"
@@ -69,6 +99,114 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.445" />
+
+    <ImageView
+        android:id="@+id/img9"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:src="@drawable/circle_1"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmail"
+        app:layout_constraintEnd_toStartOf="@+id/imgCircle"
+        app:layout_constraintTop_toBottomOf="@+id/txtStudentName"
+        app:layout_constraintVertical_bias="0.474" />
+
+    <ImageView
+        android:layout_width="@dimen/_10sdp"
+        android:layout_height="@dimen/_10sdp"
+        android:layout_marginEnd="92dp"
+        android:src="@drawable/circle_2"
+        app:layout_constraintBottom_toTopOf="@+id/txtTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStudentRollNumber"
+        app:layout_constraintVertical_bias="0.358" />
+
+    <ImageView
+        android:id="@+id/img8"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginEnd="44dp"
+        android:src="@drawable/circle_1"
+        app:layout_constraintBottom_toTopOf="@+id/txtTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStudentRollNumber"
+        app:layout_constraintVertical_bias="0.224" />
+
+    <ImageView
+        android:id="@+id/img7"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginEnd="160dp"
+        android:src="@drawable/circle_1"
+        app:layout_constraintBottom_toTopOf="@+id/txtTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStudentRollNumber"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <ImageView
+        android:id="@+id/img6"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginEnd="80dp"
+        android:src="@drawable/circle_2"
+        app:layout_constraintBottom_toTopOf="@+id/txtTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStudentRollNumber"
+        app:layout_constraintVertical_bias="0.142" />
+
+    <ImageView
+        android:id="@+id/img5"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginEnd="52dp"
+        android:src="@drawable/circle_1"
+        app:layout_constraintBottom_toTopOf="@+id/txtTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStudentRollNumber"
+        app:layout_constraintVertical_bias="0.716" />
+
+    <ImageView
+        android:id="@+id/img4"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginEnd="168dp"
+        android:src="@drawable/circle_2"
+        app:layout_constraintBottom_toTopOf="@+id/txtTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCircle"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/img3"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginEnd="260dp"
+        android:src="@drawable/circle_2"
+        app:layout_constraintBottom_toTopOf="@+id/txtTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCircle"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_marginEnd="300dp"
+        android:src="@drawable/circle_2"
+        app:layout_constraintBottom_toTopOf="@+id/txtTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStudentName"
+        app:layout_constraintVertical_bias="0.157" />
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="272dp"
+        android:src="@drawable/circle_2"
+        app:layout_constraintBottom_toTopOf="@+id/txtTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtStudentName"
+        app:layout_constraintVertical_bias="0.18" />
 
     <TextView
         android:id="@+id/txtTime"
@@ -80,7 +218,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/imgCircle"
         app:layout_constraintVertical_bias="0.242" />
 
 <!--    <TextView-->

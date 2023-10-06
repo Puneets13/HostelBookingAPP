@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nitj_mess:
-                        toolbar.setTitle("NITJ HOSTELS");
+                        toolbar.setTitle("NITJ MESS");
                         toolbar.setTitleTextColor(Color.WHITE);
                         if( sharedPrefManager.getAdmin().equals("Admin")){
                             fragment = new AdminHomeFragment();

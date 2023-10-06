@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,9 @@ import com.journeyapps.barcodescanner.CaptureActivity;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 
@@ -44,6 +48,24 @@ public class DailyScannerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_daily_scanner, container, false);
         btndailyScanner = view.findViewById(R.id.daily_scanner);
+
+        //        text To speech
+        textToSpeech = new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
+
+            @Override
+            public void onInit(int i) {
+                if (i == TextToSpeech.SUCCESS) {
+                    int result = textToSpeech.setLanguage(Locale.US);
+                    if (result == TextToSpeech.LANG_MISSING_DATA ||
+                            result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                        Log.e("TTS", "Lenguage not supported");
+                    }
+                } else {
+                    Log.e("TTS", "Initialization failed");
+                }
+            }
+        });
+
 
         ScanCode();
 
@@ -78,8 +100,14 @@ public class DailyScannerFragment extends Fragment {
 
             if(hashCodeNumberString.equals(result.getContents())){
 //            Daily scanner
+                DateFormat dateFormat2 = new SimpleDateFormat("hh mm aa");
+                String dateString2 = dateFormat2.format(new Date()).toString();
+                String speak =  " Time "+ dateString2 + " Enjoy Your Meal";
+                textToSpeech.setSpeechRate(1);
+                textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
+
                 Intent intent = new Intent(getActivity(), successScanActivity.class);
-                Toast.makeText(getActivity(), "Daily meal", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "Daily meal", Toast.LENGTH_SHORT).show();
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
