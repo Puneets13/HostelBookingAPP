@@ -182,11 +182,11 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(Call<DailyScannerModel> call, Response<DailyScannerModel> response) {
                                 DailyScannerModel responseFromAPI = response.body();
-                                Toast.makeText(MainActivity.this, "received", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(MainActivity.this, "received", Toast.LENGTH_SHORT).show();
                                 if(response.isSuccessful()){
-                                    if(responseFromAPI.getMessage().equals("success")){
+                                    if(responseFromAPI.getMessage().equals("success")  || responseFromAPI.getMessage().equals("already exist") ){
                                       flag=true;
-                                        Toast.makeText(MainActivity.this, "response from api", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, "You can access", Toast.LENGTH_SHORT).show();
                                         toolbar.setTitle("NITJ MESS");
                                         toolbar.setTitleTextColor(Color.WHITE);
                                         if( sharedPrefManager.getAdmin().equals("Admin")){
@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
 
-                        if(flag==true){
+//                        if(flag==true){
 //                            toolbar.setTitle("NITJ MESS");
 //                            toolbar.setTitleTextColor(Color.WHITE);
 //                            if( sharedPrefManager.getAdmin().equals("Admin")){
@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
 //                            }else{
 //                                fragment = new MessHomeFragment();    //passing the new fragment that we have created
 //                            }
-                        }else{
+//                        }else{
 //                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 //                            builder.setTitle("ALERT");
 //                            builder.setMessage("You haven't registered for hostel");
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
 //                                    drawerLayout.closeDrawer(GravityCompat.START);  //to close the drawer when any item is clicked
 //                                }
 //                            }).show();
-                        }
+//                        }
                         break;
                     case R.id.daily_scanner:
                         toolbar.setTitle("Daily Meal Scanner");
