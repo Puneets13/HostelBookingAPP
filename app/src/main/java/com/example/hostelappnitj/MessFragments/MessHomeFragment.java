@@ -56,6 +56,8 @@ public class MessHomeFragment extends Fragment {
         btnAttendance = view.findViewById(R.id.attendance);
         btnInvoice = view.findViewById(R.id.invoice);
 
+
+
         //        text To speech
         textToSpeech = new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
 

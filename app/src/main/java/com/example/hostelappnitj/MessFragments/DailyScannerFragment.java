@@ -121,55 +121,55 @@ public class DailyScannerFragment extends Fragment {
 
             if(hashCodeNumberString.equals(result.getContents())){
 //            Daily scanner
-//                progressDialog = new ProgressDialog(getActivity());
-//                progressDialog.setTitle("Processing");
-//                progressDialog.setMessage("Transaction in progress..");
-//                progressDialog.show();
-//                progressDialog.setCancelable(false);
+                progressDialog = new ProgressDialog(getActivity());
+                progressDialog.setTitle("Processing");
+                progressDialog.setMessage("Transaction in progress..");
+                progressDialog.show();
+                progressDialog.setCancelable(false);
 
-//                DailyScannerModel model = new DailyScannerModel(roomNumber,rollNumber,hostelName);
-//                Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().getDailyMeal(model);
-//                call.enqueue(new Callback<DailyScannerModel>() {
-//                    @Override
-//                    public void onResponse(Call<DailyScannerModel> call, Response<DailyScannerModel> response) {
-//                        progressDialog.dismiss();
-//                       DailyScannerModel responseFromAPI = response.body();
-//                        if(response.isSuccessful()){
-//                           if(responseFromAPI.getMessage().equals("success")){
-//                               Toast.makeText(getActivity(), "received", Toast.LENGTH_SHORT).show();
-////                               DateFormat dateFormat2 = new SimpleDateFormat("hh mm aa");
-////                               String dateString2 = dateFormat2.format(new Date()).toString();
-////                               String speak =  " Time "+ dateString2 + " Enjoy Your Meal";
-////                               textToSpeech.setSpeechRate(1);
-////                               textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
-//
-//                               Intent intent = new Intent(getActivity(), successScanActivity.class);
-////                Toast.makeText(getActivity(), "Daily meal", Toast.LENGTH_SHORT).show();
-//                               intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-//                               startActivity(intent);
-//
-//                            }else {
-//                               Toast.makeText(getActivity(), "Transaction Failed", Toast.LENGTH_SHORT).show();
-//                           }
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<DailyScannerModel> call, Throwable t) {
-//                        progressDialog.dismiss();
-//                        Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
+                DailyScannerModel model = new DailyScannerModel(roomNumber,rollNumber,hostelName);
+                Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().getDailyMeal(model);
+                call.enqueue(new Callback<DailyScannerModel>() {
+                    @Override
+                    public void onResponse(Call<DailyScannerModel> call, Response<DailyScannerModel> response) {
+                        progressDialog.dismiss();
+                       DailyScannerModel responseFromAPI = response.body();
+                        if(response.isSuccessful()){
+                           if(responseFromAPI.getMessage().equals("success")){
+                               Toast.makeText(getActivity(), "received", Toast.LENGTH_SHORT).show();
+                               DateFormat dateFormat2 = new SimpleDateFormat("hh mm aa");
+                               String dateString2 = dateFormat2.format(new Date()).toString();
+                               String speak =  " Time "+ dateString2 + " Enjoy Your Meal";
+                               textToSpeech.setSpeechRate(1);
+                               textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
 
-                DateFormat dateFormat2 = new SimpleDateFormat("hh mm aa");
-                String dateString2 = dateFormat2.format(new Date()).toString();
-                String speak =  " Time "+ dateString2 + " Enjoy Your Meal";
-                textToSpeech.setSpeechRate(1);
-                textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
-                Intent intent = new Intent(getActivity(), successScanActivity.class);
-////                Toast.makeText(getActivity(), "Daily meal", Toast.LENGTH_SHORT).show();
+                               Intent intent = new Intent(getActivity(), successScanActivity.class);
+//                Toast.makeText(getActivity(), "Daily meal", Toast.LENGTH_SHORT).show();
                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                startActivity(intent);
+
+                            }else {
+                               Toast.makeText(getActivity(), "Transaction Failed", Toast.LENGTH_SHORT).show();
+                           }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<DailyScannerModel> call, Throwable t) {
+                        progressDialog.dismiss();
+                        Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+//                DateFormat dateFormat2 = new SimpleDateFormat("hh mm aa");
+//                String dateString2 = dateFormat2.format(new Date()).toString();
+//                String speak =  " Time "+ dateString2 + " Enjoy Your Meal";
+//                textToSpeech.setSpeechRate(1);
+//                textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
+//                Intent intent = new Intent(getActivity(), successScanActivity.class);
+//////                Toast.makeText(getActivity(), "Daily meal", Toast.LENGTH_SHORT).show();
+//                               intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                               startActivity(intent);
 
             }
             if(hashCodeExtraNumberString.equals(result.getContents())) {

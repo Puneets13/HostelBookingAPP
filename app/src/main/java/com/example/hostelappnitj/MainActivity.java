@@ -23,12 +23,14 @@ import android.graphics.PorterDuff;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.SignInActivity;
+import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.AdminActivity.AdminHomeFragment;
 import com.example.hostelappnitj.Fragments.AboutFragment;
 import com.example.hostelappnitj.Fragments.AccountSettings_Fragment;
@@ -39,16 +41,28 @@ import com.example.hostelappnitj.Fragments.homeFragment;
 import com.example.hostelappnitj.MessFragments.DailyScannerFragment;
 import com.example.hostelappnitj.MessFragments.ExtrasScannerFragment;
 import com.example.hostelappnitj.MessFragments.MessHomeFragment;
+import com.example.hostelappnitj.ModelResponse.DailyScannerModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    String rollNumber , hostelName , roomNumber;
     SharedPrefManager sharedPrefManager;
     private final static String TAG_FRAGMENT = "TAG_FRAGMENT";
     private DialogInterface.OnClickListener dialogClickListener;
+    boolean flag = false;
+    Fragment fragment =null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
         sharedPrefManager=new SharedPrefManager(MainActivity.this);
         setSupportActionBar(toolbar );
 
+
+        rollNumber = sharedPrefManager.getUser().getRollNumber();
+        hostelName=sharedPrefManager.getHostelUser().getHostelName();
+        roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
 
 
         Intent intent = getIntent();
@@ -118,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment =null;
+//                Fragment fragment =null;
                 switch (item.getItemId()) {
                     case R.id.nitj_hostels:
                         toolbar.setTitle("NITJ HOSTELS");
@@ -158,12 +176,65 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nitj_mess:
-                        toolbar.setTitle("NITJ MESS");
-                        toolbar.setTitleTextColor(Color.WHITE);
-                        if( sharedPrefManager.getAdmin().equals("Admin")){
-                            fragment = new AdminHomeFragment();
+                        DailyScannerModel model = new DailyScannerModel(roomNumber,rollNumber,hostelName);
+                        Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().createMessAccount(model);
+                        call.enqueue(new Callback<DailyScannerModel>() {
+                            @Override
+                            public void onResponse(Call<DailyScannerModel> call, Response<DailyScannerModel> response) {
+                                DailyScannerModel responseFromAPI = response.body();
+                                Toast.makeText(MainActivity.this, "received", Toast.LENGTH_SHORT).show();
+                                if(response.isSuccessful()){
+                                    if(responseFromAPI.getMessage().equals("success")){
+                                      flag=true;
+                                        Toast.makeText(MainActivity.this, "response from api", Toast.LENGTH_SHORT).show();
+                                        toolbar.setTitle("NITJ MESS");
+                                        toolbar.setTitleTextColor(Color.WHITE);
+                                        if( sharedPrefManager.getAdmin().equals("Admin")){
+                                            fragment = new AdminHomeFragment();
+                                        }else{
+                                            fragment = new MessHomeFragment();    //passing the new fragment that we have created
+                                        }
+                                    }else{
+                                        Toast.makeText(MainActivity.this, "You havnen't registered", Toast.LENGTH_SHORT).show();
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                        builder.setTitle("ALERT");
+                                        builder.setMessage("You haven't registered for hostel");
+                                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.dismiss();
+                                                drawerLayout.closeDrawer(GravityCompat.START);  //to close the drawer when any item is clicked
+                                            }
+                                        }).show();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<DailyScannerModel> call, Throwable t) {
+                                Toast.makeText(MainActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        if(flag==true){
+//                            toolbar.setTitle("NITJ MESS");
+//                            toolbar.setTitleTextColor(Color.WHITE);
+//                            if( sharedPrefManager.getAdmin().equals("Admin")){
+//                                fragment = new AdminHomeFragment();
+//                            }else{
+//                                fragment = new MessHomeFragment();    //passing the new fragment that we have created
+//                            }
                         }else{
-                            fragment = new MessHomeFragment();    //passing the new fragment that we have created
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//                            builder.setTitle("ALERT");
+//                            builder.setMessage("You haven't registered for hostel");
+//                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                @Override
+//                                public void onClick(DialogInterface dialogInterface, int i) {
+//                                    dialogInterface.dismiss();
+//                                    drawerLayout.closeDrawer(GravityCompat.START);  //to close the drawer when any item is clicked
+//                                }
+//                            }).show();
                         }
                         break;
                     case R.id.daily_scanner:

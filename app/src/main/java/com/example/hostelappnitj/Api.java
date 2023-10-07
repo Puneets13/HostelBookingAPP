@@ -160,6 +160,10 @@ public interface Api {
             @Body DailyScannerModel dailyScannerModel
     );
 
+    @POST("hostelbook/createmessaccount")
+    Call<DailyScannerModel>createMessAccount(
+            @Body DailyScannerModel dailyScannerModel
+    );
 //    @Multipart
 //    @POST("XXXX") resetPassword
 //    Call<HostelRegisterationResponse> update(@Part(SyncStateContract.Constants.ACTION_ID) RequestBody actionId, @Part(Constants.OFFER_CODE) RequestBody offerCode);
