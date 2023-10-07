@@ -49,7 +49,7 @@ ImageView img1 , img2 , img3 , img4 , img5 , img6 , img7 , img8 , img9 , imageCi
         img9 = findViewById(R.id.img9);
         imageCircle=findViewById(R.id.imgCircle);
 
-        sharedPrefManager= new SharedPrefManager(this.getApplicationContext());
+        sharedPrefManager= new SharedPrefManager(successScanActivity.this);
 
         fadeAnim= AnimationUtils.loadAnimation(this,R.anim.middle_anim_success);
         zoom_out=AnimationUtils.loadAnimation(this,R.anim.zoom_out_success);

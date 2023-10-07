@@ -278,6 +278,8 @@ sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
                             if (responseFromApi.getMessage().equals("success")) {
                                 progressDialog.dismiss();
                                 sharedPrefManager.SaveHostelUser(responseFromApi.getHostel());
+                                String roomn = sharedPrefManager.getHostelUser().getRoomNumber();
+                                Toast.makeText(RegisterationActivity.this, roomn , Toast.LENGTH_SHORT).show();
                                 etAddress.setText("");
                                 etFatherName.setText("");
                                 etFatherPhone.setText("");

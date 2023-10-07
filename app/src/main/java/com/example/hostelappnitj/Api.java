@@ -4,6 +4,7 @@ import android.provider.SyncStateContract;
 
 import com.example.hostelappnitj.Acitvity.OTPActivity;
 import com.example.hostelappnitj.ModelResponse.CreateProfileResponse;
+import com.example.hostelappnitj.ModelResponse.DailyScannerModel;
 import com.example.hostelappnitj.ModelResponse.DataModel;
 import com.example.hostelappnitj.ModelResponse.ForgetpassModel;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
@@ -152,6 +153,11 @@ public interface Api {
     @POST("hostelbook/searchbyEmailProfile")
     Call<HostelRegisterationResponse>getRoomsRuntime(
       @Body HostelRegisterationResponse hostelRegisterationResponse
+    );
+
+    @POST("hostelbook/getdailymeal")
+    Call<DailyScannerModel>getDailyMeal(
+            @Body DailyScannerModel dailyScannerModel
     );
 
 //    @Multipart
