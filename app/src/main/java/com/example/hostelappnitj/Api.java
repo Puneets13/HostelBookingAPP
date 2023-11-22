@@ -14,6 +14,7 @@ import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.UpdateUserResponse;
 import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
+import com.example.hostelappnitj.ModelResponse.fetchmealRecord;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
 import com.example.hostelappnitj.ModelResponse.leaveModel;
@@ -190,6 +191,11 @@ public interface Api {
     @POST("hostelbook/countDietPerMonth")
     Call<leaveModel>countDietPerMonth(
             @Body leaveModel leaveModel
+    );
+
+    @POST("hostelbook/getDietRecordList")
+    Call<fetchmealRecord>getMealRecord(
+            @Body fetchmealRecord fetchmealRecord
     );
 
 //    @Multipart

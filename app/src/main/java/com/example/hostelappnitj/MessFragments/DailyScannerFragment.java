@@ -159,10 +159,16 @@ public class DailyScannerFragment extends Fragment {
                 else if (hour >= 12 && hour < 15) {   // 12:00PM to 3:00PM
 //                    System.out.println("Good Afternoon!");
                     mealType = "lunch";
-                } else if ((hour >= 19 && hour < 22 && minute >= 30) || (hour == 22 && minute <= 30)) { // 7:30 PM to 10:30 PM
+                }
+//                else if ((hour >= 19 && hour < 22 && minute >= 30) || (hour == 22 && minute <= 30)) { // 7:30 PM to 10:30 PM
+////                    System.out.println("Good Evening!");
+//                    mealType = "dinner";
+//                }
+                else if ((hour >= 15 && hour < 22 ) ) { // 7:30 PM to 10:30 PM
 //                    System.out.println("Good Evening!");
                     mealType = "dinner";
-                } else {
+                }
+                else {
 //                    System.out.println("Hello!");
                     Toast.makeText(getActivity(), "Visit in Mess Timings", Toast.LENGTH_SHORT).show();
                 }

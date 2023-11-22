@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
+import com.example.hostelappnitj.Acitvity.dietRecordActivity;
 import com.example.hostelappnitj.Acitvity.scannerActivity;
 import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.Hostels.Mess_Rules;
@@ -53,7 +54,7 @@ import retrofit2.Response;
 
 public class MessHomeFragment extends Fragment {
     ImageView imageViewHostels ;
-    AppCompatButton btndailyScanner , btnextrasScanner , btnApplyLeave , btnInvoice;
+    AppCompatButton btndailyScanner , btnextrasScanner , btnApplyLeave , btnInvoice , btnDietRecord;
     TextToSpeech textToSpeech ;
     SharedPrefManager sharedPrefManager;
     private DialogInterface.OnClickListener dialogClickListener;
@@ -77,6 +78,7 @@ public class MessHomeFragment extends Fragment {
         btndailyScanner = view.findViewById(R.id.daily_scanner);
         btnextrasScanner = view.findViewById(R.id.extras_scanner);
         btnApplyLeave = view.findViewById(R.id.getLeave);
+        btnDietRecord=view.findViewById(R.id.dietRecord);
         btnInvoice = view.findViewById(R.id.invoice);
         txtEmail = view.findViewById(R.id.txtEmail);
 
@@ -128,6 +130,10 @@ public class MessHomeFragment extends Fragment {
         handler.postDelayed(runnable, 2000);
 
 
+
+
+
+
         btndailyScanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,6 +159,14 @@ public class MessHomeFragment extends Fragment {
         });
 
 
+        btnDietRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), dietRecordActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
         floatingActionButton_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -261,10 +275,16 @@ public class MessHomeFragment extends Fragment {
             else if (hour >= 12 && hour < 15) {   // 12:00PM to 3:00PM
 //                    System.out.println("Good Afternoon!");
                 mealType = "lunch";
-            } else if ((hour >= 19 && hour < 22 && minute >= 30) || (hour == 22 && minute <= 30)) { // 7:30 PM to 10:30 PM
+            }
+//            else if ((hour >= 19 && hour < 22 && minute >= 30) || (hour == 22 && minute <= 30)) { // 7:30 PM to 10:30 PM
+////                    System.out.println("Good Evening!");
+//                mealType = "dinner";
+//            }
+            else if ((hour >= 15 && hour < 22 ) ) { // 7:30 PM to 10:30 PM
 //                    System.out.println("Good Evening!");
                 mealType = "dinner";
-            } else {
+            }
+            else {
 //                    System.out.println("Hello!");
                 Toast.makeText(getActivity(), "Visit in Mess Timings", Toast.LENGTH_SHORT).show();
             }

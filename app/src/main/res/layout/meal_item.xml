@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginRight="@dimen/_15sdp"
+    android:layout_marginLeft="@dimen/_15sdp"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:padding="@dimen/_10sdp"
+    app:cardElevation="15dp"
+    app:cardCornerRadius="15dp"
+    app:cardBackgroundColor="#CADFDF"
+    android:background="@drawable/bg_gradient1"
+    android:layout_marginTop="@dimen/_20sdp"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_gradient1"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/etDate"
+            android:padding="6dp"
+            android:text="2023-08-02"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            android:drawableLeft="@drawable/ic_calender"
+            android:drawableTint="@color/white"
+            android:drawablePadding="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/etbreakfast"
+            android:padding="6dp"
+            android:text="breakfast"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
+            android:drawableLeft="@drawable/ic_breakfast5"
+            android:drawableTint="@color/white"
+            android:drawablePadding="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/etlunch"
+            android:padding="6dp"
+            android:text="lunch"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
+            android:drawableLeft="@drawable/ic_lunch"
+            android:drawableTint="@color/white"
+            android:drawablePadding="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/etdinner"
+            android:padding="6dp"
+            android:text="Dinner"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:paddingLeft="10dp"
+            android:drawableLeft="@drawable/ic_food_bank"
+            android:drawableTint="@color/white"
+            android:drawablePadding="10dp"
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

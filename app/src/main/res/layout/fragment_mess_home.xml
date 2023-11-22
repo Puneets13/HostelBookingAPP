@@ -158,7 +158,7 @@
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="@dimen/_45sdp"
                         android:layout_height="@dimen/_40sdp"
-                        android:id="@+id/Apply_leave"
+                        android:id="@+id/dietRecord"
                         android:foreground="@drawable/ic_attendance"
                         android:foregroundTint="@color/white"
                         android:background="@drawable/btn_bg_white"
@@ -169,7 +169,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_9sdp"
-                        android:text="  Leave \nRecord"
+                        android:text="  Diet \nRecord"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
