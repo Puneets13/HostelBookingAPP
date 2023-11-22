@@ -141,7 +141,7 @@ public class RegisterationActivity extends AppCompatActivity {
 //        txtBranch.setText(branch);
 //        Toast.makeText(this, roomNum, Toast.LENGTH_SHORT).show();
         etRoomNumber.setText(roomNum);
-sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
+        sharedPrefManager=new SharedPrefManager(RegisterationActivity.this);
 
 //        setting spinner for branch
         //get the spinner from the xml.

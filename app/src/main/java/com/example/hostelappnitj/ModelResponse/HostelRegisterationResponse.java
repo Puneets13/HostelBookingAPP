@@ -14,6 +14,15 @@ public class HostelRegisterationResponse {
     private String rollNumber,roomNumber,hostelName;
     private String  phone , address,branch,fatherPhone , fatherName;
 
+
+    public HostelRegisterationResponse(String userName, String email, String rollNumber, String roomNumber, String hostelName) {
+        this.userName = userName;
+        this.email = email;
+        this.rollNumber = rollNumber;
+        this.roomNumber = roomNumber;
+        this.hostelName = hostelName;
+    }
+
     @SerializedName("hostels")    //means the actuall name in the response is users but we are using userList so we serialized annotations
     List<hostel> hostelList;
     String error;

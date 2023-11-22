@@ -3,6 +3,7 @@ package com.example.hostelappnitj.Acitvity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -10,18 +11,28 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.ModelResponse.DailyScannerModel;
 import com.example.hostelappnitj.R;
+import com.example.hostelappnitj.RetrofitClient;
+import com.example.hostelappnitj.SharedPrefManager;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ExtraSnacksActivity extends AppCompatActivity {
     EditText etExtraAmount;
     TextToSpeech textToSpeech ;
 
     AppCompatButton btnConfirmPayment;
+    String rollNumber , hostelName , roomNumber;
+    SharedPrefManager sharedPrefManager;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +42,12 @@ public class ExtraSnacksActivity extends AppCompatActivity {
 
         DateFormat dateFormat2 = new SimpleDateFormat("hh.mm aa");
         String dateString2 = dateFormat2.format(new Date()).toString();
-//        System.out.println("Current date and time in AM/PM: "+dateString2);
+
+        sharedPrefManager=new SharedPrefManager(ExtraSnacksActivity.this);
+        rollNumber = sharedPrefManager.getUser().getRollNumber();
+        hostelName=sharedPrefManager.getHostelUser().getHostelName();
+        roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
+
 
         //        text To speech
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -59,12 +75,43 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                     return;
                 }else{
 //
-                    String speak =  amount +" coins received.   Enjoy your meal";
-                    textToSpeech.setSpeechRate(1);
-                    textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
-                    Intent intent = new Intent(ExtraSnacksActivity.this, successScanActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
+                    progressDialog = new ProgressDialog(ExtraSnacksActivity.this);
+                    progressDialog.setTitle("Processing");
+                    progressDialog.setMessage("Transaction in progress..");
+                    progressDialog.show();
+                    progressDialog.setCancelable(false);
+
+//                    DailyScannerModel model = new DailyScannerModel(roomNumber,rollNumber,hostelName,amountInt);
+                    DailyScannerModel model = new DailyScannerModel(roomNumber,rollNumber,hostelName,amountInt);
+                    Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().getExtraMeal(model);
+                    call.enqueue(new Callback<DailyScannerModel>() {
+                        @Override
+                        public void onResponse(Call<DailyScannerModel> call, Response<DailyScannerModel> response) {
+                            progressDialog.dismiss();
+                            DailyScannerModel responseFromAPI = response.body();
+                            if(response.isSuccessful()){
+                                if(responseFromAPI.getMessage().equals("success")){
+
+                                    String speak =  amount +" coins received.   Enjoy your meal";
+                                    textToSpeech.setSpeechRate(1);
+                                    textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
+                                    Intent intent = new Intent(ExtraSnacksActivity.this, successScanActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                    finish();
+
+                                }else {
+                                    Toast.makeText(ExtraSnacksActivity.this, "Transaction Failed", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<DailyScannerModel> call, Throwable t) {
+                            progressDialog.dismiss();
+                            Toast.makeText(ExtraSnacksActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
 
 

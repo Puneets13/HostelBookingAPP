@@ -34,7 +34,7 @@ ImageView img1 , img2 , img3 , img4 , img5 , img6 , img7 , img8 , img9 , imageCi
         txtTime = findViewById(R.id.txtTime);
         txtStudentName = findViewById(R.id.txtStudentName);
         txtRollNumber = findViewById(R.id.txtStudentRollNumber);
-        txtRoomNumber = findViewById(R.id.txtStudentRoomNumber);
+        txtRoomNumber = findViewById(R.id.txtroomNumber);
         txtHostelname = findViewById(R.id.txtHostelname);
         txtEmail = findViewById(R.id.txtEmail);
 
@@ -70,11 +70,12 @@ ImageView img1 , img2 , img3 , img4 , img5 , img6 , img7 , img8 , img9 , imageCi
         String dateString2 = dateFormat2.format(new Date()).toString();
 //        System.out.println("Current date and time in AM/PM: "+dateString2);
         txtTime.setText(dateString2);
-        txtEmail.setText(sharedPrefManager.getUser().getEmail());
-        txtHostelname.setText(sharedPrefManager.getHostelUser().getHostelName());
-        txtRollNumber.setText(sharedPrefManager.getUser().getRollNumber());
-//        txtRoomNumber.setText(sharedPrefManager.getHostelUser().getRoomNumber());
-        txtStudentName.setText(sharedPrefManager.getUser().getUsername());
+//        shared prefernce set while creating mess account
+        txtEmail.setText(sharedPrefManager.getHostelResponse().getEmail());
+        txtHostelname.setText(sharedPrefManager.getHostelResponse().getHostelName());
+        txtRollNumber.setText(sharedPrefManager.getHostelResponse().getRollNumber());
+        txtRoomNumber.setText(sharedPrefManager.getHostelResponse().getRoomNumber());
+        txtStudentName.setText(sharedPrefManager.getUser().getUsername());   // from getHotelUser I am not able to check
 
 
     }

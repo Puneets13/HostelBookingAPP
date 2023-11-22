@@ -3,6 +3,7 @@ package com.example.hostelappnitj;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.User;
 import com.example.hostelappnitj.ModelResponse.hostel;
 
@@ -32,6 +33,30 @@ public class SharedPrefManager {
         editor.putBoolean("logged",true);   //to check wheater the user is logged in or not
         editor.apply();
     }
+
+    public void SaveHostelMessUser(hostelResponse hostelResponse){
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME,context.MODE_PRIVATE);
+        editor= sharedPreferences.edit();
+        editor.putString("userName",hostelResponse.getUserName());
+        editor.putString("email", hostelResponse.getEmail());
+        editor.putString("rollNumber", hostelResponse.getRollNumber());
+        editor.putString("roomNumber", hostelResponse.getRoomNumber());
+        editor.putString("hostelName", hostelResponse.getHostelName());
+        editor.apply();
+
+    }
+    public hostelResponse getHostelResponse(){
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return new hostelResponse(
+                sharedPreferences.getString("userName",null),
+                sharedPreferences.getString("email",null),
+                sharedPreferences.getString("rollNumber",null),
+                sharedPreferences.getString("roomNumber", null),
+                sharedPreferences.getString("hostelName", null)
+
+                );
+    }
+
 
     public boolean isloggedIn() {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);

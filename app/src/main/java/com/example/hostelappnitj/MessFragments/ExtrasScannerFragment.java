@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.R;
+import com.example.hostelappnitj.SharedPrefManager;
 import com.journeyapps.barcodescanner.CaptureActivity;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
@@ -31,7 +32,8 @@ import java.util.Locale;
 public class ExtrasScannerFragment extends Fragment {
     AppCompatButton btnExtrasScanner;
     TextToSpeech textToSpeech ;
-
+    String rollNumber , hostelName , roomNumber;
+    SharedPrefManager sharedPrefManager;
     public ExtrasScannerFragment() {
         // Required empty public constructor
     }
@@ -44,10 +46,11 @@ public class ExtrasScannerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_extras_scanner, container, false);
         btnExtrasScanner = view.findViewById(R.id.extras_scanner);
+
+
 //        text To speech
         textToSpeech = new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
-
-        @Override
+            @Override
         public void onInit(int i) {
             if (i == TextToSpeech.SUCCESS) {
                 int result = textToSpeech.setLanguage(Locale.US);

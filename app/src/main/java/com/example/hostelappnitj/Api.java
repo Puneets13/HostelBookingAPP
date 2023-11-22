@@ -16,6 +16,7 @@ import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
 import com.example.hostelappnitj.ModelResponse.hostel;
 import com.example.hostelappnitj.ModelResponse.hostel_ID_Response;
+import com.example.hostelappnitj.ModelResponse.leaveModel;
 import com.example.hostelappnitj.ModelResponse.resetPasswordModel;
 import com.example.hostelappnitj.ModelResponse.studentListModel;
 
@@ -160,10 +161,37 @@ public interface Api {
             @Body DailyScannerModel dailyScannerModel
     );
 
+
+    @POST("hostelbook/getextrameal")
+    Call<DailyScannerModel>getExtraMeal(
+            @Body DailyScannerModel dailyScannerModel
+    );
+
     @POST("hostelbook/createmessaccount")
     Call<DailyScannerModel>createMessAccount(
             @Body DailyScannerModel dailyScannerModel
     );
+
+    @POST("hostelbook/createmonthlydietRecord")
+    Call<DailyScannerModel>DailyCodeScanner(
+            @Body DailyScannerModel dailyScannerModel
+    );
+
+    @POST("hostelbook/applyLeave")
+    Call<leaveModel>applyLeave(
+            @Body leaveModel leaveModel
+    );
+
+    @POST("hostelbook/countDietOfStudent")
+    Call<leaveModel>countTotalDiet(
+            @Body leaveModel leaveModel
+    );
+
+    @POST("hostelbook/countDietPerMonth")
+    Call<leaveModel>countDietPerMonth(
+            @Body leaveModel leaveModel
+    );
+
 //    @Multipart
 //    @POST("XXXX") resetPassword
 //    Call<HostelRegisterationResponse> update(@Part(SyncStateContract.Constants.ACTION_ID) RequestBody actionId, @Part(Constants.OFFER_CODE) RequestBody offerCode);
