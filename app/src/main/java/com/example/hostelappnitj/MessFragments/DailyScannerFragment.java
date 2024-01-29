@@ -157,7 +157,7 @@ public class DailyScannerFragment extends Fragment {
                     mealType = "breakfast";
                 }
                 else if (hour >= 12 && hour < 15) {   // 12:00PM to 3:00PM
-//                    System.out.println("Good Afternoon!");
+//                  System.out.println("Good Afternoon!");
                     mealType = "lunch";
                 }
 //                else if ((hour >= 19 && hour < 22 && minute >= 30) || (hour == 22 && minute <= 30)) { // 7:30 PM to 10:30 PM
@@ -166,11 +166,21 @@ public class DailyScannerFragment extends Fragment {
 //                }
                 else if ((hour >= 15 && hour < 22 ) ) { // 7:30 PM to 10:30 PM
 //                    System.out.println("Good Evening!");
+                    Toast.makeText(getActivity(), "Dinner Done", Toast.LENGTH_SHORT).show();
                     mealType = "dinner";
                 }
                 else {
 //                    System.out.println("Hello!");
                     Toast.makeText(getActivity(), "Visit in Mess Timings", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setTitle("ALERT");
+                    builder.setMessage("Mess Closed\nPlease visit in Meal Timings\nHappy to see you for next meal. "+mealType);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    }).show();
                 }
 
 

@@ -14,38 +14,67 @@
     android:layout_marginTop="@dimen/_20sdp"
     >
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blank_room"
+    android:orientation="horizontal">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_140sdp"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:id="@+id/avatar"
+        android:elevation="@dimen/_550sdp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        app:civ_circle_background_color="@color/white"
+        android:src="@drawable/ic_user"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/bg_gradient1"
-        >
-
+        android:background="@drawable/bg_gradient">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:id="@+id/etDate"
+            android:id="@+id/txtUserName"
             android:padding="6dp"
-            android:text="2023-08-02"
+            android:text="UserName"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:paddingLeft="10dp"
-            android:drawableLeft="@drawable/ic_calender"
+            android:drawableLeft="@drawable/ic_user"
             android:drawableTint="@color/white"
-            android:drawablePadding="14dp"
+            android:drawablePadding="8dp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:paddingLeft="10dp"
-            android:id="@+id/etbreakfast"
-            android:text="breakfast"
+            android:id="@+id/txtRollNumber"
+            android:text="rollnumber"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:drawableLeft="@drawable/ic_breakfast5"
+            android:drawableLeft="@drawable/id_roll"
+            android:drawableTint="@color/white"
+            android:drawablePadding="10dp"
+            android:padding="@dimen/_5sdp"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/txtRoomNumber"
+            android:text="RoomNumber"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:drawableStart="@drawable/ic_rollnumber"
+            android:paddingLeft="10dp"
             android:drawableTint="@color/white"
             android:drawablePadding="10dp"
             />
@@ -54,28 +83,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
-            android:id="@+id/etlunch"
-            android:text="lunch"
+            android:id="@+id/txtDate"
+            android:text="2024/01/31"
             android:textStyle="bold"
+            android:padding="@dimen/_5sdp"
             android:textColor="@color/white"
             android:paddingLeft="10dp"
-            android:drawableLeft="@drawable/ic_lunch"
-            android:drawableTint="@color/white"
-            android:drawablePadding="10dp"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:id="@+id/etdinner"
-            android:text="Dinner"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:paddingLeft="10dp"
-            android:drawableLeft="@drawable/ic_food_bank"
+            android:drawableLeft="@drawable/ic_calendar_small"
             android:drawableTint="@color/white"
             android:drawablePadding="10dp"
             />
     </LinearLayout>
+
+</LinearLayout>
+
 </androidx.cardview.widget.CardView>

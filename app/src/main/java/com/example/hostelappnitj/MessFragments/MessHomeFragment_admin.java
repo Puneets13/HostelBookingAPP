@@ -22,23 +22,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
+import com.example.hostelappnitj.Acitvity.MessRecordList_Activity;
 import com.example.hostelappnitj.Acitvity.dietRecordActivity;
-import com.example.hostelappnitj.Acitvity.scannerActivity;
 import com.example.hostelappnitj.Acitvity.successScanActivity;
-import com.example.hostelappnitj.Hostels.Mess_Rules;
-import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.ModelResponse.DailyScannerModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.journeyapps.barcodescanner.CaptureActivity;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
@@ -52,35 +48,37 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MessHomeFragment extends Fragment {
+public class MessHomeFragment_admin extends Fragment {
     ImageView imageViewHostels ;
-    AppCompatButton btndailyScanner , btnextrasScanner , btnApplyLeave , btnInvoice , btnDietRecord;
+    AppCompatButton btndailyScanner , btnextrasScanner , btngetDietRecord , btnInvoice , btnDietRecord;
     TextToSpeech textToSpeech ;
     SharedPrefManager sharedPrefManager;
     private DialogInterface.OnClickListener dialogClickListener;
     ProgressDialog progressDialog;
-    TextView txtEmail;
     ExtendedFloatingActionButton floatingActionButton_call;
     private static final int REQUEST_PHONE_CALL = 1;
 
     String email ,  rollNumber , hostelName , roomNumber, month , year , mealType , formattedDate;
-    public MessHomeFragment() {
+
+    public MessHomeFragment_admin() {
         // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view =  inflater.inflate(R.layout.fragment_mess_home_admin, container, false);
+
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_mess_home, container, false);
         imageViewHostels=view.findViewById(R.id.imageView_hostels);
         btndailyScanner = view.findViewById(R.id.daily_scanner);
         btnextrasScanner = view.findViewById(R.id.extras_scanner);
-        btnApplyLeave = view.findViewById(R.id.getLeave);
+        btngetDietRecord = view.findViewById(R.id.getDietRedcord);
         btnDietRecord=view.findViewById(R.id.dietRecord);
         btnInvoice = view.findViewById(R.id.invoice);
-        txtEmail = view.findViewById(R.id.txtEmail);
 
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
 
@@ -92,7 +90,6 @@ public class MessHomeFragment extends Fragment {
         hostelName=sharedPrefManager.getHostelUser().getHostelName();
         roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
 
-        txtEmail.setText(email);
 
         //        text To speech
         textToSpeech = new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
@@ -130,10 +127,6 @@ public class MessHomeFragment extends Fragment {
         handler.postDelayed(runnable, 2000);
 
 
-
-
-
-
         btndailyScanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,10 +142,10 @@ public class MessHomeFragment extends Fragment {
         });
 
 
-        btnApplyLeave.setOnClickListener(new View.OnClickListener(){
+        btngetDietRecord.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),ApplyLeaveActivity.class);
+                Intent intent = new Intent(getActivity(), MessRecordList_Activity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -210,8 +203,9 @@ public class MessHomeFragment extends Fragment {
         });
 
         return view;
-
     }
+
+
     private void ScanCode() {
         ScanOptions options = new ScanOptions();
         options.setPrompt("Volume up to flash on");
@@ -410,15 +404,15 @@ public class MessHomeFragment extends Fragment {
 
             if(hashCodeExtraNumberString.equals(result.getContents())) {
 //            Extra scanner
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setTitle("ALERT");
-                    builder.setMessage("Please use Extra's Meal Scanner");
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    }).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("ALERT");
+                builder.setMessage("Please use Extra's Meal Scanner");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).show();
 
             }
         }

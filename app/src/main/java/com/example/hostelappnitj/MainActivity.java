@@ -43,6 +43,7 @@ import com.example.hostelappnitj.Fragments.homeFragment;
 import com.example.hostelappnitj.MessFragments.DailyScannerFragment;
 import com.example.hostelappnitj.MessFragments.ExtrasScannerFragment;
 import com.example.hostelappnitj.MessFragments.MessHomeFragment;
+import com.example.hostelappnitj.MessFragments.MessHomeFragment_admin;
 import com.example.hostelappnitj.ModelResponse.DailyScannerModel;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -179,18 +180,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nitj_mess:
-//                        if (sharedPrefManager.getHostelResponse().getRoomNumber() != null) {
-//                            toolbar.setTitle("NITJ MESS");
-//                            toolbar.setTitleTextColor(Color.WHITE);
-//                            if (sharedPrefManager.getAdmin().equals("Admin")) {
-//                                fragment = new AdminHomeFragment();
-//                                loadFragment(fragment);
-//                            } else {
-//                            Toast.makeText(MainActivity.this, "inside", Toast.LENGTH_SHORT).show();
-//                                fragment = new MessHomeFragment();    //passing the new fragment that we have created
-//                                loadFragment(fragment);
-//                            }
-//                        } else
+                        if (sharedPrefManager.getAdmin().equals("Admin")) {
+                            fragment = new MessHomeFragment_admin();
+                            Toast.makeText(MainActivity.this, "You are admin", Toast.LENGTH_SHORT).show();
+                            loadFragment(fragment);
+                        } else
                         {
                         progressDialog = new ProgressDialog(MainActivity.this);
                         progressDialog.setTitle("NITJ MESS");
@@ -214,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                                         toolbar.setTitle("NITJ MESS");
                                         toolbar.setTitleTextColor(Color.WHITE);
                                         if (sharedPrefManager.getAdmin().equals("Admin")) {
-                                            fragment = new AdminHomeFragment();
+                                            fragment = new MessHomeFragment_admin();
                                             loadFragment(fragment);
                                         } else {
                                             fragment = new MessHomeFragment();    //passing the new fragment that we have created

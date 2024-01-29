@@ -13,6 +13,10 @@ public class fetchmealRecord {
         this.roomNumber = roomNumber;
     }
 
+    public fetchmealRecord(String hostelName) {
+        this.hostelName = hostelName;
+    }
+
     public List<mealRecord> getMealList() {
         return mealList;
     }

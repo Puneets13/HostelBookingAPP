@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.ModelResponse.DailyScannerModel;
@@ -33,12 +34,14 @@ public class ExtraSnacksActivity extends AppCompatActivity {
     String rollNumber , hostelName , roomNumber;
     SharedPrefManager sharedPrefManager;
     ProgressDialog progressDialog;
+    TextView txtHostelname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_extra_snacks);
         etExtraAmount = findViewById(R.id.etExtrasAmount);
         btnConfirmPayment = findViewById(R.id.btnExtrasPayment);
+        txtHostelname = findViewById(R.id.txtHostelname);
 
         DateFormat dateFormat2 = new SimpleDateFormat("hh.mm aa");
         String dateString2 = dateFormat2.format(new Date()).toString();
@@ -47,6 +50,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
         rollNumber = sharedPrefManager.getUser().getRollNumber();
         hostelName=sharedPrefManager.getHostelUser().getHostelName();
         roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
+        txtHostelname.setText(hostelName);
 
 
         //        text To speech

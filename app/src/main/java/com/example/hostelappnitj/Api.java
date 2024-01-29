@@ -198,6 +198,10 @@ public interface Api {
             @Body fetchmealRecord fetchmealRecord
     );
 
+    @POST("hostelbook/messList")
+    Call<fetchmealRecord>getMessDietRecord(
+            @Body fetchmealRecord fetchmealRecord
+    );
 //    @Multipart
 //    @POST("XXXX") resetPassword
 //    Call<HostelRegisterationResponse> update(@Part(SyncStateContract.Constants.ACTION_ID) RequestBody actionId, @Part(Constants.OFFER_CODE) RequestBody offerCode);
