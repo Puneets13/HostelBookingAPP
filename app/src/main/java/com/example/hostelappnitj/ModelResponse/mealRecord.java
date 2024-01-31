@@ -1,12 +1,44 @@
 package com.example.hostelappnitj.ModelResponse;
 
 public class mealRecord {
-private String date , breakfast , lunch , dinner;
-    private String rollNumber , roomNumber,hostelName,avatar,userName;
+private String date , breakfast , lunch , dinner,meal_type;
+    private String rollNumber , roomNumber,hostelName,avatar,userName,message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getMeal_type() {
+        return meal_type;
+    }
+
+    public void setMeal_type(String meal_type) {
+        this.meal_type = meal_type;
+    }
 
     public String getUserName() {
         return userName;
     }
+
+    public mealRecord(String date, String breakfast, String lunch, String dinner) {
+        this.date = date;
+        this.breakfast = breakfast;
+        this.lunch = lunch;
+        this.dinner = dinner;
+    }
+//
+//    public mealRecord(String userName, String avatar, String rollNumber, String roomNumber,String date, String meal) {
+//        this.date = date;
+//        this.meal = meal;
+//        this.rollNumber = rollNumber;
+//        this.roomNumber = roomNumber;
+//        this.avatar = avatar;
+//        this.userName = userName;
+//    }
 
     public void setUserName(String userName) {
         this.userName = userName;

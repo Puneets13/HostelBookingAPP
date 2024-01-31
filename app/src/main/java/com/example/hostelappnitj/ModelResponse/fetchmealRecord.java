@@ -5,7 +5,7 @@ import java.util.List;
 public class fetchmealRecord {
     List<mealRecord> mealList;
     String error;
-    String rollNumber , message , hostelName,roomNumber ;
+    String rollNumber , message , hostelName,roomNumber,meal_received ;
 
     public fetchmealRecord(String rollNumber, String hostelName, String roomNumber) {
         this.rollNumber = rollNumber;
@@ -13,8 +13,9 @@ public class fetchmealRecord {
         this.roomNumber = roomNumber;
     }
 
-    public fetchmealRecord(String hostelName) {
+    public fetchmealRecord(String hostelName, String meal_received) {
         this.hostelName = hostelName;
+        this.meal_received = meal_received;
     }
 
     public List<mealRecord> getMealList() {
@@ -24,6 +25,9 @@ public class fetchmealRecord {
     public void setMealList(List<mealRecord> mealList) {
         this.mealList = mealList;
     }
+//    public void setMealList(List<mealRecord> mealList) {
+//        this.mealList = mealList;
+//    }
 
     public String getError() {
         return error;
