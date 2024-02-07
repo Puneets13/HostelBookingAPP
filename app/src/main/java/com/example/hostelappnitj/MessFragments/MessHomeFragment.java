@@ -280,7 +280,9 @@ public class MessHomeFragment extends Fragment {
 ////                    System.out.println("Good Evening!");
 //                mealType = "dinner";
 //            }
-            else if ((hour >= 15 && hour < 22 ) ) { // 7:30 PM to 10:30 PM
+
+//            CHANGED
+            else if ((hour >= 15 && hour < 24 ) ) { // 7:30 PM to 10:30 PM
 //                    System.out.println("Good Evening!");
                 Toast.makeText(getActivity(), "Dinner Done", Toast.LENGTH_SHORT).show();
                 mealType = "dinner";

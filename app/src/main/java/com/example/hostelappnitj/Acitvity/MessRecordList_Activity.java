@@ -129,16 +129,26 @@ package com.example.hostelappnitj.Acitvity;
 import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.ModelResponse.fetchmealRecord;
@@ -149,10 +159,14 @@ import com.example.hostelappnitj.SharedPrefManager;
 import com.example.hostelappnitj.userAdapterMess;
 import com.example.hostelappnitj.userAdapterMessRecord;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -165,9 +179,12 @@ public class MessRecordList_Activity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     String email ,  rollNumber , hostelName , roomNumber, month , year , mealType , formattedDate;
 
+    AppCompatButton btnPdfDowload;
     String hostelName1="Boys Hostel 7";
     String meal_received="";
 
+
+    private View rootView;
 
 
     private final Handler handler = new Handler(Looper.getMainLooper());
@@ -190,13 +207,29 @@ public class MessRecordList_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_mess_record_list);
 
         recyclerView = findViewById(R.id.recyleview);
+        btnPdfDowload=findViewById(R.id.downloadPDF);
+
+        rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+
+        // Capture the entire content of the screen and convert it to PDF
+
+        btnPdfDowload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                convertLayoutToPdf();
+            }
+        });
+
 
         sharedPrefManager=new SharedPrefManager(MessRecordList_Activity.this);
 //        rollNumber = sharedPrefManager.getUser().getRollNumber();
 //        hostelName1=sharedPrefManager.getHostelUser().getHostelName();
 //        roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(MessRecordList_Activity.this));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setReverseLayout(true);
+        layoutManager.setStackFromEnd(true); // Optional, if you want to start items from the end of the list
+        recyclerView.setLayoutManager(layoutManager);
 
         progressDialog = new ProgressDialog(MessRecordList_Activity.this);
         progressDialog.setTitle("Checking Records..");
@@ -208,6 +241,59 @@ public class MessRecordList_Activity extends AppCompatActivity {
 
     }
 
+    private void convertLayoutToPdf() {
+        // Capture the entire content of the screen
+        Bitmap bitmap = getLayoutBitmap(rootView);
+
+        if (bitmap != null) {
+            // Convert the captured content to PDF
+            convertToPdf(bitmap);
+        } else {
+            Toast.makeText(this, "Failed to capture screen", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private Bitmap getLayoutBitmap(View view) {
+        int width = view.getWidth();
+        int height = view.getHeight();
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+        return bitmap;
+    }
+
+    private void convertToPdf(Bitmap bitmap) {
+        // Step 1: Convert Bitmap to PDF
+        PdfDocument document = new PdfDocument();
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(bitmap.getWidth(), bitmap.getHeight(), 1).create();
+        PdfDocument.Page page = document.startPage(pageInfo);
+        Canvas canvas = page.getCanvas();
+        Paint paint = new Paint();
+        canvas.drawBitmap(bitmap, 0, 0, paint);
+        document.finishPage(page);
+
+        // Step 2: Save PDF to File
+        String fileName = "entire_screen_capture.pdf";
+        File pdfFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName);
+        try {
+            document.writeTo(new FileOutputStream(pdfFile));
+            document.close();
+
+            // Step 3: Provide Download Option
+            openPdfFile(pdfFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Failed to save PDF", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void openPdfFile(File pdfFile) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        Uri uri = FileProvider.getUriForFile(this, Objects.requireNonNull(getPackageName()) + ".fileprovider", pdfFile);
+        intent.setDataAndType(uri, "application/pdf");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(intent);
+    }
 
     private void fetchDataAndUpdateRecyclerView() {
         // Implement the logic to fetch updated data from MongoDB and update the RecyclerView
@@ -253,7 +339,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
 ////                    System.out.println("Good Evening!");
 //                    mealType = "dinner";
 //                }
-        else if ((hour >= 0 && hour<2) ) { // 7:30 PM to 10:30 PM
+        else if (( hour<24) ) { // 7:30 PM to 10:30 PM
 //                    System.out.println("Good Evening!");
             meal_received = "dinner";
         }

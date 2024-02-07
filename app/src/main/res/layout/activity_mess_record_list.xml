@@ -51,11 +51,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/downloadPDF"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/bg_gradient1"
+        android:text="Download PDF"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/recyleview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintVertical_bias="0.353" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyleview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_130sdp"
+        android:layout_marginTop="@dimen/_160sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
