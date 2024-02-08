@@ -252,7 +252,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Ms. Rita Kumari"
+                        android:text="Ms. Reeta Kumari"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -269,7 +269,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(+91-9878329873)"
+                        android:text="(+91-9478744809)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -378,7 +378,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(+91-9872548026)"
+                        android:text="(+91-9876304506)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -482,7 +482,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(+91 8219347118)"
+                        android:text="(+91 9872325092)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -588,7 +588,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(+91-8054549808)"
+                        android:text="(+91-9878130512)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
