@@ -1,5 +1,7 @@
 package com.example.hostelappnitj.MessFragments;
 
+import static android.content.ContentValues.TAG;
+
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -45,6 +47,8 @@ import com.journeyapps.barcodescanner.ScanOptions;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
@@ -305,7 +309,23 @@ public class MessHomeFragment extends Fragment {
             if(hashCodeNumberString.equals(result.getContents())){
 //            Daily scanner
 
-                DailyScannerModel model1 = new DailyScannerModel(roomNumber,rollNumber,hostelName,month,year,mealType,formattedDate);
+
+                Log.v(TAG,"FORMATTED DATE"+formattedDate);
+                Toast.makeText(getActivity(), formattedDate, Toast.LENGTH_SHORT).show();
+
+                SimpleDateFormat dateFormat1 = new SimpleDateFormat("HH:mm:ss");
+
+                // Get the current date and time
+                Date currentDate1 = new Date();
+
+                // Format the current time using SimpleDateFormat
+                String formattedTime1 = dateFormat1.format(currentDate1);
+
+                // Format the current time in 24-hour format
+//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+//                String formattedTime_24hr = currentTime.format(formatter);
+
+                DailyScannerModel model1 = new DailyScannerModel(roomNumber,rollNumber,hostelName,month,year,mealType,formattedDate,formattedTime1);
                 Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().DailyCodeScanner(model1);
                 call.enqueue(new Callback<DailyScannerModel>() {
                     @Override

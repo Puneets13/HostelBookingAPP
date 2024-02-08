@@ -187,7 +187,7 @@ public class DailyScannerFragment extends Fragment {
 
 
 //                DailyScannerModel model = new DailyScannerModel(roomNumber,rollNumber,hostelName ,  );
-                DailyScannerModel model1 = new DailyScannerModel(roomNumber,rollNumber,hostelName,month,year,mealType,formattedDate);
+                DailyScannerModel model1 = new DailyScannerModel(roomNumber,rollNumber,hostelName,month,year,mealType,formattedDate,formattedTime);
                 Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().DailyCodeScanner(model1);
                 call.enqueue(new Callback<DailyScannerModel>() {
                     @Override

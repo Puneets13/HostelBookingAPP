@@ -1,5 +1,7 @@
 package com.example.hostelappnitj.MessFragments;
 
+import static android.content.ContentValues.TAG;
+
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -8,6 +10,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -293,9 +296,17 @@ public class MessHomeFragment_admin extends Fragment {
                 }).show();
             }
 
+//            Log.DEBUG((TAG,"FORMATTED DATE"+formattedDate);
+
+            Toast.makeText(getActivity(), formattedDate, Toast.LENGTH_SHORT).show();
 
             if(hashCodeNumberString.equals(result.getContents())){
 //            Daily scanner
+
+
+                Log.v(TAG,"FORMATTED DATE"+formattedDate);
+                Toast.makeText(getActivity(), formattedDate, Toast.LENGTH_SHORT).show();
+
 
                 DailyScannerModel model1 = new DailyScannerModel(roomNumber,rollNumber,hostelName,month,year,mealType,formattedDate);
                 Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().DailyCodeScanner(model1);
@@ -308,6 +319,8 @@ public class MessHomeFragment_admin extends Fragment {
                             if(responseFromAPI.getMessage().equals("you can scan")  && responseFromAPI.getScan().equals("yes") ){
 //                               Toast.makeText(getActivity(), "received", Toast.LENGTH_SHORT).show();
                                 DateFormat dateFormat2 = new SimpleDateFormat("hh mm aa");
+
+
                                 String dateString2 = dateFormat2.format(new Date()).toString();
                                 String speak =  " Time "+ dateString2 + " Enjoy Your "+mealType;
                                 textToSpeech.setSpeechRate(1);

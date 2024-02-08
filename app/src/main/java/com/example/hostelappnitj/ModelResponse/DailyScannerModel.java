@@ -3,7 +3,7 @@ package com.example.hostelappnitj.ModelResponse;
 import com.example.hostelappnitj.hostelResponse;
 
 public class DailyScannerModel {
-    private String roomNumber , rollNumber , hostelName,userName , month , year , mealType , timestamp;
+    private String roomNumber , rollNumber , hostelName,userName , month , year , mealType , timestamp,formatedTime_24;
     private String error , message,scan;
     private int enterpaisa;
     private hostelResponse hostelResponse;
@@ -36,11 +36,19 @@ public class DailyScannerModel {
         return timestamp;
     }
 
+    public String getFormatedTime_24() {
+        return formatedTime_24;
+    }
+
+    public void setFormatedTime_24(String fromatedTime_24) {
+        this.formatedTime_24 = fromatedTime_24;
+    }
+
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
-    public DailyScannerModel(String roomNumber, String rollNumber, String hostelName, String month, String year, String mealType, String timestamp) {
+    public DailyScannerModel(String roomNumber, String rollNumber, String hostelName, String month, String year, String mealType, String timestamp,String formatedTime_24) {
         this.roomNumber = roomNumber;
         this.rollNumber = rollNumber;
         this.hostelName = hostelName;
@@ -48,6 +56,7 @@ public class DailyScannerModel {
         this.year = year;
         this.mealType = mealType;
         this.timestamp = timestamp;
+        this.formatedTime_24 = formatedTime_24;
     }
 
     public String getUserName() {
