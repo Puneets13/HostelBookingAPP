@@ -141,7 +141,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_15sdp"
-                            android:text="Mr. Hari Kumar"
+                            android:text="Mr. R.N Chaturvedi"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_15sdp"></TextView>
@@ -158,7 +158,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="(+91 7837797418)"
+                            android:text="(+91 9464886034)"
                             android:textAlignment="center"
                             android:textColor="#4E4D4D"
                             android:textSize="@dimen/_12sdp"></TextView>
@@ -363,7 +363,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. Awdesh Kumar"
+                        android:text="Mr. Baljit Singh"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -380,7 +380,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(+91-9872548026)"
+                        android:text="(+91-8264416270)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -469,7 +469,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. Ritesh Kumar"
+                        android:text="Mr. Suminder"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -486,7 +486,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(+91 8219347118)"
+                        android:text="(+91 9872886810)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>

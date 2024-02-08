@@ -140,7 +140,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_15sdp"
-                            android:text="Mr. Ashish Kumar"
+                            android:text="Mr. Hari Kumar"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_15sdp" />
 
@@ -150,16 +150,16 @@
                             android:layout_marginTop="@dimen/_2sdp"
                             android:text="mbha@nitj.ac.in"
                             android:textColor="#4E4D4D"
-                            android:textSize="@dimen/_11sdp"/>
+                            android:textSize="@dimen/_11sdp" />
 
                         <TextView
                             android:id="@+id/textView1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="+91 9023131664"
-                            android:textColor="#4E4D4D"
                             android:drawablePadding="@dimen/_15sdp"
-                            android:textSize="@dimen/_12sdp"/>
+                            android:text="+91 7837797418"
+                            android:textColor="#4E4D4D"
+                            android:textSize="@dimen/_12sdp" />
 
                     </LinearLayout>
 
@@ -358,7 +358,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. tasen Kumar"
+                        android:text="Mr. Tasen Kumar"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -570,7 +570,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. Sunil Sharma"
+                        android:text="Mr. Keshav Kumar"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -587,7 +587,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(+91 8699411714)"
+                        android:text="(+91 9988903662)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
