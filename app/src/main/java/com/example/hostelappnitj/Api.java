@@ -163,7 +163,7 @@ public interface Api {
     );
 
 
-    @POST("hostelbook/getextrameal")
+    @POST("hostelbook/createExtraMealRecord")
     Call<DailyScannerModel>getExtraMeal(
             @Body DailyScannerModel dailyScannerModel
     );

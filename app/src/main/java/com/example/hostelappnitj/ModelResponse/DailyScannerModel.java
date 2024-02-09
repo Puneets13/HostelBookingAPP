@@ -4,9 +4,39 @@ import com.example.hostelappnitj.hostelResponse;
 
 public class DailyScannerModel {
     private String roomNumber , rollNumber , hostelName,userName , month , year , mealType , timestamp,formatedTime_24;
-    private String error , message,scan;
+    private String error , message,scan , item;
+    private int amount;
     private int enterpaisa;
     private hostelResponse hostelResponse;
+
+
+    public DailyScannerModel(String roomNumber, String hostelName, String month, String year, String mealType, String timestamp, String formatedTime_24, String item, int amount) {
+        this.roomNumber = roomNumber;
+        this.hostelName = hostelName;
+        this.month = month;
+        this.year = year;
+        this.mealType = mealType;
+        this.timestamp = timestamp;
+        this.formatedTime_24 = formatedTime_24;
+        this.item = item;
+        this.amount = amount;
+    }
+
+    public String getItem() {
+        return item;
+    }
+
+    public void setItem(String item) {
+        this.item = item;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 
     public String getMonth() {
         return month;
@@ -49,6 +79,18 @@ public class DailyScannerModel {
     }
 
     public DailyScannerModel(String roomNumber, String rollNumber, String hostelName, String month, String year, String mealType, String timestamp,String formatedTime_24) {
+        this.roomNumber = roomNumber;
+        this.rollNumber = rollNumber;
+        this.hostelName = hostelName;
+        this.month = month;
+        this.year = year;
+        this.mealType = mealType;
+        this.timestamp = timestamp;
+        this.formatedTime_24 = formatedTime_24;
+    }
+
+
+    public DailyScannerModel(String roomNumber, String rollNumber, String hostelName, String month, String year, String mealType, String timestamp) {
         this.roomNumber = roomNumber;
         this.rollNumber = rollNumber;
         this.hostelName = hostelName;
