@@ -2,6 +2,8 @@ package com.example.hostelappnitj.Acitvity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -18,39 +20,48 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.ItemListAdapter;
 import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.ModelResponse.DailyScannerModel;
+import com.example.hostelappnitj.ModelResponse.constantsModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
-import com.example.hostelappnitj.item_list_adapter;
+//import com.example.hostelappnitj.item_list_adapter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ExtraSnacksActivity extends AppCompatActivity {
-    EditText etExtraAmount;
+
     TextToSpeech textToSpeech ;
+
+    private Map<String, Integer> itemMap;
 
     AppCompatButton btnConfirmPayment;
     String rollNumber , hostelName , roomNumber;
-    String email ,  month , year , mealType , formattedDate,item;
-    int amount;
+    String email ,  month , year , mealType , formattedDate;
+    int amount=0;
     SharedPrefManager sharedPrefManager;
     ProgressDialog progressDialog;
     TextView txtHostelname;
-
     private ListView listView;
-    private item_list_adapter adapter;
-
+    private ItemListAdapter adapter;
+    String formattedTime1 ;
+    List<String> items_list ,  checkedItems , item ;
+    private RecyclerView recyclerView;
 
 
     @Override
@@ -61,7 +72,10 @@ public class ExtraSnacksActivity extends AppCompatActivity {
         btnConfirmPayment = findViewById(R.id.btnExtrasPayment);
         txtHostelname = findViewById(R.id.txtHostelname);
 
-        listView = findViewById(R.id.listView);
+
+        // Initialize RecyclerView and layout manager
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
         DateFormat dateFormat2 = new SimpleDateFormat("hh.mm aa");
@@ -72,44 +86,53 @@ public class ExtraSnacksActivity extends AppCompatActivity {
         hostelName=sharedPrefManager.getHostelUser().getHostelName();
         roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
         txtHostelname.setText(hostelName);
+        itemMap = new HashMap<>();
+        items_list = new ArrayList<>();
+        checkedItems = new ArrayList<>();
+        item = new ArrayList<>();
 
-        List<String> items = Arrays.asList("Samosa", "Curd", "Lassi", "Milk", "Half Milk", "Butter", "Pakoda", "Bread");
-        adapter = new item_list_adapter(this, R.layout.list_item_checkbox, items);
-        listView.setAdapter(adapter);
+//        GETTING THE LIST FROM MONGODB
+            constantsModel model = new constantsModel(hostelName);
 
-//
-//        Spinner dropdown = findViewById(R.id.spinnerItems);
-//        dropdown.setPrompt("items");
-//        String[] items = new String[]{
-//                "Select.."
-//                , "Samosa"
-//                , "Lassi"
-//                ,  "tea"
-//        };
-//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-////set the spinners adapter to the previously created one.
-//        dropdown.setAdapter(adapter);
-//        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-////                Log.v("item", (String) parent.getItemAtPosition(position));
-//                if (position == 0) {
-//                    item = null;
-//                } else {
-//                    item = (String) parent.getItemAtPosition(position);
-//                Toast.makeText(ExtraSnacksActivity.this, item, Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//                // TODO Auto-generated method stub
-//            }
-//        });
+//        StringBuilder item_string = new StringBuilder();
+//        Toast.makeText(this, model.getHostelName()+"", Toast.LENGTH_SHORT).show();
 
 
+        progressDialog = new ProgressDialog(ExtraSnacksActivity.this);
+        progressDialog.setTitle("Processing");
+        progressDialog.setMessage("Loading items..");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
 
+        Call<constantsModel> call = RetrofitClient.getInstance().getApi().getMessItemsList(model);
+            call.enqueue(new Callback<constantsModel>() {
+                @Override
+                public void onResponse(Call<constantsModel> call, Response<constantsModel> response) {
+                    if(response.isSuccessful()){
+                        if(response.body().getMessage().equals("success")){
+                            progressDialog.dismiss();
+                            itemMap = response.body().getItem();
+                            for (Map.Entry<String, Integer> entry : itemMap.entrySet()) {
+                               String item_price =  entry.getKey() + ": " + entry.getValue();
+                               items_list.add(item_price);
+
+                            }
+                            Collections.sort(item);
+                            adapter = new ItemListAdapter(ExtraSnacksActivity.this, items_list);
+                            recyclerView.setAdapter(adapter);
+
+                        } else if (response.body().getMessage().equals("no item found")){
+                            progressDialog.dismiss();
+                            Toast.makeText(ExtraSnacksActivity.this, "No Items found", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<constantsModel> call, Throwable t) {
+                    Toast.makeText(ExtraSnacksActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
 
 
         //        text To speech
@@ -125,18 +148,6 @@ public class ExtraSnacksActivity extends AppCompatActivity {
         btnConfirmPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                boolean[] checkedItems = adapter.getCheckedItems();
-                StringBuilder selectedItems = new StringBuilder();
-                for (int i = 0; i < checkedItems.length; i++) {
-                    if (checkedItems[i]) {
-                        selectedItems.append(items.get(i)).append(" , ");
-                    }
-                }
-                Toast.makeText(ExtraSnacksActivity.this, "Selected items:\n" + selectedItems.toString(), Toast.LENGTH_SHORT).show();
-
-                item = selectedItems.toString();
 
                 Date currentDate = new Date();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -170,7 +181,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
 //                Toast.makeText(getActivity(), "its ", Toast.LENGTH_SHORT).show();
                     mealType = "lunch";
                 }
-                else if (hour >= 12 && hour < 15) {   // 12:00PM to 3:00PM
+                else if (hour >= 12 && hour < 16) {   // 12:00PM to 3:00PM
 //                    System.out.println("Good Afternoon!");
                     mealType = "lunch";
                 }
@@ -179,7 +190,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
 //                mealType = "dinner";
 //            }
 
-                else if ((hour >= 16 && hour < 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
+                else if ((hour >= 15 && hour < 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
                     mealType = "snacks";
                 }
 
@@ -209,32 +220,45 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                 Date currentDate1 = new Date();
 
                 // Format the current time using SimpleDateFormat
-                String formattedTime1 = dateFormat1.format(currentDate1);
+                formattedTime1 = dateFormat1.format(currentDate1);
 
 
-//                String amount = etExtraAmount.getText().toString();
-//                if(amount.isEmpty()){
-//                    etExtraAmount.requestFocus();
-//                    etExtraAmount.setError("Please enter Amount");
-//                    return;
-//                }
-//                int amountInt = Integer.parseInt(amount);
-//                if( amountInt<=0 || amountInt>1000){
-//                    etExtraAmount.setText("");
-//                    Toast.makeText(ExtraSnacksActivity.this, "Please enter valid amount", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }else{
-//
                     progressDialog = new ProgressDialog(ExtraSnacksActivity.this);
                     progressDialog.setTitle("Processing");
                     progressDialog.setMessage("Transaction in progress..");
                     progressDialog.show();
                     progressDialog.setCancelable(false);
 
-//                    item = "Lassi";
-                    amount = 20;
 
-                    DailyScannerModel model = new DailyScannerModel(roomNumber,hostelName,month,year,mealType,formattedDate,formattedTime1,item,amount);
+                checkedItems = adapter.getCheckedItems();  // getting this from adapter
+                item = checkedItems;
+                if(checkedItems.size()==0){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ExtraSnacksActivity.this);
+                    builder.setTitle("ALERT");
+                    builder.setMessage("Yuo haven't selected any items\nPlease add items to move forward\n");
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            return;
+                        }
+                    }).show();
+                }
+//                TO SUM UP THE AMOUNT STUDENT SELECTED
+                if (itemMap != null) { // Check if itemMap is not null before accessing its values
+                    for(String item_got : checkedItems){
+                        String[] parts = item_got.split(":");
+                        String itemName = parts[0].trim(); // Trim any leading or trailing spaces
+
+                        Integer itemValue = itemMap.get(itemName);
+                        if (itemValue != null) { // Check if itemValue is not null before accessing its intValue
+                            amount += itemValue.intValue();
+                        }
+                    }
+                }
+
+
+                DailyScannerModel model = new DailyScannerModel(roomNumber,hostelName,month,year,mealType,formattedDate,formattedTime1,item,amount);
                     Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().getExtraMeal(model);
                     call.enqueue(new Callback<DailyScannerModel>() {
                         @Override
@@ -244,7 +268,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                             if(response.isSuccessful()){
                                 if(responseFromAPI.getMessage().equals("you have consumed extras")){
 
-                                    String speak = "item added.   Enjoy your meal";
+                                    String speak = amount +"coins deducted.   Enjoy your meal";
                                     textToSpeech.setSpeechRate(1);
                                     textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
                                     Intent intent = new Intent(ExtraSnacksActivity.this, successScanActivity.class);

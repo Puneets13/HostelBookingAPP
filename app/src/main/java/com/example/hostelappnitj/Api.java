@@ -12,6 +12,7 @@ import com.example.hostelappnitj.ModelResponse.OTP_model;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.UpdateUserResponse;
+import com.example.hostelappnitj.ModelResponse.constantsModel;
 import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
 import com.example.hostelappnitj.ModelResponse.fetchmealRecord;
@@ -202,6 +203,13 @@ public interface Api {
     Call<fetchmealRecord>getMessDietRecord(
             @Body fetchmealRecord fetchmealRecord
     );
+
+
+    @POST("hostelbook/fetchItems")
+    Call<constantsModel>getMessItemsList(
+            @Body constantsModel constantsModel
+    );
+
 //    @Multipart
 //    @POST("XXXX") resetPassword
 //    Call<HostelRegisterationResponse> update(@Part(SyncStateContract.Constants.ACTION_ID) RequestBody actionId, @Part(Constants.OFFER_CODE) RequestBody offerCode);

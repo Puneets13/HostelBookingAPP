@@ -2,15 +2,19 @@ package com.example.hostelappnitj.ModelResponse;
 
 import com.example.hostelappnitj.hostelResponse;
 
+import java.security.SecureRandom;
+import java.util.List;
+
 public class DailyScannerModel {
     private String roomNumber , rollNumber , hostelName,userName , month , year , mealType , timestamp,formatedTime_24;
-    private String error , message,scan , item;
+    private String error , message,scan ;
+    private List<String>item;
     private int amount;
     private int enterpaisa;
     private hostelResponse hostelResponse;
 
 
-    public DailyScannerModel(String roomNumber, String hostelName, String month, String year, String mealType, String timestamp, String formatedTime_24, String item, int amount) {
+    public DailyScannerModel(String roomNumber, String hostelName, String month, String year, String mealType, String timestamp, String formatedTime_24, List<String> item, int amount) {
         this.roomNumber = roomNumber;
         this.hostelName = hostelName;
         this.month = month;
@@ -22,11 +26,11 @@ public class DailyScannerModel {
         this.amount = amount;
     }
 
-    public String getItem() {
+    public List<String> getItem() {
         return item;
     }
 
-    public void setItem(String item) {
+    public void setItem(List<String> item) {
         this.item = item;
     }
 
