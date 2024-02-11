@@ -71,7 +71,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.827" />
+        app:layout_constraintVertical_bias="0.63" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -80,11 +80,11 @@
         android:gravity="center_vertical"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf=""
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742">
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -131,9 +131,9 @@
                     android:id="@+id/recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    android:layout_marginBottom="@dimen/_40sdp"
                     android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_40sdp"
+                    android:padding="16dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 

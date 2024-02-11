@@ -223,13 +223,6 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                 formattedTime1 = dateFormat1.format(currentDate1);
 
 
-                    progressDialog = new ProgressDialog(ExtraSnacksActivity.this);
-                    progressDialog.setTitle("Processing");
-                    progressDialog.setMessage("Transaction in progress..");
-                    progressDialog.show();
-                    progressDialog.setCancelable(false);
-
-
                 checkedItems = adapter.getCheckedItems();  // getting this from adapter
                 item = checkedItems;
                 if(checkedItems.size()==0){
@@ -244,21 +237,31 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                         }
                     }).show();
                 }
-//                TO SUM UP THE AMOUNT STUDENT SELECTED
-                if (itemMap != null) { // Check if itemMap is not null before accessing its values
-                    for(String item_got : checkedItems){
-                        String[] parts = item_got.split(":");
-                        String itemName = parts[0].trim(); // Trim any leading or trailing spaces
+                else{
 
-                        Integer itemValue = itemMap.get(itemName);
-                        if (itemValue != null) { // Check if itemValue is not null before accessing its intValue
-                            amount += itemValue.intValue();
+
+                    progressDialog = new ProgressDialog(ExtraSnacksActivity.this);
+                    progressDialog.setTitle("Processing");
+                    progressDialog.setMessage("Transaction in progress..");
+                    progressDialog.show();
+                    progressDialog.setCancelable(false);
+
+
+                    //                TO SUM UP THE AMOUNT STUDENT SELECTED
+                    if (itemMap != null) { // Check if itemMap is not null before accessing its values
+                        for(String item_got : checkedItems){
+                            String[] parts = item_got.split(":");
+                            String itemName = parts[0].trim(); // Trim any leading or trailing spaces
+
+                            Integer itemValue = itemMap.get(itemName);
+                            if (itemValue != null) { // Check if itemValue is not null before accessing its intValue
+                                amount += itemValue.intValue();
+                            }
                         }
                     }
-                }
 
 
-                DailyScannerModel model = new DailyScannerModel(roomNumber,hostelName,month,year,mealType,formattedDate,formattedTime1,item,amount);
+                    DailyScannerModel model = new DailyScannerModel(roomNumber,hostelName,month,year,mealType,formattedDate,formattedTime1,item,amount);
                     Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().getExtraMeal(model);
                     call.enqueue(new Callback<DailyScannerModel>() {
                         @Override
@@ -292,6 +295,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                     });
 //                }
 
+                }
 
             }
         });
