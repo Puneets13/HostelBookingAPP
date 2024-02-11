@@ -23,10 +23,12 @@ import com.example.hostelappnitj.ModelResponse.leaveModel;
 import com.example.hostelappnitj.ModelResponse.resetPasswordModel;
 import com.example.hostelappnitj.ModelResponse.studentListModel;
 
+import kotlin.coroutines.jvm.internal.DebugMetadata;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -217,6 +219,16 @@ public interface Api {
     Call<extra_item_model>addItemInConstant(
             @Body extra_item_model extra_item_model
     );
+
+    @POST("hostelbook/deleteEntry")
+    Call<extra_item_model>deleteEntry(
+            @Body extra_item_model extra_item_model
+    );
+    @POST("hostelbook/editExtraItem")
+    Call<extra_item_model>editExtraItem(
+            @Body extra_item_model extra_item_model
+    );
+
 //    @Multipart
 //    @POST("XXXX") resetPassword
 //    Call<HostelRegisterationResponse> update(@Part(SyncStateContract.Constants.ACTION_ID) RequestBody actionId, @Part(Constants.OFFER_CODE) RequestBody offerCode);

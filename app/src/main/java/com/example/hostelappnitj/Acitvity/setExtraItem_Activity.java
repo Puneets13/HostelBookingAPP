@@ -104,7 +104,7 @@ public class setExtraItem_Activity extends AppCompatActivity {
 
                         }
                         Collections.sort(items_list);
-                        adapter = new ItemAdapter(setExtraItem_Activity.this, items_list);
+                        adapter = new ItemAdapter(setExtraItem_Activity.this, items_list,hostelName);
                         recyclerView.setAdapter(adapter);
 
                     } else if (response.body().getMessage().equals("no item found")){
@@ -151,22 +151,6 @@ public class setExtraItem_Activity extends AppCompatActivity {
                     if(response.isSuccessful()){
                         if(response.body().getMessage().equals("success")){
                             items=response.body().getItems();
-//                            itemAdapter = new ItemAdapter(setExtraItem_Activity.this, itemList);
-//                            recyclerView.setAdapter(itemAdapter);
-
-
-
-//                            Toast.makeText(setExtraItem_Activity.this, items.get("TEA"), Toast.LENGTH_SHORT).show();
-//                            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(setExtraItem_Activity.this);
-//                            builder.setTitle("ALERT");
-//                            builder.setMessage(items.toString());
-//                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialogInterface, int i) {
-//                                    dialogInterface.dismiss();
-//                                }
-//                            }).show();
-
                         }else{
                             Toast.makeText(setExtraItem_Activity.this, "Error in inserting item", Toast.LENGTH_SHORT).show();
                         }

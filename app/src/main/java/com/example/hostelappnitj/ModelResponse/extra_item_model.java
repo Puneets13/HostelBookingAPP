@@ -14,6 +14,18 @@ public class extra_item_model {
 
     }
 
+    public extra_item_model(String hostelName, String itemName) {
+        this.hostelName = hostelName;
+        this.itemName = itemName;
+    }
+
+    public extra_item_model(String hostelName, String itemName, String prevItemName, Integer itemPrice) {
+        this.hostelName = hostelName;
+        this.itemName = itemName;
+        this.prevItemName = prevItemName;
+        this.itemPrice = itemPrice;
+    }
+
     public Map<String, Integer> getItems() {
         return items;
     }
