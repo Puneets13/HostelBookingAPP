@@ -81,6 +81,7 @@ public class SeatmatrixMBHBoys extends AppCompatActivity {
                 loadRooms(); //to load the color of rooms in matrix
 
 //        TO PASS THE INTENT TO NEXT REGISTER ACTIVITY
+
         binding.btnRoomBook3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

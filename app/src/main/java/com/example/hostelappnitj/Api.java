@@ -13,6 +13,7 @@ import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.UpdateUserResponse;
 import com.example.hostelappnitj.ModelResponse.constantsModel;
+import com.example.hostelappnitj.ModelResponse.extra_item_model;
 import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
 import com.example.hostelappnitj.ModelResponse.fetchmealRecord;
@@ -210,6 +211,12 @@ public interface Api {
             @Body constantsModel constantsModel
     );
 
+
+
+    @POST("hostelbook/addExtraItem")
+    Call<extra_item_model>addItemInConstant(
+            @Body extra_item_model extra_item_model
+    );
 //    @Multipart
 //    @POST("XXXX") resetPassword
 //    Call<HostelRegisterationResponse> update(@Part(SyncStateContract.Constants.ACTION_ID) RequestBody actionId, @Part(Constants.OFFER_CODE) RequestBody offerCode);

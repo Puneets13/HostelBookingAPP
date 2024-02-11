@@ -453,7 +453,6 @@ public class RegisterationActivity extends AppCompatActivity {
                             }
                         }
                     }
-
                     @Override
                     public void onFailure(Call<PreRegisterResponse> call, Throwable t) {
                         Toast.makeText(RegisterationActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();

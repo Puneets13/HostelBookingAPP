@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.Acitvity.MessRecordList_Activity;
 import com.example.hostelappnitj.Acitvity.dietRecordActivity;
+import com.example.hostelappnitj.Acitvity.setExtraItem_Activity;
 import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.ModelResponse.DailyScannerModel;
 import com.example.hostelappnitj.R;
@@ -160,6 +161,10 @@ public class MessHomeFragment_admin extends Fragment {
             @Override
             public void onClick(View v) {
 
+                Intent intent = new Intent(getActivity(), setExtraItem_Activity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("hostelName",hostelName);
+                startActivity(intent);
             }
         });
         btnDietRecord.setOnClickListener(new View.OnClickListener() {
