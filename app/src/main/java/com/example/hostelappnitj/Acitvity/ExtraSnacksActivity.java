@@ -117,7 +117,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                                items_list.add(item_price);
 
                             }
-                            Collections.sort(item);
+                            Collections.sort(items_list);
                             adapter = new ItemListAdapter(ExtraSnacksActivity.this, items_list);
                             recyclerView.setAdapter(adapter);
 
