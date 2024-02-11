@@ -181,7 +181,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
 //                Toast.makeText(getActivity(), "its ", Toast.LENGTH_SHORT).show();
                     mealType = "lunch";
                 }
-                else if (hour >= 12 && hour < 16) {   // 12:00PM to 3:00PM
+                else if (hour >= 12 && hour < 18) {   // 12:00PM to 3:00PM
 //                    System.out.println("Good Afternoon!");
                     mealType = "lunch";
                 }

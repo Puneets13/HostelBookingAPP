@@ -5,9 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,10 +55,41 @@ public class setExtraItem_Activity extends AppCompatActivity {
     List<String> items_list ,  checkedItems , item ;
 //    private RecyclerView recyclerView;
 
+
+//    private final Handler handler = new Handler(Looper.getMainLooper());
+//
+//    private final Runnable updateRunnable = new Runnable() {
+//        @Override
+//        public void run() {
+//            // Call the method to fetch updated data from MongoDB and update the RecyclerView
+//
+//            showList();
+//            // Schedule the next update after a delay (e.g., every 5 seconds)
+//            handler.postDelayed(this, 10000); // Adjust the delay as needed
+//        }
+//    };
+
+
+//    private BroadcastReceiver refreshReceiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            if (intent.getAction().equals("refresh_adapter")) {
+//                // Refresh the data or perform any necessary actions
+//                showList(); // Call your method to refresh the list
+//            }
+//        }
+//    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_extra_item);
+
+
+//        // Register the BroadcastReceiver
+//        IntentFilter filter = new IntentFilter("refresh_adapter");
+//        registerReceiver(refreshReceiver, filter);
+
         btnAddItem=findViewById(R.id.floating_addButton);
         recyclerView= findViewById(R.id.recyleview_setExtra_item);
         items= new HashMap<>();
@@ -75,13 +111,15 @@ public class setExtraItem_Activity extends AppCompatActivity {
 
 
        showList();
-
+//       handler.post(updateRunnable);
 
 
     btnAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 showAddItemDialog();
+                showList();
             }
         });
     }
@@ -175,5 +213,12 @@ public class setExtraItem_Activity extends AppCompatActivity {
     AlertDialog addItemDialog = dialogBuilder.create();
     addItemDialog.show();
 }
+
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        // Unregister the BroadcastReceiver
+//        unregisterReceiver(refreshReceiver);
+//    }
 
 }

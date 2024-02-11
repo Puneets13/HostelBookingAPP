@@ -156,7 +156,7 @@ public class DailyScannerFragment extends Fragment {
                     Toast.makeText(getActivity(), "its breakfst", Toast.LENGTH_SHORT).show();
                     mealType = "breakfast";
                 }
-                else if (hour >= 12 && hour < 15) {   // 12:00PM to 3:00PM
+                else if (hour >= 12 && hour < 18) {   // 12:00PM to 3:00PM
 //                  System.out.println("Good Afternoon!");
                     mealType = "lunch";
                 }

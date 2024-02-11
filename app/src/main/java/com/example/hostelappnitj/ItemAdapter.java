@@ -1,7 +1,9 @@
 package com.example.hostelappnitj;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hostelappnitj.Acitvity.MessRecordList_Activity;
 import com.example.hostelappnitj.Acitvity.setExtraItem_Activity;
 import com.example.hostelappnitj.ModelResponse.extra_item_model;
 
@@ -32,6 +35,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
  private List<String> itemList;
  private List<String> checkedItems;
  private String hostelName;
+ ProgressDialog progressDialog;
 
 
 
@@ -62,27 +66,40 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
   holder.txtItemName.setText(itemName);
   holder.txtItemPrice.setText(itemPrice);
 
-  holder.btnDelte.setOnClickListener(new View.OnClickListener() {
 
+//  FOR DELETING
+
+  holder.btnDelte.setOnClickListener(new View.OnClickListener() {
    @Override
    public void onClick(View view) {
-    Toast.makeText(context, "I am in ", Toast.LENGTH_SHORT).show();
- extra_item_model model = new extra_item_model(hostelName,itemName);
+
+
+    progressDialog = new ProgressDialog(context);
+    progressDialog.setTitle("Processing");
+    progressDialog.setMessage("Deleting Item\n");
+    progressDialog.show();
+    progressDialog.setCancelable(false);
+
+
+    extra_item_model model = new extra_item_model(hostelName,itemName);
  Call<extra_item_model> call = RetrofitClient.getInstance().getApi().deleteEntry(model);
  call.enqueue(new Callback<extra_item_model>() {
   @Override
   public void onResponse(Call<extra_item_model> call, Response<extra_item_model> response) {
    if(response.isSuccessful()){
-    Toast.makeText(context, "I am", Toast.LENGTH_SHORT).show();
-
+    progressDialog.dismiss();
     if(response.body().getMessage().equals("success")){
      Toast.makeText(context.getApplicationContext(), "Item Deleted", Toast.LENGTH_SHORT).show();
+//     Intent intent = new Intent("refresh_adapter");
+//     context.sendBroadcast(intent);
+
     }
    }
   }
 
   @Override
   public void onFailure(Call<extra_item_model> call, Throwable t) {
+   progressDialog.dismiss();
    Toast.makeText(context.getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
   }
  });
@@ -90,11 +107,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
    }
   });
 
+
+//  FOR EDITING
   holder.btnEdit.setOnClickListener(new View.OnClickListener() {
    @Override
    public void onClick(View view) {
     String newItemName="";
     Integer newItemPrice = 0;
+
 
     showAddItemDialog(itemName,itemPrice) ;
 
@@ -120,6 +140,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
   dialogBuilder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
    public void onClick(DialogInterface dialog, int whichButton) {
+
+    progressDialog = new ProgressDialog(context);
+    progressDialog.setTitle("Processing");
+    progressDialog.setMessage("Editing in Progress\n");
+    progressDialog.show();
+    progressDialog.setCancelable(false);
+
     String newitemName = editTextItemName.getText().toString().trim();
     String newitemPricestr=editTextItemPrice.getText().toString().trim();
     Integer newitemPrice = Integer.parseInt(newitemPricestr);
@@ -136,9 +163,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
      @Override
      public void onResponse(Call<extra_item_model> call, Response<extra_item_model> response) {
       if(response.isSuccessful()){
+       progressDialog.dismiss();
        if(response.body().getMessage().equals("success")){
         Toast.makeText(context, "Edited Successfully", Toast.LENGTH_SHORT).show();
+//        Intent intent = new Intent("refresh_adapter");
+//        context.sendBroadcast(intent);
+
        }else{
+        progressDialog.dismiss();
         Toast.makeText(context, "Error in inserting item", Toast.LENGTH_SHORT).show();
        }
       }
@@ -146,6 +178,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
      @Override
      public void onFailure(Call<extra_item_model> call, Throwable t) {
+      progressDialog.dismiss();
       Toast.makeText(context, t.getMessage(), Toast.LENGTH_SHORT).show();
      }
     });

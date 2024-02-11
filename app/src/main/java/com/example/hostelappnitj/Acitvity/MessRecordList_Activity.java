@@ -331,7 +331,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
 //                    System.out.println("Good Morning!");
             meal_received = "breakfast";
         }
-        else if (hour >= 12 && hour < 15) {   // 12:00PM to 3:00PM
+        else if (hour >= 12 && hour < 18) {   // 12:00PM to 3:00PM
 //                  System.out.println("Good Afternoon!");
             meal_received = "lunch";
         }
