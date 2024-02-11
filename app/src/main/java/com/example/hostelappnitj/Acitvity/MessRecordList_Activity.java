@@ -180,7 +180,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
     String email ,  rollNumber , hostelName , roomNumber, month , year , mealType , formattedDate;
 
     AppCompatButton btnPdfDowload;
-    String hostelName1="Boys Hostel 7";
+    String hostelName1="";
     String meal_received="";
 
 
@@ -223,7 +223,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
 
         sharedPrefManager=new SharedPrefManager(MessRecordList_Activity.this);
 //        rollNumber = sharedPrefManager.getUser().getRollNumber();
-//        hostelName1=sharedPrefManager.getHostelUser().getHostelName();
+        hostelName1=sharedPrefManager.getHostelUser().getHostelName();
 //        roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -339,6 +339,11 @@ public class MessRecordList_Activity extends AppCompatActivity {
 ////                    System.out.println("Good Evening!");
 //                    mealType = "dinner";
 //                }
+
+        else if ((hour >= 15 && hour < 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
+            mealType = "snacks";
+        }
+
         else if (( hour<24) ) { // 7:30 PM to 10:30 PM
 //                    System.out.println("Good Evening!");
             meal_received = "dinner";

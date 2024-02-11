@@ -53,7 +53,7 @@ import retrofit2.Response;
 
 public class MessHomeFragment_admin extends Fragment {
     ImageView imageViewHostels ;
-    AppCompatButton btndailyScanner , btnextrasScanner , btngetDietRecord , btnInvoice , btnDietRecord;
+    AppCompatButton btndailyScanner , btnextrasScanner , btngetDietRecord , btnInvoice , btnDietRecord ,btnSetExtraPrice;
     TextToSpeech textToSpeech ;
     SharedPrefManager sharedPrefManager;
     private DialogInterface.OnClickListener dialogClickListener;
@@ -80,6 +80,7 @@ public class MessHomeFragment_admin extends Fragment {
         btndailyScanner = view.findViewById(R.id.daily_scanner);
         btnextrasScanner = view.findViewById(R.id.extras_scanner);
         btngetDietRecord = view.findViewById(R.id.getDietRedcord);
+        btnSetExtraPrice = view.findViewById(R.id.btnSetExtraPrice);
         btnDietRecord=view.findViewById(R.id.dietRecord);
         btnInvoice = view.findViewById(R.id.invoice);
 
@@ -155,6 +156,12 @@ public class MessHomeFragment_admin extends Fragment {
         });
 
 
+        btnSetExtraPrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         btnDietRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
