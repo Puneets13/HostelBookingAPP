@@ -53,6 +53,8 @@ public class setExtraItem_Activity extends AppCompatActivity {
 
     private Map<String, Integer> itemMap;
     List<String> items_list ,  checkedItems , item ;
+    String itemNames;
+    Integer itemPrices;
 //    private RecyclerView recyclerView;
 
 
@@ -189,6 +191,15 @@ public class setExtraItem_Activity extends AppCompatActivity {
                     if(response.isSuccessful()){
                         if(response.body().getMessage().equals("success")){
                             items=response.body().getItems();
+                            items_list.clear();
+                            for (Map.Entry<String, Integer> entry : items.entrySet()) {
+                                String item_price =  entry.getKey() + ": " + entry.getValue();
+                                items_list.add(item_price);
+
+                            }
+                            Collections.sort(items_list);
+                            adapter = new ItemAdapter(setExtraItem_Activity.this, items_list,hostelName);
+                            recyclerView.setAdapter(adapter);
                         }else{
                             Toast.makeText(setExtraItem_Activity.this, "Error in inserting item", Toast.LENGTH_SHORT).show();
                         }

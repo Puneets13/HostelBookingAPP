@@ -21,6 +21,8 @@ import com.example.hostelappnitj.Acitvity.setExtraItem_Activity;
 import com.example.hostelappnitj.ModelResponse.extra_item_model;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,14 +40,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
  ProgressDialog progressDialog;
 
 
-
  public ItemAdapter(Context context, List<String> itemList,String hostelName) {
   this.context = context;
   this.itemList = itemList;
   this.checkedItems = new ArrayList<>();
   this.hostelName=hostelName;
  }
-
 
  @NonNull
  @Override
@@ -90,8 +90,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     progressDialog.dismiss();
     if(response.body().getMessage().equals("success")){
      Toast.makeText(context.getApplicationContext(), "Item Deleted", Toast.LENGTH_SHORT).show();
-//     Intent intent = new Intent("refresh_adapter");
-//     context.sendBroadcast(intent);
+     int position= holder.getAdapterPosition();
+     itemList.remove(position);
+     notifyItemRemoved(position);
 
     }
    }
@@ -112,18 +113,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
   holder.btnEdit.setOnClickListener(new View.OnClickListener() {
    @Override
    public void onClick(View view) {
-    String newItemName="";
-    Integer newItemPrice = 0;
-
-
-    showAddItemDialog(itemName,itemPrice) ;
+    int position= holder.getAdapterPosition();
+    showAddItemDialog(itemName,itemPrice,position) ;
 
    }
   });
 
  }
 
- private void showAddItemDialog(String itemName,String itemPrice) {
+ private void showAddItemDialog(String itemName,String itemPrice,Integer position) {
   AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
   LayoutInflater inflater = LayoutInflater.from(context);
   View dialogView = inflater.inflate(R.layout.dialog_add_item, null);
@@ -147,7 +145,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     progressDialog.show();
     progressDialog.setCancelable(false);
 
-    String newitemName = editTextItemName.getText().toString().trim();
+    String newitemName = editTextItemName.getText().toString().trim().toUpperCase();
     String newitemPricestr=editTextItemPrice.getText().toString().trim();
     Integer newitemPrice = Integer.parseInt(newitemPricestr);
     if( newitemName.isEmpty() || newitemPrice ==0){
@@ -166,8 +164,19 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
        progressDialog.dismiss();
        if(response.body().getMessage().equals("success")){
         Toast.makeText(context, "Edited Successfully", Toast.LENGTH_SHORT).show();
-//        Intent intent = new Intent("refresh_adapter");
-//        context.sendBroadcast(intent);
+
+
+        itemList.set(position,newitemName+":"+newitemPrice);
+
+        // Add the new item
+//        String newItem = newitemName + ":" + newitemPrice;
+//        itemList.add(newItem);
+
+        // Sort the list
+//        Collections.sort(itemList);
+
+        // Notify adapter of dataset change
+        notifyDataSetChanged();
 
        }else{
         progressDialog.dismiss();
