@@ -340,7 +340,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
 //                    mealType = "dinner";
 //                }
 
-        else if ((hour >= 15 && hour < 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
+        else if ((hour >= 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
             mealType = "snacks";
         }
 
@@ -362,6 +362,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
             }).show();
         }
 
+        hostelName1="Boys Hostel 7";
         fetchmealRecord model = new fetchmealRecord(hostelName1,meal_received);
         Call<fetchmealRecord> call = RetrofitClient.getInstance().getApi().getMessDietRecord(model);
         call.enqueue(new Callback<fetchmealRecord>() {
