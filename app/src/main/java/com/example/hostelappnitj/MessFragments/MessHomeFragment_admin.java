@@ -56,6 +56,7 @@ public class MessHomeFragment_admin extends Fragment {
     ImageView imageViewHostels ;
     AppCompatButton btndailyScanner , btnextrasScanner , btngetDietRecord , btnInvoice , btnDietRecord ,btnSetExtraPrice;
     TextToSpeech textToSpeech ;
+    TextView txtEmail;
     SharedPrefManager sharedPrefManager;
     private DialogInterface.OnClickListener dialogClickListener;
     ProgressDialog progressDialog;
@@ -78,12 +79,14 @@ public class MessHomeFragment_admin extends Fragment {
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // Inflate the layout for this fragment
         imageViewHostels=view.findViewById(R.id.imageView_hostels);
-        btndailyScanner = view.findViewById(R.id.daily_scanner);
-        btnextrasScanner = view.findViewById(R.id.extras_scanner);
+//        btndailyScanner = view.findViewById(R.id.daily_scanner);
+//        btnextrasScanner = view.findViewById(R.id.extras_scanner);
         btngetDietRecord = view.findViewById(R.id.getDietRedcord);
         btnSetExtraPrice = view.findViewById(R.id.btnSetExtraPrice);
-        btnDietRecord=view.findViewById(R.id.dietRecord);
+        btnDietRecord=view.findViewById(R.id.getDietRedcord);
         btnInvoice = view.findViewById(R.id.invoice);
+
+        txtEmail = view.findViewById(R.id.txtEmail);
 
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
 
@@ -95,7 +98,7 @@ public class MessHomeFragment_admin extends Fragment {
         hostelName=sharedPrefManager.getHostelUser().getHostelName();
         roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
 
-
+        txtEmail.setText(email);
         //        text To speech
         textToSpeech = new TextToSpeech(getActivity(), new TextToSpeech.OnInitListener() {
 
@@ -132,20 +135,20 @@ public class MessHomeFragment_admin extends Fragment {
         handler.postDelayed(runnable, 2000);
 
 
-        btndailyScanner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ScanCode();
-            }
-        });
-
-        btnextrasScanner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ScanExtrasCode();
-            }
-        });
-
+//        btndailyScanner.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ScanCode();
+//            }
+//        });
+//
+//        btnextrasScanner.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ScanExtrasCode();
+//            }
+//        });
+//
 
         btngetDietRecord.setOnClickListener(new View.OnClickListener(){
             @Override

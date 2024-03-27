@@ -240,17 +240,17 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                         break;
-
-                    case R.id.daily_scanner:
-                        toolbar.setTitle("Daily Meal Scanner");
-                        toolbar.setTitleTextColor(Color.WHITE);
-                        fragment = new DailyScannerFragment();
-                        break;
-                    case R.id.extra_scanner:
-                        toolbar.setTitle("Extra's Meal Scanner");
-                        toolbar.setTitleTextColor(Color.WHITE);
-                        fragment = new ExtrasScannerFragment();
-                        break;
+//
+//                    case R.id.daily_scanner:
+//                        toolbar.setTitle("Daily Meal Scanner");
+//                        toolbar.setTitleTextColor(Color.WHITE);
+//                        fragment = new DailyScannerFragment();
+//                        break;
+//                    case R.id.extra_scanner:
+//                        toolbar.setTitle("Extra's Meal Scanner");
+//                        toolbar.setTitleTextColor(Color.WHITE);
+//                        fragment = new ExtrasScannerFragment();
+//                        break;
 
 
                     case R.id.logout:

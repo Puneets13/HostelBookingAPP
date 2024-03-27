@@ -261,7 +261,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                     }
 
 
-                    DailyScannerModel model = new DailyScannerModel(roomNumber,hostelName,month,year,mealType,formattedDate,formattedTime1,item,amount);
+                    DailyScannerModel model = new DailyScannerModel(rollNumber,roomNumber,hostelName,month,year,mealType,formattedDate,formattedTime1,item,amount);
                     Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().getExtraMeal(model);
                     call.enqueue(new Callback<DailyScannerModel>() {
                         @Override
@@ -271,7 +271,9 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                             if(response.isSuccessful()){
                                 if(responseFromAPI.getMessage().equals("you have consumed extras")){
 
-                                    String speak = amount +"coins deducted.   Enjoy your meal";
+//                                    String speak = amount +"coins deducted.   +Enjoy your meal";
+                                    String speak = "Enjoy your meal";
+
                                     textToSpeech.setSpeechRate(1);
                                     textToSpeech.speak(speak,TextToSpeech.QUEUE_FLUSH,null);
                                     Intent intent = new Intent(ExtraSnacksActivity.this, successScanActivity.class);

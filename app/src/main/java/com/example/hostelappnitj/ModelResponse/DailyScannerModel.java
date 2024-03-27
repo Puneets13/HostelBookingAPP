@@ -14,7 +14,9 @@ public class DailyScannerModel {
     private hostelResponse hostelResponse;
 
 
-    public DailyScannerModel(String roomNumber, String hostelName, String month, String year, String mealType, String timestamp, String formatedTime_24, List<String> item, int amount) {
+    // extra meal scanner
+    public DailyScannerModel(String rollNumber , String roomNumber, String hostelName, String month, String year, String mealType, String timestamp, String formatedTime_24, List<String> item, int amount) {
+        this.rollNumber = rollNumber;
         this.roomNumber = roomNumber;
         this.hostelName = hostelName;
         this.month = month;
@@ -25,6 +27,11 @@ public class DailyScannerModel {
         this.item = item;
         this.amount = amount;
     }
+
+
+
+
+
 
     public List<String> getItem() {
         return item;
@@ -104,6 +111,7 @@ public class DailyScannerModel {
         this.timestamp = timestamp;
         this.formatedTime_24 = formatedTime_24;
     }
+
 
     public String getUserName() {
         return userName;
