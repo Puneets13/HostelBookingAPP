@@ -109,7 +109,8 @@ public class userAdapterMessRecord extends  RecyclerView.Adapter<userAdapterMess
     public void onBindViewHolder(@NonNull userAdapterMessRecord.ViewHolder holder, int position) {
         holder.rollNumber.setText(userList.get(position).getRollNumber());
         holder.roomNumber.setText(userList.get(position).getRoomNumber());
-        holder.date.setText(userList.get(position).getDate());
+//        holder.date.setText(userList.get(position).getDate());
+        holder.date.setText(userList.get(position).getTimeStamp());
         holder.userName.setText(userList.get(position).getUserName());
         String imageFromDatabase= userList.get(position).getAvatar();
 ////center crop is use to not the image to be streched when resized

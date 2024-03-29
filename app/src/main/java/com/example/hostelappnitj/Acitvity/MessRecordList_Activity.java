@@ -344,7 +344,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
             mealType = "snacks";
         }
 
-        else if (( hour<24) ) { // 7:30 PM to 10:30 PM
+        else if (( hour<24)&& hour > 20 ) { // 7:30 PM to 10:30 PM
 //                    System.out.println("Good Evening!");
             meal_received = "dinner";
         }
@@ -369,7 +369,6 @@ public class MessRecordList_Activity extends AppCompatActivity {
             @Override
             public void onResponse(Call<fetchmealRecord> call, Response<fetchmealRecord> response) {
                 progressDialog.dismiss();
-
                 if(response.isSuccessful()){
                     String msg = response.body().getMessage();
                     mealList = response.body().getMealList();
@@ -385,15 +384,6 @@ public class MessRecordList_Activity extends AppCompatActivity {
                 Toast.makeText(MessRecordList_Activity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
-
-
-
-
-
     }
 
 

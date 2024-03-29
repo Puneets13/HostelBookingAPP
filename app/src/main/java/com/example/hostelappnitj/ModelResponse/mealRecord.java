@@ -2,7 +2,7 @@ package com.example.hostelappnitj.ModelResponse;
 
 public class mealRecord {
 private String date , breakfast , lunch , dinner,meal_type;
-    private String rollNumber , roomNumber,hostelName,avatar,userName,message;
+    private String rollNumber , roomNumber,hostelName,avatar,userName,message,timeStamp;
 
     public String getMessage() {
         return message;
@@ -22,6 +22,14 @@ private String date , breakfast , lunch , dinner,meal_type;
 
     public String getUserName() {
         return userName;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public mealRecord(String date, String breakfast, String lunch, String dinner) {

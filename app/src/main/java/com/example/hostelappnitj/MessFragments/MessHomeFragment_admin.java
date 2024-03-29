@@ -150,7 +150,7 @@ public class MessHomeFragment_admin extends Fragment {
 //        });
 //
 
-        btngetDietRecord.setOnClickListener(new View.OnClickListener(){
+        btnDietRecord.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MessRecordList_Activity.class);
@@ -170,14 +170,16 @@ public class MessHomeFragment_admin extends Fragment {
                 startActivity(intent);
             }
         });
-        btnDietRecord.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), dietRecordActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        });
+
+//        btnDietRecord.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), dietRecordActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                startActivity(intent);
+//            }
+//        });
+
         floatingActionButton_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
