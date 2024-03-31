@@ -168,6 +168,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -178,7 +179,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
     ProgressDialog progressDialog;
     SharedPrefManager sharedPrefManager;
     String email ,  rollNumber , hostelName , roomNumber, month , year , mealType , formattedDate;
-
+    CircleImageView btnRefresh;
     AppCompatButton btnPdfDowload;
     String hostelName1="";
     String meal_received="";
@@ -196,7 +197,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
             fetchDataAndUpdateRecyclerView();
 
             // Schedule the next update after a delay (e.g., every 5 seconds)
-            handler.postDelayed(this, 3000); // Adjust the delay as needed
+            handler.postDelayed(this, 5000); // Adjust the delay as needed
         }
     };
 
@@ -208,6 +209,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyleview);
         btnPdfDowload=findViewById(R.id.downloadPDF);
+        btnRefresh = findViewById(R.id.btnRefresh);
 
         rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
@@ -221,14 +223,20 @@ public class MessRecordList_Activity extends AppCompatActivity {
         });
 
 
+        btnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MessRecordList_Activity.this, "Refreshing Data", Toast.LENGTH_SHORT).show();
+                fetchDataAndUpdateRecyclerView();
+            }
+        });
+
         sharedPrefManager=new SharedPrefManager(MessRecordList_Activity.this);
 //        rollNumber = sharedPrefManager.getUser().getRollNumber();
         hostelName1=sharedPrefManager.getHostelUser().getHostelName();
-//        roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
+        roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setReverseLayout(true);
-        layoutManager.setStackFromEnd(true); // Optional, if you want to start items from the end of the list
         recyclerView.setLayoutManager(layoutManager);
 
         progressDialog = new ProgressDialog(MessRecordList_Activity.this);
@@ -331,7 +339,7 @@ public class MessRecordList_Activity extends AppCompatActivity {
 //                    System.out.println("Good Morning!");
             meal_received = "breakfast";
         }
-        else if (hour >= 12 && hour < 18) {   // 12:00PM to 3:00PM
+        else if (hour >= 12 && hour < 15) {   // 12:00PM to 3:00PM
 //                  System.out.println("Good Afternoon!");
             meal_received = "lunch";
         }
@@ -340,11 +348,11 @@ public class MessRecordList_Activity extends AppCompatActivity {
 //                    mealType = "dinner";
 //                }
 
-        else if ((hour >= 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
-            mealType = "snacks";
-        }
+//        else if ((hour >= 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
+//            mealType = "snacks";
+//        }
 
-        else if (( hour<24)&& hour > 20 ) { // 7:30 PM to 10:30 PM
+        else if ( hour >= 17 ) { // 7:30 PM to 10:30 PM
 //                    System.out.println("Good Evening!");
             meal_received = "dinner";
         }
@@ -358,11 +366,13 @@ public class MessRecordList_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     dialogInterface.dismiss();
+
                 }
             }).show();
         }
 
-        hostelName1="Boys Hostel 7";
+//        hostelName1="Boys Hostel 7";
+
         fetchmealRecord model = new fetchmealRecord(hostelName1,meal_received);
         Call<fetchmealRecord> call = RetrofitClient.getInstance().getApi().getMessDietRecord(model);
         call.enqueue(new Callback<fetchmealRecord>() {

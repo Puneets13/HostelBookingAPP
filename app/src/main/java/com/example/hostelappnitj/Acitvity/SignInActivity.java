@@ -225,7 +225,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         inEmail = email.getText().toString();
         if(inEmail.equals("mbh.B@nitj.ac.in") || inEmail.equals("mbh.A@nitj.ac.in") ||inEmail.equals("mbh.F@nitj.ac.in")||inEmail.equals("mgh@nitj.ac.in")
-        || inEmail.equals("mgh.A@nitj.ac.in") || inEmail.equals("mgh.B@nitj.ac.in") || inEmail.equals("bh4@nitj.ac.in") ||  inEmail.equals("bh3@nitj.ac.in")
+        || inEmail.equals("mgh.A@nitj.ac.in") || inEmail.equals("mgh.B@nitj.ac.in") || inEmail.equals("bh4@nitj.ac.in") ||  inEmail.equals("bh3@nitj.ac.in") || inEmail.equals("bh6@nitj.ac.in")
                 ||  inEmail.equals("bh7@nitj.ac.in") ||  inEmail.equals("bh7E@nitj.ac.in")
         ){
             userType = "Admin";
@@ -305,7 +305,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                         }
 
                         sharedPrefManager.SaveHostelUser(responseFromAPi.getHostel());
-
+//                        String txt = responseFromAPi.getHostel().getHostelName();
+//                        String txt1 = sharedPrefManager.getHostelUser().getHostelName();
+//                        Toast.makeText(SignInActivity.this, "hi"+txt, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(SignInActivity.this, "heyy "+txt1, Toast.LENGTH_SHORT).show();
                         Toast.makeText(SignInActivity.this, user.getEmail()+" Login successfully", Toast.LENGTH_SHORT).show();
 
 //                       define type

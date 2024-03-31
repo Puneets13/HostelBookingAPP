@@ -91,11 +91,26 @@ SharedPrefManager sharedPrefManager;
         btnChangeProfileImg=view.findViewById(R.id.changeProfile);
         btnChangeProfile=view.findViewById(R.id.editProfile);
         roomLayout=view.findViewById(R.id.roomlinearLayout);
+
+
+
+
         sharedPrefManager= new SharedPrefManager(getActivity());
+
+        if(sharedPrefManager.getAdmin().equals("Admin")){
+            phone.setVisibility(View.INVISIBLE);
+            btnChangeProfile.setVisibility(View.GONE);
+            branch.setVisibility(View.GONE);
+            rollNumber.setVisibility(View.GONE);
+            email.setGravity(Gravity.CENTER);
+            sharedPrefManager.getHostelUser().getHostelName();
+            username.setText(sharedPrefManager.getHostelUser().getHostelName());
+
+        }
+
         email.setText(sharedPrefManager.getUser().getEmail());
         username.setText(sharedPrefManager.getUser().getUsername());
         rollNumber.setText(sharedPrefManager.getUser().getRollNumber());
-
         stringEmail = sharedPrefManager.getUser().getEmail();
 
         progressDialog = new ProgressDialog(getActivity());
@@ -123,12 +138,18 @@ SharedPrefManager sharedPrefManager;
             branch.setText(sharedPrefManager.getUser().getAddress());
         }
 
+
         if(sharedPrefManager.getAdmin().equals("Admin")){
             phone.setVisibility(View.INVISIBLE);
             btnChangeProfile.setVisibility(View.GONE);
             branch.setVisibility(View.GONE);
             rollNumber.setVisibility(View.GONE);
             email.setGravity(Gravity.CENTER);
+            sharedPrefManager.getHostelUser().getHostelName();
+            String txt = sharedPrefManager.getHostelUser().getHostelName();
+            Toast.makeText(getActivity(), "hi"+txt, Toast.LENGTH_SHORT).show();
+            username.setText(sharedPrefManager.getHostelUser().getHostelName());
+
         }
 
         roomLayout.setVisibility(View.INVISIBLE);

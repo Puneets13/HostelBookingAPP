@@ -47,6 +47,7 @@ public class setExtraItem_Activity extends AppCompatActivity {
     String hostelName;
     Map<String,Integer> items;
     RecyclerView recyclerView;
+    SharedPrefManager sharedPrefManager;
 
     private ItemAdapter adapter;
     private List<Map<String, String>> itemList;
@@ -97,6 +98,10 @@ public class setExtraItem_Activity extends AppCompatActivity {
         items= new HashMap<>();
 
 
+        sharedPrefManager=new SharedPrefManager(setExtraItem_Activity.this);
+//        rollNumber = sharedPrefManager.getUser().getRollNumber();
+        hostelName=sharedPrefManager.getHostelUser().getHostelName();
+
         itemMap = new HashMap<>();
         items_list = new ArrayList<>();
 //        checkedItems = new ArrayList<>();
@@ -108,7 +113,7 @@ public class setExtraItem_Activity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        hostelName="Boys Hostel 7";////////
+//        hostelName="Boys Hostel 7";////////
         Toast.makeText(this, hostelName, Toast.LENGTH_SHORT).show();
 
 

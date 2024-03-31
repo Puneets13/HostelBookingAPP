@@ -42,7 +42,7 @@ public class dietRecordActivity extends AppCompatActivity {
         hostelName=sharedPrefManager.getHostelUser().getHostelName();
         roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
 
-        hostelName = "Boys Hostel 7";
+//        hostelName = "Boys Hostel 7";
         recyclerView.setLayoutManager(new LinearLayoutManager(dietRecordActivity.this));
 
 
