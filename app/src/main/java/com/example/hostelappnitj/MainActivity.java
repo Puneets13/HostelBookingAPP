@@ -182,7 +182,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nitj_mess:
                         if (sharedPrefManager.getAdmin().equals("Admin")) {
                             fragment = new MessHomeFragment_admin();
-                            Toast.makeText(MainActivity.this, "You are admin", Toast.LENGTH_SHORT).show();
                             loadFragment(fragment);
                         } else
                         {
@@ -191,6 +190,14 @@ public class MainActivity extends AppCompatActivity {
                         progressDialog.setMessage("Loading....");
                         progressDialog.show();
                         progressDialog.setCancelable(false);
+
+                            String txt1 = sharedPrefManager.getHostelUser().getHostelName();
+                            String txt2 = sharedPrefManager.getHostelUser().getRoomNumber();
+
+//                            Toast.makeText(MainActivity.this, "H"+txt1, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(MainActivity.this, "Room"+txt2, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(MainActivity.this, "ro"+rollNumber, Toast.LENGTH_SHORT).show();
+
                         DailyScannerModel model = new DailyScannerModel(roomNumber, rollNumber, hostelName);
                         Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().createMessAccount(model);
                         call.enqueue(new Callback<DailyScannerModel>() {
@@ -198,8 +205,10 @@ public class MainActivity extends AppCompatActivity {
                             public void onResponse(Call<DailyScannerModel> call, Response<DailyScannerModel> response) {
                                 progressDialog.dismiss();
                                 DailyScannerModel responseFromAPI = response.body();
-//                              Toast.makeText(MainActivity.this, "received", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "iam out", Toast.LENGTH_SHORT).show();
+                                //                              Toast.makeText(MainActivity.this, "received", Toast.LENGTH_SHORT).show();
                                 if (response.isSuccessful()) {
+                                    Toast.makeText(MainActivity.this, "iamin", Toast.LENGTH_SHORT).show();
                                     if (responseFromAPI.getMessage().equals("success") || responseFromAPI.getMessage().equals("already exist")) {
                                         flag = true;
                                         sharedPrefManager.SaveHostelMessUser(responseFromAPI.getHostelResponse()); // to save the hostel response
@@ -215,11 +224,15 @@ public class MainActivity extends AppCompatActivity {
                                             loadFragment(fragment);
                                         }
 //                                        Toast.makeText(MainActivity.this, "opened", Toast.LENGTH_SHORT).show();
-                                    } else if(responseFromAPI.getMessage().equals("Hostel not registered")){
+                                    }
+                                    else if(responseFromAPI.getMessage().equals("failed")){
+                                        Toast.makeText(MainActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                                    }
+                                    else if(responseFromAPI.getMessage().equals("Hostel not registered")){
 //                                        Toast.makeText(MainActivity.this, "You havnen't registered", Toast.LENGTH_SHORT).show();
                                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                                         builder.setTitle("ALERT");
-                                        builder.setMessage("You haven't registered for hostel");
+                                        builder.setMessage("You have not registered for Hostel yet.\nNo Mess Account Found.");
                                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -231,9 +244,13 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
 
+
+
                             @Override
                             public void onFailure(Call<DailyScannerModel> call, Throwable t) {
                                 progressDialog.dismiss();
+                                Toast.makeText(MainActivity.this, "iamfail", Toast.LENGTH_SHORT).show();
+
                                 Toast.makeText(MainActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
                             }
                         });

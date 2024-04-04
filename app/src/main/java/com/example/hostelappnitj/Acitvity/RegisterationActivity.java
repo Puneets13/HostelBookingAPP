@@ -293,6 +293,13 @@ public class RegisterationActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterationActivity.this,"Room "+ responseFromApi.getHostel().getRoomNumber()+" Registered", Toast.LENGTH_SHORT).show();
 //                                roomRegisterSpeak();
 
+//                                SAVE THE HOSTEL RESPONSE IN SHARED PREFERENCE
+                                sharedPrefManager.SaveHostelUser(responseFromApi.getHostel());
+                                String txt1 = sharedPrefManager.getHostelUser().getHostelName();
+                                String txt2 = sharedPrefManager.getHostelUser().getRoomNumber();
+                                Toast.makeText(RegisterationActivity.this, "H"+txt1, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterationActivity.this, "R"+txt2, Toast.LENGTH_SHORT).show();
+
                                 finish(); //to remove the current activity
                             } else if(responseFromApi.getMessage().equals("Room Not Available")){
                                 progressDialog.dismiss();

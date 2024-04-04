@@ -21,6 +21,7 @@ import com.alexvasilkov.gestures.views.interfaces.GestureView;
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
 import com.example.hostelappnitj.Acitvity.RoomConfirmer;
 import com.example.hostelappnitj.AdminActivity.SearchStudent_AdminActivity;
+import com.example.hostelappnitj.MBH_B_Hostel.Floor_Ground_SeatMatrix;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.hostel;
@@ -65,23 +66,22 @@ public class Floor_Ground_SeatMatrix_A extends AppCompatActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         sharedPrefManager = new SharedPrefManager(Floor_Ground_SeatMatrix_A.this);
-
-        userType = sharedPrefManager.getAdmin();
-
-        if(userType.equals("Admin")){
-            binding.btnRoomBook3.setVisibility(View.INVISIBLE);
-        }
-
         username = sharedPrefManager.getUser().getUsername();
         email = sharedPrefManager.getUser().getEmail();
         rollNumber = sharedPrefManager.getUser().getRollNumber();
         branch = sharedPrefManager.getUser().getBranch();
+
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading...");
         progressDialog.setMessage("Updating Seat Matrix..");
         progressDialog.show();
         progressDialog.setCancelable(false);
 
+        String userType = sharedPrefManager.getAdmin();
+
+        if(userType.equals("Admin")){
+            binding.btnRoomBook3.setVisibility(View.INVISIBLE);
+        }
 //        intent from MegaBoysB_activity
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
@@ -102,7 +102,7 @@ public class Floor_Ground_SeatMatrix_A extends AppCompatActivity {
                 .setFitMethod(Settings.Fit.INSIDE)
                 .setGravity(Gravity.CENTER);
 
-        loadStatus(); //to load the color of rooms in matrix
+        loadRooms(); //to load the color of rooms in matrix
 
 //        TO PASS THE INTENT TO NEXT REGISTER ACTIVITY
         binding.btnRoomBook3.setOnClickListener(new View.OnClickListener() {
@@ -116,33 +116,35 @@ public class Floor_Ground_SeatMatrix_A extends AppCompatActivity {
                 intent.putExtra("rollNumber", rollNumber);
                 intent.putExtra("email", email);
                 intent.putExtra("branch", branch);
+                intent.putExtra("floor", "1");  // change this floor number also
                 startActivity(intent);
             }
         });
-
         Handler handler= new Handler();
         Runnable runnable=new Runnable() {
             @Override
             public void run() {
-                loadStatus();
+                loadRooms();
                 handler.postDelayed(this, 2000);
             }
         };
         handler.postDelayed(runnable,2000);
 
+        //To implement click listener on every button
+
         for (int i = 1; i < 34; i++) {
 
-            if(i==3 || i==22 || i==21){
-                continue;
+            String buttonID;
+            String roomNumber;
+            if(i==3||i==21||i==22){continue;}
+            else if (i > 0 && i < 10) {
+                buttonID = "room1" + "0" + i;
+                roomNumber = "10" + i;
             }
-            String buttonID ;
-            String roomNumber ;
-            if(i>0 && i<10){
-                buttonID = "room1" + "0"+i;
-                roomNumber="10"+i;
-            }else{
-                buttonID= "room1" + i;
-                roomNumber="1"+i;
+
+            else {
+                buttonID = "room1" + i;
+                roomNumber = "1" + i;
 
             }
 
@@ -161,87 +163,87 @@ public class Floor_Ground_SeatMatrix_A extends AppCompatActivity {
                     progressDialog1.show();
                     progressDialog1.setCancelable(false);
 
-                    String hostelName =   "Mega Boys Hostel A";
-                    studentListModel studentListModel = new studentListModel(roomNumber,hostelName);
+                    String hostelName = "Mega Boys Hostel A";
+                    studentListModel studentListModel = new studentListModel(roomNumber, hostelName);
 
-                    Call<studentListModel>call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
+                    Call<studentListModel> call = RetrofitClient.getInstance().getApi().studentListResponse(studentListModel);
 
                     call.enqueue(new Callback<com.example.hostelappnitj.ModelResponse.studentListModel>() {
                         @Override
                         public void onResponse(Call<com.example.hostelappnitj.ModelResponse.studentListModel> call, Response<com.example.hostelappnitj.ModelResponse.studentListModel> response) {
                             studentListModel responseFromAPI = response.body();
-                            if(response.isSuccessful()){
-                                if(responseFromAPI.getMessage().equals("no user found")){
+                            if (response.isSuccessful()) {
+                                if (responseFromAPI.getMessage().equals("no user found")) {
                                     progressDialog1.dismiss();
                                     Toast.makeText(Floor_Ground_SeatMatrix_A.this, "Room is Empty", Toast.LENGTH_SHORT).show();
                                 }
-                                if (responseFromAPI.getMessage().equals("single user found")){
+                                if (responseFromAPI.getMessage().equals("single user found")) {
                                     Toast.makeText(Floor_Ground_SeatMatrix_A.this, "single user exist", Toast.LENGTH_SHORT).show();
                                     person p1 = responseFromAPI.getPerson1();
-                                    String email,phone,address,branch,rollNumber,fatherName,fatherPhone,avatar,userName;
+                                    String email, phone, address, branch, rollNumber, fatherName, fatherPhone, avatar, userName;
                                     email = p1.getEmail();
-                                    phone= p1.getPhone();
-                                    address= p1.getAddress();
-                                    branch=p1.getBranch();
-                                    rollNumber= p1.getRollNumber();
-                                    fatherName= p1.getFatherName();
-                                    fatherPhone=p1.getFatherPhone();
-                                    avatar= p1.getAvatar();
-                                    userName=p1.getUsername();
+                                    phone = p1.getPhone();
+                                    address = p1.getAddress();
+                                    branch = p1.getBranch();
+                                    rollNumber = p1.getRollNumber();
+                                    fatherName = p1.getFatherName();
+                                    fatherPhone = p1.getFatherPhone();
+                                    avatar = p1.getAvatar();
+                                    userName = p1.getUsername();
                                     Intent intent = new Intent(Floor_Ground_SeatMatrix_A.this, SearchStudent_AdminActivity.class);
-                                    intent.putExtra("occupied","1");
-                                    intent.putExtra("userName",userName);
-                                    intent.putExtra("email",email);
-                                    intent.putExtra("phone",phone);
-                                    intent.putExtra("address",address);
-                                    intent.putExtra("branch",branch);
-                                    intent.putExtra("rollNumber",rollNumber);
-                                    intent.putExtra("fatherName",fatherName);
-                                    intent.putExtra("fatherPhone",fatherPhone);
-                                    intent.putExtra("avatar",avatar);
-                                    intent.putExtra("roomNumber",roomNumber);
+                                    intent.putExtra("occupied", "1");
+                                    intent.putExtra("userName", userName);
+                                    intent.putExtra("email", email);
+                                    intent.putExtra("phone", phone);
+                                    intent.putExtra("address", address);
+                                    intent.putExtra("branch", branch);
+                                    intent.putExtra("rollNumber", rollNumber);
+                                    intent.putExtra("fatherName", fatherName);
+                                    intent.putExtra("fatherPhone", fatherPhone);
+                                    intent.putExtra("avatar", avatar);
+                                    intent.putExtra("roomNumber", roomNumber);
                                     progressDialog1.dismiss();
 
                                     startActivity(intent);
 
                                 }
-                                if (responseFromAPI.getMessage().equals("two user found")){
+                                if (responseFromAPI.getMessage().equals("two user found")) {
                                     Toast.makeText(Floor_Ground_SeatMatrix_A.this, "both user exist", Toast.LENGTH_SHORT).show();
                                     person p1 = responseFromAPI.getPerson1();
                                     person p2 = responseFromAPI.getPerson2();
-                                    String email,phone,address,branch,rollNumber,fatherName,fatherPhone,avatar,userName;
+                                    String email, phone, address, branch, rollNumber, fatherName, fatherPhone, avatar, userName;
                                     email = p1.getEmail();
-                                    phone= p1.getPhone();
-                                    address= p1.getAddress();
-                                    branch=p1.getBranch();
-                                    rollNumber= p1.getRollNumber();
-                                    fatherName= p1.getFatherName();
-                                    fatherPhone=p1.getFatherPhone();
-                                    avatar= p1.getAvatar();
-                                    userName=p1.getUsername();
-                                    Intent intent = new Intent(Floor_Ground_SeatMatrix_A.this,SearchStudent_AdminActivity.class);
-                                    intent.putExtra("occupied","2");
-                                    intent.putExtra("userName1",userName);
-                                    intent.putExtra("email1",email);
-                                    intent.putExtra("phone1",phone);
-                                    intent.putExtra("address1",address);
-                                    intent.putExtra("branch1",branch);
-                                    intent.putExtra("rollNumber1",rollNumber);
-                                    intent.putExtra("fatherName1",fatherName);
-                                    intent.putExtra("fatherPhone1",fatherPhone);
-                                    intent.putExtra("avatar1",avatar);
-                                    intent.putExtra("roomNumber",roomNumber);
+                                    phone = p1.getPhone();
+                                    address = p1.getAddress();
+                                    branch = p1.getBranch();
+                                    rollNumber = p1.getRollNumber();
+                                    fatherName = p1.getFatherName();
+                                    fatherPhone = p1.getFatherPhone();
+                                    avatar = p1.getAvatar();
+                                    userName = p1.getUsername();
+                                    Intent intent = new Intent(Floor_Ground_SeatMatrix_A.this, SearchStudent_AdminActivity.class);
+                                    intent.putExtra("occupied", "2");
+                                    intent.putExtra("userName1", userName);
+                                    intent.putExtra("email1", email);
+                                    intent.putExtra("phone1", phone);
+                                    intent.putExtra("address1", address);
+                                    intent.putExtra("branch1", branch);
+                                    intent.putExtra("rollNumber1", rollNumber);
+                                    intent.putExtra("fatherName1", fatherName);
+                                    intent.putExtra("fatherPhone1", fatherPhone);
+                                    intent.putExtra("avatar1", avatar);
+                                    intent.putExtra("roomNumber", roomNumber);
 
 
-                                    intent.putExtra("userName2",p2.getUsername());
-                                    intent.putExtra("email2",p2.getEmail());
-                                    intent.putExtra("phone2",p2.getPhone());
-                                    intent.putExtra("address2",p2.getAddress());
-                                    intent.putExtra("branch2",p2.getBranch());
-                                    intent.putExtra("rollNumber2",p2.getRollNumber());
-                                    intent.putExtra("fatherName2",p2.getFatherName());
-                                    intent.putExtra("fatherPhone2",p2.getFatherPhone());
-                                    intent.putExtra("avatar2",p2.getAvatar());
+                                    intent.putExtra("userName2", p2.getUsername());
+                                    intent.putExtra("email2", p2.getEmail());
+                                    intent.putExtra("phone2", p2.getPhone());
+                                    intent.putExtra("address2", p2.getAddress());
+                                    intent.putExtra("branch2", p2.getBranch());
+                                    intent.putExtra("rollNumber2", p2.getRollNumber());
+                                    intent.putExtra("fatherName2", p2.getFatherName());
+                                    intent.putExtra("fatherPhone2", p2.getFatherPhone());
+                                    intent.putExtra("avatar2", p2.getAvatar());
                                     progressDialog1.dismiss();
 
                                     startActivity(intent);
@@ -260,15 +262,13 @@ public class Floor_Ground_SeatMatrix_A extends AppCompatActivity {
                     });
 
 
-
                 }
             });
         }
-
-
     }
 
-    private void loadStatus() {
+
+    private void loadRooms() {
         //        API call for Status verification
         Call<PreRegisterResponse>call1 = RetrofitClient.getInstance().getApi().fetchAllHostelsStatus();
         call1.enqueue(new Callback<PreRegisterResponse>() {
@@ -360,13 +360,11 @@ public class Floor_Ground_SeatMatrix_A extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onResume() {
         super.onResume();
-        loadStatus(); //to load the color of rooms in matrix
+        loadRooms();
     }
-
     @Override
     public void onRestart()
     {
