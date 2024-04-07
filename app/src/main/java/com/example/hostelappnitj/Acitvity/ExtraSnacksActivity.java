@@ -39,6 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -92,7 +93,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
         item = new ArrayList<>();
 
 //        GETTING THE LIST FROM MONGODB
-            constantsModel model = new constantsModel(hostelName);
+        constantsModel model = new constantsModel(hostelName);
 
 //        StringBuilder item_string = new StringBuilder();
 //        Toast.makeText(this, model.getHostelName()+"", Toast.LENGTH_SHORT).show();
@@ -222,7 +223,6 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                 // Format the current time using SimpleDateFormat
                 formattedTime1 = dateFormat1.format(currentDate1);
 
-
                 checkedItems = adapter.getCheckedItems();  // getting this from adapter
                 item = checkedItems;
                 if(checkedItems.size()==0){
@@ -261,7 +261,18 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                     }
 
 
-                    DailyScannerModel model = new DailyScannerModel(rollNumber,roomNumber,hostelName,month,year,mealType,formattedDate,formattedTime1,item,amount);
+//                    CONVERT DATE TO UTC FORMAT FOR THIS TO MATCH TIME ZONE
+                    // Get the current date and time
+                    Date currentDate3 = new Date();
+                    // Create a date formatter for UTC time zone
+                    SimpleDateFormat dateFormat3 = new SimpleDateFormat("yyyy-MM-dd");
+                    dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+                    // Format the date as a string in UTC
+                    String utcDateTimeString = dateFormat3.format(currentDate3);
+
+                    DailyScannerModel model = new DailyScannerModel(rollNumber,roomNumber,hostelName,month,year,mealType,utcDateTimeString,formattedTime1,item,amount);
+
+//                    DailyScannerModel model = new DailyScannerModel(rollNumber,roomNumber,hostelName,month,year,mealType,formattedDate,formattedTime1,item,amount);
                     Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().getExtraMeal(model);
                     call.enqueue(new Callback<DailyScannerModel>() {
                         @Override

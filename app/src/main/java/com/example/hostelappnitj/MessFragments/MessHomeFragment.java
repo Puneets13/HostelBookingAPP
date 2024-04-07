@@ -36,6 +36,7 @@ import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.Hostels.Mess_Rules;
 import com.example.hostelappnitj.MainActivity;
 import com.example.hostelappnitj.ModelResponse.DailyScannerModel;
+import com.example.hostelappnitj.ModelResponse.leaveModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
@@ -49,8 +50,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -132,11 +135,40 @@ public class MessHomeFragment extends Fragment {
             }
         };
         handler.postDelayed(runnable, 2000);
-
-
-
-
-
+//
+//
+//        btnInvoice.setOnClickListener(v -> {
+//            progressDialog = ProgressDialog.show(requireContext(), "Checking Records",
+//                    "Counting all diets\nPlease wait...", true, false);
+//
+//            Calendar calendar = Calendar.getInstance();
+//            int year = calendar.get(Calendar.YEAR);
+//            year_str = String.valueOf(year);
+//            leaveModel model = new leaveModel(rollNumber, hostelName, year_str);
+//
+//            RetrofitClient.getInstance().getApi().countTotalDiet(model).enqueue(new Callback<leaveModel>() {
+//                @Override
+//                public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
+//                    progressDialog.dismiss();
+//                    if (response.isSuccessful()) {
+//                        leaveModel responseFromAPI = response.body();
+//                        if (responseFromAPI != null && responseFromAPI.getMessage().equals("Total diet count retrieved successfully")) {
+//                            showCountTotalDietsDialog(responseFromAPI.getDietCount());
+//                        } else {
+//                            Toast.makeText(requireContext(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                }
+//
+//                @Override
+//                public void onFailure(Call<leaveModel> call, Throwable t) {
+//                    progressDialog.dismiss();
+//                    Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//        });
+//
+//
 
         btndailyScanner.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -216,6 +248,15 @@ public class MessHomeFragment extends Fragment {
         return view;
 
     }
+
+    private void showCountTotalDietsDialog(int dietCount) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("MESS RECORD");
+        builder.setMessage("RollNumber: " + rollNumber + "\nRoom Number: " + roomNumber + "\nHostel: " + hostelName + "\nTotal diets consumed: " + dietCount + " diets");
+        builder.setPositiveButton("OK", (dialog, which) -> dialog.dismiss());
+        builder.show();
+    }
+
     private void ScanCode() {
         ScanOptions options = new ScanOptions();
         options.setPrompt("Volume up to flash on");
@@ -247,6 +288,7 @@ public class MessHomeFragment extends Fragment {
             Date currentDate = new Date();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             formattedDate = dateFormat.format(currentDate);
+
 
             // Extract year, month, and day
             SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
@@ -286,7 +328,7 @@ public class MessHomeFragment extends Fragment {
 //            }
 
 //            CHANGED
-            else if ((hour >= 15 && hour < 24 ) ) { // 7:30 PM to 10:30 PM
+            else if ((hour >= 0 && hour < 2 ) ) { // 7:30 PM to 10:30 PM
 //                    System.out.println("Good Evening!");
                 Toast.makeText(getActivity(), "Dinner Done", Toast.LENGTH_SHORT).show();
                 mealType = "dinner";
@@ -309,7 +351,6 @@ public class MessHomeFragment extends Fragment {
             if(hashCodeNumberString.equals(result.getContents())){
 //            Daily scanner
 
-
                 Log.v(TAG,"FORMATTED DATE"+formattedDate);
                 Toast.makeText(getActivity(), formattedDate, Toast.LENGTH_SHORT).show();
 
@@ -321,11 +362,20 @@ public class MessHomeFragment extends Fragment {
                 // Format the current time using SimpleDateFormat
                 String formattedTime1 = dateFormat1.format(currentDate1);
 
-                // Format the current time in 24-hour format
-//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-//                String formattedTime_24hr = currentTime.format(formatter);
+//                CONVERT DATE TO UTC FORMAT FOR THIS TO MATCH TIME ZONE
+                // Get the current date and time
+                Date currentDate3 = new Date();
+                // Create a date formatter for UTC time zone
+                SimpleDateFormat dateFormat3 = new SimpleDateFormat("yyyy-MM-dd");
+                dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+                // Format the date as a string in UTC
+                String utcDateTimeString = dateFormat3.format(currentDate3);
 
-                DailyScannerModel model1 = new DailyScannerModel(roomNumber,rollNumber,hostelName,month,year,mealType,formattedDate,formattedTime1);
+
+                DailyScannerModel model1 = new DailyScannerModel(roomNumber,rollNumber,hostelName,month,year,mealType,utcDateTimeString,formattedTime1);
+//                DailyScannerModel model1 = new DailyScannerModel(roomNumber,rollNumber,hostelName,month,year,mealType,formattedDate,formattedTime1);
+
+
                 Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().DailyCodeScanner(model1);
                 call.enqueue(new Callback<DailyScannerModel>() {
                     @Override

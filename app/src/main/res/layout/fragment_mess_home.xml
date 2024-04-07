@@ -197,7 +197,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/_9sdp"
-                        android:text="Invoice\n"
+                        android:text="  Diet \n Count"
                         android:textColor="@color/black"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_5sdp"
@@ -240,10 +240,10 @@
             >
 
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/_120sdp"
+                android:layout_width="@dimen/_220sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:id="@+id/getLeave"
-                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginLeft="@dimen/_37sdp"
                 android:foregroundTint="@color/black"
                 android:drawablePadding="@dimen/_2sdp"
                 android:drawableStart="@drawable/ic_leave"
@@ -255,19 +255,19 @@
 
                 />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="@dimen/_120sdp"
-                android:layout_height="@dimen/_80sdp"
-                android:id="@+id/getMenu"
-                android:drawableStart="@drawable/ic_getmenu"
-                android:foregroundTint="@color/black"
-                android:background="@drawable/btn_bg_mess"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:text="GET MENU"
-                android:textStyle="bold"
-                android:textSize="@dimen/_15sdp"
-                android:fontFamily="@font/baskervville"
-                />
+<!--            <androidx.appcompat.widget.AppCompatButton-->
+<!--                android:layout_width="@dimen/_120sdp"-->
+<!--                android:layout_height="@dimen/_80sdp"-->
+<!--                android:id="@+id/getMenu"-->
+<!--                android:drawableStart="@drawable/ic_getmenu"-->
+<!--                android:foregroundTint="@color/black"-->
+<!--                android:background="@drawable/btn_bg_mess"-->
+<!--                android:layout_marginLeft="@dimen/_10sdp"-->
+<!--                android:text="GET MENU"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textSize="@dimen/_15sdp"-->
+<!--                android:fontFamily="@font/baskervville"-->
+<!--                />-->
 
 
         </GridLayout>

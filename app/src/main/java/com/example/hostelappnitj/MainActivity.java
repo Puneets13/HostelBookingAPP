@@ -36,6 +36,7 @@ import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.AdminActivity.AdminHomeFragment;
 import com.example.hostelappnitj.Fragments.AboutFragment;
 import com.example.hostelappnitj.Fragments.AccountSettings_Fragment;
+import com.example.hostelappnitj.Fragments.AttendanceFragment;
 import com.example.hostelappnitj.Fragments.ProfileFragment;
 import com.example.hostelappnitj.Fragments.HelpFragment;
 import com.example.hostelappnitj.Fragments.HostelPolicy_Fragment;
@@ -205,10 +206,8 @@ public class MainActivity extends AppCompatActivity {
                             public void onResponse(Call<DailyScannerModel> call, Response<DailyScannerModel> response) {
                                 progressDialog.dismiss();
                                 DailyScannerModel responseFromAPI = response.body();
-                                Toast.makeText(MainActivity.this, "iam out", Toast.LENGTH_SHORT).show();
                                 //                              Toast.makeText(MainActivity.this, "received", Toast.LENGTH_SHORT).show();
                                 if (response.isSuccessful()) {
-                                    Toast.makeText(MainActivity.this, "iamin", Toast.LENGTH_SHORT).show();
                                     if (responseFromAPI.getMessage().equals("success") || responseFromAPI.getMessage().equals("already exist")) {
                                         flag = true;
                                         sharedPrefManager.SaveHostelMessUser(responseFromAPI.getHostelResponse()); // to save the hostel response
@@ -225,9 +224,9 @@ public class MainActivity extends AppCompatActivity {
                                         }
 //                                        Toast.makeText(MainActivity.this, "opened", Toast.LENGTH_SHORT).show();
                                     }
-                                    else if(responseFromAPI.getMessage().equals("failed")){
-                                        Toast.makeText(MainActivity.this, "failed", Toast.LENGTH_SHORT).show();
-                                    }
+//                                    else if(responseFromAPI.getMessage().equals("failed")){
+//                                        Toast.makeText(MainActivity.this, "failed", Toast.LENGTH_SHORT).show();
+//                                    }
                                     else if(responseFromAPI.getMessage().equals("Hostel not registered")){
 //                                        Toast.makeText(MainActivity.this, "You havnen't registered", Toast.LENGTH_SHORT).show();
                                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -249,9 +248,19 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(Call<DailyScannerModel> call, Throwable t) {
                                 progressDialog.dismiss();
-                                Toast.makeText(MainActivity.this, "iamfail", Toast.LENGTH_SHORT).show();
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                builder.setTitle("ALERT");
+                                builder.setMessage("Loading...\nPlease refresh the App.\nVisit again.");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        drawerLayout.closeDrawer(GravityCompat.START);  //to close the drawer when any item is clicked
+                                    }
+                                }).show();
 
-                                Toast.makeText(MainActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(MainActivity.this,t.getMessage() , Toast.LENGTH_SHORT).show();
+
                             }
                         });
 
@@ -268,6 +277,12 @@ public class MainActivity extends AppCompatActivity {
 //                        toolbar.setTitleTextColor(Color.WHITE);
 //                        fragment = new ExtrasScannerFragment();
 //                        break;
+
+                    case R.id.attendance:
+                        toolbar.setTitle("ATTENDANCE");
+                        toolbar.setTitleTextColor(Color.WHITE);
+                        fragment = new AttendanceFragment();
+                        break;
 
 
                     case R.id.logout:
