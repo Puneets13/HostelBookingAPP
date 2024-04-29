@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,13 +26,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
+import com.example.hostelappnitj.Acitvity.InnvoiceActivity;
 import com.example.hostelappnitj.Acitvity.dietRecordActivity;
 import com.example.hostelappnitj.Acitvity.scannerActivity;
+import com.example.hostelappnitj.Acitvity.setMessTotalExpenditureActivity;
 import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.Hostels.Mess_Rules;
 import com.example.hostelappnitj.MainActivity;
@@ -61,7 +65,7 @@ import retrofit2.Response;
 
 public class MessHomeFragment extends Fragment {
     ImageView imageViewHostels ;
-    AppCompatButton btndailyScanner , btnextrasScanner , btnApplyLeave , btnInvoice , btnDietRecord;
+    AppCompatButton btndailyScanner , btnextrasScanner , btnApplyLeave , btngetDietCount , btnDietRecord,btngenerateInvocie;
     TextToSpeech textToSpeech ;
     SharedPrefManager sharedPrefManager;
     private DialogInterface.OnClickListener dialogClickListener;
@@ -69,7 +73,8 @@ public class MessHomeFragment extends Fragment {
     TextView txtEmail;
     ExtendedFloatingActionButton floatingActionButton_call;
     private static final int REQUEST_PHONE_CALL = 1;
-
+    private Calendar selectedCalendar;
+    String year_str;
     String email ,  rollNumber , hostelName , roomNumber, month , year , mealType , formattedDate;
     public MessHomeFragment() {
         // Required empty public constructor
@@ -86,7 +91,8 @@ public class MessHomeFragment extends Fragment {
         btnextrasScanner = view.findViewById(R.id.extras_scanner);
         btnApplyLeave = view.findViewById(R.id.getLeave);
         btnDietRecord=view.findViewById(R.id.dietRecord);
-        btnInvoice = view.findViewById(R.id.invoice);
+        btngenerateInvocie = view.findViewById(R.id.generateInvocie);
+        btngetDietCount = view.findViewById(R.id.getDietCount);
         txtEmail = view.findViewById(R.id.txtEmail);
 
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
@@ -169,6 +175,99 @@ public class MessHomeFragment extends Fragment {
 //        });
 //
 //
+
+        btngenerateInvocie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final Calendar currentDate = Calendar.getInstance();
+                int year = currentDate.get(Calendar.YEAR);
+                int month = currentDate.get(Calendar.MONTH);
+                int dayOfMonth = currentDate.get(Calendar.DAY_OF_MONTH);
+                final String[] month_str = new String[1];
+                final String[] year_Str = new String[1];
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDayOfMonth) {
+                        selectedCalendar = Calendar.getInstance();
+                        selectedCalendar.set(Calendar.YEAR, selectedYear);
+                        selectedCalendar.set(Calendar.MONTH, selectedMonth);
+                        selectedCalendar.set(Calendar.DAY_OF_MONTH, selectedDayOfMonth);
+
+                        int month_temp = (selectedMonth + 1);
+                        month_str[0] = String.valueOf(month_temp);
+                        year_Str[0] = String.valueOf(selectedYear);
+//                        editTextMonthName.setText(formattedDate);
+
+                        Intent intent = new Intent(getActivity(), InnvoiceActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        String selectedMonth_year = month_str[0]+"_"+year_Str[0];
+                        Toast.makeText(getActivity(), selectedMonth_year, Toast.LENGTH_SHORT).show();
+                        intent.putExtra("month", month_str[0]);
+                        intent.putExtra("year", year_Str[0]);
+                        startActivity(intent);
+                    }
+                }, year, month, dayOfMonth);
+
+                datePickerDialog.show();
+
+
+            }
+        });
+
+        btngetDietCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog = new ProgressDialog(getActivity());
+                progressDialog.setTitle("Checking Records");
+                progressDialog.setMessage("Counting all diets\nHave patience.....");
+                progressDialog.show();
+                progressDialog.setCancelable(false);
+                Calendar calendar = Calendar.getInstance();
+                int year =  calendar.get(Calendar.YEAR);
+                year_str = String.valueOf(year);
+                leaveModel model = new leaveModel(rollNumber,hostelName,year_str);
+                Call<leaveModel>call = RetrofitClient.getInstance().getApi().countTotalDiet(model);
+                call.enqueue(new Callback<leaveModel>() {
+                    @Override
+                    public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
+                        progressDialog.dismiss();
+                        leaveModel responseFromAPI = response.body();
+                        if(response.isSuccessful()){
+
+//                            Toast.makeText(ApplyLeaveActivity.this, "received", Toast.LENGTH_SHORT).show();
+                            if(responseFromAPI.getMessage().equals("Total diet count retrieved successfully")){
+//                                Toast.makeText(ApplyLeaveActivity.this, "total diets : "+responseFromAPI.getDietCount(), Toast.LENGTH_SHORT).show();
+//                         add alert dialog box here
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                builder.setTitle("MESS RECORD");
+                                builder.setMessage("RollNumber : "+rollNumber+"\nRoom Number : "+roomNumber +"\nHostel : "+hostelName + "\nYour total diets consumed till date since beginning of the semester are : "+responseFromAPI.getDietCount()+" diets");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                    }
+                                }).show();
+
+
+
+
+                            }else{
+                                Toast.makeText(getActivity(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<leaveModel> call, Throwable t) {
+                        progressDialog.dismiss();
+                        Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
 
         btndailyScanner.setOnClickListener(new View.OnClickListener() {
             @Override

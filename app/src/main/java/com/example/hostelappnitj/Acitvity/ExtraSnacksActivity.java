@@ -173,31 +173,50 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                 int minute = Integer.parseInt(formattedTime.split(":")[1]);
                 mealType ="";
                 // Check the time ranges and print appropriate messages
-            if (hour >= 7 && hour < 11) {  // 7:00 AM to 11:00 AM
-//                    System.out.println("Good Morning!");
-                mealType = "breakfast";
-            }
-                if (hour >= 10 && hour < 13) {  // 7:00 AM to 11:00 AM
-//                    System.out.println("Good Morning!");
-//                Toast.makeText(getActivity(), "its ", Toast.LENGTH_SHORT).show();
-                    mealType = "lunch";
-                }
-                else if (hour >= 12 && hour < 18) {   // 12:00PM to 3:00PM
-//                    System.out.println("Good Afternoon!");
-                    mealType = "lunch";
-                }
-//            else if ((hour >= 19 && hour < 22 && minute >= 30) || (hour == 22 && minute <= 30)) { // 7:30 PM to 10:30 PM
-////                    System.out.println("Good Evening!");
-//                mealType = "dinner";
+//            if (hour >= 7 && hour < 11) {  // 7:00 AM to 11:00 AM
+////                    System.out.println("Good Morning!");
+//                mealType = "breakfast";
 //            }
-
-                else if ((hour >= 15 && hour < 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
+////                if (hour >= 10 && hour < 13) {  // 7:00 AM to 11:00 AM
+//////                    System.out.println("Good Morning!");
+//////                Toast.makeText(getActivity(), "its ", Toast.LENGTH_SHORT).show();
+////                    mealType = "lunch";
+////                }
+//                else if (hour >= 12 && hour < 15) {   // 12:00PM to 3:00PM
+////                    System.out.println("Good Afternoon!");
+//                    mealType = "lunch";
+//                }
+////            else if ((hour >= 19 && hour < 22 && minute >= 30) || (hour == 22 && minute <= 30)) { // 7:30 PM to 10:30 PM
+//////                    System.out.println("Good Evening!");
+////                mealType = "dinner";
+////            }
+//
+//                else if ((hour >= 16 && hour < 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
+//                    mealType = "snacks";
+//                }
+//
+////            CHANGED
+//                else if ((hour >= 20 && hour < 22 ) ) { // 7:30 PM to 10:30 PM
+////                    System.out.println("Good Evening!");
+//                    mealType = "dinner";
+//                }
+                // Check the time ranges and set the meal type accordingly
+                if (hour >= 7 && hour < 10) {  // 7:00 AM to 10:00 AM
+                    mealType = "breakfast";
+                }
+                else if (hour == 10 && minute <= 30) { // 10:00 AM to 10:30 AM
+                    mealType = "breakfast";
+                }
+                else if (hour >= 16 && hour < 18) { // 4:00 PM to 6:00 PM
                     mealType = "snacks";
                 }
-
-//            CHANGED
-                else if ((hour >= 19 && hour < 24 ) ) { // 7:30 PM to 10:30 PM
-//                    System.out.println("Good Evening!");
+                else if (hour == 18 && minute <= 30) { // 6:00 PM to 6:30 PM
+                    mealType = "snacks";
+                }
+                else if (hour >= 19 && hour < 22) { // 7:00 PM to 10:00 PM
+                    mealType = "dinner";
+                }
+                else if (hour == 22 && minute <= 15) { // 10:00 PM to 10:15 PM
                     mealType = "dinner";
                 }
                 else {
@@ -215,6 +234,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                 }
 
 
+//                mealType = "dinner";
                 SimpleDateFormat dateFormat1 = new SimpleDateFormat("HH:mm:ss");
 
                 // Get the current date and time

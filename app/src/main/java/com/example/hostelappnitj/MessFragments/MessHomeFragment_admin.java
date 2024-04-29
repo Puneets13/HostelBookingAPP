@@ -33,6 +33,7 @@ import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.Acitvity.MessRecordList_Activity;
 import com.example.hostelappnitj.Acitvity.dietRecordActivity;
 import com.example.hostelappnitj.Acitvity.setExtraItem_Activity;
+import com.example.hostelappnitj.Acitvity.setMessTotalExpenditureActivity;
 import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.ModelResponse.DailyScannerModel;
 import com.example.hostelappnitj.R;
@@ -54,7 +55,7 @@ import retrofit2.Response;
 
 public class MessHomeFragment_admin extends Fragment {
     ImageView imageViewHostels ;
-    AppCompatButton btndailyScanner , btnextrasScanner , btngetDietRecord , btnInvoice , btnDietRecord ,btnSetExtraPrice;
+    AppCompatButton btndailyScanner , btnextrasScanner , btngetDietRecord , btnInvoice , btnDietRecord ,btnSetExtraPrice,btnSetTotalSpentforMess;
     TextToSpeech textToSpeech ;
     TextView txtEmail;
     SharedPrefManager sharedPrefManager;
@@ -81,10 +82,11 @@ public class MessHomeFragment_admin extends Fragment {
         imageViewHostels=view.findViewById(R.id.imageView_hostels);
 //        btndailyScanner = view.findViewById(R.id.daily_scanner);
 //        btnextrasScanner = view.findViewById(R.id.extras_scanner);
-        btngetDietRecord = view.findViewById(R.id.getDietRedcord);
+//        btngetDietRecord = view.findViewById(R.id.getDietRedcord);
         btnSetExtraPrice = view.findViewById(R.id.btnSetExtraPrice);
         btnDietRecord=view.findViewById(R.id.getDietRedcord);
-        btnInvoice = view.findViewById(R.id.invoice);
+        btnSetTotalSpentforMess = view.findViewById(R.id.btnSetTotalSpentforMess);
+//        btnInvoice = view.findViewById(R.id.invoice);
 
         txtEmail = view.findViewById(R.id.txtEmail);
 
@@ -155,6 +157,16 @@ public class MessHomeFragment_admin extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MessRecordList_Activity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+
+        btnSetTotalSpentforMess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), setMessTotalExpenditureActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("hostelName",hostelName);
                 startActivity(intent);
             }
         });

@@ -30,6 +30,8 @@
         <item>November</item>
         <item>December</item>
     </string-array>
+    <string name="title_activity_set_total_mess_expenditure">setTotalMessExpenditureActivity
+    </string>
 
 
 </resources>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -48,6 +49,7 @@ public class setExtraItem_Activity extends AppCompatActivity {
     Map<String,Integer> items;
     RecyclerView recyclerView;
     SharedPrefManager sharedPrefManager;
+    ProgressDialog progressDialog;
 
     private ItemAdapter adapter;
     private List<Map<String, String>> itemList;
@@ -114,10 +116,17 @@ public class setExtraItem_Activity extends AppCompatActivity {
 
 
 //        hostelName="Boys Hostel 7";////////
-        Toast.makeText(this, hostelName, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, hostelName, Toast.LENGTH_SHORT).show();
+
+        progressDialog = new ProgressDialog(setExtraItem_Activity.this);
+        progressDialog.setTitle("Processing");
+        progressDialog.setMessage("Editing in Progress\n");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
 
 
-       showList();
+
+        showList();
 //       handler.post(updateRunnable);
 
 
@@ -140,6 +149,7 @@ public class setExtraItem_Activity extends AppCompatActivity {
             @Override
             public void onResponse(Call<constantsModel> call, Response<constantsModel> response) {
                 if(response.isSuccessful()){
+                    progressDialog.dismiss();
                     if(response.body().getMessage().equals("success")){
 //                        progressDialog.dismiss();
                         itemMap = response.body().getItem();
@@ -153,7 +163,7 @@ public class setExtraItem_Activity extends AppCompatActivity {
                         recyclerView.setAdapter(adapter);
 
                     } else if (response.body().getMessage().equals("no item found")){
-//                        progressDialog.dismiss();
+                        progressDialog.dismiss();
                         Toast.makeText(setExtraItem_Activity.this, "No Items found", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -161,6 +171,7 @@ public class setExtraItem_Activity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<constantsModel> call, Throwable t) {
+                progressDialog.dismiss();
                 Toast.makeText(setExtraItem_Activity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -181,11 +192,18 @@ public class setExtraItem_Activity extends AppCompatActivity {
 
     dialogBuilder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
         public void onClick(DialogInterface dialog, int whichButton) {
+            progressDialog = new ProgressDialog(setExtraItem_Activity.this);
+            progressDialog.setTitle("Processing");
+            progressDialog.setMessage("Editing in Progress\n");
+            progressDialog.show();
+            progressDialog.setCancelable(false);
+
             String itemName = editTextItemName.getText().toString().trim();
             String itemPricestr=editTextItemPrice.getText().toString().trim();
             Integer itemPrice = Integer.parseInt(itemPricestr);
             if(itemName.isEmpty() || itemPricestr.isEmpty()){
                 Toast.makeText(getApplicationContext(),"Please fill all required fields", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
                 return;
             }
             extra_item_model model = new extra_item_model(itemPrice,hostelName,itemName);
@@ -195,6 +213,7 @@ public class setExtraItem_Activity extends AppCompatActivity {
                 public void onResponse(Call<extra_item_model> call, Response<extra_item_model> response) {
                     if(response.isSuccessful()){
                         if(response.body().getMessage().equals("success")){
+                            progressDialog.dismiss();
                             items=response.body().getItems();
                             items_list.clear();
                             for (Map.Entry<String, Integer> entry : items.entrySet()) {
@@ -206,6 +225,7 @@ public class setExtraItem_Activity extends AppCompatActivity {
                             adapter = new ItemAdapter(setExtraItem_Activity.this, items_list,hostelName);
                             recyclerView.setAdapter(adapter);
                         }else{
+                            progressDialog.dismiss();
                             Toast.makeText(setExtraItem_Activity.this, "Error in inserting item", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -213,6 +233,7 @@ public class setExtraItem_Activity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<extra_item_model> call, Throwable t) {
+                    progressDialog.dismiss();
                     Toast.makeText(setExtraItem_Activity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });

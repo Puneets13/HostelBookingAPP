@@ -279,11 +279,10 @@ public class MainActivity extends AppCompatActivity {
 //                        break;
 
                     case R.id.attendance:
-                        toolbar.setTitle("ATTENDANCE");
+                        toolbar.setTitle("DIET COUNT");
                         toolbar.setTitleTextColor(Color.WHITE);
                         fragment = new AttendanceFragment();
                         break;
-
 
                     case R.id.logout:
 //                        on click listener for logging out

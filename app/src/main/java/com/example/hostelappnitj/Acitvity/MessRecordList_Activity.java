@@ -163,6 +163,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -281,7 +282,9 @@ public class MessRecordList_Activity extends AppCompatActivity {
         document.finishPage(page);
 
         // Step 2: Save PDF to File
-        String fileName = "entire_screen_capture.pdf";
+        Date currentDate = new Date();
+        String fileName = "MessRecordList"+currentDate+".pdf";
+
         File pdfFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName);
         try {
             document.writeTo(new FileOutputStream(pdfFile));

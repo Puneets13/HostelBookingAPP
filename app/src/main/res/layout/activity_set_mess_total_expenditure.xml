@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MessFragments.ApplyLeaveActivity">
+    tools:context=".Acitvity.setMessTotalExpenditureActivity">
 
     <ImageView
         android:id="@+id/bg"
@@ -13,6 +13,8 @@
         android:src="@drawable/signin_bg1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <!--progress bar for loading -->
     <de.hdodenhof.circleimageview.CircleImageView
@@ -37,7 +39,7 @@
         android:layout_marginEnd="36dp"
         android:fontFamily="cursive"
         android:gravity="center"
-        android:text="Diet Counts"
+        android:text="Mess Total \nExpenditure  "
         android:textColor="#fff"
         android:textStyle="bold"
         android:textSize="@dimen/_25sdp"
@@ -45,51 +47,31 @@
         app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCountTotalMeal"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyleview_setExpenditure"
         android:layout_width="match_parent"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/bg_gradient1"
-        android:drawableTop="@drawable/ic_food_bank"
-        android:elevation="@dimen/_10sdp"
-        android:padding="@dimen/_10sdp"
-        android:stateListAnimator="@null"
-        android:text="Total Diets Consumed"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bg"
-        app:layout_constraintVertical_bias="0.308" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCountMealPerMonth"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/bg_gradient1"
-        android:drawableTop="@drawable/ic_food_bank"
-        android:elevation="@dimen/_10sdp"
-        android:padding="@dimen/_10sdp"
-        android:stateListAnimator="@null"
-        android:text="Total Diets for month"
-        android:textColor="@color/white"
-        android:textSize="15sp"
+        android:layout_height="580dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintVertical_bias="0.125" />
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/floating_addExpenditureBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#C5C3C3"
+        android:clickable="true"
+        android:text="Add Expenditure"
+        app:icon="@drawable/ic_add"
+        app:iconTint="@color/black"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,10 @@ public class fetchmealRecord {
         this.meal_received = meal_received;
     }
 
+    public fetchmealRecord(String hostelName) {
+        this.hostelName = hostelName;
+    }
+
     public List<mealRecord> getMealList() {
         return mealList;
     }

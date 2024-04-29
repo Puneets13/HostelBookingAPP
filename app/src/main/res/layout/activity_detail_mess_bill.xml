@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MessFragments.ApplyLeaveActivity">
+    tools:context=".Acitvity.DetailMessBillActivity">
+
 
     <ImageView
         android:id="@+id/bg"
@@ -37,7 +39,7 @@
         android:layout_marginEnd="36dp"
         android:fontFamily="cursive"
         android:gravity="center"
-        android:text="Diet Counts"
+        android:text="Detailed Bill     "
         android:textColor="#fff"
         android:textStyle="bold"
         android:textSize="@dimen/_25sdp"
@@ -48,48 +50,29 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCountTotalMeal"
-        android:layout_width="match_parent"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/downloadDetialedPDF"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="36dp"
         android:background="@drawable/bg_gradient1"
-        android:drawableTop="@drawable/ic_food_bank"
-        android:elevation="@dimen/_10sdp"
-        android:padding="@dimen/_10sdp"
-        android:stateListAnimator="@null"
-        android:text="Total Diets Consumed"
+        android:text="Download PDF"
         android:textColor="@color/white"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/recyleview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bg"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintVertical_bias="0.353" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCountMealPerMonth"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyleview"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/bg_gradient1"
-        android:drawableTop="@drawable/ic_food_bank"
-        android:elevation="@dimen/_10sdp"
-        android:padding="@dimen/_10sdp"
-        android:stateListAnimator="@null"
-        android:text="Total Diets for month"
-        android:textColor="@color/white"
-        android:textSize="15sp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_160sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bg"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintVertical_bias="0.225" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
