@@ -13,11 +13,13 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.MGH_Girls.MghSeatMatrixFloor6;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
 import com.example.hostelappnitj.ModelResponse.person;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
+import com.example.hostelappnitj.SharedPrefManager;
 import com.example.hostelappnitj.UserAdapter;
 import com.example.hostelappnitj.UserAdapter1;
 
@@ -32,6 +34,7 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<person> userList;
     ProgressDialog progressDialog ;
+    SharedPrefManager sharedPrefManager;
     private DialogInterface.OnClickListener dialogClickListener;
 
     @Override
@@ -56,7 +59,10 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
 
         fetchStudentList model = new fetchStudentList(studentName);
 
-        Call<fetchStudentList> call = RetrofitClient.getInstance().getApi().fetchStudentListHome(model);
+
+        sharedPrefManager= new SharedPrefManager(StudentList_Admin_HomeActivity.this);
+        String token = sharedPrefManager.getToken();
+        Call<fetchStudentList> call = RetrofitClient.getInstance().getApi().fetchStudentListHome("Bearer " + token,model);
 
 
         call.enqueue(new Callback<fetchStudentList>() {
@@ -95,10 +101,26 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
                                 .show();
                     }
                 }
-                else {
-                    progressDialog.dismiss();
-                    Toast.makeText(StudentList_Admin_HomeActivity.this, "Something went wrong..", Toast.LENGTH_LONG);
-                    finish();
+                else{
+//                                check if token is not verified
+                    if(response.code() == 500) {
+                        // Unauthorized - Token is invalid or expired
+                        // Redirect user to login screen or take appropriate action
+                        AlertDialog.Builder builder = new AlertDialog.Builder(StudentList_Admin_HomeActivity.this);
+                        builder.setTitle("ALERT");
+                        builder.setMessage("Your Session expired\nPlease login Again");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                return;
+                            }
+                        }).show();
+                        // Redirect to login screen or logout user
+                    } else {
+                        // Handle other HTTP error codes
+                        Toast.makeText(StudentList_Admin_HomeActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }

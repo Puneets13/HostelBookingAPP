@@ -228,7 +228,8 @@ public class MessHomeFragment extends Fragment {
                 int year =  calendar.get(Calendar.YEAR);
                 year_str = String.valueOf(year);
                 leaveModel model = new leaveModel(rollNumber,hostelName,year_str);
-                Call<leaveModel>call = RetrofitClient.getInstance().getApi().countTotalDiet(model);
+                String token = sharedPrefManager.getToken();
+                Call<leaveModel>call = RetrofitClient.getInstance().getApi().countTotalDiet("Bearer " + token,model);
                 call.enqueue(new Callback<leaveModel>() {
                     @Override
                     public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
@@ -255,6 +256,26 @@ public class MessHomeFragment extends Fragment {
 
                             }else{
                                 Toast.makeText(getActivity(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
+                            }
+                        } else{
+//                                check if token is not verified
+                            if(response.code() == 500) {
+                                // Unauthorized - Token is invalid or expired
+                                // Redirect user to login screen or take appropriate action
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                builder.setTitle("ALERT");
+                                builder.setMessage("Your Session expired\nPlease login Again");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        return;
+                                    }
+                                }).show();
+                                // Redirect to login screen or logout user
+                            } else {
+                                // Handle other HTTP error codes
+                                Toast.makeText(getActivity(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -407,29 +428,23 @@ public class MessHomeFragment extends Fragment {
             int hour = Integer.parseInt(formattedTime.split(":")[0]);
             int minute = Integer.parseInt(formattedTime.split(":")[1]);
             mealType ="";
-            // Check the time ranges and print appropriate messages
-//            if (hour >= 7 && hour < 11) {  // 7:00 AM to 11:00 AM
-////                    System.out.println("Good Morning!");
-//                mealType = "breakfast";
-//            }
-            if (hour >= 10 && hour < 13) {  // 7:00 AM to 11:00 AM
-//                    System.out.println("Good Morning!");
-//                Toast.makeText(getActivity(), "its ", Toast.LENGTH_SHORT).show();
-                mealType = "lunch";
+            // Check the time ranges and set the meal type accordingly
+            if (hour >= 7 && hour < 10) {  // 7:00 AM to 10:00 AM
+                mealType = "breakfast";
             }
-            else if (hour >= 12 && hour < 18) {   // 12:00PM to 3:00PM
-//                    System.out.println("Good Afternoon!");
-                mealType = "lunch";
+            else if (hour == 10 && minute <= 30) { // 10:00 AM to 10:30 AM
+                mealType = "breakfast";
             }
-//            else if ((hour >= 19 && hour < 22 && minute >= 30) || (hour == 22 && minute <= 30)) { // 7:30 PM to 10:30 PM
-////                    System.out.println("Good Evening!");
-//                mealType = "dinner";
-//            }
-
-//            CHANGED
-            else if ((hour >= 0 && hour < 2 ) ) { // 7:30 PM to 10:30 PM
-//                    System.out.println("Good Evening!");
-                Toast.makeText(getActivity(), "Dinner Done", Toast.LENGTH_SHORT).show();
+            else if (hour >= 16 && hour < 18) { // 4:00 PM to 6:00 PM
+                mealType = "snacks";
+            }
+            else if (hour == 18 && minute <= 30) { // 6:00 PM to 6:30 PM
+                mealType = "snacks";
+            }
+            else if (hour >= 19 && hour < 22) { // 7:00 PM to 10:00 PM
+                mealType = "dinner";
+            }
+            else if (hour == 22 && minute <= 15) { // 10:00 PM to 10:15 PM
                 mealType = "dinner";
             }
             else {
@@ -475,7 +490,8 @@ public class MessHomeFragment extends Fragment {
 //                DailyScannerModel model1 = new DailyScannerModel(roomNumber,rollNumber,hostelName,month,year,mealType,formattedDate,formattedTime1);
 
 
-                Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().DailyCodeScanner(model1);
+                String token = sharedPrefManager.getToken();
+                Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().DailyCodeScanner("Bearer " + token,model1);
                 call.enqueue(new Callback<DailyScannerModel>() {
                     @Override
                     public void onResponse(Call<DailyScannerModel> call, Response<DailyScannerModel> response) {
@@ -562,6 +578,26 @@ public class MessHomeFragment extends Fragment {
                             }
                             else {
                                 Toast.makeText(getActivity(), "Transaction Failed", Toast.LENGTH_SHORT).show();
+                            }
+                        } else{
+//                                check if token is not verified
+                            if(response.code() == 500) {
+                                // Unauthorized - Token is invalid or expired
+                                // Redirect user to login screen or take appropriate action
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                                builder.setTitle("ALERT");
+                                builder.setMessage("Your Session expired\nPlease login Again");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        return;
+                                    }
+                                }).show();
+                                // Redirect to login screen or logout user
+                            } else {
+                                // Handle other HTTP error codes
+                                Toast.makeText(getActivity(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

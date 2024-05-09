@@ -1,8 +1,14 @@
 package com.example.hostelappnitj;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
 
+import com.example.hostelappnitj.Acitvity.SignInActivity;
+import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.User;
 import com.example.hostelappnitj.ModelResponse.hostel;
@@ -19,6 +25,8 @@ public class SharedPrefManager {
 
     public void SaveUser(User user){
 //        this method will save all the values corressponding to the keys
+        // Calculate the expiry time for the token (current time + 12 hours)
+
         sharedPreferences=context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
         editor.putString("_id", user.get_id());
@@ -60,7 +68,17 @@ public class SharedPrefManager {
 
     public boolean isloggedIn() {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getBoolean("logged",false);
+
+        boolean isLoggedIn = sharedPreferences.getBoolean("logged", false);
+        if (!isLoggedIn) {
+            return false;
+        }
+
+        long expiryTimeMillis = sharedPreferences.getLong("expiryTime", 0);
+        return System.currentTimeMillis() < expiryTimeMillis;
+
+//        return sharedPreferences.getBoolean("logged",false);
+
 //if the user is logged in then the shared preference will contain the logged key with true valu
 // else the false default value will be returned
     }
@@ -75,6 +93,47 @@ public class SharedPrefManager {
     public String getAdmin(){
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return sharedPreferences.getString("userType",null);
+    }
+
+    public void setToken(String token){
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+        editor=sharedPreferences.edit();
+        long expiryTimeMillis = System.currentTimeMillis() + 24 * 60 * 60 * 1000; // 12 hours expiration
+//        long expiryTimeMillis = System.currentTimeMillis() + 60 * 1000; // 12 hours expiration
+        editor.putLong("expiryTime", expiryTimeMillis);
+        editor.putString("token",token);
+        editor.apply();
+    }
+//    public String getToken(){
+//        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+//        return sharedPreferences.getString("token",null);
+//    }
+
+    public String getToken() {
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+
+        // Get the expiry time from SharedPreferences
+        long expiryTimeMillis = sharedPreferences.getLong("expiryTime", 0);
+
+        // Check if the expiry time has passed
+        if (System.currentTimeMillis() >= expiryTimeMillis) {
+            // Token has expired, perform logout and return null
+            logout();
+
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    // Redirect to SignInActivity
+                    Intent intent = new Intent(context, SignInActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                }
+            }, 5000); // Delay for 5 seconds (5000 milliseconds)
+            return null;
+        } else {
+            // Token is still valid, return the token
+            return sharedPreferences.getString("token", null);
+        }
     }
 
     public User getUser(){

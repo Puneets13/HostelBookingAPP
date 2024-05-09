@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import com.example.hostelappnitj.ModelResponse.OTP_model;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
+import com.example.hostelappnitj.SharedPrefManager;
 import com.example.hostelappnitj.databinding.ActivityOtpactivityBinding;
 
 import java.util.concurrent.TimeUnit;
@@ -28,6 +31,7 @@ public class OTPActivity extends AppCompatActivity {
     ActivityOtpactivityBinding binding;
     String email ;
     ProgressDialog progressDialog ;   //this will give the background box also
+    SharedPrefManager sharedPrefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,7 @@ public class OTPActivity extends AppCompatActivity {
 
         binding = ActivityOtpactivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        sharedPrefManager = new SharedPrefManager(OTPActivity.this);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Intent intent = getIntent();
@@ -99,9 +104,6 @@ public class OTPActivity extends AppCompatActivity {
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent1);
                                 }
-                            }else{
-                                progressDialog.dismiss();
-                                Toast.makeText(OTPActivity.this, "Something went wrong..", Toast.LENGTH_SHORT).show();
                             }
                         }
 

@@ -31,6 +31,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
 import com.example.hostelappnitj.Acitvity.settingUserProfile;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
@@ -195,7 +196,8 @@ SharedPrefManager sharedPrefManager;
 
     private void loadDataRooms() {
         HostelRegisterationResponse model = new HostelRegisterationResponse(stringEmail);
-        Call<HostelRegisterationResponse> call = RetrofitClient.getInstance().getApi().getRoomsRuntime(model);
+        String token = sharedPrefManager.getToken();
+        Call<HostelRegisterationResponse> call = RetrofitClient.getInstance().getApi().getRoomsRuntime("Bearer " + token,model);
         call.enqueue(new Callback<HostelRegisterationResponse>() {
             @Override
             public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
@@ -220,6 +222,26 @@ SharedPrefManager sharedPrefManager;
                         roomLayout.setVisibility(View.INVISIBLE);
 
                         progressDialog.dismiss();
+                    }
+                }else{
+//                                check if token is not verified
+                    if(response.code() == 500) {
+                        // Unauthorized - Token is invalid or expired
+                        // Redirect user to login screen or take appropriate action
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setTitle("ALERT");
+                        builder.setMessage("Your Session expired\nPlease login Again");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                return;
+                            }
+                        }).show();
+                        // Redirect to login screen or logout user
+                    } else {
+                        // Handle other HTTP error codes
+                        Toast.makeText(getActivity(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }

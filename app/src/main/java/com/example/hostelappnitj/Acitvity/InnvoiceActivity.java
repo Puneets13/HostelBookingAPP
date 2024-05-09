@@ -67,6 +67,9 @@ public class InnvoiceActivity extends AppCompatActivity {
         month = intent.getStringExtra("month");
         year =  intent.getStringExtra("year");
 
+        month = "04";
+        year="2024";
+
         txtemail.setText(email);
         txtMonth.setText(month);
         txtYear.setText(year);
@@ -88,7 +91,8 @@ public class InnvoiceActivity extends AppCompatActivity {
             }
         });
         innvoiceModel model = new innvoiceModel(rollNumber,hostelName,month,year);
-        Call<innvoiceModel> call = RetrofitClient.getInstance().getApi().generateInvoice(model);
+        String token = sharedPrefManager.getToken();
+        Call<innvoiceModel> call = RetrofitClient.getInstance().getApi().generateInvoice("Bearer " + token,model);
         call.enqueue(new Callback<innvoiceModel>() {
             @Override
             public void onResponse(Call<innvoiceModel> call, Response<innvoiceModel> response) {
@@ -129,10 +133,26 @@ public class InnvoiceActivity extends AppCompatActivity {
                             }
                         }).show();
                     }
-                }else{
-                    progressDialog.dismiss();
-                    Toast.makeText(InnvoiceActivity.this, "Error", Toast.LENGTH_SHORT).show();
-                    finish();
+                } else{
+//                                check if token is not verified
+                    if(response.code() == 500) {
+                        // Unauthorized - Token is invalid or expired
+                        // Redirect user to login screen or take appropriate action
+                        AlertDialog.Builder builder = new AlertDialog.Builder(InnvoiceActivity.this);
+                        builder.setTitle("ALERT");
+                        builder.setMessage("Your Session expired\nPlease login Again");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                return;
+                            }
+                        }).show();
+                        // Redirect to login screen or logout user
+                    } else {
+                        // Handle other HTTP error codes
+                        Toast.makeText(InnvoiceActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 

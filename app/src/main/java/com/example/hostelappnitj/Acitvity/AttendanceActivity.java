@@ -1,4 +1,4 @@
-//package com.example.hostelappnitj.Acitvity;
+/package com.example.hostelappnitj.Acitvity;
 //
 //import androidx.appcompat.app.AppCompatActivity;
 //

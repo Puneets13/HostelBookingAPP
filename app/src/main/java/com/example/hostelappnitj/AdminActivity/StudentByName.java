@@ -16,11 +16,13 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.ModelResponse.DataModel;
 import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
 import com.example.hostelappnitj.ModelResponse.person;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
+import com.example.hostelappnitj.SharedPrefManager;
 import com.example.hostelappnitj.UserAdapter;
 import com.example.hostelappnitj.UserAdapter1;
 
@@ -37,6 +39,7 @@ public class StudentByName extends AppCompatActivity {
     ProgressDialog progressDialog ;
     AppCompatButton btndeleteUsers;
     ImageButton backbutton;
+    SharedPrefManager sharedPrefManager;
     private DialogInterface.OnClickListener dialogClickListener;
 
 
@@ -57,11 +60,13 @@ public class StudentByName extends AppCompatActivity {
         btndeleteUsers = findViewById(R.id.btndelete);
         recyclerView=findViewById(R.id.recyleview);
         backbutton=findViewById(R.id.backButton);
+        sharedPrefManager = new SharedPrefManager(StudentByName.this);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(StudentByName.this));
 
         fetchAllStudentList model = new fetchAllStudentList(hostelname);
-        Call<fetchAllStudentList> call = RetrofitClient.getInstance().getApi().fetchAllStudents(model);
+        String token = sharedPrefManager.getToken();
+        Call<fetchAllStudentList> call = RetrofitClient.getInstance().getApi().fetchAllStudents("Bearer " + token,model);
         call.enqueue(new Callback<fetchAllStudentList>() {
             @Override
             public void onResponse(Call<fetchAllStudentList> call, Response<fetchAllStudentList> response) {
@@ -97,10 +102,26 @@ public class StudentByName extends AppCompatActivity {
                                     .show();
                         }
                 }
-                else {
-                    progressDialog.dismiss();
-                    Toast.makeText(StudentByName.this, "Something went wrong..", Toast.LENGTH_LONG);
-                    finish();
+                else{
+//                                check if token is not verified
+                    if(response.code() == 500) {
+                        // Unauthorized - Token is invalid or expired
+                        // Redirect user to login screen or take appropriate action
+                        AlertDialog.Builder builder = new AlertDialog.Builder(StudentByName.this);
+                        builder.setTitle("ALERT");
+                        builder.setMessage("Your Session expired\nPlease login Again");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                return;
+                            }
+                        }).show();
+                        // Redirect to login screen or logout user
+                    } else {
+                        // Handle other HTTP error codes
+                        Toast.makeText(StudentByName.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -122,7 +143,8 @@ public class StudentByName extends AppCompatActivity {
                 progressDialog.setCancelable(false);
 
                 DataModel model = new DataModel(hostelname);
-                Call<DataModel> call = RetrofitClient.getInstance().getApi().deleteUsers(model);
+                String token = sharedPrefManager.getToken();
+                Call<DataModel> call = RetrofitClient.getInstance().getApi().deleteUsers("Bearer " + token,model);
                 call.enqueue(new Callback<DataModel>() {
                     @Override
                     public void onResponse(Call<DataModel> call, Response<DataModel> response) {
@@ -134,6 +156,27 @@ public class StudentByName extends AppCompatActivity {
                             }else{
                                 progressDialog.dismiss();
                                 Toast.makeText(StudentByName.this, "Something went wrong..", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else{
+//                                check if token is not verified
+                            if(response.code() == 500) {
+                                // Unauthorized - Token is invalid or expired
+                                // Redirect user to login screen or take appropriate action
+                                AlertDialog.Builder builder = new AlertDialog.Builder(StudentByName.this);
+                                builder.setTitle("ALERT");
+                                builder.setMessage("Your Session expired\nPlease login Again");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        return;
+                                    }
+                                }).show();
+                                // Redirect to login screen or logout user
+                            } else {
+                                // Handle other HTTP error codes
+                                Toast.makeText(StudentByName.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

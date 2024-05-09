@@ -41,7 +41,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     Button login;
     ProgressDialog progressDialog ;
     SharedPrefManager sharedPrefManager ; //to maintain the login-logout session
-    String userType , inEmail ;
+    String userType , inEmail ,token;
     TextInputLayout txtemail,txtpassword;
     Animation topDownAnim , bottomUp,fadeAnim,zoom_out;
     CircleImageView logo;
@@ -296,6 +296,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 //                        String responseString =  "\nUsername : " + user.getUsername()+"\n"+user.getEmail();
 
                         sharedPrefManager.SaveUser(responseFromAPi.getUser());  //this is used to save the user properties in the sharePrefManager
+                        sharedPrefManager.setToken(responseFromAPi.getToken()); // JWT token
 //sharedPrefManager.getHostelUser(res)
                         if(userType=="Student"){
                             sharedPrefManager.setAdmin("Student");

@@ -266,9 +266,10 @@ public class RegisterationActivity extends AppCompatActivity {
 //                                                RequestBody requestFile = RequestBody.create(MediaType.parse("*/*"),file);
 //                                                MultipartBody.Part body = MultipartBody.Part.createFormData("pdf", file.getName(),requestFile);
 
+                String token = sharedPrefManager.getToken();
                 HostelRegisterationResponse model = new HostelRegisterationResponse(username, email, rollNumber, roomNo, hostelName, phone, address, branch, fatherPhone, fatherName, year);
                 Call<HostelRegisterationResponse> call = RetrofitClient.getInstance().getApi()
-                        .updateHostelRecord(model);
+                        .updateHostelRecord("Bearer " + token,model);
                 call.enqueue(new Callback<HostelRegisterationResponse>() {
                     @Override
                     public void onResponse(Call<HostelRegisterationResponse> call, Response<HostelRegisterationResponse> response) {
@@ -320,6 +321,26 @@ public class RegisterationActivity extends AppCompatActivity {
                                 etFatherPhone.setText("");
                                 etRoomNumber.setText("");
                                 etStdPhone.setText("");
+                            }
+                        }else{
+//                                check if token is not verified
+                            if(response.code() == 500) {
+                                // Unauthorized - Token is invalid or expired
+                                // Redirect user to login screen or take appropriate action
+                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterationActivity.this);
+                                builder.setTitle("ALERT");
+                                builder.setMessage("Your Session expired\nPlease login Again");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        return;
+                                    }
+                                }).show();
+                                // Redirect to login screen or logout user
+                            } else {
+                                // Handle other HTTP error codes
+                                Toast.makeText(RegisterationActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -387,7 +408,8 @@ public class RegisterationActivity extends AppCompatActivity {
 
     private void expireSession() {
         PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
-        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
+        String token = sharedPrefManager.getToken();
+        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse("Bearer " + token,preRegisterModel);
         call.enqueue(new Callback<PreRegisterResponse>() {
             @Override
             public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
@@ -398,6 +420,27 @@ public class RegisterationActivity extends AppCompatActivity {
                         Toast.makeText(RegisterationActivity.this, "Session Expired", Toast.LENGTH_SHORT).show();
                         // When the user click yes button then app will close
                         finish();
+                    }
+                }
+                else{
+//                                check if token is not verified
+                    if(response.code() == 500) {
+                        // Unauthorized - Token is invalid or expired
+                        // Redirect user to login screen or take appropriate action
+                        AlertDialog.Builder builder = new AlertDialog.Builder(RegisterationActivity.this);
+                        builder.setTitle("ALERT");
+                        builder.setMessage("Your Session expired\nPlease login Again");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                return;
+                            }
+                        }).show();
+                        // Redirect to login screen or logout user
+                    } else {
+                        // Handle other HTTP error codes
+                        Toast.makeText(RegisterationActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -415,7 +458,8 @@ public class RegisterationActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
-        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse(preRegisterModel);
+        String token = sharedPrefManager.getToken();
+        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterExpireResponse("Bearer " + token,preRegisterModel);
         call.enqueue(new Callback<PreRegisterResponse>() {
             @Override
             public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
@@ -425,6 +469,26 @@ public class RegisterationActivity extends AppCompatActivity {
                     if(responseFromAPI.getMessage().equals("session expire")){
 //                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
                         finish();
+                    }
+                }       else{
+//                                check if token is not verified
+                    if(response.code() == 500) {
+                        // Unauthorized - Token is invalid or expired
+                        // Redirect user to login screen or take appropriate action
+                        AlertDialog.Builder builder = new AlertDialog.Builder(RegisterationActivity.this);
+                        builder.setTitle("ALERT");
+                        builder.setMessage("Your Session expired\nPlease login Again");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                return;
+                            }
+                        }).show();
+                        // Redirect to login screen or logout user
+                    } else {
+                        // Handle other HTTP error codes
+                        Toast.makeText(RegisterationActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -447,7 +511,8 @@ public class RegisterationActivity extends AppCompatActivity {
             @Override
             public void run() {
                 PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
-                Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().destroy(preRegisterModel);
+                String token = sharedPrefManager.getToken();
+                Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().destroy("Bearer " + token,preRegisterModel);
                 call.enqueue(new Callback<PreRegisterResponse>() {
                     @Override
                     public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
@@ -457,6 +522,26 @@ public class RegisterationActivity extends AppCompatActivity {
                             if(responseFromAPI.getMessage().equals("back before")){
 //                                Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
 //                        finish();
+                            }
+                        }               else{
+//                                check if token is not verified
+                            if(response.code() == 500) {
+                                // Unauthorized - Token is invalid or expired
+                                // Redirect user to login screen or take appropriate action
+                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterationActivity.this);
+                                builder.setTitle("ALERT");
+                                builder.setMessage("Your Session expired\nPlease login Again");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        return;
+                                    }
+                                }).show();
+                                // Redirect to login screen or logout user
+                            } else {
+                                // Handle other HTTP error codes
+                                Toast.makeText(RegisterationActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -476,7 +561,8 @@ public class RegisterationActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         PreRegisterResponse preRegisterModel = new PreRegisterResponse(roomNum,hostelName);
-        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().destroy(preRegisterModel);
+        String token = sharedPrefManager.getToken();
+        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().destroy("Bearer " + token,preRegisterModel);
         call.enqueue(new Callback<PreRegisterResponse>() {
             @Override
             public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
@@ -486,6 +572,26 @@ public class RegisterationActivity extends AppCompatActivity {
                     if(responseFromAPI.getMessage().equals("back before")){
 //                        Toast.makeText(RegisterationActivity.this, "Room Not Registered", Toast.LENGTH_SHORT).show();
 //                        finish();
+                    }
+                }               else{
+//                                check if token is not verified
+                    if(response.code() == 500) {
+                        // Unauthorized - Token is invalid or expired
+                        // Redirect user to login screen or take appropriate action
+                        AlertDialog.Builder builder = new AlertDialog.Builder(RegisterationActivity.this);
+                        builder.setTitle("ALERT");
+                        builder.setMessage("Your Session expired\nPlease login Again");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                return;
+                            }
+                        }).show();
+                        // Redirect to login screen or logout user
+                    } else {
+                        // Handle other HTTP error codes
+                        Toast.makeText(RegisterationActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }

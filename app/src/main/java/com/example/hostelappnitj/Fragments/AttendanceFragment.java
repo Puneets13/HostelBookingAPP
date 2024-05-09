@@ -653,6 +653,7 @@ package com.example.hostelappnitj.Fragments;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
@@ -668,6 +669,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.util.Pair;
 import androidx.fragment.app.Fragment;
 
+import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.ModelResponse.leaveModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
@@ -737,7 +739,8 @@ public class AttendanceFragment extends Fragment {
             year_str = String.valueOf(year);
             leaveModel model = new leaveModel(rollNumber, hostelName, year_str);
 
-            RetrofitClient.getInstance().getApi().countTotalDiet(model).enqueue(new Callback<leaveModel>() {
+            String token = sharedPrefManager.getToken();
+            RetrofitClient.getInstance().getApi().countTotalDiet("Bearer " + token,model).enqueue(new Callback<leaveModel>() {
                 @Override
                 public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
                     progressDialog.dismiss();
@@ -747,6 +750,26 @@ public class AttendanceFragment extends Fragment {
                             showCountTotalDietsDialog(responseFromAPI.getDietCount());
                         } else {
                             Toast.makeText(requireContext(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
+                        }
+                    } else{
+//                                check if token is not verified
+                        if(response.code() == 500) {
+                            // Unauthorized - Token is invalid or expired
+                            // Redirect user to login screen or take appropriate action
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            builder.setTitle("ALERT");
+                            builder.setMessage("Your Session expired\nPlease login Again");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                    return;
+                                }
+                            }).show();
+                            // Redirect to login screen or logout user
+                        } else {
+                            // Handle other HTTP error codes
+                            Toast.makeText(getActivity(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -813,7 +836,9 @@ public class AttendanceFragment extends Fragment {
                     "Counting diets\nPlease wait...", true, false);
 
             leaveModel model = new leaveModel(rollNumber, hostelName, year_str, selectMonthInNumber);
-            RetrofitClient.getInstance().getApi().countDietPerMonth(model).enqueue(new Callback<leaveModel>() {
+            String token = sharedPrefManager.getToken();
+
+            RetrofitClient.getInstance().getApi().countDietPerMonth("Bearer " + token,model).enqueue(new Callback<leaveModel>() {
                 @Override
                 public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
                     progressDialog.dismiss();
@@ -823,6 +848,26 @@ public class AttendanceFragment extends Fragment {
                             showCountDietPerMonthDialog(selectedMonthName, responseFromAPI.getDietCount());
                         } else {
                             Toast.makeText(requireContext(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
+                        }
+                    } else{
+//                                check if token is not verified
+                        if(response.code() == 500) {
+                            // Unauthorized - Token is invalid or expired
+                            // Redirect user to login screen or take appropriate action
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            builder.setTitle("ALERT");
+                            builder.setMessage("Your Session expired\nPlease login Again");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                    return;
+                                }
+                            }).show();
+                            // Redirect to login screen or logout user
+                        } else {
+                            // Handle other HTTP error codes
+                            Toast.makeText(getActivity(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

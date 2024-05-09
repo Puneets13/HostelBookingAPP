@@ -30,6 +30,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
 import com.example.hostelappnitj.Acitvity.SignInActivity;
 import com.example.hostelappnitj.Acitvity.successScanActivity;
@@ -200,7 +201,8 @@ public class MainActivity extends AppCompatActivity {
 //                            Toast.makeText(MainActivity.this, "ro"+rollNumber, Toast.LENGTH_SHORT).show();
 
                         DailyScannerModel model = new DailyScannerModel(roomNumber, rollNumber, hostelName);
-                        Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().createMessAccount(model);
+                            String token = sharedPrefManager.getToken();
+                            Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().createMessAccount("Bearer " + token,model);
                         call.enqueue(new Callback<DailyScannerModel>() {
                             @Override
                             public void onResponse(Call<DailyScannerModel> call, Response<DailyScannerModel> response) {
@@ -239,6 +241,26 @@ public class MainActivity extends AppCompatActivity {
                                                 drawerLayout.closeDrawer(GravityCompat.START);  //to close the drawer when any item is clicked
                                             }
                                         }).show();
+                                    }
+                                }else{
+//                                check if token is not verified
+                                    if(response.code() == 500) {
+                                        // Unauthorized - Token is invalid or expired
+                                        // Redirect user to login screen or take appropriate action
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                        builder.setTitle("ALERT");
+                                        builder.setMessage("Your Session expired\nPlease login Again");
+                                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.dismiss();
+                                                return;
+                                            }
+                                        }).show();
+                                        // Redirect to login screen or logout user
+                                    } else {
+                                        // Handle other HTTP error codes
+                                        Toast.makeText(MainActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }

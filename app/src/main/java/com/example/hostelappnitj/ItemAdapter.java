@@ -38,7 +38,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
  private List<String> checkedItems;
  private String hostelName;
  ProgressDialog progressDialog;
-
+SharedPrefManager sharedPrefManager;
 
  public ItemAdapter(Context context, List<String> itemList,String hostelName) {
   this.context = context;
@@ -80,9 +80,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     progressDialog.show();
     progressDialog.setCancelable(false);
 
-
+    sharedPrefManager = new SharedPrefManager(context);
     extra_item_model model = new extra_item_model(hostelName,itemName);
- Call<extra_item_model> call = RetrofitClient.getInstance().getApi().deleteEntry(model);
+    String token = sharedPrefManager.getToken();
+    Call<extra_item_model> call = RetrofitClient.getInstance().getApi().deleteEntry("Bearer " + token,model);
  call.enqueue(new Callback<extra_item_model>() {
   @Override
   public void onResponse(Call<extra_item_model> call, Response<extra_item_model> response) {
@@ -94,6 +95,26 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
      itemList.remove(position);
      notifyItemRemoved(position);
 
+    }
+   } else{
+//                                check if token is not verified
+    if(response.code() == 500) {
+     // Unauthorized - Token is invalid or expired
+     // Redirect user to login screen or take appropriate action
+     AlertDialog.Builder builder = new AlertDialog.Builder(context);
+     builder.setTitle("ALERT");
+     builder.setMessage("Your Session expired\nPlease login Again");
+     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+      @Override
+      public void onClick(DialogInterface dialogInterface, int i) {
+       dialogInterface.dismiss();
+       return;
+      }
+     }).show();
+     // Redirect to login screen or logout user
+    } else {
+     // Handle other HTTP error codes
+     Toast.makeText(context, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
     }
    }
   }
@@ -156,7 +177,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     extra_item_model model = new extra_item_model(hostelName,newitemName,itemName,newitemPrice);
 
-    Call<extra_item_model> call = RetrofitClient.getInstance().getApi().editExtraItem(model);
+    String token = sharedPrefManager.getToken();
+    Call<extra_item_model> call = RetrofitClient.getInstance().getApi().editExtraItem("Bearer " + token,model);
     call.enqueue(new Callback<extra_item_model>() {
      @Override
      public void onResponse(Call<extra_item_model> call, Response<extra_item_model> response) {
@@ -181,6 +203,26 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
        }else{
         progressDialog.dismiss();
         Toast.makeText(context, "Error in inserting item", Toast.LENGTH_SHORT).show();
+       }
+      } else{
+//                                check if token is not verified
+       if(response.code() == 500) {
+        // Unauthorized - Token is invalid or expired
+        // Redirect user to login screen or take appropriate action
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("ALERT");
+        builder.setMessage("Your Session expired\nPlease login Again");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+         @Override
+         public void onClick(DialogInterface dialogInterface, int i) {
+          dialogInterface.dismiss();
+          return;
+         }
+        }).show();
+        // Redirect to login screen or logout user
+       } else {
+        // Handle other HTTP error codes
+        Toast.makeText(context, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
        }
       }
      }

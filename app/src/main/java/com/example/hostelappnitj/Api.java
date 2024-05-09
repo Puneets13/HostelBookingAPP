@@ -35,6 +35,7 @@ import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -84,28 +85,27 @@ public interface Api {
 //    @Multipart
     @POST("hostelbook/registerRoom")   //since we are sending the paramter in the path with id (so we use @PATH)
     Call<HostelRegisterationResponse>updateHostelRecord(
-//            @Part MultipartBody.Part pdf,
-@Body HostelRegisterationResponse hostelRegisterationResponse
-//            @Field ("userName") String userName,
-//            @Field ("roomNumber") String roomNumber,
-//            @Field ("email") String email,
-//            @Field("rollNumber")String rollNumber
+            @Header("Authorization") String token,
+            @Body HostelRegisterationResponse hostelRegisterationResponse
             );
 
 
 //    For processing of Hostel button
     @POST("hostelbook/proceed")
     Call<PreRegisterResponse> PreRegisterResponse(
+            @Header("Authorization") String token,
             @Body PreRegisterResponse preRegisterResponse
     );
 
     @POST("hostelbook/destroy")
     Call<PreRegisterResponse> destroy(
+            @Header("Authorization") String token,
             @Body PreRegisterResponse preRegisterResponse
     );
 
     @POST("hostelbook/proceed_single")
     Call<PreRegisterResponse> PreRegisterResponse_single(
+            @Header("Authorization") String token,
             @Body PreRegisterResponse preRegisterResponse
     );
 
@@ -114,30 +114,36 @@ public interface Api {
 
     @POST("hostelbook/expire")
     Call<PreRegisterResponse> PreRegisterExpireResponse(
+            @Header("Authorization") String token,
             @Body PreRegisterResponse preRegisterResponse
     );
 
+//    not applying
     @POST("hostelbook/searchbyRoom")
     Call<studentListModel> studentListResponse(
-      @Body studentListModel studentListModel
+            @Body studentListModel studentListModel
     );
 
     @POST("hostelbook/searchbyName")
     Call<fetchStudentList>fetchStudentList(
+            @Header("Authorization") String token,
             @Body fetchStudentList fetchStudentList
     );
     @POST("hostelbook/searchOnlybyName")
     Call<fetchStudentList>fetchStudentListHome(
+            @Header("Authorization") String token,
             @Body fetchStudentList fetchStudentList
     );
 
     @POST("hostelbook/searchAllOnehostel")
     Call<fetchAllStudentList>fetchAllStudents(
+            @Header("Authorization") String token,
             @Body fetchAllStudentList fetchAllStudentList
     );
 
     @POST("hostelbook/deleteHostelList")
     Call<DataModel>deleteUsers(
+            @Header("Authorization") String token,
             @Body DataModel dataModel
     );
 
@@ -161,7 +167,8 @@ public interface Api {
 
     @POST("hostelbook/searchbyEmailProfile")
     Call<HostelRegisterationResponse>getRoomsRuntime(
-      @Body HostelRegisterationResponse hostelRegisterationResponse
+            @Header("Authorization") String token,
+            @Body HostelRegisterationResponse hostelRegisterationResponse
     );
 
     @POST("hostelbook/getdailymeal")
@@ -172,58 +179,69 @@ public interface Api {
 
     @POST("hostelbook/createExtraMealRecord")
     Call<DailyScannerModel>getExtraMeal(
+            @Header("Authorization") String token,
             @Body DailyScannerModel dailyScannerModel
     );
 
     @POST("hostelbook/createmessaccount")
     Call<DailyScannerModel>createMessAccount(
+            @Header("Authorization") String token,
             @Body DailyScannerModel dailyScannerModel
     );
 
     @POST("hostelbook/createmonthlydietRecord")
     Call<DailyScannerModel>DailyCodeScanner(
+            @Header("Authorization") String token,
             @Body DailyScannerModel dailyScannerModel
     );
 
     @POST("hostelbook/applyLeave")
     Call<leaveModel>applyLeave(
+            @Header("Authorization") String token,
             @Body leaveModel leaveModel
     );
 
     @POST("hostelbook/countDietOfStudent")
     Call<leaveModel>countTotalDiet(
+            @Header("Authorization") String token,
             @Body leaveModel leaveModel
     );
 
     @POST("hostelbook/countDietPerMonth")
     Call<leaveModel>countDietPerMonth(
+            @Header("Authorization") String token,
             @Body leaveModel leaveModel
     );
 
     @POST("hostelbook/getDietRecordList")
     Call<fetchmealRecord>getMealRecord(
+            @Header("Authorization") String token,
             @Body fetchmealRecord fetchmealRecord
     );
 
     @POST("hostelbook/messList")
     Call<fetchmealRecord>getMessDietRecord(
+            @Header("Authorization") String token,
             @Body fetchmealRecord fetchmealRecord
     );
 
 
     @POST("hostelbook/fetchItems")
     Call<constantsModel>getMessItemsList(
+            @Header("Authorization") String token,
             @Body constantsModel constantsModel
     );
 
     @POST("hostelbook/fetchTotalExpenditurePerMonth")
     Call<constantsModel>getTotalExpenditure(
+            @Header("Authorization") String token,
             @Body constantsModel constantsModel
     );
 
 
     @POST("hostelbook/addExtraItem")
     Call<extra_item_model>addItemInConstant(
+            @Header("Authorization") String token,
             @Body extra_item_model extra_item_model
     );
 
@@ -231,6 +249,7 @@ public interface Api {
 
     @POST("hostelbook/printConsumedItemsByStudent")
     Call<MessDetailModel>printConsumedItemsByStudent(
+            @Header("Authorization") String token,
             @Body MessDetailModel messDetailModel
     );
 
@@ -238,24 +257,31 @@ public interface Api {
 
     @POST("hostelbook/addTotalExpenditure")
     Call<messExpenditureModel>addTotalExpenditure(
+            @Header("Authorization") String token,
             @Body messExpenditureModel messExpenditureModel
     );
 
     @POST("hostelbook/editTotalExpenditure")
     Call<messExpenditureModel>editTotalExpenditure(
+            @Header("Authorization") String token,
             @Body messExpenditureModel messExpenditureModel
     );
 
     @POST("hostelbook/generateInvoice")
     Call<innvoiceModel>generateInvoice(
+            @Header("Authorization") String token,
             @Body innvoiceModel innvoiceModel
     );
+
+//    CHECK
     @POST("hostelbook/deleteEntry")
     Call<extra_item_model>deleteEntry(
+            @Header("Authorization") String token,
             @Body extra_item_model extra_item_model
     );
     @POST("hostelbook/editExtraItem")
     Call<extra_item_model>editExtraItem(
+            @Header("Authorization") String token,
             @Body extra_item_model extra_item_model
     );
 

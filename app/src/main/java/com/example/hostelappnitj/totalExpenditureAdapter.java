@@ -46,6 +46,7 @@ public class totalExpenditureAdapter extends RecyclerView.Adapter<totalExpenditu
     ProgressDialog progressDialog;
     private Calendar selectedCalendar;
 
+    SharedPrefManager sharedPrefManager;
 
     public totalExpenditureAdapter(Context context, List<String> itemList,String hostelName) {
         this.context = context;
@@ -155,7 +156,9 @@ public class totalExpenditureAdapter extends RecyclerView.Adapter<totalExpenditu
 
                 messExpenditureModel model = new messExpenditureModel(hostelName,newMonthName,monthlyExpenditure,prev_expenditure);
 
-                Call<messExpenditureModel> call = RetrofitClient.getInstance().getApi().editTotalExpenditure(model);
+                sharedPrefManager = new SharedPrefManager(context);
+                String token = sharedPrefManager.getToken();
+                Call<messExpenditureModel> call = RetrofitClient.getInstance().getApi().editTotalExpenditure("Bearer " + token,model);
                 call.enqueue(new Callback<messExpenditureModel>() {
                     @Override
                     public void onResponse(Call<messExpenditureModel> call, Response<messExpenditureModel> response) {

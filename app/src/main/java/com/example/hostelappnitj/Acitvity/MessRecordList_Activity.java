@@ -333,31 +333,24 @@ public class MessRecordList_Activity extends AppCompatActivity {
         int hour = Integer.parseInt(formattedTime.split(":")[0]);
         int minute = Integer.parseInt(formattedTime.split(":")[1]);
         mealType ="";
-        // Check the time ranges and print appropriate messages
-//                if (hour >= 7 && hour < 11) {  // 7:00 AM to 11:00 AM
-////                    System.out.println("Good Morning!");
-//                    mealType = "breakfast";
-//                }
-        if (hour >= 7 && hour < 11) {  // 7:00 AM to 11:00 AM
-//                    System.out.println("Good Morning!");
-            meal_received = "breakfast";
+        // Check the time ranges and set the meal type accordingly
+        if (hour >= 7 && hour < 10) {  // 7:00 AM to 10:00 AM
+            mealType = "breakfast";
         }
-        else if (hour >= 12 && hour < 15) {   // 12:00PM to 3:00PM
-//                  System.out.println("Good Afternoon!");
-            meal_received = "lunch";
+        else if (hour == 10 && minute <= 30) { // 10:00 AM to 10:30 AM
+            mealType = "breakfast";
         }
-//                else if ((hour >= 19 && hour < 22 && minute >= 30) || (hour == 22 && minute <= 30)) { // 7:30 PM to 10:30 PM
-////                    System.out.println("Good Evening!");
-//                    mealType = "dinner";
-//                }
-
-//        else if ((hour >= 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
-//            mealType = "snacks";
-//        }
-
-        else if ( hour >= 17 ) { // 7:30 PM to 10:30 PM
-//                    System.out.println("Good Evening!");
-            meal_received = "dinner";
+        else if (hour >= 16 && hour < 18) { // 4:00 PM to 6:00 PM
+            mealType = "snacks";
+        }
+        else if (hour == 18 && minute <= 30) { // 6:00 PM to 6:30 PM
+            mealType = "snacks";
+        }
+        else if (hour >= 19 && hour < 22) { // 7:00 PM to 10:00 PM
+            mealType = "dinner";
+        }
+        else if (hour == 22 && minute <= 15) { // 10:00 PM to 10:15 PM
+            mealType = "dinner";
         }
         else {
 //                    System.out.println("Hello!");
@@ -377,7 +370,8 @@ public class MessRecordList_Activity extends AppCompatActivity {
 //        hostelName1="Boys Hostel 7";
 
         fetchmealRecord model = new fetchmealRecord(hostelName1,meal_received);
-        Call<fetchmealRecord> call = RetrofitClient.getInstance().getApi().getMessDietRecord(model);
+        String token = sharedPrefManager.getToken();
+        Call<fetchmealRecord> call = RetrofitClient.getInstance().getApi().getMessDietRecord("Bearer " + token,model);
         call.enqueue(new Callback<fetchmealRecord>() {
             @Override
             public void onResponse(Call<fetchmealRecord> call, Response<fetchmealRecord> response) {
@@ -386,8 +380,26 @@ public class MessRecordList_Activity extends AppCompatActivity {
                     String msg = response.body().getMessage();
                     mealList = response.body().getMealList();
                     recyclerView.setAdapter(new userAdapterMessRecord(MessRecordList_Activity.this, mealList));
-                }else{
-                    Toast.makeText(MessRecordList_Activity.this, "Record Not found", Toast.LENGTH_SHORT).show();
+                } else{
+//                                check if token is not verified
+                    if(response.code() == 500) {
+                        // Unauthorized - Token is invalid or expired
+                        // Redirect user to login screen or take appropriate action
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MessRecordList_Activity.this);
+                        builder.setTitle("ALERT");
+                        builder.setMessage("Your Session expired\nPlease login Again");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                return;
+                            }
+                        }).show();
+                        // Redirect to login screen or logout user
+                    } else {
+                        // Handle other HTTP error codes
+                        Toast.makeText(MessRecordList_Activity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 

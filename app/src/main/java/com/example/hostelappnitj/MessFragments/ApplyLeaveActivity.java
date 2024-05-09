@@ -109,7 +109,8 @@ TextView txtStartDate , txtEndDate;
                 int year =  calendar.get(Calendar.YEAR);
                  year_str = String.valueOf(year);
                 leaveModel model = new leaveModel(rollNumber,hostelName,year_str);
-                Call<leaveModel>call = RetrofitClient.getInstance().getApi().countTotalDiet(model);
+                String token = sharedPrefManager.getToken();
+                Call<leaveModel>call = RetrofitClient.getInstance().getApi().countTotalDiet("Bearer " + token,model);
                 call.enqueue(new Callback<leaveModel>() {
                     @Override
                     public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
@@ -136,6 +137,26 @@ TextView txtStartDate , txtEndDate;
 
                             }else{
                                 Toast.makeText(ApplyLeaveActivity.this, "Error in fetching diets", Toast.LENGTH_SHORT).show();
+                            }
+                        } else{
+//                                check if token is not verified
+                            if(response.code() == 500) {
+                                // Unauthorized - Token is invalid or expired
+                                // Redirect user to login screen or take appropriate action
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                                builder.setTitle("ALERT");
+                                builder.setMessage("Your Session expired\nPlease login Again");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        return;
+                                    }
+                                }).show();
+                                // Redirect to login screen or logout user
+                            } else {
+                                // Handle other HTTP error codes
+                                Toast.makeText(getApplicationContext(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -242,7 +263,8 @@ TextView txtStartDate , txtEndDate;
                 }
 
                 leaveModel model = new leaveModel(rollNumber,hostelName,roomNumber,startDateString,endDateString,startMeal,endMeal);
-                Call<leaveModel> call = RetrofitClient.getInstance().getApi().applyLeave(model);
+                String token = sharedPrefManager.getToken();
+                Call<leaveModel> call = RetrofitClient.getInstance().getApi().applyLeave("Bearer " + token,model);
                 call.enqueue(new Callback<leaveModel>() {
                     @Override
                     public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
@@ -260,6 +282,26 @@ TextView txtStartDate , txtEndDate;
                                 String speak =  " Your Leave has been applied";
                                 textToSpeech.setSpeechRate(1);
                                 textToSpeech.speak(speak, TextToSpeech.QUEUE_FLUSH,null);
+                            }
+                        } else{
+//                                check if token is not verified
+                            if(response.code() == 500) {
+                                // Unauthorized - Token is invalid or expired
+                                // Redirect user to login screen or take appropriate action
+                                AlertDialog.Builder builder = new AlertDialog.Builder(ApplyLeaveActivity.this);
+                                builder.setTitle("ALERT");
+                                builder.setMessage("Your Session expired\nPlease login Again");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        return;
+                                    }
+                                }).show();
+                                // Redirect to login screen or logout user
+                            } else {
+                                // Handle other HTTP error codes
+                                Toast.makeText(ApplyLeaveActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -414,7 +456,8 @@ TextView txtStartDate , txtEndDate;
                 progressDialog.show();
                 progressDialog.setCancelable(false);
                 leaveModel model = new leaveModel(rollNumber,hostelName,year_str,selectMonthInNumber);
-                Call<leaveModel>call = RetrofitClient.getInstance().getApi().countDietPerMonth(model);
+                String token = sharedPrefManager.getToken();
+                Call<leaveModel>call = RetrofitClient.getInstance().getApi().countDietPerMonth("Bearer " + token,model);
                 call.enqueue(new Callback<leaveModel>() {
                     @Override
                     public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
@@ -437,6 +480,26 @@ TextView txtStartDate , txtEndDate;
                                 }).show();
                             }else{
                                 Toast.makeText(ApplyLeaveActivity.this, "Error in fetching diets", Toast.LENGTH_SHORT).show();
+                            }
+                        } else{
+//                                check if token is not verified
+                            if(response.code() == 500) {
+                                // Unauthorized - Token is invalid or expired
+                                // Redirect user to login screen or take appropriate action
+                                AlertDialog.Builder builder = new AlertDialog.Builder(ApplyLeaveActivity.this);
+                                builder.setTitle("ALERT");
+                                builder.setMessage("Your Session expired\nPlease login Again");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        return;
+                                    }
+                                }).show();
+                                // Redirect to login screen or logout user
+                            } else {
+                                // Handle other HTTP error codes
+                                Toast.makeText(getApplicationContext(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

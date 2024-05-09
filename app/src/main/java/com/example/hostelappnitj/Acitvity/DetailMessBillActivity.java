@@ -6,7 +6,9 @@ import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -88,7 +90,8 @@ public class DetailMessBillActivity extends AppCompatActivity {
         Toast.makeText(this, rollNumber, Toast.LENGTH_SHORT).show();
         Toast.makeText(this, hostelName, Toast.LENGTH_SHORT).show();
         MessDetailModel model = new MessDetailModel(rollNumber,hostelName,roomNumber,month,year);
-        Call<MessDetailModel> call = RetrofitClient.getInstance().getApi().printConsumedItemsByStudent(model);
+        String token = sharedPrefManager.getToken();
+        Call<MessDetailModel> call = RetrofitClient.getInstance().getApi().printConsumedItemsByStudent("Bearer " + token,model);
         call.enqueue(new Callback<MessDetailModel>() {
             @Override
             public void onResponse(Call<MessDetailModel> call, Response<MessDetailModel> response) {
@@ -107,8 +110,26 @@ public class DetailMessBillActivity extends AppCompatActivity {
                     if(response.body().getMessage().equals("Internal server error")){
                         Toast.makeText(DetailMessBillActivity.this, "Internal server error1", Toast.LENGTH_SHORT).show();
                     }
-                }else{
-                    Toast.makeText(DetailMessBillActivity.this, "Internal server error2", Toast.LENGTH_SHORT).show();
+                } else{
+//                                check if token is not verified
+                    if(response.code() == 500) {
+                        // Unauthorized - Token is invalid or expired
+                        // Redirect user to login screen or take appropriate action
+                        AlertDialog.Builder builder = new AlertDialog.Builder(DetailMessBillActivity.this);
+                        builder.setTitle("ALERT");
+                        builder.setMessage("Your Session expired\nPlease login Again");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                return;
+                            }
+                        }).show();
+                        // Redirect to login screen or logout user
+                    } else {
+                        // Handle other HTTP error codes
+                        Toast.makeText(DetailMessBillActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 

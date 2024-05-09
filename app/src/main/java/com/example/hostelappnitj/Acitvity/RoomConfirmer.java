@@ -25,6 +25,7 @@ import com.example.hostelappnitj.MBH_A_Hostel.Floor_6_SeatMatrix_A;
 import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.RetrofitClient;
+import com.example.hostelappnitj.SharedPrefManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,6 +39,7 @@ TextView txtHostelPolicy;
     String allow="0";
     Switch switchAgree ;
     ProgressDialog progressDialog;
+    SharedPrefManager sharedPrefManager;
     private DialogInterface.OnClickListener dialogClickListener;
 
     @Override
@@ -51,6 +53,7 @@ TextView txtHostelPolicy;
         proceed= findViewById(R.id.proceed);
     switchAgree = findViewById(R.id.switchAgree);
     txtHostelPolicy=findViewById(R.id.txthostel_policy);
+    sharedPrefManager = new SharedPrefManager(RoomConfirmer.this);
         Intent intent = getIntent();
         hostelName = intent.getStringExtra("hostelName");
         username = intent.getStringExtra("username");
@@ -207,7 +210,8 @@ TextView txtHostelPolicy;
                         progressDialog.setCancelable(false);
 
                         PreRegisterResponse preRegisterResponse = new PreRegisterResponse(roomNumber, rollNumber, email, hostelName);
-                        Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterResponse_single(preRegisterResponse);
+                    String token = sharedPrefManager.getToken();
+                    Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterResponse_single("Bearer " + token,preRegisterResponse);
                         call.enqueue(new Callback<PreRegisterResponse>() {
                             @Override
                             public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
@@ -306,6 +310,27 @@ TextView txtHostelPolicy;
                                     }
 
                                 }
+                                else{
+//                                check if token is not verified
+                                    if(response.code() == 500) {
+                                        // Unauthorized - Token is invalid or expired
+                                        // Redirect user to login screen or take appropriate action
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(RoomConfirmer.this);
+                                        builder.setTitle("ALERT");
+                                        builder.setMessage("Your Session expired\nPlease login Again");
+                                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                dialogInterface.dismiss();
+                                                return;
+                                            }
+                                        }).show();
+                                        // Redirect to login screen or logout user
+                                    } else {
+                                        // Handle other HTTP error codes
+                                        Toast.makeText(RoomConfirmer.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
                             }
 
                             @Override
@@ -325,7 +350,8 @@ TextView txtHostelPolicy;
                     progressDialog.setCancelable(false);
 
                     PreRegisterResponse preRegisterResponse = new PreRegisterResponse(roomNumber, rollNumber, email, hostelName);
-                    Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterResponse(preRegisterResponse);
+                    String token = sharedPrefManager.getToken();
+                    Call<PreRegisterResponse> call = RetrofitClient.getInstance().getApi().PreRegisterResponse("Bearer " + token,preRegisterResponse);
                     call.enqueue(new Callback<PreRegisterResponse>() {
                         @Override
                         public void onResponse(Call<PreRegisterResponse> call, Response<PreRegisterResponse> response) {
@@ -423,6 +449,27 @@ TextView txtHostelPolicy;
                                     Toast.makeText(RoomConfirmer.this, "Something went wrong..", Toast.LENGTH_SHORT).show();
                                 }
 
+                            }
+                            else{
+//                                check if token is not verified
+                                if(response.code() == 500) {
+                                    // Unauthorized - Token is invalid or expired
+                                    // Redirect user to login screen or take appropriate action
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(RoomConfirmer.this);
+                                    builder.setTitle("ALERT");
+                                    builder.setMessage("Your Session expired\nPlease login Again");
+                                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                            return;
+                                        }
+                                    }).show();
+                                    // Redirect to login screen or logout user
+                                } else {
+                                    // Handle other HTTP error codes
+                                    Toast.makeText(RoomConfirmer.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                                }
                             }
                         }
 

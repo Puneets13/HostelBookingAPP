@@ -105,7 +105,8 @@ public class ExtraSnacksActivity extends AppCompatActivity {
         progressDialog.show();
         progressDialog.setCancelable(false);
 
-        Call<constantsModel> call = RetrofitClient.getInstance().getApi().getMessItemsList(model);
+        String token = sharedPrefManager.getToken();
+        Call<constantsModel> call = RetrofitClient.getInstance().getApi().getMessItemsList("Bearer " + token,model);
             call.enqueue(new Callback<constantsModel>() {
                 @Override
                 public void onResponse(Call<constantsModel> call, Response<constantsModel> response) {
@@ -122,9 +123,26 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                             adapter = new ItemListAdapter(ExtraSnacksActivity.this, items_list);
                             recyclerView.setAdapter(adapter);
 
-                        } else if (response.body().getMessage().equals("no item found")){
-                            progressDialog.dismiss();
-                            Toast.makeText(ExtraSnacksActivity.this, "No Items found", Toast.LENGTH_SHORT).show();
+                        }  else{
+//                                check if token is not verified
+                            if(response.code() == 500) {
+                                // Unauthorized - Token is invalid or expired
+                                // Redirect user to login screen or take appropriate action
+                                AlertDialog.Builder builder = new AlertDialog.Builder(ExtraSnacksActivity.this);
+                                builder.setTitle("ALERT");
+                                builder.setMessage("Your Session expired\nPlease login Again");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
+                                        return;
+                                    }
+                                }).show();
+                                // Redirect to login screen or logout user
+                            } else {
+                                // Handle other HTTP error codes
+                                Toast.makeText(ExtraSnacksActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 }
@@ -172,34 +190,6 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                 int hour = Integer.parseInt(formattedTime.split(":")[0]);
                 int minute = Integer.parseInt(formattedTime.split(":")[1]);
                 mealType ="";
-                // Check the time ranges and print appropriate messages
-//            if (hour >= 7 && hour < 11) {  // 7:00 AM to 11:00 AM
-////                    System.out.println("Good Morning!");
-//                mealType = "breakfast";
-//            }
-////                if (hour >= 10 && hour < 13) {  // 7:00 AM to 11:00 AM
-//////                    System.out.println("Good Morning!");
-//////                Toast.makeText(getActivity(), "its ", Toast.LENGTH_SHORT).show();
-////                    mealType = "lunch";
-////                }
-//                else if (hour >= 12 && hour < 15) {   // 12:00PM to 3:00PM
-////                    System.out.println("Good Afternoon!");
-//                    mealType = "lunch";
-//                }
-////            else if ((hour >= 19 && hour < 22 && minute >= 30) || (hour == 22 && minute <= 30)) { // 7:30 PM to 10:30 PM
-//////                    System.out.println("Good Evening!");
-////                mealType = "dinner";
-////            }
-//
-//                else if ((hour >= 16 && hour < 18 && minute >= 30) || (hour == 18 && minute <= 30)) { // 4:30 PM to 6:30 PM
-//                    mealType = "snacks";
-//                }
-//
-////            CHANGED
-//                else if ((hour >= 20 && hour < 22 ) ) { // 7:30 PM to 10:30 PM
-////                    System.out.println("Good Evening!");
-//                    mealType = "dinner";
-//                }
                 // Check the time ranges and set the meal type accordingly
                 if (hour >= 7 && hour < 10) {  // 7:00 AM to 10:00 AM
                     mealType = "breakfast";
@@ -248,7 +238,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                 if(checkedItems.size()==0){
                     AlertDialog.Builder builder = new AlertDialog.Builder(ExtraSnacksActivity.this);
                     builder.setTitle("ALERT");
-                    builder.setMessage("Yuo haven't selected any items\nPlease add items to move forward\n");
+                    builder.setMessage("You haven't selected any items\nPlease add items to move forward\n");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -293,7 +283,9 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                     DailyScannerModel model = new DailyScannerModel(rollNumber,roomNumber,hostelName,month,year,mealType,utcDateTimeString,formattedTime1,item,amount);
 
 //                    DailyScannerModel model = new DailyScannerModel(rollNumber,roomNumber,hostelName,month,year,mealType,formattedDate,formattedTime1,item,amount);
-                    Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().getExtraMeal(model);
+                  //adding AUTH JWT
+                    String token = sharedPrefManager.getToken();
+                    Call<DailyScannerModel> call = RetrofitClient.getInstance().getApi().getExtraMeal("Bearer " + token,model);
                     call.enqueue(new Callback<DailyScannerModel>() {
                         @Override
                         public void onResponse(Call<DailyScannerModel> call, Response<DailyScannerModel> response) {
@@ -316,6 +308,27 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                                     Toast.makeText(ExtraSnacksActivity.this, "You are on leave", Toast.LENGTH_SHORT).show();
                                 }else{
                                     Toast.makeText(ExtraSnacksActivity.this, "Transaction Failed", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            else{
+//                                check if token is not verified
+                                if(response.code() == 500) {
+                                    // Unauthorized - Token is invalid or expired
+                                    // Redirect user to login screen or take appropriate action
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(ExtraSnacksActivity.this);
+                                    builder.setTitle("ALERT");
+                                    builder.setMessage("Your Session expired\nPlease login Again");
+                                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                            return;
+                                        }
+                                    }).show();
+                                    // Redirect to login screen or logout user
+                                } else {
+                                    // Handle other HTTP error codes
+                                    Toast.makeText(ExtraSnacksActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }

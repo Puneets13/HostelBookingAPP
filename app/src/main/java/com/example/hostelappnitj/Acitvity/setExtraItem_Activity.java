@@ -144,7 +144,8 @@ public class setExtraItem_Activity extends AppCompatActivity {
 
         constantsModel model = new constantsModel(hostelName);
 
-        Call<constantsModel> call = RetrofitClient.getInstance().getApi().getMessItemsList(model);
+        String token = sharedPrefManager.getToken();
+        Call<constantsModel> call = RetrofitClient.getInstance().getApi().getMessItemsList("Bearer " + token,model);
         call.enqueue(new Callback<constantsModel>() {
             @Override
             public void onResponse(Call<constantsModel> call, Response<constantsModel> response) {
@@ -165,6 +166,26 @@ public class setExtraItem_Activity extends AppCompatActivity {
                     } else if (response.body().getMessage().equals("no item found")){
                         progressDialog.dismiss();
                         Toast.makeText(setExtraItem_Activity.this, "No Items found", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+//                                check if token is not verified
+                    if(response.code() == 500) {
+                        // Unauthorized - Token is invalid or expired
+                        // Redirect user to login screen or take appropriate action
+                        AlertDialog.Builder builder = new AlertDialog.Builder(setExtraItem_Activity.this);
+                        builder.setTitle("ALERT");
+                        builder.setMessage("Your Session expired\nPlease login Again");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                return;
+                            }
+                        }).show();
+                        // Redirect to login screen or logout user
+                    } else {
+                        // Handle other HTTP error codes
+                        Toast.makeText(setExtraItem_Activity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -207,7 +228,8 @@ public class setExtraItem_Activity extends AppCompatActivity {
                 return;
             }
             extra_item_model model = new extra_item_model(itemPrice,hostelName,itemName);
-            Call<extra_item_model> call = RetrofitClient.getInstance().getApi().addItemInConstant(model);
+            String token = sharedPrefManager.getToken();
+            Call<extra_item_model> call = RetrofitClient.getInstance().getApi().addItemInConstant("Bearer " + token,model);
             call.enqueue(new Callback<extra_item_model>() {
                 @Override
                 public void onResponse(Call<extra_item_model> call, Response<extra_item_model> response) {
@@ -227,6 +249,26 @@ public class setExtraItem_Activity extends AppCompatActivity {
                         }else{
                             progressDialog.dismiss();
                             Toast.makeText(setExtraItem_Activity.this, "Error in inserting item", Toast.LENGTH_SHORT).show();
+                        }
+                    } else{
+//                                check if token is not verified
+                        if(response.code() == 500) {
+                            // Unauthorized - Token is invalid or expired
+                            // Redirect user to login screen or take appropriate action
+                            AlertDialog.Builder builder = new AlertDialog.Builder(setExtraItem_Activity.this);
+                            builder.setTitle("ALERT");
+                            builder.setMessage("Your Session expired\nPlease login Again");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                    return;
+                                }
+                            }).show();
+                            // Redirect to login screen or logout user
+                        } else {
+                            // Handle other HTTP error codes
+                            Toast.makeText(setExtraItem_Activity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
