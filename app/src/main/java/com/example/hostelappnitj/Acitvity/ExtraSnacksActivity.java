@@ -210,16 +210,12 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                 else if (hour == 18 && minute <= 30) { // 6:00 PM to 6:30 PM
                     mealType = "snacks";
                 }
-                else if (hour >= 0 && hour < 2) { // 7:00 PM to 10:00 PM
+                else if (hour >= 19 && hour < 22) { // 7:00 PM to 10:00 PM
                     mealType = "dinner";
                 }
-//                else if (hour >= 19 && hour < 22) { // 7:00 PM to 10:00 PM
-//                    mealType = "dinner";
-//                }
-
-//                else if (hour == 22 && minute <= 15) { // 10:00 PM to 10:15 PM
-//                    mealType = "dinner";
-//                }
+                else if (hour == 22 && minute <= 15) { // 10:00 PM to 10:15 PM
+                    mealType = "dinner";
+                }
                 else {
 //                    System.out.println("Hello!");
                     Toast.makeText(ExtraSnacksActivity.this, "Visit in Mess Timings", Toast.LENGTH_SHORT).show();
