@@ -80,13 +80,9 @@ public class MessHomeFragment_admin extends Fragment {
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // Inflate the layout for this fragment
         imageViewHostels=view.findViewById(R.id.imageView_hostels);
-//        btndailyScanner = view.findViewById(R.id.daily_scanner);
-//        btnextrasScanner = view.findViewById(R.id.extras_scanner);
-//        btngetDietRecord = view.findViewById(R.id.getDietRedcord);
         btnSetExtraPrice = view.findViewById(R.id.btnSetExtraPrice);
         btnDietRecord=view.findViewById(R.id.getDietRedcord);
         btnSetTotalSpentforMess = view.findViewById(R.id.btnSetTotalSpentforMess);
-//        btnInvoice = view.findViewById(R.id.invoice);
 
         txtEmail = view.findViewById(R.id.txtEmail);
 
@@ -289,14 +285,16 @@ public class MessHomeFragment_admin extends Fragment {
             int minute = Integer.parseInt(formattedTime.split(":")[1]);
             mealType ="";
             // Check the time ranges and print appropriate messages
-            // Check the time ranges and set the meal type accordingly
             if (hour >= 7 && hour < 10) {  // 7:00 AM to 10:00 AM
                 mealType = "breakfast";
             }
             else if (hour == 10 && minute <= 30) { // 10:00 AM to 10:30 AM
                 mealType = "breakfast";
             }
-            else if (hour >= 16 && hour < 18) { // 4:00 PM to 6:00 PM
+            else if (hour > 12 && hour < 15) { // 12:00 PM to 15:00 PM
+                mealType = "lunch";
+            }
+            else if (hour >= 17 && hour < 18) { // 5:00 PM to 6:00 PM
                 mealType = "snacks";
             }
             else if (hour == 18 && minute <= 30) { // 6:00 PM to 6:30 PM

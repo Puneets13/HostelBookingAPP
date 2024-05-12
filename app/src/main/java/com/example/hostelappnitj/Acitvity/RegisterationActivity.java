@@ -333,7 +333,11 @@ public class RegisterationActivity extends AppCompatActivity {
                                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
+                                        Intent intent = new Intent(RegisterationActivity.this, SignInActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                        finish();
+//                                        dialogInterface.dismiss();
                                         return;
                                     }
                                 }).show();
@@ -433,7 +437,11 @@ public class RegisterationActivity extends AppCompatActivity {
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
+                                Intent intent = new Intent(RegisterationActivity.this, SignInActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
+//                                dialogInterface.dismiss();
                                 return;
                             }
                         }).show();
@@ -481,7 +489,11 @@ public class RegisterationActivity extends AppCompatActivity {
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
+                                Intent intent = new Intent(RegisterationActivity.this, SignInActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
+//                                dialogInterface.dismiss();
                                 return;
                             }
                         }).show();
@@ -534,7 +546,11 @@ public class RegisterationActivity extends AppCompatActivity {
                                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
+                                        Intent intent = new Intent(RegisterationActivity.this, SignInActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                        finish();
+//                                        dialogInterface.dismiss();
                                         return;
                                     }
                                 }).show();
@@ -584,7 +600,11 @@ public class RegisterationActivity extends AppCompatActivity {
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
+                                Intent intent = new Intent(RegisterationActivity.this, SignInActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
+//                                dialogInterface.dismiss();
                                 return;
                             }
                         }).show();

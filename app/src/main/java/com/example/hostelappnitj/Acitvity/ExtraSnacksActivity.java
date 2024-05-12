@@ -135,6 +135,10 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         dialogInterface.dismiss();
+                                        Intent intent = new Intent(ExtraSnacksActivity.this, SignInActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                        finish();
                                         return;
                                     }
                                 }).show();
@@ -197,18 +201,25 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                 else if (hour == 10 && minute <= 30) { // 10:00 AM to 10:30 AM
                     mealType = "breakfast";
                 }
-                else if (hour >= 16 && hour < 18) { // 4:00 PM to 6:00 PM
+                else if (hour > 12 && hour < 15) { // 12:00 PM to 15:00 PM
+                    mealType = "lunch";
+                }
+                else if (hour >= 17 && hour < 18) { // 5:00 PM to 6:00 PM
                     mealType = "snacks";
                 }
                 else if (hour == 18 && minute <= 30) { // 6:00 PM to 6:30 PM
                     mealType = "snacks";
                 }
-                else if (hour >= 19 && hour < 22) { // 7:00 PM to 10:00 PM
+                else if (hour >= 0 && hour < 2) { // 7:00 PM to 10:00 PM
                     mealType = "dinner";
                 }
-                else if (hour == 22 && minute <= 15) { // 10:00 PM to 10:15 PM
-                    mealType = "dinner";
-                }
+//                else if (hour >= 19 && hour < 22) { // 7:00 PM to 10:00 PM
+//                    mealType = "dinner";
+//                }
+
+//                else if (hour == 22 && minute <= 15) { // 10:00 PM to 10:15 PM
+//                    mealType = "dinner";
+//                }
                 else {
 //                    System.out.println("Hello!");
                     Toast.makeText(ExtraSnacksActivity.this, "Visit in Mess Timings", Toast.LENGTH_SHORT).show();
@@ -219,6 +230,7 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
+                            finish();
                         }
                     }).show();
                 }
@@ -322,6 +334,10 @@ public class ExtraSnacksActivity extends AppCompatActivity {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
                                             dialogInterface.dismiss();
+                                            Intent intent = new Intent(ExtraSnacksActivity.this, SignInActivity.class);
+                                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            startActivity(intent);
+                                            finish();
                                             return;
                                         }
                                     }).show();

@@ -128,7 +128,7 @@ public class SharedPrefManager {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 }
-            }, 5000); // Delay for 5 seconds (5000 milliseconds)
+            }, 3000); // Delay for 5 seconds (5000 milliseconds)
             return null;
         } else {
             // Token is still valid, return the token

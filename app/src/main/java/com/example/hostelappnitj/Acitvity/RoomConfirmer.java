@@ -321,7 +321,11 @@ TextView txtHostelPolicy;
                                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i) {
-                                                dialogInterface.dismiss();
+                                                Intent intent = new Intent(RoomConfirmer.this, SignInActivity.class);
+                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                startActivity(intent);
+                                                finish();
+//                                                dialogInterface.dismiss();
                                                 return;
                                             }
                                         }).show();
@@ -461,7 +465,11 @@ TextView txtHostelPolicy;
                                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
-                                            dialogInterface.dismiss();
+                                            Intent intent = new Intent(RoomConfirmer.this, SignInActivity.class);
+                                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            startActivity(intent);
+                                            finish();
+//                                            dialogInterface.dismiss();
                                             return;
                                         }
                                     }).show();

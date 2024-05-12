@@ -730,62 +730,71 @@ public class AttendanceFragment extends Fragment {
             }
         });
 
+
+        String userType = sharedPrefManager.getAdmin();
+
+
+
         btncountTotalDiets.setOnClickListener(v -> {
-            progressDialog = ProgressDialog.show(requireContext(), "Checking Records",
-                    "Counting all diets\nPlease wait...", true, false);
 
-            Calendar calendar = Calendar.getInstance();
-            int year = calendar.get(Calendar.YEAR);
-            year_str = String.valueOf(year);
-            leaveModel model = new leaveModel(rollNumber, hostelName, year_str);
+            if(userType.equals("Admin")){
+//            binding.btnRoomBook3.setVisibility(View.INVISIBLE);
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                builder.setTitle("ALERT");
+                builder.setMessage("Not Applicable for ADMIN");
+                builder.setPositiveButton("OK", (dialog, which) -> dialog.dismiss());
+                builder.show();
 
-            String token = sharedPrefManager.getToken();
-            RetrofitClient.getInstance().getApi().countTotalDiet("Bearer " + token,model).enqueue(new Callback<leaveModel>() {
-                @Override
-                public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
-                    progressDialog.dismiss();
-                    if (response.isSuccessful()) {
-                        leaveModel responseFromAPI = response.body();
-                        if (responseFromAPI != null && responseFromAPI.getMessage().equals("Total diet count retrieved successfully")) {
-                            showCountTotalDietsDialog(responseFromAPI.getDietCount());
-                        } else {
-                            Toast.makeText(requireContext(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
-                        }
-                    } else{
-//                                check if token is not verified
-                        if(response.code() == 500) {
-                            // Unauthorized - Token is invalid or expired
-                            // Redirect user to login screen or take appropriate action
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                            builder.setTitle("ALERT");
-                            builder.setMessage("Your Session expired\nPlease login Again");
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    dialogInterface.dismiss();
-                                    return;
-                                }
-                            }).show();
-                            // Redirect to login screen or logout user
-                        } else {
-                            // Handle other HTTP error codes
-                            Toast.makeText(getActivity(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
+            }else {
+
+                progressDialog = ProgressDialog.show(requireContext(), "Checking Records",
+                        "Counting all diets\nPlease wait...", true, false);
+
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                year_str = String.valueOf(year);
+                leaveModel model = new leaveModel(rollNumber, hostelName, year_str);
+
+                RetrofitClient.getInstance().getApi().countTotalDiet(model).enqueue(new Callback<leaveModel>() {
+                    @Override
+                    public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
+                        progressDialog.dismiss();
+                        if (response.isSuccessful()) {
+                            leaveModel responseFromAPI = response.body();
+                            if (responseFromAPI != null && responseFromAPI.getMessage().equals("Total diet count retrieved successfully")) {
+                                showCountTotalDietsDialog(responseFromAPI.getDietCount());
+                            } else {
+                                Toast.makeText(requireContext(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
-                }
 
-                @Override
-                public void onFailure(Call<leaveModel> call, Throwable t) {
-                    progressDialog.dismiss();
-                    Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
+                    @Override
+                    public void onFailure(Call<leaveModel> call, Throwable t) {
+                        progressDialog.dismiss();
+                        Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
         });
 
-        btnCountDietPerMonth.setOnClickListener(v -> showMonthSelectionDialog());
+//        btnCountDietPerMonth.setOnClickListener(v -> showMonthSelectionDialog());
 
+        btnCountDietPerMonth.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(userType.equals("Admin")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                    builder.setTitle("ALERT");
+                    builder.setMessage("Not Applicable for ADMIN");
+                    builder.setPositiveButton("OK", (dialog, which) -> dialog.dismiss());
+                    builder.show();
+                }else{
+                    showMonthSelectionDialog();
+                }
+            }
+        });
 //        setDateButton.setOnClickListener(v -> showDatePickerDialog());
-
         return view;
     }
 
@@ -836,9 +845,8 @@ public class AttendanceFragment extends Fragment {
                     "Counting diets\nPlease wait...", true, false);
 
             leaveModel model = new leaveModel(rollNumber, hostelName, year_str, selectMonthInNumber);
-            String token = sharedPrefManager.getToken();
 
-            RetrofitClient.getInstance().getApi().countDietPerMonth("Bearer " + token,model).enqueue(new Callback<leaveModel>() {
+            RetrofitClient.getInstance().getApi().countDietPerMonth(model).enqueue(new Callback<leaveModel>() {
                 @Override
                 public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
                     progressDialog.dismiss();
@@ -848,26 +856,6 @@ public class AttendanceFragment extends Fragment {
                             showCountDietPerMonthDialog(selectedMonthName, responseFromAPI.getDietCount());
                         } else {
                             Toast.makeText(requireContext(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
-                        }
-                    } else{
-//                                check if token is not verified
-                        if(response.code() == 500) {
-                            // Unauthorized - Token is invalid or expired
-                            // Redirect user to login screen or take appropriate action
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                            builder.setTitle("ALERT");
-                            builder.setMessage("Your Session expired\nPlease login Again");
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    dialogInterface.dismiss();
-                                    return;
-                                }
-                            }).show();
-                            // Redirect to login screen or logout user
-                        } else {
-                            // Handle other HTTP error codes
-                            Toast.makeText(getActivity(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

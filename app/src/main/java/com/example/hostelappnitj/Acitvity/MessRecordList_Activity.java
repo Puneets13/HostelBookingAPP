@@ -340,7 +340,10 @@ public class MessRecordList_Activity extends AppCompatActivity {
         else if (hour == 10 && minute <= 30) { // 10:00 AM to 10:30 AM
             mealType = "breakfast";
         }
-        else if (hour >= 16 && hour < 18) { // 4:00 PM to 6:00 PM
+        else if (hour > 12 && hour < 15) { // 12:00 PM to 15:00 PM
+            mealType = "lunch";
+        }
+        else if (hour >= 17 && hour < 18) { // 5:00 PM to 6:00 PM
             mealType = "snacks";
         }
         else if (hour == 18 && minute <= 30) { // 6:00 PM to 6:30 PM
@@ -361,8 +364,9 @@ public class MessRecordList_Activity extends AppCompatActivity {
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    dialogInterface.dismiss();
 
+                    dialogInterface.dismiss();
+                    finish();
                 }
             }).show();
         }

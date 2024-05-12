@@ -2,12 +2,23 @@ package com.example.hostelappnitj.Acitvity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.FileProvider;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.print.PrintAttributes;
+import android.print.pdf.PrintedPdfDocument;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,7 +31,16 @@ import com.example.hostelappnitj.RetrofitClient;
 import com.example.hostelappnitj.SharedPrefManager;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
+import org.w3c.dom.Document;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +52,9 @@ public class InnvoiceActivity extends AppCompatActivity {
     TextView txtRollNumber , txtMonth, txtYear , txtPerDietCost , txtDietCount,txttotalInvoice,txtHostelName,txtemail,txtHostelNameHeading;
     String email ,  rollNumber , hostelName , roomNumber, month , year , mealType , formattedDate;
     ProgressDialog progressDialog;
-    AppCompatButton btnPrintInvocie;
+    AppCompatButton btnDetailInvocie , btnPrintInvoice;
+    private View rootView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +68,11 @@ public class InnvoiceActivity extends AppCompatActivity {
         txtPerDietCost =findViewById(R.id.perDietCost);
         txttotalInvoice = findViewById(R.id.totalInvoice);
         txtemail = findViewById(R.id.invoice_email);
-         btnPrintInvocie = findViewById(R.id.btnPrintInvocie);
+         btnDetailInvocie = findViewById(R.id.btnDetailInvocie);
+         btnPrintInvoice = findViewById(R.id.btnPrintInvoice);
 
-
+//        rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+        rootView = getWindow().getDecorView().findViewById(R.id.rootViewInnvocie);
 
         sharedPrefManager=new SharedPrefManager(InnvoiceActivity.this);
         email = sharedPrefManager.getHostelResponse().getEmail();
@@ -67,8 +91,8 @@ public class InnvoiceActivity extends AppCompatActivity {
         month = intent.getStringExtra("month");
         year =  intent.getStringExtra("year");
 
-        month = "04";
-        year="2024";
+//        month = "04";
+//        year="2024";
 
         txtemail.setText(email);
         txtMonth.setText(month);
@@ -80,7 +104,14 @@ public class InnvoiceActivity extends AppCompatActivity {
 //        Toast.makeText(this, rollNumber, Toast.LENGTH_SHORT).show();
 
 
-        btnPrintInvocie.setOnClickListener(new View.OnClickListener() {
+        btnPrintInvoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                convertLayoutToPdf();
+            }
+        });
+
+        btnDetailInvocie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), DetailMessBillActivity.class);
@@ -174,4 +205,68 @@ public class InnvoiceActivity extends AppCompatActivity {
         // Parse the formatted string back to a double
         return roundedString ;
     }
+
+
+
+    private void convertLayoutToPdf() {
+        // Capture the entire content of the screen
+        Bitmap bitmap = getLayoutBitmap(rootView);
+
+        if (bitmap != null) {
+            // Convert the captured content to PDF
+            convertToPdf(bitmap);
+        } else {
+            Toast.makeText(this, "Failed to capture screen", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private Bitmap getLayoutBitmap(View view) {
+        int width = view.getWidth();
+        int height = view.getHeight();
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+        return bitmap;
+    }
+
+    private void convertToPdf(Bitmap bitmap) {
+        // Step 1: Convert Bitmap to PDF
+
+
+        PdfDocument document = new PdfDocument();
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(bitmap.getWidth(), bitmap.getHeight(), 1).create();
+        PdfDocument.Page page = document.startPage(pageInfo);
+        Canvas canvas = page.getCanvas();
+        Paint paint = new Paint();
+        canvas.drawBitmap(bitmap, 0, 0, paint);
+        document.finishPage(page);
+
+        // Step 2: Save PDF to File
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
+        String currentDateAndTime = sdf.format(new Date());
+        String pdfFileName = currentDateAndTime;
+
+        String fileName = "MessInvoice_"+ pdfFileName +".pdf";
+        File pdfFile = new File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), fileName);
+        try {
+            document.writeTo(new FileOutputStream(pdfFile));
+            document.close();
+
+            // Step 3: Provide Download Option
+            openPdfFile(pdfFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Failed to save PDF", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void openPdfFile(File pdfFile) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        Uri uri = FileProvider.getUriForFile(this, Objects.requireNonNull(getPackageName()) + ".fileprovider", pdfFile);
+        intent.setDataAndType(uri, "application/pdf");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(intent);
+    }
+
+
 }

@@ -154,7 +154,10 @@ public class DailyScannerFragment extends Fragment {
                 else if (hour == 10 && minute <= 30) { // 10:00 AM to 10:30 AM
                     mealType = "breakfast";
                 }
-                else if (hour >= 16 && hour < 18) { // 4:00 PM to 6:00 PM
+                else if (hour > 12 && hour < 15) { // 12:00 PM to 15:00 PM
+                    mealType = "lunch";
+                }
+                else if (hour >= 17 && hour < 18) { // 5:00 PM to 6:00 PM
                     mealType = "snacks";
                 }
                 else if (hour == 18 && minute <= 30) { // 6:00 PM to 6:30 PM

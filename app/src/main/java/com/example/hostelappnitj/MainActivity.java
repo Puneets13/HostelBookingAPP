@@ -32,6 +32,7 @@ import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
+import com.example.hostelappnitj.Acitvity.RoomConfirmer;
 import com.example.hostelappnitj.Acitvity.SignInActivity;
 import com.example.hostelappnitj.Acitvity.successScanActivity;
 import com.example.hostelappnitj.AdminActivity.AdminHomeFragment;
@@ -183,10 +184,18 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.nitj_mess:
                         if (sharedPrefManager.getAdmin().equals("Admin")) {
-                            fragment = new MessHomeFragment_admin();
-                            loadFragment(fragment);
-                        } else
-                        {
+                            if(sharedPrefManager.getUser().getEmail().equals("deputy_cw@nitj.ac.in") || sharedPrefManager.getUser().getEmail().equals("chief_warden@nitj.ac.in") ){
+                                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                builder.setTitle("NITJ MESS");
+                                builder.setMessage("This Section is Accessible through Clerk's ID\nPlease login using clerk id of particular hostel to see the details of mess");
+                                builder.setPositiveButton("OK", (dialog, which) -> dialog.dismiss());
+                                builder.show();
+                            }else{
+                                fragment = new MessHomeFragment_admin();
+                                loadFragment(fragment);
+                            }
+                        }
+                        else {
                         progressDialog = new ProgressDialog(MainActivity.this);
                         progressDialog.setTitle("NITJ MESS");
                         progressDialog.setMessage("Loading....");
@@ -254,6 +263,10 @@ public class MainActivity extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i) {
                                                 dialogInterface.dismiss();
+                                                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                startActivity(intent);
+                                                finish();
                                                 return;
                                             }
                                         }).show();

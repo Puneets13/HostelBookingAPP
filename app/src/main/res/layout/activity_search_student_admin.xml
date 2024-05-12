@@ -14,8 +14,6 @@
 
         <!--    this edit text is used imported from material desgin so used in this manner-->
 
-
-
         <!--progress bar for loading -->
         <ImageView
             android:id="@+id/bg"

@@ -33,6 +33,8 @@ import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.Acitvity.RegisterationActivity;
+import com.example.hostelappnitj.Acitvity.RoomConfirmer;
+import com.example.hostelappnitj.Acitvity.SignInActivity;
 import com.example.hostelappnitj.Acitvity.settingUserProfile;
 import com.example.hostelappnitj.ModelResponse.HostelRegisterationResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
@@ -148,7 +150,7 @@ SharedPrefManager sharedPrefManager;
             email.setGravity(Gravity.CENTER);
             sharedPrefManager.getHostelUser().getHostelName();
             String txt = sharedPrefManager.getHostelUser().getHostelName();
-            Toast.makeText(getActivity(), "hi"+txt, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), "hi"+txt, Toast.LENGTH_SHORT).show();
             username.setText(sharedPrefManager.getHostelUser().getHostelName());
 
         }
@@ -171,6 +173,7 @@ SharedPrefManager sharedPrefManager;
                     Intent galleryIntent = new Intent(   Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     startActivityForResult(galleryIntent,RESULT_LOAD_IMAGE);   //to start an activity from the Fragment
                 }else {
+                    Toast.makeText(getActivity(), "Grant Permission to Gallery", Toast.LENGTH_SHORT).show();
                     ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
 
                 }
@@ -235,6 +238,9 @@ SharedPrefManager sharedPrefManager;
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
+                                Intent intent = new Intent(getActivity(), SignInActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
                                 return;
                             }
                         }).show();

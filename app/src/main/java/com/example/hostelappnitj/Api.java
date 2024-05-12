@@ -26,7 +26,6 @@ import com.example.hostelappnitj.ModelResponse.messExpenditureModel;
 import com.example.hostelappnitj.ModelResponse.resetPasswordModel;
 import com.example.hostelappnitj.ModelResponse.studentListModel;
 
-import kotlin.coroutines.jvm.internal.DebugMetadata;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -203,13 +202,11 @@ public interface Api {
 
     @POST("hostelbook/countDietOfStudent")
     Call<leaveModel>countTotalDiet(
-            @Header("Authorization") String token,
             @Body leaveModel leaveModel
     );
 
     @POST("hostelbook/countDietPerMonth")
     Call<leaveModel>countDietPerMonth(
-            @Header("Authorization") String token,
             @Body leaveModel leaveModel
     );
 
@@ -249,7 +246,6 @@ public interface Api {
 
     @POST("hostelbook/printConsumedItemsByStudent")
     Call<MessDetailModel>printConsumedItemsByStudent(
-            @Header("Authorization") String token,
             @Body MessDetailModel messDetailModel
     );
 

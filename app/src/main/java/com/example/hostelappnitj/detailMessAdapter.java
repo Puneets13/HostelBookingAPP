@@ -9,9 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hostelappnitj.BreakfastExtraAdapter;
-import com.example.hostelappnitj.ExtrasAdapter;
-import com.example.hostelappnitj.LunchExtraAdapter;
 import com.example.hostelappnitj.ModelResponse.ConsumedItemsModel;
 import com.example.hostelappnitj.R;
 import com.example.hostelappnitj.snackExtraAdapter;

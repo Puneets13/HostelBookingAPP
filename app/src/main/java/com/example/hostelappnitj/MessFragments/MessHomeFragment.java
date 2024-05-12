@@ -25,14 +25,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.Acitvity.InnvoiceActivity;
+import com.example.hostelappnitj.Acitvity.SignInActivity;
 import com.example.hostelappnitj.Acitvity.dietRecordActivity;
 import com.example.hostelappnitj.Acitvity.scannerActivity;
 import com.example.hostelappnitj.Acitvity.setMessTotalExpenditureActivity;
@@ -75,7 +78,7 @@ public class MessHomeFragment extends Fragment {
     private static final int REQUEST_PHONE_CALL = 1;
     private Calendar selectedCalendar;
     String year_str;
-    String email ,  rollNumber , hostelName , roomNumber, month , year , mealType , formattedDate;
+    String email ,  rollNumber , hostelName , roomNumber, month , year , mealType , formattedDate,selectMonthInNumber;
     public MessHomeFragment() {
         // Required empty public constructor
     }
@@ -216,80 +219,66 @@ public class MessHomeFragment extends Fragment {
             }
         });
 
+//        btngetDietCount.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                progressDialog = new ProgressDialog(getActivity());
+//                progressDialog.setTitle("Checking Records");
+//                progressDialog.setMessage("Counting all diets\nHave patience.....");
+//                progressDialog.show();
+//                progressDialog.setCancelable(false);
+//                Calendar calendar = Calendar.getInstance();
+//                int year =  calendar.get(Calendar.YEAR);
+//                year_str = String.valueOf(year);
+//                leaveModel model = new leaveModel(rollNumber,hostelName,year_str);
+//                Call<leaveModel>call = RetrofitClient.getInstance().getApi().countTotalDiet(model);
+//                call.enqueue(new Callback<leaveModel>() {
+//                    @Override
+//                    public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
+//                        progressDialog.dismiss();
+//                        leaveModel responseFromAPI = response.body();
+//                        if(response.isSuccessful()){
+//
+////                            Toast.makeText(ApplyLeaveActivity.this, "received", Toast.LENGTH_SHORT).show();
+//                            if(responseFromAPI.getMessage().equals("Total diet count retrieved successfully")){
+////                                Toast.makeText(ApplyLeaveActivity.this, "total diets : "+responseFromAPI.getDietCount(), Toast.LENGTH_SHORT).show();
+////                         add alert dialog box here
+//                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                                builder.setTitle("MESS RECORD");
+//                                builder.setMessage("RollNumber : "+rollNumber+"\nRoom Number : "+roomNumber +"\nHostel : "+hostelName + "\nYour total diets consumed till date since beginning of the semester are : "+responseFromAPI.getDietCount()+" diets");
+//                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialogInterface, int i) {
+//                                        dialogInterface.dismiss();
+//                                    }
+//                                }).show();
+//
+//
+//
+//
+//                            }else{
+//                                Toast.makeText(getActivity(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<leaveModel> call, Throwable t) {
+//                        progressDialog.dismiss();
+//                        Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//        });
+//
+
         btngetDietCount.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                progressDialog = new ProgressDialog(getActivity());
-                progressDialog.setTitle("Checking Records");
-                progressDialog.setMessage("Counting all diets\nHave patience.....");
-                progressDialog.show();
-                progressDialog.setCancelable(false);
-                Calendar calendar = Calendar.getInstance();
-                int year =  calendar.get(Calendar.YEAR);
-                year_str = String.valueOf(year);
-                leaveModel model = new leaveModel(rollNumber,hostelName,year_str);
-                String token = sharedPrefManager.getToken();
-                Call<leaveModel>call = RetrofitClient.getInstance().getApi().countTotalDiet("Bearer " + token,model);
-                call.enqueue(new Callback<leaveModel>() {
-                    @Override
-                    public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
-                        progressDialog.dismiss();
-                        leaveModel responseFromAPI = response.body();
-                        if(response.isSuccessful()){
-
-//                            Toast.makeText(ApplyLeaveActivity.this, "received", Toast.LENGTH_SHORT).show();
-                            if(responseFromAPI.getMessage().equals("Total diet count retrieved successfully")){
-//                                Toast.makeText(ApplyLeaveActivity.this, "total diets : "+responseFromAPI.getDietCount(), Toast.LENGTH_SHORT).show();
-//                         add alert dialog box here
-                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                                builder.setTitle("MESS RECORD");
-                                builder.setMessage("RollNumber : "+rollNumber+"\nRoom Number : "+roomNumber +"\nHostel : "+hostelName + "\nYour total diets consumed till date since beginning of the semester are : "+responseFromAPI.getDietCount()+" diets");
-                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                    }
-                                }).show();
-
-
-
-
-                            }else{
-                                Toast.makeText(getActivity(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
-                            }
-                        } else{
-//                                check if token is not verified
-                            if(response.code() == 500) {
-                                // Unauthorized - Token is invalid or expired
-                                // Redirect user to login screen or take appropriate action
-                                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                                builder.setTitle("ALERT");
-                                builder.setMessage("Your Session expired\nPlease login Again");
-                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
-                                        return;
-                                    }
-                                }).show();
-                                // Redirect to login screen or logout user
-                            } else {
-                                // Handle other HTTP error codes
-                                Toast.makeText(getActivity(), "Error: " + response.code(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<leaveModel> call, Throwable t) {
-                        progressDialog.dismiss();
-                        Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+            public void onClick(View view) {
+                showMonthSelectionDialog();
             }
         });
-
-
         btndailyScanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -369,6 +358,67 @@ public class MessHomeFragment extends Fragment {
 
     }
 
+
+    private void showMonthSelectionDialog() {
+        final String[] months = getResources().getStringArray(R.array.months);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("Select a Month");
+
+        View dialogLayout = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_month_selection, null);
+        Spinner spinnerMonths = dialogLayout.findViewById(R.id.spinnerMonths);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_dropdown_item, months);
+        spinnerMonths.setAdapter(adapter);
+
+        builder.setView(dialogLayout);
+
+        builder.setPositiveButton("OK", (dialog, which) -> {
+            String selectedMonthName = spinnerMonths.getSelectedItem().toString();
+            int selectedMonthIndex = spinnerMonths.getSelectedItemPosition() + 1;
+            selectMonthInNumber = String.valueOf(selectedMonthIndex);
+
+            progressDialog = ProgressDialog.show(requireContext(), "Checking Records",
+                    "Counting diets\nPlease wait...", true, false);
+
+            leaveModel model = new leaveModel(rollNumber, hostelName, year_str, selectMonthInNumber);
+
+            RetrofitClient.getInstance().getApi().countDietPerMonth(model).enqueue(new Callback<leaveModel>() {
+                @Override
+                public void onResponse(Call<leaveModel> call, Response<leaveModel> response) {
+                    progressDialog.dismiss();
+                    if (response.isSuccessful()) {
+                        leaveModel responseFromAPI = response.body();
+                        if (responseFromAPI != null && responseFromAPI.getMessage().equals("Total diet count retrieved successfully")) {
+                            showCountDietPerMonthDialog(selectedMonthName, responseFromAPI.getDietCount());
+                        } else {
+                            Toast.makeText(requireContext(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<leaveModel> call, Throwable t) {
+                    progressDialog.dismiss();
+                    Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
+
+
+
+    private void showCountDietPerMonthDialog(String monthName, int dietCount) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        builder.setTitle("MESS RECORD");
+        builder.setMessage("RollNumber: " + rollNumber + "\nRoom Number: " + roomNumber + "\nHostel: " + hostelName + "\nMonth: " + monthName + "\nMonthly diets consumed: " + dietCount + " diets");
+        builder.setPositiveButton("OK", (dialog, which) -> dialog.dismiss());
+        builder.show();
+    }
+
     private void showCountTotalDietsDialog(int dietCount) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("MESS RECORD");
@@ -435,7 +485,10 @@ public class MessHomeFragment extends Fragment {
             else if (hour == 10 && minute <= 30) { // 10:00 AM to 10:30 AM
                 mealType = "breakfast";
             }
-            else if (hour >= 16 && hour < 18) { // 4:00 PM to 6:00 PM
+            else if (hour > 12 && hour < 15) { // 12:00 PM to 15:00 PM
+                mealType = "lunch";
+            }
+            else if (hour >= 17 && hour < 18) { // 5:00 PM to 6:00 PM
                 mealType = "snacks";
             }
             else if (hour == 18 && minute <= 30) { // 6:00 PM to 6:30 PM
@@ -590,7 +643,9 @@ public class MessHomeFragment extends Fragment {
                                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.dismiss();
+                                        Intent intent = new Intent(getActivity(), SignInActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
                                         return;
                                     }
                                 }).show();

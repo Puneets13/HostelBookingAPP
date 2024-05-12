@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
+import com.example.hostelappnitj.Acitvity.RoomConfirmer;
+import com.example.hostelappnitj.Acitvity.SignInActivity;
 import com.example.hostelappnitj.MGH_Girls.MghSeatMatrixFloor6;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
 import com.example.hostelappnitj.ModelResponse.person;
@@ -113,6 +115,10 @@ public class StudentList_Admin_HomeActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
+                                Intent intent = new Intent(StudentList_Admin_HomeActivity.this, SignInActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
                                 return;
                             }
                         }).show();

@@ -17,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
+import com.example.hostelappnitj.Acitvity.RoomConfirmer;
+import com.example.hostelappnitj.Acitvity.SignInActivity;
 import com.example.hostelappnitj.ModelResponse.DataModel;
 import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
 import com.example.hostelappnitj.ModelResponse.person;
@@ -114,6 +116,10 @@ public class StudentByName extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
+                                Intent intent = new Intent(StudentByName.this, SignInActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
                                 return;
                             }
                         }).show();
@@ -170,6 +176,10 @@ public class StudentByName extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         dialogInterface.dismiss();
+                                        Intent intent = new Intent(StudentByName.this, SignInActivity.class);
+                                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                        finish();
                                         return;
                                     }
                                 }).show();

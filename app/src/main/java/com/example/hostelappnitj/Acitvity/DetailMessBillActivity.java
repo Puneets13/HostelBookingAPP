@@ -42,11 +42,11 @@ import retrofit2.Response;
 public class DetailMessBillActivity extends AppCompatActivity {
 
     SharedPrefManager sharedPrefManager;
-    TextView txtRollNumber ,txtdetialBill, txtMonth, txtYear , txtPerDietCost , txtDietCount,txttotalInvoice,txtHostelName,txtemail,txtHostelNameHeading;
     String email ,  rollNumber , hostelName , roomNumber, month , year , mealType , formattedDate;
     ProgressDialog progressDialog;
     AppCompatButton btnPdfDowload;
     RecyclerView recyclerView;
+    TextView txtRollNumber , txtMonth, txtYear , txtPerDietCost , txtDietCount,txttotalInvoice,txtHostelName,txtemail,txtHostelNameHeading;
 
     private View rootView;
 
@@ -57,10 +57,18 @@ public class DetailMessBillActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_mess_bill);
         recyclerView = findViewById(R.id.recyleview);
 
-        btnPdfDowload=findViewById(R.id.downloadDetialedPDF);
+//        btnPdfDowload=findViewById(R.id.downloadDetialedPDF);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
+        txtRollNumber=findViewById(R.id.invoice_roll_numberd);
+        txtHostelName=findViewById(R.id.invoice_hostel_named);
+        txtMonth =findViewById(R.id.invoice_monthd);
+        txtYear =findViewById(R.id.invoice_yeard);
+        txtemail = findViewById(R.id.invoice_emaild);
+
+
 
         sharedPrefManager=new SharedPrefManager(DetailMessBillActivity.this);
         email = sharedPrefManager.getHostelResponse().getEmail();
@@ -71,27 +79,19 @@ public class DetailMessBillActivity extends AppCompatActivity {
         rootView = getWindow().getDecorView().findViewById(android.R.id.content);
 
 
-        btnPdfDowload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                convertLayoutToPdf();
-            }
-        });
-
-
-
         Intent intent=getIntent();
         month = intent.getStringExtra("month");
         year =  intent.getStringExtra("year");
+        txtemail.setText(email);
+        txtMonth.setText(month);
+        txtYear.setText(year);
+        txtRollNumber.setText(rollNumber);
+        txtHostelName.setText(hostelName);
 
-//use intent to bring dates
-//        month = "04";
-//        year = "2024";
-        Toast.makeText(this, rollNumber, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, hostelName, Toast.LENGTH_SHORT).show();
+
         MessDetailModel model = new MessDetailModel(rollNumber,hostelName,roomNumber,month,year);
-        String token = sharedPrefManager.getToken();
-        Call<MessDetailModel> call = RetrofitClient.getInstance().getApi().printConsumedItemsByStudent("Bearer " + token,model);
+//        String token = sharedPrefManager.getToken();
+        Call<MessDetailModel> call = RetrofitClient.getInstance().getApi().printConsumedItemsByStudent(model);
         call.enqueue(new Callback<MessDetailModel>() {
             @Override
             public void onResponse(Call<MessDetailModel> call, Response<MessDetailModel> response) {
@@ -109,26 +109,6 @@ public class DetailMessBillActivity extends AppCompatActivity {
                     }
                     if(response.body().getMessage().equals("Internal server error")){
                         Toast.makeText(DetailMessBillActivity.this, "Internal server error1", Toast.LENGTH_SHORT).show();
-                    }
-                } else{
-//                                check if token is not verified
-                    if(response.code() == 500) {
-                        // Unauthorized - Token is invalid or expired
-                        // Redirect user to login screen or take appropriate action
-                        AlertDialog.Builder builder = new AlertDialog.Builder(DetailMessBillActivity.this);
-                        builder.setTitle("ALERT");
-                        builder.setMessage("Your Session expired\nPlease login Again");
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                                return;
-                            }
-                        }).show();
-                        // Redirect to login screen or logout user
-                    } else {
-                        // Handle other HTTP error codes
-                        Toast.makeText(DetailMessBillActivity.this, "Error: " + response.code(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }

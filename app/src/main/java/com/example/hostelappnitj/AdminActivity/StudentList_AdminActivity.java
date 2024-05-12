@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
+import com.example.hostelappnitj.Acitvity.RoomConfirmer;
 import com.example.hostelappnitj.Acitvity.SignInActivity;
 import com.example.hostelappnitj.MGH_Girls.MghSeatMatrixFloor6;
 import com.example.hostelappnitj.MainActivity;
@@ -110,6 +111,10 @@ fetchStudentList model = new fetchStudentList(studentName,hostelname);
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(StudentList_AdminActivity.this, SignInActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
                                 dialogInterface.dismiss();
                                 return;
                             }
