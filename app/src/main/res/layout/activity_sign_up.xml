@@ -220,6 +220,55 @@
                     android:textSize="@dimen/_10sdp" />
             </RadioGroup>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="390dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="30dp">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_14sdp"
+                android:text="Year"
+                android:padding="@dimen/_10sdp"
+                android:textAlignment="center"
+                android:layout_marginRight="@dimen/_22sdp"
+                />
+            <RadioGroup
+                android:id="@+id/radioGroupS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:id="@+id/btnYear2S"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/_13sdp"
+                    android:text="2"
+                    />
+                <RadioButton
+                    android:id="@+id/btnYear3S"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/_10sdp"
+                    android:text="3"
+                    />
+                <RadioButton
+                    android:id="@+id/btnYear4S"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4"
+                    />
+            </RadioGroup>
+        </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>

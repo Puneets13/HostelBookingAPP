@@ -825,6 +825,10 @@ public class AttendanceFragment extends Fragment {
     private void showMonthSelectionDialog() {
         final String[] months = getResources().getStringArray(R.array.months);
 
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        year_str = String.valueOf(year);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Select a Month");
 

@@ -362,6 +362,9 @@ public class MessHomeFragment extends Fragment {
     private void showMonthSelectionDialog() {
         final String[] months = getResources().getStringArray(R.array.months);
 
+        Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            year_str = String.valueOf(year);
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Select a Month");
 
@@ -381,6 +384,7 @@ public class MessHomeFragment extends Fragment {
             progressDialog = ProgressDialog.show(requireContext(), "Checking Records",
                     "Counting diets\nPlease wait...", true, false);
 
+//            Toast.makeText(getActivity(), selectMonthInNumber, Toast.LENGTH_SHORT).show();
             leaveModel model = new leaveModel(rollNumber, hostelName, year_str, selectMonthInNumber);
 
             RetrofitClient.getInstance().getApi().countDietPerMonth(model).enqueue(new Callback<leaveModel>() {
@@ -390,6 +394,8 @@ public class MessHomeFragment extends Fragment {
                     if (response.isSuccessful()) {
                         leaveModel responseFromAPI = response.body();
                         if (responseFromAPI != null && responseFromAPI.getMessage().equals("Total diet count retrieved successfully")) {
+                            String dietcount = String.valueOf(responseFromAPI.getDietCount());
+                            Toast.makeText(getActivity(),dietcount, Toast.LENGTH_SHORT).show();
                             showCountDietPerMonthDialog(selectedMonthName, responseFromAPI.getDietCount());
                         } else {
                             Toast.makeText(requireContext(), "Error in fetching diets", Toast.LENGTH_SHORT).show();
