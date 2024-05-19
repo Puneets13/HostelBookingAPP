@@ -36,6 +36,7 @@ public class MBH_A_Hostel_staff extends AppCompatActivity {
 
 private DialogInterface.OnClickListener dialogClickListener;
     private static final int REQUEST_PHONE_CALL = 1;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ private DialogInterface.OnClickListener dialogClickListener;
 //                        Make the Call Action
 //ask for runtime permisson
                                Intent callIntent=new Intent(Intent.ACTION_CALL);
-                               callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                               callIntent.setData(Uri.parse("tel:"+"7837797418"));//change the number
                                startActivity(callIntent);
 
                                break;
@@ -79,7 +80,7 @@ private DialogInterface.OnClickListener dialogClickListener;
                AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
                // on below line we are setting message for our dialog box.
                builder.setTitle("CALL TO STAFF");
-               builder.setMessage("Are you sure you want to make a call?")
+               builder.setMessage("Are you sure you want to make a call : 7837797418?")
                        .setPositiveButton("Yes", dialogClickListener)
                        .setNegativeButton("No", dialogClickListener)
                        .show();
@@ -101,7 +102,7 @@ private DialogInterface.OnClickListener dialogClickListener;
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"7087946940"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -117,7 +118,7 @@ private DialogInterface.OnClickListener dialogClickListener;
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 7087946940 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -138,7 +139,7 @@ private DialogInterface.OnClickListener dialogClickListener;
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"8437357489"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -155,7 +156,7 @@ private DialogInterface.OnClickListener dialogClickListener;
                 // on below line we are setting message for our dialog box.
 
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 8437357489?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -175,7 +176,7 @@ private DialogInterface.OnClickListener dialogClickListener;
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"7973257236"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -191,7 +192,7 @@ private DialogInterface.OnClickListener dialogClickListener;
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 7973257236 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -212,7 +213,7 @@ private DialogInterface.OnClickListener dialogClickListener;
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"9988903662"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -228,7 +229,7 @@ private DialogInterface.OnClickListener dialogClickListener;
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_A_Hostel_staff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 9988903662 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();

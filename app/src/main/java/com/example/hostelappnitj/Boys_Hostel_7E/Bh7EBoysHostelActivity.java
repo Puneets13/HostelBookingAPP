@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.hostelappnitj.Boys_Hostel_7.Bh7BoysHostel_Activity;
+import com.example.hostelappnitj.Boys_Hostel_7.Bh7_Hostel_staffActivity;
 import com.example.hostelappnitj.Boys_Hostel_7.Bh_7_Floor_1;
 import com.example.hostelappnitj.Boys_Hostel_7.Bh_7_Floor_2;
 import com.example.hostelappnitj.Boys_Hostel_7.Bh_7_Floor_3;
@@ -59,7 +60,7 @@ public class Bh7EBoysHostelActivity extends AppCompatActivity {
         hostelStaff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Bh7EBoysHostelActivity.this, MBH_Hostel_Staff.class);
+                Intent intent = new Intent(Bh7EBoysHostelActivity.this, Bh7_Hostel_staffActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }

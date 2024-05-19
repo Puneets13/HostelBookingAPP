@@ -50,7 +50,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"7888956947"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -66,7 +66,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Mega_girls_hostelStaff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 7888956947 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -88,7 +88,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"9478744809"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -104,7 +104,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Mega_girls_hostelStaff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 9478744809?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -125,7 +125,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"9876304506"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -141,7 +141,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Mega_girls_hostelStaff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 9876304506?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -162,7 +162,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"9872325092"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -178,7 +178,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Mega_girls_hostelStaff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 9872325092 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -199,7 +199,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"9878130512"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -215,7 +215,7 @@ public class Mega_girls_hostelStaff extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Mega_girls_hostelStaff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 9878130512 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();

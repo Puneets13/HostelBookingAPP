@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Boys_Hostel_3.Bh3_Hostel_staffActivity">
+    tools:context=".Boys_Hostel_7.Bh7_Hostel_staffActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -57,7 +57,7 @@
             android:layout_marginEnd="36dp"
             android:fontFamily="@font/baskervville"
             android:gravity="center"
-            android:text="BH 3 STAFF  "
+            android:text="BH 7 &amp; 7E STAFF"
             android:textColor="#fff"
             android:textSize="@dimen/_25sdp"
             android:textStyle="bold"
@@ -140,7 +140,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_15sdp"
-                            android:text="Mr. Ashish Kumar"
+                            android:text="Mr. Deepu Kumar"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_15sdp" />
 
@@ -148,7 +148,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_2sdp"
-                            android:text="hwb3@nitj.ac.in"
+                            android:text="hwb7@nitj.ac.in"
                             android:textColor="#4E4D4D"
                             android:textSize="@dimen/_11sdp"/>
 
@@ -156,7 +156,7 @@
                             android:id="@+id/textView1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="+91 7307236134"
+                            android:text="+91 9463739424"
                             android:textColor="#4E4D4D"
                             android:drawablePadding="@dimen/_15sdp"
                             android:textSize="@dimen/_12sdp"/>
@@ -252,7 +252,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. Vijay Kumar"
+                        android:text="Mr. Hitesh Ray"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"/>
@@ -261,7 +261,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
-                        android:text="hwb3@nitj.ac.in"
+                        android:text="hwb7@nitj.ac.in"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"/>
@@ -269,7 +269,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(+91 9417451454)"
+                        android:text="(+91 869911254)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"/>
@@ -358,7 +358,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. Wattan Singh"
+                        android:text="Mr. Ram Bhawan"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -367,7 +367,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
-                        android:text="hwb3@nitj.ac.in"
+                        android:text="hwb7@nitj.ac.in"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -375,7 +375,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(+91 9646799284)"
+                        android:text="(+91 9915567713)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -432,7 +432,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView5"
-
             app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
@@ -463,7 +462,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:text="Mr. Prince Tiwari"
+                        android:text="Mr. Mohitosh"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_15sdp"></TextView>
@@ -472,7 +471,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_2sdp"
-                        android:text="hwb3@nitj.ac.in"
+                        android:text="hwb7@nitj.ac.in"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>
@@ -480,7 +479,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(+91 8146199736)"
+                        android:text="(+91 7307771160)"
                         android:textAlignment="center"
                         android:textColor="#4E4D4D"
                         android:textSize="@dimen/_12sdp"></TextView>

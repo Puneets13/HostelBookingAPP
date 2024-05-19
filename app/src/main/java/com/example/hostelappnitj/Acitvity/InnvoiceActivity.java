@@ -81,7 +81,7 @@ public class InnvoiceActivity extends AppCompatActivity {
         roomNumber=sharedPrefManager.getHostelUser().getRoomNumber();
 
         progressDialog = new ProgressDialog(InnvoiceActivity.this);
-        progressDialog.setTitle("Generating Innvoice");
+        progressDialog.setTitle("Generating Invoice");
         progressDialog.setMessage("Processing..\nHave patience.....");
         progressDialog.show();
         progressDialog.setCancelable(false);
@@ -155,7 +155,20 @@ public class InnvoiceActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                         AlertDialog.Builder builder = new AlertDialog.Builder(InnvoiceActivity.this);
                         builder.setTitle("Error");
-                        builder.setMessage("Innvoice has not been generated yet");
+                        builder.setMessage("Invoice has not been generated yet");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                finish();
+                            }
+                        }).show();
+                    }
+                    if(response.body().getMessage().equals("Hostel not found")){
+                        progressDialog.dismiss();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(InnvoiceActivity.this);
+                        builder.setTitle("Error");
+                        builder.setMessage("Invoice details has not been updated\nContact Mess Admin");
                         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {

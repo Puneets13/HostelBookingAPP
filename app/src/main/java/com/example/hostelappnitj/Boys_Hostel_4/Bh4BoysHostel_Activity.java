@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.hostelappnitj.Boys_Hostel_6.Bh6_Hostel_staffActivity;
 import com.example.hostelappnitj.Boys_Hostel_7.Bh7BoysHostel_Activity;
 import com.example.hostelappnitj.Boys_Hostel_7.Bh_7_Floor_2;
 import com.example.hostelappnitj.Hostels.ExpulsionFromHostelRules;
@@ -51,14 +52,14 @@ public class Bh4BoysHostel_Activity extends AppCompatActivity {
         genderRestriction=sharedPrefManager.getGender();
 
         hostelFloors = new CharSequence[]{
-                "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3"
+                "GROUND FLOOR","FLOOR 1", "FLOOR 2"
         };
 
 
         hostelStaff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Bh4BoysHostel_Activity.this, MBH_Hostel_Staff.class);
+                Intent intent = new Intent(Bh4BoysHostel_Activity.this, Bh4_Hostel_staffActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
@@ -141,11 +142,11 @@ public class Bh4BoysHostel_Activity extends AppCompatActivity {
                                     intent2.putExtra("hostelName", "Boys Hostel 4");
                                     startActivity(intent2);
                                     break;
-                                case 3: //floor 3
-                                    Intent intent3 = new Intent(Bh4BoysHostel_Activity.this,  Bh_4_Floor_3.class);
-                                    intent3.putExtra("hostelName", "Boys Hostel 4");
-                                    startActivity(intent3);
-                                    break;
+//                                case 3: //floor 3
+//                                    Intent intent3 = new Intent(Bh4BoysHostel_Activity.this,  Bh_4_Floor_3.class);
+//                                    intent3.putExtra("hostelName", "Boys Hostel 4");
+//                                    startActivity(intent3);
+//                                    break;
                             }
                         }
                     });

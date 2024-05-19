@@ -55,14 +55,14 @@ public class Bh3BoysHostel_Activity extends AppCompatActivity {
 
 
         hostelFloors = new CharSequence[]{
-                "GROUND FLOOR","FLOOR 1", "FLOOR 2","FLOOR 3"
+                "GROUND FLOOR","FLOOR 1", "FLOOR 2"
         };
 
 
         hostelStaff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Bh3BoysHostel_Activity.this, MBH_Hostel_Staff.class);
+                Intent intent = new Intent(Bh3BoysHostel_Activity.this, Bh3BoysHostel_Activity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
@@ -145,11 +145,11 @@ public class Bh3BoysHostel_Activity extends AppCompatActivity {
                                     intent2.putExtra("hostelName", "Boys Hostel 3");
                                     startActivity(intent2);
                                     break;
-                                case 3: //floor 3
-                                    Intent intent3 = new Intent(Bh3BoysHostel_Activity.this,  Bh_3_Floor_3.class);
-                                    intent3.putExtra("hostelName", "Boys Hostel 3");
-                                    startActivity(intent3);
-                                    break;
+//                                case 3: //floor 3
+//                                    Intent intent3 = new Intent(Bh3BoysHostel_Activity.this,  Bh_3_Floor_3.class);
+//                                    intent3.putExtra("hostelName", "Boys Hostel 3");
+//                                    startActivity(intent3);
+//                                    break;
                             }
                         }
                     });

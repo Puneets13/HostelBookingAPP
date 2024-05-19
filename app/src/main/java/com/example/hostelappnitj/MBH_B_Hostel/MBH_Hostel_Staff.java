@@ -51,7 +51,7 @@ public class MBH_Hostel_Staff extends AppCompatActivity {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"9464886034"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -67,7 +67,7 @@ public class MBH_Hostel_Staff extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_Hostel_Staff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 9464886034 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -89,7 +89,7 @@ public class MBH_Hostel_Staff extends AppCompatActivity {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"9878329873"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -105,7 +105,7 @@ public class MBH_Hostel_Staff extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_Hostel_Staff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 9878329873 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -126,7 +126,7 @@ public class MBH_Hostel_Staff extends AppCompatActivity {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"8264416270"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -142,7 +142,7 @@ public class MBH_Hostel_Staff extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_Hostel_Staff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 8264416270 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -163,7 +163,7 @@ public class MBH_Hostel_Staff extends AppCompatActivity {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"9872886810"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -179,7 +179,7 @@ public class MBH_Hostel_Staff extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_Hostel_Staff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 9872886810 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();
@@ -200,7 +200,7 @@ public class MBH_Hostel_Staff extends AppCompatActivity {
 //                        Make the Call Action
 //ask for runtime permisson
                                 Intent callIntent=new Intent(Intent.ACTION_CALL);
-                                callIntent.setData(Uri.parse("tel:"+"6283021307"));//change the number
+                                callIntent.setData(Uri.parse("tel:"+"8054549808"));//change the number
                                 startActivity(callIntent);
 
                                 break;
@@ -216,7 +216,7 @@ public class MBH_Hostel_Staff extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MBH_Hostel_Staff.this);
                 // on below line we are setting message for our dialog box.
                 builder.setTitle("CALL TO STAFF");
-                builder.setMessage("Are you sure you want to make a call?")
+                builder.setMessage("Are you sure you want to make a call : 8054549808 ?")
                         .setPositiveButton("Yes", dialogClickListener)
                         .setNegativeButton("No", dialogClickListener)
                         .show();

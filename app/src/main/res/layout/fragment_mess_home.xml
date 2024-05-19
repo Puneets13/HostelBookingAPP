@@ -265,7 +265,7 @@
                 android:foregroundTint="@color/black"
                 android:background="@drawable/btn_bg_mess"
                 android:layout_marginLeft="@dimen/_10sdp"
-                android:text="get\nInnvocie"
+                android:text="get\nInvoice"
                 android:textStyle="bold"
                 android:textSize="@dimen/_15sdp"
                 android:fontFamily="@font/baskervville"
