@@ -383,6 +383,19 @@ public class MessRecordList_Activity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     String msg = response.body().getMessage();
                     mealList = response.body().getMealList();
+                    if(mealList.size()==0){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MessRecordList_Activity.this);
+                        builder.setTitle("Note");
+                        builder.setMessage("No entry Found for this month\nPlease check database in case of any exception");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                finish();
+                                return;
+                            }
+                        }).show();
+                    }
                     recyclerView.setAdapter(new userAdapterMessRecord(MessRecordList_Activity.this, mealList));
                 } else{
 //                                check if token is not verified

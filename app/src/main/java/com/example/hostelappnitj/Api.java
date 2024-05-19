@@ -14,6 +14,7 @@ import com.example.hostelappnitj.ModelResponse.PreRegisterResponse;
 import com.example.hostelappnitj.ModelResponse.RegisterResponse;
 import com.example.hostelappnitj.ModelResponse.UpdateUserResponse;
 import com.example.hostelappnitj.ModelResponse.constantsModel;
+import com.example.hostelappnitj.ModelResponse.createCollectionModel;
 import com.example.hostelappnitj.ModelResponse.extra_item_model;
 import com.example.hostelappnitj.ModelResponse.fetchAllStudentList;
 import com.example.hostelappnitj.ModelResponse.fetchStudentList;
@@ -94,6 +95,12 @@ public interface Api {
     Call<PreRegisterResponse> PreRegisterResponse(
             @Header("Authorization") String token,
             @Body PreRegisterResponse preRegisterResponse
+    );
+
+    //    For processing of Hostel button
+    @POST("hostelbook/createcollection")
+    Call<createCollectionModel> createCollection(
+            @Body createCollectionModel createCollectionModel
     );
 
     @POST("hostelbook/destroy")

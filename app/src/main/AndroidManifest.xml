@@ -23,13 +23,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Bh7_Hostel_staffActivity"
+            android:name=".Acitvity.createMessCollectionActivity"
             android:exported="false" />
         <activity
-            android:name=".Bh6_Hostel_staffActivity"
+            android:name=".Boys_Hostel_7.Bh7_Hostel_staffActivity"
             android:exported="false" />
         <activity
-            android:name=".Bh4_Hostel_staffActivity"
+            android:name=".Boys_Hostel_6.Bh6_Hostel_staffActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Boys_Hostel_4.Bh4_Hostel_staffActivity"
             android:exported="false" />
         <activity
             android:name=".Acitvity.DetailMessBillActivity"

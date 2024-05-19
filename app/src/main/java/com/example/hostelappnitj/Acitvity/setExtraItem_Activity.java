@@ -154,6 +154,9 @@ public class setExtraItem_Activity extends AppCompatActivity {
                     if(response.body().getMessage().equals("success")){
 //                        progressDialog.dismiss();
                         itemMap = response.body().getItem();
+                        if(itemMap ==null){
+                            itemMap = new HashMap<>();
+                        }
                         for (Map.Entry<String, Integer> entry : itemMap.entrySet()) {
                             String item_price =  entry.getKey() + ": " + entry.getValue();
                             items_list.add(item_price);
@@ -237,6 +240,11 @@ public class setExtraItem_Activity extends AppCompatActivity {
                         if(response.body().getMessage().equals("success")){
                             progressDialog.dismiss();
                             items=response.body().getItems();
+
+                            if (items == null) {
+                                // Initialize items as an empty HashMap if it's null
+                                items = new HashMap<>();
+                            }
                             items_list.clear();
                             for (Map.Entry<String, Integer> entry : items.entrySet()) {
                                 String item_price =  entry.getKey() + ": " + entry.getValue();

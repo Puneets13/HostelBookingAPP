@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import com.example.hostelappnitj.Acitvity.ExtraSnacksActivity;
 import com.example.hostelappnitj.Acitvity.MessRecordList_Activity;
+import com.example.hostelappnitj.Acitvity.createMessCollectionActivity;
 import com.example.hostelappnitj.Acitvity.dietRecordActivity;
 import com.example.hostelappnitj.Acitvity.setExtraItem_Activity;
 import com.example.hostelappnitj.Acitvity.setMessTotalExpenditureActivity;
@@ -55,7 +56,7 @@ import retrofit2.Response;
 
 public class MessHomeFragment_admin extends Fragment {
     ImageView imageViewHostels ;
-    AppCompatButton btndailyScanner , btnextrasScanner , btngetDietRecord , btnInvoice , btnDietRecord ,btnSetExtraPrice,btnSetTotalSpentforMess;
+    AppCompatButton btnSetMessCollection , btndailyScanner , btnextrasScanner , btngetDietRecord , btnInvoice , btnDietRecord ,btnSetExtraPrice,btnSetTotalSpentforMess;
     TextToSpeech textToSpeech ;
     TextView txtEmail;
     SharedPrefManager sharedPrefManager;
@@ -83,7 +84,7 @@ public class MessHomeFragment_admin extends Fragment {
         btnSetExtraPrice = view.findViewById(R.id.btnSetExtraPrice);
         btnDietRecord=view.findViewById(R.id.getDietRedcord);
         btnSetTotalSpentforMess = view.findViewById(R.id.btnSetTotalSpentforMess);
-
+        btnSetMessCollection = view.findViewById(R.id.btnSetMessCollection);
         txtEmail = view.findViewById(R.id.txtEmail);
 
         floatingActionButton_call=view.findViewById(R.id.floatingActionButton_Call);
@@ -147,6 +148,14 @@ public class MessHomeFragment_admin extends Fragment {
 //            }
 //        });
 //
+        btnSetMessCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), createMessCollectionActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
         btnDietRecord.setOnClickListener(new View.OnClickListener(){
             @Override
